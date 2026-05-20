@@ -255,6 +255,16 @@ ReportableChannelManagerBuild (project)
 53. ✅ **Remaining caveats documented** — `close` is best-effort; no session-recovery retry; PLC-side connection limits; Windows SIGTERM not supported; no authentication on port 49870.
 54. ✅ **Git preservation** — hardened `scripts/run_metrics.py`, updated `scripts/README.md`, and this HANDOFF.md committed to `plc-telemetry-tools` repo for future exploration.
 
+### Phase 7 — Measuring Profile Standardization & Packaging (Done)
+- [x] MP-01..MP-06 Excel templates standardized with live-validated signal mappings
+- [x] Reusable verified JSON signal registries created for each profile (MP-01..MP-06)
+- [x] Packaged copy of all 12 artifacts placed under `export-src\measuring-profiles\`
+- [x] Helper Python scripts retained under `scripts\` for future reuse:
+  - `scripts/validate_mp01_signals.py` — live PLC signal validation against candidate paths
+  - `scripts/capture_identity.py` — identity and sample-value capture from RO port
+  - `scripts/update_mp02_06.py` — batch-update MP-02..MP-06 Excel templates with validated mappings
+- [x] Original templates in `templates\` preserved (not removed)
+
 ### Phase 5 (Dependency Graph) — Graph Cleaning & Confidence Scoring
 55. ✅ **`scripts/clean_graph.py`** — Phase 5 filtering script: removes IEC keywords, conversion functions, standard library FBs, local variable names, self-references, common member names, and unknown types from the Phase 4.5 unified graph.
 56. ✅ **Confidence scoring model** — Every surviving edge scored: high (0.95–1.00, provenance=both), medium (0.70–0.94, provenance=interface), low (0.30–0.69, provenance=implementation with sub-scoring by category).
@@ -394,8 +404,25 @@ These files are committed and available for future project exploration:
     ├── extract_impl_deps.py                (Phase 4: implementation-level dependency extraction from ST bodies)
     ├── unify_deps.py                       (Phase 4.5: unified dependency graph merging interface + implementation)
     ├── clean_graph.py                      (Phase 5: false positive filtering and confidence scoring)
+    ├── validate_mp01_signals.py            (Phase 7: live PLC signal validation against candidate paths)
+    ├── capture_identity.py                 (Phase 7: identity and sample-value capture from RO port)
+    ├── update_mp02_06.py                   (Phase 7: batch-update MP-02..MP-06 Excel templates)
     ├── transA_start.json                   (metric registration template — 5 transA signals)
     └── transA_stop.json                    (metric deregistration template — 5 transA signals)
+├── export-src/
+│   └── measuring-profiles/                 (Phase 7: packaged MP-01..MP-06 artifacts)
+│       ├── MP-01.xlsx                      (measuring profile workbook — hoist/lift)
+│       ├── MP-01-verified-signals.json     (verified signal registry for MP-01)
+│       ├── MP-02.xlsx                      (measuring profile workbook — travel/steer)
+│       ├── MP-02-verified-signals.json     (verified signal registry for MP-02)
+│       ├── MP-03.xlsx                      (measuring profile workbook — BMS/battery)
+│       ├── MP-03-verified-signals.json     (verified signal registry for MP-03)
+│       ├── MP-04.xlsx                      (measuring profile workbook — thermal)
+│       ├── MP-04-verified-signals.json     (verified signal registry for MP-04)
+│       ├── MP-05.xlsx                      (measuring profile workbook — health/diagnostics)
+│       ├── MP-05-verified-signals.json     (verified signal registry for MP-05)
+│       ├── MP-06.xlsx                      (measuring profile workbook — energy/performance)
+│       └── MP-06-verified-signals.json     (verified signal registry for MP-06)
 ```
 
 ### Local Only (not in git — can be regenerated or are environment-specific)
@@ -404,7 +431,7 @@ These files are committed and available for future project exploration:
 ├── workspace/                              (working copy .project)
 ├── exported-src/                           (PLCopenXML exports — large, regenerable)
 ├── project-extract/                        (ZIP extract, binary)
-├── templates/                              (local Excel workbooks)
+├── templates/                              (local Excel workbooks — originals; packaged copies in export-src/)
 ├── *.ps1                                   (one-time setup/export scripts)
 ├── explore_plc.py                          (ad-hoc exploration script)
 ├── mcp_input.txt                           (MCP test input)

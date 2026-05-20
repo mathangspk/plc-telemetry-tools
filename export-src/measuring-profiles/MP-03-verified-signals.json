@@ -1,0 +1,39 @@
+{
+  "_note": "This file is the reusable baseline for MP-03 live-verified signals. Signals listed here do not need re-verification unless the PLC project or export changes. Any signal NOT in this file was either not present, had wrong semantics, was speculative, or was only statically inferred.",
+  "profile": "MP-03",
+  "verified_at": "2026-05-20",
+  "source_endpoint": {
+    "rw": "10.2.3.4:49870",
+    "ro": "10.2.3.4:49880"
+  },
+  "verification_policy": "live-confirmed only",
+  "signals": [
+    {
+      "template_signal": "bms_voltage",
+      "signal_name": "bms_voltage",
+      "runtime_path": "System/BMSAB/Voltage",
+      "identity": "PrimaryPLC.System.BMSAB/Voltage",
+      "sample_value": 1.0,
+      "status": "present",
+      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Voltage"
+    },
+    {
+      "template_signal": "bms_current",
+      "signal_name": "bms_current",
+      "runtime_path": "System/BMSAB/Current",
+      "identity": "PrimaryPLC.System.BMSAB/Current",
+      "sample_value": 1.0,
+      "status": "present",
+      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Current"
+    },
+    {
+      "template_signal": "bms_soc",
+      "signal_name": "bms_soc",
+      "runtime_path": "System/BMSAB/SOC",
+      "identity": "PrimaryPLC.System.BMSAB/SOC",
+      "sample_value": 1.0,
+      "status": "present",
+      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/SOC"
+    }
+  ]
+}
