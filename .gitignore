@@ -1,0 +1,30 @@
+# Binary project files
+src/
+workspace/
+project-extract/
+
+# Exported XML source (large, can be regenerated)
+exported-src/
+
+# Local tooling / setup scripts
+com_export.ps1
+com_test.ps1
+explore_plc.py
+export_codesys_project.ps1
+install_mcp.ps1
+setup_codesys_mcp.ps1
+mcp_input.txt
+
+# Local config
+.mcp.json
+opencode.json
+
+# CODESYS review doc
+CODESYS_Code_Review.md
+
+# opencode internal
+.opencode/
+
+# Python cache
+__pycache__/
+*.pyc

@@ -1,0 +1,95 @@
+{
+  "template": "transA_stop",
+  "version": "2.0.0",
+  "description": "Metric deregistration commands for transA (CANBusDrive/cTransA) test telemetry. Send these to the PLC RW port after a test completes to tear down metric registrations.",
+  "target": {
+    "host": "10.2.3.4",
+    "port_rw": 49870,
+    "port_ro": 49880,
+    "protocol": "tcp",
+    "notes": [
+      "Use RW port (49870) for register/deregister commands.",
+      "RO port (49880) can be used for describe/verification only.",
+      "Connection prompt: $>",
+      "Response framing: JSON payload followed by |$> terminator."
+    ]
+  },
+  "registration_rules": {
+    "path_separator": "/",
+    "path_separator_note": "Forward-slash / is required for object hierarchy under CANBusDrive. Dot . syntax fails for deep paths.",
+    "register_syntax": "MetricXs register object=<path>",
+    "register_syntax_note": "The object= keyword is mandatory. Bare path MetricXs register <path> returns duplicate_cmd error.",
+    "deregister_syntax": "MetricXs deregister object=<path>",
+    "deregister_syntax_note": "Mirrors register syntax. Derived from source code (cTokenDeregister token, pairMinCount=1).",
+    "confirmation": "Deregistration is silent (only $> prompt). Use MetricXs describe to verify membership changes.",
+    "available_intervals": [
+      "Metric0ms",
+      "Metric250ms",
+      "Metric500ms",
+      "Metric1s",
+      "Metric5s",
+      "Metric1m",
+      "Metric1h",
+      "Metric1d"
+    ]
+  },
+  "commands": [
+    {
+      "metric": "Metric1m",
+      "signal": "MotorTemp",
+      "path": "CANBusDrive/cTransA/MotorTemp",
+      "command": "Metric1m deregister object=CANBusDrive/cTransA/MotorTemp",
+      "verification_status": "LIVE-VERIFIED",
+      "notes": "Deregister mirrors live-verified register path."
+    },
+    {
+      "metric": "Metric250ms",
+      "signal": "Current",
+      "path": "CANBusDrive/cTransA/Current",
+      "command": "Metric250ms deregister object=CANBusDrive/cTransA/Current",
+      "verification_status": "LIVE-VERIFIED",
+      "notes": "Deregister mirrors live-verified register path."
+    },
+    {
+      "metric": "Metric250ms",
+      "signal": "BattVoltage",
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "command": "Metric250ms deregister object=CANBusDrive/cTransA/BattVoltage",
+      "verification_status": "LIVE-VERIFIED",
+      "notes": "Deregister mirrors live-verified register path."
+    },
+    {
+      "metric": "Metric250ms",
+      "signal": "BattCurrent",
+      "path": "CANBusDrive/cTransA/BattCurrent",
+      "command": "Metric250ms deregister object=CANBusDrive/cTransA/BattCurrent",
+      "verification_status": "LIVE-VERIFIED",
+      "notes": "Deregister mirrors live-verified register path."
+    },
+    {
+      "metric": "Metric1m",
+      "signal": "CntrlTemp",
+      "path": "CANBusDrive/cTransA/CntrlTemp",
+      "command": "Metric1m deregister object=CANBusDrive/cTransA/CntrlTemp",
+      "verification_status": "LIVE-VERIFIED",
+      "notes": "Deregister mirrors live-verified register path."
+    }
+  ],
+  "signal_path_reference": {
+    "source": "CODESYS project: apollo-3cs-0.004bf - eolus- v5",
+    "hierarchy": "CANBusDrive (CANOpenMasterDrive instance) -> cTransA (CANOpenMotor instance) -> signal properties",
+    "all_paths_live_verified": true,
+    "paths": [
+      "CANBusDrive/cTransA/MotorTemp",
+      "CANBusDrive/cTransA/Current",
+      "CANBusDrive/cTransA/BattVoltage",
+      "CANBusDrive/cTransA/BattCurrent",
+      "CANBusDrive/cTransA/CntrlTemp"
+    ],
+    "notes": [
+      "All five paths live-verified as of 2026-05-19.",
+      "The CANBusDrive particle is a child of PrimaryPLC.System.",
+      "If any path fails, try describe on CANBusDrive/cTransA to enumerate available children."
+    ]
+  }
+}
