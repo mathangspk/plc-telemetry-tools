@@ -255,6 +255,15 @@ ReportableChannelManagerBuild (project)
 53. ✅ **Remaining caveats documented** — `close` is best-effort; no session-recovery retry; PLC-side connection limits; Windows SIGTERM not supported; no authentication on port 49870.
 54. ✅ **Git preservation** — hardened `scripts/run_metrics.py`, updated `scripts/README.md`, and this HANDOFF.md committed to `plc-telemetry-tools` repo for future exploration.
 
+### Phase 5 (Dependency Graph) — Graph Cleaning & Confidence Scoring
+55. ✅ **`scripts/clean_graph.py`** — Phase 5 filtering script: removes IEC keywords, conversion functions, standard library FBs, local variable names, self-references, common member names, and unknown types from the Phase 4.5 unified graph.
+56. ✅ **Confidence scoring model** — Every surviving edge scored: high (0.95–1.00, provenance=both), medium (0.70–0.94, provenance=interface), low (0.30–0.69, provenance=implementation with sub-scoring by category).
+57. ✅ **`exports/v1/CLEAN_DEPS.json`** — Clean machine-readable graph: 1,009 edges (down from 4,209), 512 nodes (down from 1,805), 3,200 false positives removed (76% reduction).
+58. ✅ **`exports/v1/CLEAN_DEPENDENCY_MAP.md`** — Human-readable report: filtering results by category, confidence distribution, signal improvement metrics, top nodes by degree, high/medium/low confidence edge listings, and clean graph impact analysis.
+59. ✅ **INDEX.json updated** — `phase5_artifacts` section added referencing CLEAN_DEPS.json and CLEAN_DEPENDENCY_MAP.md.
+60. ✅ **docs/phase1-exports.md updated** — Full Phase 5 documentation section with schema, filtering rules, confidence scoring model, v1 summary, and limitations.
+61. ✅ **exports/v1/README.md updated** — Phase 5 section with key findings and regeneration instructions.
+
 ---
 
 ## 8. Next Steps / TODO
@@ -297,6 +306,47 @@ ReportableChannelManagerBuild (project)
 - [ ] Fill BMS fault enum gaps
 - [ ] Standardize naming conventions
 
+### Phase 3: Cross-Reference Resolution (Done)
+- [x] `scripts/build_xref.py` — Cross-reference builder over POU_INDEX.json
+- [x] `exports/v1/XREF.json` — Machine-readable dependency data (534 edges, 235 resolved types, 0 unresolved)
+- [x] `exports/v1/DEPENDENCY_MAP.md` — Human-readable impact analysis and dependency chains
+- [x] INDEX.json updated with `phase3_artifacts` section
+- [x] docs/phase1-exports.md updated with Phase 3 documentation
+- [x] exports/v1/README.md updated with Phase 3 artifact references
+
+### Phase 3.5: Transitive Dependency & Cascade Analysis (Done)
+- [x] `scripts/analyze_graph.py` — Transitive closure, impact cascade, centrality, path finding
+- [x] `exports/v1/TRANSITIVE_CLOSURE.json` — Machine-readable transitive dependency data (432 nodes, max 102 transitive impact)
+- [x] `exports/v1/CASCADE_ANALYSIS.md` — Human-readable cascade analysis with bridge/leaf/root classification
+- [x] INDEX.json updated with `phase3_5_artifacts` section
+- [x] docs/phase1-exports.md updated with Phase 3.5 documentation
+- [x] exports/v1/README.md updated with Phase 3.5 artifact references
+
+### Phase 4: Implementation-Level Dependency Extraction (Done)
+- [x] `scripts/extract_impl_deps.py` — ST body parser: FB calls, method calls, property accesses, type casts, impl refs
+- [x] `exports/v1/IMPL_DEPS.json` — Machine-readable impl-level dependency data (3,428 bodies, 462 POUs, 173 types)
+- [x] `exports/v1/IMPL_DEPENDENCY_MAP.md` — Human-readable structural vs behavioral dependency analysis
+- [x] INDEX.json updated with `phase4_artifacts` section
+- [x] docs/phase1-exports.md updated with Phase 4 documentation
+- [x] exports/v1/README.md updated with Phase 4 artifact references
+
+### Phase 4.5: Unified Dependency Graph (Done)
+- [x] `scripts/unify_deps.py` — Merges interface-derived (Phase 3) and implementation-derived (Phase 4) graphs with provenance
+- [x] `exports/v1/UNIFIED_DEPS.json` — Unified graph with provenance on every edge (4,209 edges, 1,805 nodes)
+- [x] `exports/v1/UNIFIED_DEPENDENCY_MAP.md` — Human-readable unified map with key object analysis
+- [x] INDEX.json updated with `phase4_5_artifacts` section
+- [x] docs/phase1-exports.md updated with Phase 4.5 documentation
+- [x] exports/v1/README.md updated with Phase 4.5 artifact references
+
+### Phase 5: Graph Cleaning & Confidence Scoring (Done)
+- [x] `scripts/clean_graph.py` — Filters false positives and assigns confidence scores
+- [x] `exports/v1/CLEAN_DEPS.json` — Clean graph (1,009 edges, 512 nodes, 76% noise reduction)
+- [x] `exports/v1/CLEAN_DEPENDENCY_MAP.md` — Human-readable filtering report with confidence distribution
+- [x] INDEX.json updated with `phase5_artifacts` section
+- [x] docs/phase1-exports.md updated with Phase 5 documentation
+- [x] exports/v1/README.md updated with Phase 5 artifact references
+- [x] HANDOFF.md updated with Phase 5 session entries and key files
+
 ### Needs More Info
 - [ ] **services library** - Contains actual TCP client/server implementation, need to review how data is formatted/sent
 - [ ] **Remote server IPs** - Not found in any exported XML, likely configured in services library or runtime config
@@ -313,10 +363,37 @@ These files are committed and available for future project exploration:
 ```
 ├── .gitignore
 ├── HANDOFF.md                              (this document — full session findings)
-├── plc_nodes_map.json                      (PLC node hierarchy map)
+├── plc_nodes_map.json                      (DEPRECATED — see exports/v1/INDEX.json)
+├── docs/
+│   └── phase1-exports.md                   (workflow docs for versioned XML exports, Phases 1-5)
+├── exports/
+│   └── v1/
+│       ├── xml/                            (9 PLCopenXML files — committed snapshot)
+│       ├── MANIFEST.json                   (snapshot metadata)
+│       ├── INDEX.json                      (node discovery index)
+│       ├── POU_INDEX.json                  (Phase 2 — POU/DUT index)
+│       ├── PROJECT_MAP.md                  (Phase 2 — human-readable codebase map)
+│       ├── XREF.json                       (Phase 3 — cross-reference data)
+│       ├── DEPENDENCY_MAP.md               (Phase 3 — dependency/impact analysis)
+│       ├── TRANSITIVE_CLOSURE.json         (Phase 3.5 — transitive closure, centrality, paths)
+│       ├── CASCADE_ANALYSIS.md             (Phase 3.5 — cascade/impact analysis)
+│       ├── IMPL_DEPS.json                  (Phase 4 — implementation-level dependency data from ST bodies)
+│       ├── IMPL_DEPENDENCY_MAP.md          (Phase 4 — structural vs behavioral dependency analysis)
+│       ├── UNIFIED_DEPS.json               (Phase 4.5 — unified dependency graph with provenance)
+│       ├── UNIFIED_DEPENDENCY_MAP.md       (Phase 4.5 — human-readable unified dependency map)
+│       ├── CLEAN_DEPS.json                 (Phase 5 — cleaned graph with confidence scores)
+│       ├── CLEAN_DEPENDENCY_MAP.md         (Phase 5 — human-readable filtering report)
+│       └── README.md                       (snapshot description)
 └── scripts/
     ├── README.md                           (usage docs, syntax findings, troubleshooting, caveats)
     ├── run_metrics.py                      (hardened Python helper: close cleanup, signal handling, path resolution)
+    ├── generate_manifest.py                (manifest generator for export snapshots)
+    ├── index_xml.py                        (Phase 2/2.5: XML POU/DUT indexer)
+    ├── build_xref.py                       (Phase 3: cross-reference resolution & dependency analysis)
+    ├── analyze_graph.py                    (Phase 3.5: transitive closure, cascade, centrality, paths)
+    ├── extract_impl_deps.py                (Phase 4: implementation-level dependency extraction from ST bodies)
+    ├── unify_deps.py                       (Phase 4.5: unified dependency graph merging interface + implementation)
+    ├── clean_graph.py                      (Phase 5: false positive filtering and confidence scoring)
     ├── transA_start.json                   (metric registration template — 5 transA signals)
     └── transA_stop.json                    (metric deregistration template — 5 transA signals)
 ```

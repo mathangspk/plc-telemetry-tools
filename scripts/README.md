@@ -1,4 +1,13 @@
-# transA Metric Runner
+# Scripts
+
+This directory contains two categories of scripts:
+
+1. **PLC Telemetry Helpers** — interact with the live PLC via TCP.
+2. **Dependency Graph Pipeline** — analyze the CODESYS XML export to build a dependency graph.
+
+---
+
+## PLC Telemetry Helpers
 
 Helper script + JSON templates for registering and deregistering telemetry metrics on the PLC via its TCP command port.
 
@@ -159,3 +168,109 @@ Metric1m deregister object=CANBusDrive/cTransA/MotorTemp   ✅
 - **PLC-side session limits.** The `ParseTCPServer` has a finite connection limit (`cConnectionsLimit`). If all slots are occupied by stale sessions from previous unclean disconnects, new connections may be refused. The graceful cleanup in this script reduces that risk but cannot fix sessions left by other tools.
 - **Signal handling on Windows.** `SIGTERM` is not natively supported on Windows; only `SIGINT` (Ctrl+C) is reliably delivered. On Linux/macOS, both signals are handled.
 - **No authentication.** The ParseServerRW port (49870) has no authentication. Anyone with network access can send commands. Restrict network access via firewall rules.
+
+---
+
+## Dependency Graph Pipeline
+
+Scripts that analyze the CODESYS PLCopenXML export to build a multi-phase dependency graph. Run these in order against an export directory (e.g., `exports/v1`).
+
+### Full Pipeline
+
+```bash
+python scripts/index_xml.py exports/v1          # Phase 2: POU/DUT indexing
+python scripts/build_xref.py exports/v1         # Phase 3: Cross-reference resolution
+python scripts/analyze_graph.py exports/v1      # Phase 3.5: Transitive closure & cascade
+python scripts/extract_impl_deps.py exports/v1  # Phase 4: Implementation-level deps
+python scripts/unify_deps.py exports/v1         # Phase 4.5: Unified graph with provenance
+python scripts/clean_graph.py exports/v1        # Phase 5: Filtering & confidence scoring
+```
+
+### Phase 2 — `index_xml.py`
+
+Parses all XML files in `exports/v1/xml/` to produce a structured index of every POU, DUT, and library reference.
+
+| Output | Description |
+|---|---|
+| `POU_INDEX.json` | Machine-readable index of all POUs, DUTs, libraries |
+| `PROJECT_MAP.md` | Human-readable codebase structure map |
+
+### Phase 2.5 — POU Interface Extraction
+
+Built into `index_xml.py`. Extracts VAR_INPUT, VAR_OUTPUT, VAR, VAR_GLOBAL, and return type declarations from each POU interface.
+
+### Phase 3 — `build_xref.py`
+
+Resolves type names from POU interfaces against the known POU/DUT registry to build a dependency graph.
+
+| Output | Description |
+|---|---|
+| `XREF.json` | Cross-reference data (uses, used_by, type resolution) |
+| `DEPENDENCY_MAP.md` | Human-readable dependency and impact analysis |
+
+### Phase 3.5 — `analyze_graph.py`
+
+Computes transitive closures, impact cascades, centrality metrics, and notable dependency paths on the Phase 3 graph.
+
+| Output | Description |
+|---|---|
+| `TRANSITIVE_CLOSURE.json` | Forward/reward transitive closure, centrality, paths |
+| `CASCADE_ANALYSIS.md` | Human-readable cascade analysis with bridge/leaf/root classification |
+
+### Phase 4 — `extract_impl_deps.py`
+
+Scans ST (Structured Text) implementation bodies from the XML files to find behavioral dependencies: FB calls, method calls, property accesses, type casts, and general type references.
+
+| Output | Description |
+|---|---|
+| `IMPL_DEPS.json` | Implementation-level dependency data |
+| `IMPL_DEPENDENCY_MAP.md` | Structural vs behavioral dependency analysis |
+
+### Phase 4.5 — `unify_deps.py`
+
+Merges the interface-derived (Phase 3) and implementation-derived (Phase 4) graphs into a single graph with provenance tracking on every edge.
+
+| Output | Description |
+|---|---|
+| `UNIFIED_DEPS.json` | Unified graph with provenance (interface / implementation / both) |
+| `UNIFIED_DEPENDENCY_MAP.md` | Human-readable unified dependency map |
+
+### Phase 5 — `clean_graph.py`
+
+Filters false positives from the Phase 4.5 unified graph and assigns confidence scores to every surviving edge.
+
+**Filtering rules** (edges removed if target matches):
+- IEC 61131-3 keywords (IF, CASE, AND, OR, etc.)
+- Standard type conversion functions (`*_TO_*`)
+- Standard library FBs/functions (TON, MAX, MIN, ADR, etc.)
+- Self-references (source == target)
+- Local variable names (l*, r*, etc. not in known type registry)
+- Common method/property names that are not project-defined types
+- Unknown types (not in POU_INDEX.json registry)
+
+**Confidence scoring**:
+| Label | Score | Criteria |
+|---|---|---|
+| high | 0.95–1.00 | Provenance = "both" (interface + implementation) |
+| medium | 0.70–0.94 | Provenance = "interface" (compiler-enforced) |
+| low | 0.30–0.69 | Provenance = "implementation" (regex-inferred) |
+
+| Output | Description |
+|---|---|
+| `CLEAN_DEPS.json` | Cleaned graph with confidence scores on every edge |
+| `CLEAN_DEPENDENCY_MAP.md` | Filtering report with confidence distribution and impact analysis |
+
+### Common Options
+
+All pipeline scripts support `--no-index-update` to skip updating `INDEX.json` with artifact references.
+
+### v1 Results Summary
+
+| Phase | Edges | Nodes | Key Metric |
+|---|---|---|---|
+| Phase 3 | 534 | 432 | 235 resolved types, 0 unresolved |
+| Phase 4 | 3,699 impl refs | 462 POUs | 122 impl-only types |
+| Phase 4.5 | 4,209 | 1,805 | 24 edges confirmed by both sources |
+| Phase 5 | **1,009** | **512** | **76% noise reduction**, 24 high-confidence edges |
+
+For detailed documentation, see [docs/phase1-exports.md](../docs/phase1-exports.md).

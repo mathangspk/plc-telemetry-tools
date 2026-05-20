@@ -1,0 +1,91 @@
+{
+  "export_id": "v1",
+  "created": "2026-05-20T10:23:00Z",
+  "project": {
+    "name": "apollo-3cs-0.004bf - eolus- v5",
+    "version": "1.0.0.0",
+    "target": "STW ESX-3CS",
+    "codesys_version": "V3.5 SP11",
+    "profile": "STW CODESYS V3.5 SP11 - ESX-3CS"
+  },
+  "source": {
+    "binary_project": "src/apollo-3cs-0.004bf - eolus- v5.project",
+    "export_method": "CODESYS IDE manual export (PLCopenXML)",
+    "export_script_ref": "exported-src/export_plcopenxml.py"
+  },
+  "xml_files": [
+    {
+      "filename": "apollo-3cs-0.004bf - eolus- v5.xml",
+      "role": "main-project",
+      "description": "Main project program (7 POUs)",
+      "size_kb": 4179.5
+    },
+    {
+      "filename": "primary - eolus - v2d.xml",
+      "role": "core-library",
+      "description": "Core system library (104 POUs, 2+ DUTs)",
+      "size_kb": 1332.4
+    },
+    {
+      "filename": "services-eolus-heap-v8db.xml",
+      "role": "services-library",
+      "description": "Network services, TCP servers/clients, reporting",
+      "size_kb": 2214.7
+    },
+    {
+      "filename": "apollo-eolus - v2c.xml",
+      "role": "extension-library",
+      "description": "Apollo crane-specific extensions (39 POUs)",
+      "size_kb": 329.7
+    },
+    {
+      "filename": "canplc - eolus-v2b.xml",
+      "role": "can-library",
+      "description": "CAN/PLC communication library",
+      "size_kb": 176.3
+    },
+    {
+      "filename": "device-3cs.xml",
+      "role": "device-config",
+      "description": "ESX-3CS device configuration",
+      "size_kb": 104.8
+    },
+    {
+      "filename": "machine - eolus - v1b.xml",
+      "role": "machine-library",
+      "description": "Machine-specific types",
+      "size_kb": 90.4
+    },
+    {
+      "filename": "common.xml",
+      "role": "common-library",
+      "description": "Common types and utilities",
+      "size_kb": 55.3
+    },
+    {
+      "filename": "build-isoloader.xml",
+      "role": "build-config",
+      "description": "Build configuration",
+      "size_kb": 7.0
+    }
+  ],
+  "total_xml_files": 9,
+  "total_xml_size_kb": 8490.1,
+  "total_pou_count_approx": 150,
+  "compiler_defines": [
+    "TargetApollo",
+    "CANOPEN_NO_MODULARDEVICES",
+    "CANOPEN_NO_NODEGUARDING",
+    "CANOPEN_NO_TIMEPRODUCING",
+    "target_d19"
+  ],
+  "notes": [
+    "First committed XML snapshot.",
+    "Exported manually from CODESYS IDE (File > Export > PLCopenXML).",
+    "Binary .project file remains in src/ (gitignored).",
+    "plc_nodes_map.json is deprecated; see exports/v1/INDEX.json for node hierarchy.",
+    "POU/DUT counts derived from XML parsing (scripts/index_xml.py)."
+  ],
+  "total_pou_count": 495,
+  "total_dut_count": 146
+}

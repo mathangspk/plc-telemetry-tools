@@ -3,8 +3,11 @@ src/
 workspace/
 project-extract/
 
-# Exported XML source (large, can be regenerated)
+# Exported XML source (large, can be regenerated) — individual exports tracked under exports/
 exported-src/
+
+# Versioned XML snapshots ARE tracked (see exports/)
+!exports/
 
 # Local tooling / setup scripts
 com_export.ps1

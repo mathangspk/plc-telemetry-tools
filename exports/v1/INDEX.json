@@ -1,0 +1,444 @@
+{
+  "export_id": "v1",
+  "generated": "2026-05-20T10:23:00Z",
+  "description": "Node discovery index seeded from plc_nodes_map.json and live PLC exploration.",
+  "root_node": {
+    "identity": "PrimaryPLC.System",
+    "type": "System",
+    "subsystem": "Machine"
+  },
+  "state_at_export": {
+    "failsafe_active": false,
+    "systemstate": "charging",
+    "initialized": true,
+    "initialization_stage": 5
+  },
+  "op_children": [
+    {
+      "identity": "PrimaryPLC.System/Local",
+      "type": "Local",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System/Reporting",
+      "type": "Reporting",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System/LED",
+      "type": "LED",
+      "subsystem": "Powerpack"
+    },
+    {
+      "identity": "PrimaryPLC.System/Executor",
+      "type": "Executor",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Cycle",
+      "type": "Cycle",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.PLC",
+      "type": "PLC",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.SystemState",
+      "type": "SystemState",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.ParserRW",
+      "type": "ParseTCPServer",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.ParserRO",
+      "type": "ParseTCPServer",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.ParserEdge",
+      "type": "ParseTCPServer",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric0ms",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric250ms",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric500ms",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric1s",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric5s",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric1m",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric1h",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Metric1d",
+      "type": "ParticleRepEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.CANBusSystem",
+      "type": "CANMaster",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.CANBusDrive",
+      "type": "CANMaster",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Cabin",
+      "type": "UICabin",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.CabinSecPwr",
+      "type": "oSysStateAuto",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.BMSAB",
+      "type": "BMSAB",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.ChargerABC",
+      "type": "ChargerABC",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.FuncModeCntrl",
+      "type": "FuncModeCntrl",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.UIEvent",
+      "type": "UIEvent",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.ProgMovCntrl",
+      "type": "mProgCntrl",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Travel",
+      "type": "mTravelQuad",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Lift",
+      "type": "mLiftQuad",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftAPos",
+      "type": "iwScaled",
+      "subsystem": "WinchA"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftBPos",
+      "type": "iwScaled",
+      "subsystem": "WinchB"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftCPos",
+      "type": "iwScaled",
+      "subsystem": "WinchC"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftDPos",
+      "type": "iwScaled",
+      "subsystem": "WinchD"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftABSync",
+      "type": "iSynch",
+      "subsystem": "Lift"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftCDSync",
+      "type": "iSynch",
+      "subsystem": "Lift"
+    },
+    {
+      "identity": "PrimaryPLC.System.iLiftSync",
+      "type": "iSynch",
+      "subsystem": "Lift"
+    },
+    {
+      "identity": "PrimaryPLC.System.Spreader",
+      "type": "Spreader",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.iTwistALowered",
+      "type": "iwPosOnly",
+      "subsystem": "TwistlockA"
+    },
+    {
+      "identity": "PrimaryPLC.System.iTwistBLowered",
+      "type": "iwPosOnly",
+      "subsystem": "TwistlockB"
+    },
+    {
+      "identity": "PrimaryPLC.System.iTwistCLowered",
+      "type": "iwPosOnly",
+      "subsystem": "TwistlockC"
+    },
+    {
+      "identity": "PrimaryPLC.System.iTwistDLowered",
+      "type": "iwPosOnly",
+      "subsystem": "TwistlockD"
+    },
+    {
+      "identity": "PrimaryPLC.System.iwTwistRdy",
+      "type": "iwTwistRdy",
+      "subsystem": "Spreader"
+    },
+    {
+      "identity": "PrimaryPLC.System.iTwistLowerTrav",
+      "type": "iwLockout",
+      "subsystem": "Spreader"
+    },
+    {
+      "identity": "PrimaryPLC.System.OperatingMode",
+      "type": "OperatingMode",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Active",
+      "type": "ActiveSystem",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.UMFS",
+      "type": "UMFS",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.EstopLoad",
+      "type": "oSysStateAuto",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.TMS",
+      "type": "TMS",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Secondary",
+      "type": "Secondary",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Alarm",
+      "type": "oSystemState",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Beacons",
+      "type": "oSystemState",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Horn",
+      "type": "oSystemState",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Lights",
+      "type": "oSystemState",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.SensorSupply",
+      "type": "oSysStateAuto",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.Steer",
+      "type": "mSteerElec",
+      "subsystem": "Machine"
+    },
+    {
+      "identity": "PrimaryPLC.System.iSteerAPos",
+      "type": "iwScaled",
+      "subsystem": "SteerA"
+    },
+    {
+      "identity": "PrimaryPLC.System.iSteerBPos",
+      "type": "iwScaled",
+      "subsystem": "SteerB"
+    },
+    {
+      "identity": "PrimaryPLC.System.iSteerCPos",
+      "type": "iwScaled",
+      "subsystem": "SteerC"
+    },
+    {
+      "identity": "PrimaryPLC.System.iSteerDPos",
+      "type": "iwScaled",
+      "subsystem": "SteerD"
+    }
+  ],
+  "nop_children": [
+    {
+      "identity": "PrimaryPLC.System/ClearFailSafe",
+      "type": "ValRefBool",
+      "subsystem": "Machine"
+    }
+  ],
+  "total_op_children": 59,
+  "total_nop_children": 1,
+  "live_verified_signals": {
+    "CANBusDrive/cTransA": [
+      {
+        "name": "Current",
+        "metric": "Metric250ms",
+        "units": "Amps"
+      },
+      {
+        "name": "MotorTemp",
+        "metric": "Metric1m",
+        "units": "C"
+      },
+      {
+        "name": "BattVoltage",
+        "metric": "Metric250ms",
+        "units": "Volts"
+      },
+      {
+        "name": "BattCurrent",
+        "metric": "Metric250ms",
+        "units": "Amps"
+      },
+      {
+        "name": "CntrlTemp",
+        "metric": "Metric1m",
+        "units": "C"
+      }
+    ]
+  },
+  "tcp_endpoints": [
+    {
+      "port_range": "49700",
+      "component": "EdgeLog Client",
+      "mode": "Client",
+      "direction": "PUSH outbound"
+    },
+    {
+      "port_range": "49710",
+      "component": "EdgeStateMetric Client",
+      "mode": "Client",
+      "direction": "PUSH outbound"
+    },
+    {
+      "port_range": "49720",
+      "component": "EdgeValueMetric Client",
+      "mode": "Client",
+      "direction": "PUSH outbound"
+    },
+    {
+      "port_range": "49730",
+      "component": "EdgeTrace Client",
+      "mode": "Client",
+      "direction": "Disabled"
+    },
+    {
+      "port_range": "49740",
+      "component": "Executor Client",
+      "mode": "Client",
+      "direction": "PUSH outbound"
+    },
+    {
+      "port_range": "49860-69",
+      "component": "ParseServerEdge",
+      "mode": "Server",
+      "direction": "Inbound R/W"
+    },
+    {
+      "port_range": "49870-79",
+      "component": "ParseServerRW",
+      "mode": "Server",
+      "direction": "Inbound R/W Interactive"
+    },
+    {
+      "port_range": "49880-89",
+      "component": "ParseServerRO",
+      "mode": "Server",
+      "direction": "Inbound RO Interactive"
+    },
+    {
+      "port_range": "49890-99",
+      "component": "LogTCP Server",
+      "mode": "Server",
+      "direction": "Inbound"
+    }
+  ],
+  "deprecation_note": "This INDEX.json replaces plc_nodes_map.json. The old file is retained for backward compatibility but will be removed in Phase 2.",
+  "phase2_artifacts": {
+    "POU_INDEX.json": "Structured index of all POUs, DUTs, and library references parsed from XML files.",
+    "PROJECT_MAP.md": "Human-readable markdown map of the codebase structure.",
+    "generated_by": "scripts/index_xml.py",
+    "phase2_5": "POU interface/variable extraction (VAR_INPUT, VAR_OUTPUT, VAR_IN_OUT, VAR, VAR_GLOBAL, return types)."
+  },
+  "phase3_artifacts": {
+    "XREF.json": "Machine-readable cross-reference data (uses, used_by, type resolution, unresolved references).",
+    "DEPENDENCY_MAP.md": "Human-readable dependency and impact analysis map.",
+    "generated_by": "scripts/build_xref.py",
+    "description": "Phase 3: Cross-reference resolution over POU/DUT index."
+  },
+  "phase3_5_artifacts": {
+    "TRANSITIVE_CLOSURE.json": "Machine-readable transitive dependency closure, impact cascade, centrality metrics, and notable dependency paths.",
+    "CASCADE_ANALYSIS.md": "Human-readable cascade/impact analysis with bridge nodes, leaf/root classification, full cascade detail, and centrality rankings.",
+    "generated_by": "scripts/analyze_graph.py",
+    "description": "Phase 3.5: Transitive dependency and cascade analysis on top of the Phase 3 cross-reference graph."
+  },
+  "phase4_artifacts": {
+    "IMPL_DEPS.json": "Machine-readable implementation-level dependency data extracted from ST code bodies (FB calls, method calls, property accesses, type casts, and general implementation references).",
+    "IMPL_DEPENDENCY_MAP.md": "Human-readable implementation dependency analysis with structural vs behavioral comparison, impl-only types, per-POU detail, and impact analysis.",
+    "generated_by": "scripts/extract_impl_deps.py",
+    "description": "Phase 4: Implementation-level dependency extraction from ST code bodies. Distinguishes behavioral dependencies (from implementation) from structural dependencies (from interface declarations)."
+  },
+  "phase4_5_artifacts": {
+    "UNIFIED_DEPS.json": "Machine-readable unified dependency graph merging interface-derived (Phase 3) and implementation-derived (Phase 4) edges with provenance tracking, combined transitive analysis, and per-object unified views.",
+    "UNIFIED_DEPENDENCY_MAP.md": "Human-readable unified dependency map with structural vs behavioral comparison, impl-only type discovery, key object analysis, and combined impact rankings.",
+    "generated_by": "scripts/unify_deps.py",
+    "description": "Phase 4.5: Unified dependency graph. Merges interface and implementation dependency graphs with provenance on every edge, enabling queries that distinguish structural from behavioral dependencies and identify impl-only impact."
+  },
+  "phase5_artifacts": {
+    "CLEAN_DEPS.json": "Machine-readable cleaned dependency graph with false positives removed and confidence scores assigned to every edge. Filters IEC keywords, conversion functions, standard library items, local variable names, self-references, and unknown types.",
+    "CLEAN_DEPENDENCY_MAP.md": "Human-readable report summarizing filtering results, confidence distribution, signal improvement metrics, and the cleaned dependency picture with impact analysis.",
+    "generated_by": "scripts/clean_graph.py",
+    "description": "Phase 5: Graph cleaning and confidence scoring. Filters false positives from the Phase 4.5 unified graph and assigns confidence scores based on provenance (high=both, medium=interface, low=implementation) and implementation category strength."
+  }
+}
