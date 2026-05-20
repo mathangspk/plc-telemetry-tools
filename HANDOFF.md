@@ -233,9 +233,27 @@ ReportableChannelManagerBuild (project)
     - `BattCurrent` (previously guessed as `BatteryCurrent` — **corrected**)
     - `CntrlTemp` (previously guessed as `ControllerTemperature` — **corrected**)
 47. ✅ **Split template files created** — `scripts/transA_start.json` (registration) and `scripts/transA_stop.json` (deregistration), each containing all 5 transA signals with correct paths, metric intervals, and `object=` syntax.
-48. ✅ **Python helper created** — `scripts/run_metrics.py` reads JSON templates, connects to PLC RW port, sends commands sequentially, handles `$>` prompt and `|$>` response framing, supports `--dry-run`, `--host`, `--port`, `--timeout` overrides.
-49. ✅ **README created** — `scripts/README.md` documents usage, prerequisites, expected behavior, syntax findings, and troubleshooting.
+48. ✅ **Python helper hardened** — `scripts/run_metrics.py` rewritten for robustness:
+    - `close` command sent before TCP teardown to release PLC-side ParseServerRW sessions
+    - Signal handlers (SIGINT/SIGTERM) for graceful cleanup on Ctrl+C
+    - `resolve_template_path()` — works from project root or scripts/ directory
+    - Python 3.7+ compatibility (removed f-strings, added version check)
+    - Specific error messages for timeout, connection refused, greeting failure
+    - `graceful_close()` — two-phase shutdown: PLC close command → `shutdown(SHUT_WR)` → `close()`
+    - `finally` block ensures cleanup runs on all exit paths (normal, error, interrupt)
+49. ✅ **README updated** — `scripts/README.md` expanded with:
+    - Graceful session cleanup documentation (close command + TCP shutdown)
+    - Signal handling behavior (Ctrl+C / SIGTERM)
+    - Template path resolution order
+    - New troubleshooting entries (template not found, session-close warning)
+    - Caveats and limitations section (best-effort close, no retry, Windows SIGTERM, no auth)
 50. ⚠️ **Multiple prior signal-name assumptions corrected by live testing** — see Section 13 corrections.
+
+### Phase 6 — Helper Hardening & Git Preservation
+51. ✅ **`close` command cleanup** — ParseConnectionHandler recognises `close` as `cTokenClose` and calls `SysSockClose`; script now sends this before socket teardown to prevent stale sessions on ParseServerRW.
+52. ✅ **Signal handling** — SIGINT (Ctrl+C) and SIGTERM handlers set global flag, interrupt command loop, and trigger graceful cleanup sequence.
+53. ✅ **Remaining caveats documented** — `close` is best-effort; no session-recovery retry; PLC-side connection limits; Windows SIGTERM not supported; no authentication on port 49870.
+54. ✅ **Git preservation** — hardened `scripts/run_metrics.py`, updated `scripts/README.md`, and this HANDOFF.md committed to `plc-telemetry-tools` repo for future exploration.
 
 ---
 
@@ -289,28 +307,33 @@ ReportableChannelManagerBuild (project)
 
 ## 9. Key Files Reference
 
+### In Git (plc-telemetry-tools repo)
+These files are committed and available for future project exploration:
+
 ```
-C:\local\opencode\codesys\
-├── src\
-│   └── apollo-3cs-0.004bf - eolus- v5.project  (original binary)
-├── workspace\src\
-│   └── apollo-3cs-0.004bf - eolus- v5.project  (working copy)
-├── exported-src\
-│   ├── apollo-3cs-0.004bf - eolus- v5.xml      (main project)
-│   ├── primary - eolus - v2d.xml               (core lib)
-│   ├── apollo-eolus - v2c.xml                  (apollo lib)
-│   ├── services-eolus-heap-v8db.xml            (services lib)
-│   ├── canplc - eolus-v2b.xml                  (CAN lib)
-│   ├── common.xml                              (common lib)
-│   ├── machine - eolus - v1b.xml               (machine lib)
-│   ├── build-isoloader.xml                     (build lib)
-│   └── device-3cs.xml                          (device config)
-├── project-extract\                            (ZIP extract, binary)
-└── scripts\
-    ├── README.md                               (usage docs, syntax findings, troubleshooting)
-    ├── run_metrics.py                          (Python helper: send metric commands from JSON templates)
-    ├── transA_start.json                       (metric registration template — 5 transA signals)
-    └── transA_stop.json                        (metric deregistration template — 5 transA signals)
+├── .gitignore
+├── HANDOFF.md                              (this document — full session findings)
+├── plc_nodes_map.json                      (PLC node hierarchy map)
+└── scripts/
+    ├── README.md                           (usage docs, syntax findings, troubleshooting, caveats)
+    ├── run_metrics.py                      (hardened Python helper: close cleanup, signal handling, path resolution)
+    ├── transA_start.json                   (metric registration template — 5 transA signals)
+    └── transA_stop.json                    (metric deregistration template — 5 transA signals)
+```
+
+### Local Only (not in git — can be regenerated or are environment-specific)
+```
+├── src/                                    (original binary .project)
+├── workspace/                              (working copy .project)
+├── exported-src/                           (PLCopenXML exports — large, regenerable)
+├── project-extract/                        (ZIP extract, binary)
+├── templates/                              (local Excel workbooks)
+├── *.ps1                                   (one-time setup/export scripts)
+├── explore_plc.py                          (ad-hoc exploration script)
+├── mcp_input.txt                           (MCP test input)
+├── opencode.json / .mcp.json               (local tool config)
+├── .opencode/                              (opencode internal state)
+└── CODESYS_Code_Review.md                  (initial review doc, superseded by HANDOFF.md)
 ```
 
 ---
