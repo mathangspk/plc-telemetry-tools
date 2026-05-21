@@ -171,6 +171,132 @@ Metric1m deregister object=CANBusDrive/cTransA/MotorTemp   ✅
 
 ---
 
+## Measuring Profile (MP) Signal Discovery & Validation Workflow
+
+Scripts and process for discovering, validating, and packaging signals from the live PLC into reusable measuring-profile templates (MP-01..MP-06 and beyond).
+
+### When to Use Each Script
+
+| Script | Purpose | When to Run | Dependencies |
+|---|---|---|---|
+| `validate_mp01_signals.py` | **Step 1 — Inspect & validate.** Sends `describe` for each candidate runtime path against the live PLC (RW port 49870). Enumerates parent nodes with `describe -children`. Saves results to `mp01_validation_results.json`. | First pass on a new MP template or when the PLC project has changed. Hardcoded for MP-01 signals; use as a reference pattern for new templates. | Python 3.7+, PLC reachable on port 49870 |
+| `capture_identity.py` | **Step 2 — Capture identity.** Connects to the RO port (49880) and captures the exact `identity` field and a sample value for each confirmed runtime path. Conservative (read-only). Saves to `identity_capture_results.json`. | After validation confirms which paths are present. Use to fill the `identity` field in the verified-signals JSON. | Python 3.7+, PLC reachable on port 49880 |
+| `update_mp02_06.py` | **Step 3 — Update Excel workbooks.** Batch-updates MP-02..MP-06 `.xlsx` templates with validated signal names, descriptions, hardware sources, and notes. | After validation + identity capture are complete. Mapping data is hardcoded per template; edit the `MP02`..`MP06` lists before running. | Python 3.7+, `openpyxl`, templates in `templates/` |
+| `process_mp.py` | **Step 4 — Orchestration stub.** Generates a `*-verified-signals.json` skeleton and packages outputs. Provides a checklist and template for future MP-N processing. | After all validation and workbook updates are done. Run to produce the final packaged artifacts. | Python 3.7+ |
+
+### Step-by-Step Process for a New MP Template (e.g., MP-07)
+
+#### Step 1 — Inspect the Template
+
+Open the Excel workbook (e.g., `templates/MP-07.xlsx`) and review the existing signal rows. Each row has:
+- **Signal Name** — the telemetry name used in reports
+- **Description** — human-readable description
+- **Hardware Source** — the PLC runtime path (e.g., `CANBusDrive/cTransA/Current`)
+- **Note** — validation status (`present`, `no present`, `manual-only`, `not validated`)
+
+#### Step 2 — Map Signals to Runtime/Export Candidates
+
+For each signal row, identify one or more candidate runtime paths to test. Use these heuristics:
+- CANOpen drive signals: `CANBusDrive/c<Device>/<SignalName>` (e.g., `CANBusDrive/cWinchA/MotorTemp`)
+- System-level signals: `System/<Subsystem>/<SignalName>` (e.g., `System/BMSAB/Current`)
+- Lift/hoist signals: `Lift/<SignalName>` or `System/iLift<Axis>Pos`
+- Steering signals: `System/iSteer<Letter>Pos`
+
+**Important:** Signal names on the PLC are often abbreviated (e.g., `BattVoltage` not `BatteryVoltage`, `CntrlTemp` not `ControllerTemperature`). Do not guess — always validate live.
+
+#### Step 3 — Live Validate Signals Conservatively
+
+Create a validation script modeled on `validate_mp01_signals.py`:
+
+1. Define a `SIGNALS` list of `(template_name, [candidate_paths])` tuples.
+2. Connect to the PLC on the **RW port (49870)**.
+3. For each candidate path, send `<path> describe` and check for a valid response.
+4. Record which paths are `present` vs `no present`.
+5. Explore parent nodes with `<parent> describe -children` to discover additional signals.
+6. Save results to a JSON file for reference.
+
+**Conservative validation rules:**
+- Only mark a signal as `present` if `describe` returns a non-error response.
+- If multiple candidates succeed, prefer the path with the most specific/semantic match.
+- If no candidate succeeds, mark as `no present` — do not fabricate a path.
+
+#### Step 4 — Update Workbook Fields
+
+After validation, update the Excel workbook columns:
+- **Signal Name** — use the live-confirmed name (may differ from template placeholder).
+- **Description** — refine based on what the live response reveals.
+- **Hardware Source** — set to the confirmed runtime path, or `N/A` if not present.
+- **Note** — one of: `present`, `no present`, `manual-only`, `not validated`.
+
+Use `update_mp02_06.py` as a reference: it reads mapping tuples and writes to columns 1, 2, 4, and the Note column.
+
+#### Step 5 — Capture Exact `identity`
+
+Run a script modeled on `capture_identity.py` against the **RO port (49880)**:
+
+1. For each confirmed runtime path, send `<path> describe`.
+2. Parse the JSON response to extract the `identity` field (e.g., `PrimaryPLC.System.CANBusDrive/cWinchA/Current`).
+3. Also capture a sample value for documentation.
+4. Save results to `identity_capture_results.json`.
+
+**Why RO port?** Identity capture is read-only and should not modify PLC state. The RO port (49880) enforces this.
+
+#### Step 6 — Generate `*-verified-signals.json`
+
+Create a verified-signals JSON file following the schema established by `MP-01-verified-signals.json`:
+
+```json
+{
+  "_note": "Reusable baseline for MP-NN live-verified signals...",
+  "profile": "MP-NN",
+  "verified_at": "YYYY-MM-DD",
+  "source_endpoint": {
+    "rw": "10.2.3.4:49870",
+    "ro": "10.2.3.4:49880"
+  },
+  "verification_policy": "live-confirmed only",
+  "signals": [
+    {
+      "template_signal": "<original template row name>",
+      "signal_name": "<live-confirmed name>",
+      "runtime_path": "<confirmed PLC path>",
+      "identity": "<exact identity from describe>",
+      "sample_value": <value or null>,
+      "status": "present",
+      "evidence": "<brief note on how this was confirmed>"
+    }
+  ]
+}
+```
+
+Only include signals with `status: "present"`. Signals marked `no present`, `manual-only`, or `not validated` are excluded from the verified registry.
+
+#### Step 7 — Package Outputs
+
+Copy the final artifacts to `export-src/measuring-profiles/`:
+- `MP-NN.xlsx` — the updated workbook
+- `MP-NN-verified-signals.json` — the verified signal registry
+
+See `export-src/measuring-profiles/README.md` for the full packaging convention.
+
+### Quick Reference: Port Usage
+
+| Port | Purpose | Scripts That Use It |
+|---|---|---|
+| `49870` (RW) | Signal validation (`describe`), Metric5s register/deregister | `validate_mp01_signals.py`, `run_metrics.py` |
+| `49880` (RO) | Identity capture, conservative read-only verification | `capture_identity.py` |
+
+### Limitations Requiring Manual Judgment
+
+- **Signal name abbreviations** — PLC signal names are often shortened. Live validation is the only reliable source.
+- **Path separator** — Object hierarchy uses `/` (forward slash), not `.` (dot). Namespace prefix (`PrimaryPLC.`) uses dot and is optional.
+- **Semantic matching** — When multiple candidate paths return valid responses, choosing the most semantically correct one requires human judgment.
+- **Scaling and units** — The `describe` response may not include unit information. Scaling factors (e.g., `0.001 * NominalVoltage`) must be inferred from code review or domain knowledge.
+- **`not validated` signals** — Signals with plausible paths that were not live-tested remain `not validated`. They should be tested before being promoted to `present`.
+- **PLC project changes** — If the CODESYS project is updated, all verified signals should be re-validated. The `verified_at` date in the JSON file indicates when validation occurred.
+
+---
+
 ## Dependency Graph Pipeline
 
 Scripts that analyze the CODESYS PLCopenXML export to build a multi-phase dependency graph. Run these in order against an export directory (e.g., `exports/v1`).

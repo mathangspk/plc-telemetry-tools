@@ -263,7 +263,11 @@ ReportableChannelManagerBuild (project)
   - `scripts/validate_mp01_signals.py` — live PLC signal validation against candidate paths
   - `scripts/capture_identity.py` — identity and sample-value capture from RO port
   - `scripts/update_mp02_06.py` — batch-update MP-02..MP-06 Excel templates with validated mappings
+  - `scripts/process_mp.py` — orchestration stub: checklist, skeleton JSON generator, packaging helper for future MP-N templates
 - [x] Original templates in `templates\` preserved (not removed)
+- [x] Workflow documentation added:
+  - `scripts/README.md` — Measuring Profile Workflow section (steps 1-7, script reference, limitations)
+  - `export-src/measuring-profiles/README.md` — packaged artifact docs, JSON schema, MP-N extension guide
 
 ### Phase 5 (Dependency Graph) — Graph Cleaning & Confidence Scoring
 55. ✅ **`scripts/clean_graph.py`** — Phase 5 filtering script: removes IEC keywords, conversion functions, standard library FBs, local variable names, self-references, common member names, and unknown types from the Phase 4.5 unified graph.
@@ -395,8 +399,9 @@ These files are committed and available for future project exploration:
 │       ├── CLEAN_DEPENDENCY_MAP.md         (Phase 5 — human-readable filtering report)
 │       └── README.md                       (snapshot description)
 └── scripts/
-    ├── README.md                           (usage docs, syntax findings, troubleshooting, caveats)
+    ├── README.md                           (usage docs, syntax findings, troubleshooting, caveats, MP workflow)
     ├── run_metrics.py                      (hardened Python helper: close cleanup, signal handling, path resolution)
+    ├── process_mp.py                       (MP orchestration stub: checklist, skeleton JSON, packaging)
     ├── generate_manifest.py                (manifest generator for export snapshots)
     ├── index_xml.py                        (Phase 2/2.5: XML POU/DUT indexer)
     ├── build_xref.py                       (Phase 3: cross-reference resolution & dependency analysis)
@@ -411,6 +416,7 @@ These files are committed and available for future project exploration:
     └── transA_stop.json                    (metric deregistration template — 5 transA signals)
 ├── export-src/
 │   └── measuring-profiles/                 (Phase 7: packaged MP-01..MP-06 artifacts)
+│       ├── README.md                       (artifact docs, JSON schema, MP-N extension guide)
 │       ├── MP-01.xlsx                      (measuring profile workbook — hoist/lift)
 │       ├── MP-01-verified-signals.json     (verified signal registry for MP-01)
 │       ├── MP-02.xlsx                      (measuring profile workbook — travel/steer)
