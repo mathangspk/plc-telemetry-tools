@@ -280,6 +280,54 @@ ReportableChannelManagerBuild (project)
 
 ---
 
+### Phase 8 — Trace Config Signal Validation & Phase 2 Live Validation (2026-05-21)
+62. ✅ **Static validation of trace config signals** — analyzed `exported-src/trace_config/individual_traces_with_time/` (28 `.txt` files, 843 raw entries, 587 unique signals).
+63. ✅ **Broad conclusions:** All 587 signals are at least *inferred-valid* for describe/metric/emit suitability. 430 classified as good metric candidates; 107 flagged for manual review.
+64. ✅ **Key risk classes identified:**
+    - **Abbreviated runtime names** — `BattVoltage`, `BattCurrent`, `CntrlTemp`, `MotorTemp` (may not match full PLC variable names; 3 of 4 already corrected by Phase 5 live testing).
+    - **Likely typo** — `gSystem.lTravel.lMovementD.LDiagnostic` (capital `L` inconsistent with IEC conventions; expected `lDiagnostic`).
+    - **Uncertain runtime names** — `TargetSpeed` / `ProposedThrottle` patterns ambiguous; need source cross-reference.
+65. ✅ **Phase 2 live validation attempted** — PLC at 10.2.3.4 was partially/intermittently reachable:
+    - RO port 49880 connected briefly; RW port 49870 unreachable; ping failed during main validation window.
+    - System state observed as `preparing` (changed from earlier `charging`); initialization stage 5.
+66. ✅ **Live evidence confirmed:**
+    - `CANBusDrive` hierarchy confirmed via `describe -children` (children use `/` separator, identity `PrimaryPLC.System.CANBusDrive`).
+    - `System describe` confirmed — returns JSON with `systemstate`, `initialized`, `initialization_stage`.
+    - 5 representative `cTransA` signals (`Current`, `MotorTemp`, `BattVoltage`, `BattCurrent`, `CntrlTemp`) re-confirmed as live-verified (from Phase 5).
+    - Prior metric registration + emit success for cTransA signals reaffirmed (Metric5s → port 49890 → 10.2.3.10:49720).
+67. ✅ **Reports created:**
+    - `exported-src/trace_config/TRACE_SIGNAL_VALIDATION_REPORT.md` — static validation report (587 signals, categories, risk items).
+    - `exported-src/trace_config/PHASE2_LIVE_VALIDATION_REPORT.md` — live validation report (connectivity timeline, per-category findings, limitations).
+68. ✅ **Reusable script created:** `scripts/live_trace_validation.py` — full batch validation with reconnection logic; can be re-run when PLC connectivity is restored.
+69. ⚠️ **~582 of 587 signals remain *inferred* (not live-verified)** — full validation blocked by PLC unreachability.
+
+---
+
+
+### Phase 3 — Live Trace Signal Re-Validation (2026-05-21)
+70. ✅ **PLC connectivity re-checked** — 10.2.3.4 pingable but ParseServerRW/RO extremely unstable; ports flip between connected and timeout every 10-30s
+71. ✅ **37 signals live-verified** across 12 categories: TransA (8), SteerA (5), WinchA (4), Spreader (5), TMS (4), BMS (2), Steering (1), Travel (3), Lift (1), System (1), Risky-Abbrev (3)
+72. ✅ **16 runtime naming corrections confirmed:**
+    - TMS: ReqState (not RequestedState), CurrState (not CurrentState), ClntReservoir (not CoolantReservoir), ClntTemp (not CurrentCoolantTemperature)
+    - Spreader: TelscpActive (not TelescopingActive), TwstEnbl (not TwistlocksEnabled), HydPressure (not HydraulicPressure), HydTemp (not HydraulicTemperature), BrakeDisengage (not BrakeDisengaged)
+    - Travel: Throttle (not ThrottleValue), mMovement (not MovementD)
+    - System-level: BMSAB (not BMS), Steer (not Steering), ChargerABC, Secondary, ProgMovCntrl
+73. ✅ **ProposedThrottle confirmed NON-EXISTENT** — returns unknown_name on TransA, SteerA, WinchA
+74. ✅ **Diagnostic confirmed NON-EXISTENT** on SteerA, Lift, Travel drives
+75. ✅ **Travel/MovementD confirmed NON-EXISTENT** — replaced by Travel/mMovement (5 children: iMovement, EnblStallMgmt, Deadband, Input, InputSecndry)
+76. ✅ **All CANOpen drives share identical 34-child structure** — enables high-confidence pattern inference for 16+ devices
+77. ✅ **ChargerABC children identified:** EnblManualChrg, ManualChrgCurr, ManualChrgVolt, ChrgOBCErr, ChrgStdby, ChrgConn, ChrgDiscon
+78. ✅ **Secondary children identified:** SecPwrNotRun, SecPwrNotRunMod, SecPwrWait, SecPwrMismatch, CntxtSgnMod
+79. ✅ **ProgMovCntrl children identified:** ProgMovNull, steer_0
+80. ✅ **Metric registration attempted** on RW port — silent $> response; verification inconclusive due to connection instability
+81. ✅ **Emit port 49890 checked** — connected but no metric data received (no active registrations or PLC not pushing)
+82. ✅ **Reports updated:**
+    - exported-src/trace_config/PHASE3_LIVE_VALIDATION_REPORT.md — new Phase 3 report
+    - exported-src/trace_config/TRACE_SIGNAL_VALIDATION_REPORT.md — updated with Phase 3 section
+    - scripts/phase2_results.json — merged results: 37 unique success, 27 unique failure
+83. ⚠️ **~550 signals remain *inferred* (not live-verified)** — full validation blocked by PLC connection instability
+84. ⚠️ **Metric registration and emission not confirmed** — connection instability prevents verification
+
 ## 8. Next Steps / TODO
 
 ### Immediate (P0)
@@ -361,6 +409,16 @@ ReportableChannelManagerBuild (project)
 - [x] exports/v1/README.md updated with Phase 5 artifact references
 - [x] HANDOFF.md updated with Phase 5 session entries and key files
 
+### Phase 8: Trace Config Signal Validation (Partial — PLC unreachable)
+- [x] `exported-src/trace_config/TRACE_SIGNAL_VALIDATION_REPORT.md` — static validation of 587 unique signals across 28 trace config files
+- [x] `exported-src/trace_config/PHASE2_LIVE_VALIDATION_REPORT.md` — live validation attempt with connectivity timeline and per-category findings
+- [x] `scripts/live_trace_validation.py` — reusable batch validation script with reconnection logic
+- [ ] **Re-run full live validation** when PLC at 10.2.3.4 is reachable (582 of 587 signals still inferred)
+- [ ] **Resolve typo** — test both `Travel/MovementD/LDiagnostic` and `Travel/MovementD/lDiagnostic` on live PLC
+- [ ] **Validate non-transA drives** — cSteerA, cWinchA, cSpreader representative signals
+- [ ] **Cross-reference ambiguous names** — `TargetSpeed` / `ProposedThrottle` patterns against PLC source
+- [ ] **Full metric registration sweep** — register representative signals from each category, confirm emission on port 49890
+
 ### Needs More Info
 - [ ] **services library** - Contains actual TCP client/server implementation, need to review how data is formatted/sent
 - [ ] **Remote server IPs** - Not found in any exported XML, likely configured in services library or runtime config
@@ -413,22 +471,27 @@ These files are committed and available for future project exploration:
     ├── capture_identity.py                 (Phase 7: identity and sample-value capture from RO port)
     ├── update_mp02_06.py                   (Phase 7: batch-update MP-02..MP-06 Excel templates)
     ├── transA_start.json                   (metric registration template — 5 transA signals)
-    └── transA_stop.json                    (metric deregistration template — 5 transA signals)
+    ├── transA_stop.json                    (metric deregistration template — 5 transA signals)
+    └── live_trace_validation.py            (Phase 8: full batch trace signal validation with reconnection logic)
 ├── export-src/
-│   └── measuring-profiles/                 (Phase 7: packaged MP-01..MP-06 artifacts)
-│       ├── README.md                       (artifact docs, JSON schema, MP-N extension guide)
-│       ├── MP-01.xlsx                      (measuring profile workbook — hoist/lift)
-│       ├── MP-01-verified-signals.json     (verified signal registry for MP-01)
-│       ├── MP-02.xlsx                      (measuring profile workbook — travel/steer)
-│       ├── MP-02-verified-signals.json     (verified signal registry for MP-02)
-│       ├── MP-03.xlsx                      (measuring profile workbook — BMS/battery)
-│       ├── MP-03-verified-signals.json     (verified signal registry for MP-03)
-│       ├── MP-04.xlsx                      (measuring profile workbook — thermal)
-│       ├── MP-04-verified-signals.json     (verified signal registry for MP-04)
-│       ├── MP-05.xlsx                      (measuring profile workbook — health/diagnostics)
-│       ├── MP-05-verified-signals.json     (verified signal registry for MP-05)
-│       ├── MP-06.xlsx                      (measuring profile workbook — energy/performance)
-│       └── MP-06-verified-signals.json     (verified signal registry for MP-06)
+│   ├── measuring-profiles/                 (Phase 7: packaged MP-01..MP-06 artifacts)
+│   │   ├── README.md                       (artifact docs, JSON schema, MP-N extension guide)
+│   │   ├── MP-01.xlsx                      (measuring profile workbook — hoist/lift)
+│   │   ├── MP-01-verified-signals.json     (verified signal registry for MP-01)
+│   │   ├── MP-02.xlsx                      (measuring profile workbook — travel/steer)
+│   │   ├── MP-02-verified-signals.json     (verified signal registry for MP-02)
+│   │   ├── MP-03.xlsx                      (measuring profile workbook — BMS/battery)
+│   │   ├── MP-03-verified-signals.json     (verified signal registry for MP-03)
+│   │   ├── MP-04.xlsx                      (measuring profile workbook — thermal)
+│   │   ├── MP-04-verified-signals.json     (verified signal registry for MP-04)
+│   │   ├── MP-05.xlsx                      (measuring profile workbook — health/diagnostics)
+│   │   ├── MP-05-verified-signals.json     (verified signal registry for MP-05)
+│   │   ├── MP-06.xlsx                      (measuring profile workbook — energy/performance)
+│   │   └── MP-06-verified-signals.json     (verified signal registry for MP-06)
+│   └── trace_config/                       (Phase 8: trace signal validation)
+│       ├── TRACE_SIGNAL_VALIDATION_REPORT.md   (static validation: 587 signals, categories, risks)
+│       ├── PHASE2_LIVE_VALIDATION_REPORT.md    (live validation: connectivity, per-category findings)
+│       └── individual_traces_with_time/        (28 trace config .txt files — source data)
 ```
 
 ### Local Only (not in git — can be regenerated or are environment-specific)
@@ -657,3 +720,165 @@ CANBusDrive/cTransA/CntrlTemp      → Metric1m
 | Metric5s | (available, not used for transA) |
 | Metric1h | (available, not used for transA) |
 | Metric1d | (available, not used for transA) |
+
+---
+
+## 14. Complete Methodology for Trace Signal Remapping
+
+This section documents the full end-to-end methodology for mapping 588 unique trace config signals (843 raw entries across 28 files) to their live runtime particle paths. A future user can replicate this process without re-discovering the same patterns.
+
+### Phase 1 — Static Export Analysis
+
+**Goal:** Index all PLCopenXML exports to understand the codebase structure.
+
+1. **XML Export:** User manually exported 9 PLCopenXML files from CODESYS IDE (binary `.project` files cannot be read directly).
+2. **Indexing (`scripts/index_xml.py`):** Parsed all XML files to extract POU names, DUT definitions, variable declarations, and inheritance chains.
+3. **Dependency Graphs:** Built interface-level dependency graphs from POU declarations (VAR_INPUT, VAR_OUTPUT, VAR_IN_OUT, type references).
+4. **Key Discovery:** Identified the inheritance chain `PLC_PRG → gSystem: SystemBuild → SystemApollo → SystemPrimary → System`, and the CANOpen master drive hierarchy with 16+ slave devices.
+
+**Output:** `exports/v1/POU_INDEX.json`, `exports/v1/INDEX.json`, `exports/v1/PROJECT_MAP.md`
+
+### Phase 2 — Runtime Hierarchy Discovery
+
+**Goal:** Discover the actual runtime particle tree via live PLC `describe -children` commands.
+
+1. **Top-Level Discovery:** `System describe -children` revealed the root particle hierarchy:
+   - `CANBusDrive`, `CANBusSystem`, `BMSAB`, `Steer`, `Travel`, `Lift`, `TMS`, `SystemState`, `ChargerABC`, `Secondary`, `ProgMovCntrl`
+2. **Naming Differences Discovered:**
+   - `BMS` (IEC) → `BMSAB` (runtime)
+   - `Steering` (IEC) → `Steer` (runtime)
+   - `Charger` (IEC) → `ChargerABC` (runtime)
+   - `SecondaryPowerSupply` (IEC) → `Secondary` (runtime)
+   - `ProgrammedMovementControl` (IEC) → `ProgMovCntrl` (runtime)
+   - `TransA` (IEC) → `cTransA` (runtime, `c` prefix for CAN device)
+3. **Abbreviated Signal Names:** Runtime particles use shortened names:
+   - `BatteryVoltage` → `BattVoltage`
+   - `BatteryCurrent` → `BattCurrent`
+   - `ControllerTemperature` → `CntrlTemp`
+   - `MotorTemperature` → `MotorTemp`
+   - `HydraulicPressure` → `HydPressure`
+   - `TelescopingActive` → `TelscpActive`
+4. **Path Separator:** Runtime paths use `/` (forward slash), NOT `.` (dot). Dot syntax only works for namespace prefix (`PrimaryPLC.`).
+
+**Key Command Pattern:**
+```
+System.<Subsystem> describe -children    # list child particles
+System.<Subsystem>/<Particle> describe   # read particle value
+```
+
+### Phase 3 — Trace Config Deep Probe
+
+**Goal:** Validate trace config signals against live runtime hierarchy.
+
+1. **Source Data:** 28 trace config files in `exported-src/trace_config/individual_traces_with_time/`, CSV format with header `Signal Path,Time Sample (ms)`.
+2. **Per-Subsystem Probing:** Ran `describe -children` on each subsystem particle to enumerate available signals.
+3. **96 no_match Signals Identified:** Signals in trace config files that did not match any runtime particle discovered in Phase 2.
+4. **69 Signals Confirmed Nonexistent:** Deep probing confirmed these signals do not exist in the runtime hierarchy (internal particles, artifacts, or mismatches).
+5. **Naming Abbreviation Pattern Discovery:** Many trace config signals use full IEC names but runtime uses abbreviated forms (e.g., `CoolantChilling` → `ClntChilling`).
+
+**Output:** `exported-src/trace_config/TRACE_SIGNAL_VALIDATION_REPORT.md`, `exported-src/trace_config/PHASE2_LIVE_VALIDATION_REPORT.md`, `exported-src/trace_config/PHASE3_LIVE_VALIDATION_REPORT.md`
+
+### Phase 4 — Final Mapping & Reconciliation
+
+**Goal:** Create a comprehensive JSON mapping of all 588 unique signals.
+
+1. **Translation Layer:** Converted IEC variable paths (`gSystem.lX.lY.lZ`) to dot-notation translated paths (`System.X.Y.Z`).
+2. **Runtime Path Mapping:** Applied discovered naming rules to map translated paths to runtime paths (`System/X/Y/Z`).
+3. **Four Categories Produced:**
+   - **exact_match (27):** Direct 1:1 match between translated and runtime path (e.g., `System/CANBusSystem/BMSA/NodeState`)
+   - **remapped_abbrev (461):** Required subsystem rename + signal abbreviation (e.g., `System/BMS/...` → `System/BMSAB/...`, `TransA` → `cTransA`)
+   - **no_match (96):** Could not be resolved by automated rules; required manual deep probing
+   - **nonexistent_confirmed (4):** Already confirmed nonexistent in Phase 3 (`Lift.Diagnostic`, `Travel.Diagnostic`, `Travel.MovementD.LDiagnostic`, `Travel.MovementD.Diagnostic`)
+
+**Output:** `exported-src/trace_config/RUNTIME_REMAP_PHASE4.json`
+
+### Phase 5 — Deep Probing Pass (Final Resolution)
+
+**Goal:** Resolve all 96 no_match signals through targeted live PLC probing.
+
+1. **Second Pass into Blind Subsystems:** Probed each subsystem that had no_match signals to discover actual particle names.
+2. **Resolution Results:**
+   - **23 signals resolved** with correct runtime paths (Phase 5 newly discovered abbreviations):
+     - Lift: `Input`, `Throttle` → `System/Lift/Input`, `System/Lift/Throttle`
+     - Travel: `Input`, `Throttle`, `InputResolved`, `InputScaling`, `InputSecondary`, `EnableInputSecondary`, `InputPresentSecondary`, `MovementA-D/Input` → `System/Travel/...`
+     - Steering: `Input`, `TargetAngle` → `System/Steer/Input`, `System/Steer/TargetAngle`
+     - TMS: `ClntChilling`, `ClntHeating`, `CurrState`, `ReqState`, `ClntReservoir`, `ClntTemp`, `Pump` → `System/TMS/...`
+     - BMSAB: `RestartCount` → `System/BMSAB/RestartCount`
+   - **69 signals confirmed nonexistent** (internal particles not exposed at runtime):
+     - Lift deep (12): ScalingA-D, MovementA-D Diagnostic, ChargeInterlock/*, Interlock/*
+     - Lift*Interlock top-level (31): LiftAPositionInterlock, LiftB/C/DPositionInterlock, LiftAB/CDSynchronousInterlock, LiftSynchronousInterlock (each with 3 child signals + Transform)
+     - Travel deep (21): InputProcessed, InputNulled, InputPresent*, Active, SlowFactor*, ScalingA-D, MovementA-D Diagnostic, SteerAdjustTimer
+     - Steering deep (17): InputProcessed, AdjustState, Mode/ModeChange, WheelA-D Diagnostic/Input/Requested, TargetAngleIncrement
+     - SystemState deep (6): AllowDownTrace, AllowUpTrace, NextStateTrace, SystemControlTrace, ForceMaxTrace, ChargingEnabled
+     - TMS (1): RequestedCoolantTemperature
+     - BMSAB deep (6): SOCRecoveryTimer, SwitchingStateTimer, TargetStateA/B, ControllerBMSA/B RequestDisconnect
+     - ChargerABC (7): Complete mismatch — trace config signals don't exist under ChargerABC runtime particle
+     - Secondary (20): Complete mismatch — trace config signals don't exist under Secondary runtime particle
+     - ProgMovCntrl (12): Movement/*, Requested — internal particles not exposed
+   - **4 TMS abbreviation mismatches** treated as remapped_abbrev (System/ prefix caused Phase 4 not to match)
+3. **Final Tally:** 588 unique signals → 515 mapped (exact_match + remapped_abbrev + phase5_resolved), 73 nonexistent, 0 unresolved.
+
+**Output:** 28 per-file mapping files in `exported-src/trace_config/mapping/`
+
+### Phase 6 — Per-File Mapping Generation
+
+**Goal:** Produce one `.mapped.txt` file per trace config file.
+
+1. **Script:** `scripts/generate_mappings.py` reads all 28 trace config files, looks up each signal in `RUNTIME_REMAP_PHASE4.json`, applies Phase 5 corrections, and writes CSV output.
+2. **Output Format:** `trace_name,runtime_name,status` — where `runtime_name` is `N/A` for nonexistent signals.
+3. **Status Values:** `exact_match`, `remapped_abbrev`, `phase5_resolved`, `nonexistent`, `confirmed_nonexistent`
+
+### Key Lessons Learned for Future Work
+
+1. **Always start from `System describe -children` as ground truth** — source code variable names are unreliable; the runtime particle tree is the only authoritative source.
+2. **Expect abbreviated runtime names** — `BattVoltage` not `BatteryVoltage`, `CntrlTemp` not `ControllerTemperature`, `ClntChilling` not `CoolantChilling`. The runtime consistently uses 4-6 character abbreviations.
+3. **Many trace config signals are artifacts (12.4% nonexistent)** — 73 of 588 unique signals do not exist at runtime. These are typically:
+   - Internal FB particles (`.lContext.lCount`, `.lTransform.lInnerRegion`)
+   - Interlock top-level particles (not exposed as runtime particles)
+   - Complete subsystem mismatches (ChargerABC, Secondary trace config signals map to different runtime hierarchies)
+4. **Deeper particle hierarchies are often internal** — WheelA-D, Lift Movement/Interlock particles exist in source but are not exposed as runtime particles for describe/metric commands.
+5. **CANBusDrive has 34 signals per device** — 9 operational + 25 non-operational (heartbeat, diagnostic, etc.). All 16+ devices share identical structure, enabling high-confidence pattern inference.
+6. **Connection discipline is critical** — ParseServerRW (port 49870) and ParseServerRO (port 49880) have `cConnectionsLimit=2`. Always send `close` command before TCP teardown to prevent stale sessions.
+7. **Path separator is `/` for object hierarchy** — `CANBusDrive/cTransA/MotorTemp` uses forward slashes; dot `.` syntax fails for deep object paths.
+8. **`Metric5s register` requires `object=` keyword** — bare path fails with `duplicate_cmd` error.
+9. **Successful Metric5s registration is silent** — only `$>` prompt returned; must use `Metric5s describe` to confirm membership.
+
+### Files Reference (Trace Signal Mapping)
+
+```
+exported-src/trace_config/
+├── RUNTIME_REMAP_PHASE4.json          (Phase 4 reconciliation: 588 signals, 4 categories)
+├── individual_traces_with_time/        (28 source .txt files — 843 raw entries)
+├── mapping/                            (Phase 6 output — 28 .mapped.txt files)
+│   ├── CanBusDrive.mapped.txt
+│   ├── TraccDriveTemperatures.mapped.txt
+│   ├── TraceBMAB.mapped.txt
+│   ├── TraceCANBusSystem.mapped.txt
+│   ├── TraceCharging.mapped.txt
+│   ├── TraceHeartBeats.mapped.txt
+│   ├── TraceLift.mapped.txt
+│   ├── TraceLiftDrive.mapped.txt
+│   ├── TraceLiftPrimaryInterlock.mapped.txt
+│   ├── TraceProgrammedMovement.mapped.txt
+│   ├── TraceSecondary.mapped.txt
+│   ├── TraceSpreaderCommand.mapped.txt
+│   ├── TraceSpreaderHydraulics.mapped.txt
+│   ├── TraceSpreaderSensor.mapped.txt
+│   ├── TraceSteer.mapped.txt
+│   ├── TraceSteerA.mapped.txt
+│   ├── TraceSteerB.mapped.txt
+│   ├── TraceSteerC.mapped.txt
+│   ├── TraceSteerD.mapped.txt
+│   ├── TraceSteerDStall.mapped.txt
+│   ├── TraceSteerDrives.mapped.txt
+│   ├── TraceSystemState.mapped.txt
+│   ├── TraceTMS.mapped.txt
+│   ├── TraceTravel.mapped.txt
+│   ├── TraceTravelDrives.mapped.txt
+│   ├── TraceTravelJolting.mapped.txt
+│   ├── TraceTravelJoltingA.mapped.txt
+│   └── TraceTravelThrottle.mapped.txt
+├── TRACE_SIGNAL_VALIDATION_REPORT.md  (Phase 2 static validation)
+├── PHASE2_LIVE_VALIDATION_REPORT.md   (Phase 2 live validation)
+└── PHASE3_LIVE_VALIDATION_REPORT.md   (Phase 3 live re-validation)
+```

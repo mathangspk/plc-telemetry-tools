@@ -1,0 +1,7 @@
+trace_name,runtime_name,status
+gSystem.lCANOpenMasterSystem.lBMSA.lNodeState,System/CANBusSystem/BMSA/NodeState,exact_match
+gSystem.lCANOpenMasterSystem.lBMSB.lNodeState,System/CANBusSystem/BMSB/NodeState,exact_match
+gSystem.lCANOpenMasterSystem.lSecondaryPowerSupplyA.lNodeState,System/CANBusSystem/SecondaryPowerSupplyA/NodeState,exact_match
+gSystem.lCANOpenMasterSystem.lSecondaryPowerSupplyB.lNodeState,System/CANBusSystem/SecondaryPowerSupplyB/NodeState,exact_match
+gSystem.lCANOpenMasterSystem.lUInterfaceCabin.lNodeState,System/CANBusSystem/UInterfaceCabin/NodeState,exact_match
+gSystem.lCANOpenMasterSystem.lChargerA.lNodeState,System/CANBusSystem/ChargerA/NodeState,exact_match

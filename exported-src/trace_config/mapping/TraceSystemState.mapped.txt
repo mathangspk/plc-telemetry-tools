@@ -1,0 +1,7 @@
+trace_name,runtime_name,status
+gSystem.lSystemState.lState.lValue,System/SystemState/State,exact_match
+gSystem.lSystemState.lAllowDownTrace.lContext.lCount,N/A,nonexistent
+gSystem.lSystemState.lAllowUpTrace.lContext.lCount,N/A,nonexistent
+gSystem.lSystemState.lNextStateTrace.lContext.lCount,N/A,nonexistent
+gSystem.lSystemState.lSystemControlTrace.lContext.lCount,N/A,nonexistent
+gSystem.lSystemState.lForceMaxTrace.lContext.lCount,N/A,nonexistent
