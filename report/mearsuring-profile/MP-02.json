@@ -1,0 +1,75 @@
+{
+  "name": "MP-02",
+  "signals": [
+    {
+      "name": "current_travelA",
+      "path": "CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelB",
+      "path": "CANBusDrive/cTransB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelC",
+      "path": "CANBusDrive/cTransC/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelD",
+      "path": "CANBusDrive/cTransD/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "batt_voltage_travelA",
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "torque_travelA",
+      "path": "CANBusDrive/cTransA/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "position_steerA",
+      "path": "System/iSteerAPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "position_steerB",
+      "path": "System/iSteerBPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "position_steerC",
+      "path": "System/iSteerCPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "position_steerD",
+      "path": "System/iSteerDPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "motor_temp_steerA",
+      "path": "CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "operating_mode",
+      "path": "System/OperatingMode",
+      "metric": "Metric250ms"
+    }
+  ]
+}

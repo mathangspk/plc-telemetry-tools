@@ -1,0 +1,40 @@
+{
+  "name": "MP-05",
+  "signals": [
+    {
+      "name": "bat_cycle_count",
+      "path": "System/BMSAB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bat_capacity_ah",
+      "path": "System/BMSAB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bat_r_internal_mohm",
+      "path": "System/BMSAB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "fault_code_count_total",
+      "path": "System/PLC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "fault_code_log",
+      "path": "System/PLC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "hydraulic_filter_dp_bar",
+      "path": "CANBusDrive/cSpreader/HydraulicFilter",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "runtime_hours_total",
+      "path": "System/Cycle/AllHours",
+      "metric": "Metric250ms"
+    }
+  ]
+}

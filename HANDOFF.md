@@ -857,3 +857,41 @@ exports/trace-config/
 ├── PHASE2_LIVE_VALIDATION_REPORT.md   (Phase 2 live validation)
 └── PHASE3_LIVE_VALIDATION_REPORT.md   (Phase 3 live re-validation)
 ```
+
+### Phase 8 — Measuring Profile Telemetry Verification, Integration & Documentation (Completed)
+
+**Goal:** Consolidate measuring profiles `MP-01` through `MP-06`, convert them to standard trace JSON schema, perform live PLC telemetry verification, map/integrate missing Excel signals using active runtime paths, and generate consolidated reports.
+
+1. **Junction Verification**: Verified that `report/mearsuring-profile` is successfully established as a Windows directory junction pointing to `report/measuring-profile`, aligning with both spelling formats.
+2. **Schema Standardization**: Converted `exports/measuring-profiles/MP-NN-verified-signals.json` to the standard trace JSON configuration schema format and saved them as `report/measuring-profile/MP-NN.json`. The profiles contain individual `"metric"` properties per signal, with no root-level `"metric"` key, which conforms exactly to the trace parser requirements.
+3. **Live Subsystem Probing**: Described and audited candidate paths for the requested Excel signals that were missing from initial mapping files. Successfully resolved:
+   - `hydraulic_oil_temp` -> `CANBusDrive/cSpreader/HydTemp`
+   - `hydraulic_pressure` -> `CANBusDrive/cSpreader/HydPressure`
+   - `hydraulic_filter_dp_bar` -> `CANBusDrive/cSpreader/HydraulicFilter`
+   - `runtime_hours_total` -> `System/Cycle/AllHours` (or `System/Cycle/OpHours`)
+4. **Subsystem Verification**: Confirmed that `System/Encoder`, `System/Radio`, and `System/Hoist` are unknown subsystems on this PLC version, meaning `encoder_linearity_pct`, `radio_signal_loss_pct`, `radio_response_ms`, and `hoist_load_kg` are unavailable at runtime.
+5. **Final Telemetry Execution**: Ran `scratch/verify_all_mp.py` which calls `verify_with_clean_workflow.py` for all 6 profiles. The suite completed with a **100% success rate** for all registered signals:
+   - `MP-01`: 18/18 active
+   - `MP-02`: 14/14 active
+   - `MP-03`: 7/7 active
+   - `MP-04`: 15/15 active (including newly integrated `hydraulic_oil_temp` and `hydraulic_pressure`)
+   - `MP-05`: 7/7 active (including newly integrated `hydraulic_filter_dp_bar` and `runtime_hours_total`)
+   - `MP-06`: 15/15 active
+6. **Consolidated Summary Output**: Automatically generated `report/measuring-profile/VERIFICATION_SUMMARY.md` documenting the finalized success metrics. Detailed focused reports are saved in `report/trace/test_results/`.
+
+### Files Reference (Measuring Profiles Telemetry)
+
+```
+report/measuring-profile/ (also report/mearsuring-profile/)
+├── MP-01.xlsx to MP-06.xlsx         (Standardized Excel profiles)
+├── MP-01.json to MP-06.json         (Converted and expanded trace JSON configs)
+└── VERIFICATION_SUMMARY.md          (Final consolidated success summary)
+
+report/trace/test_results/
+├── MP-01_focused_report.md
+├── MP-02_focused_report.md
+├── MP-03_focused_report.md
+├── MP-04_focused_report.md
+├── MP-05_focused_report.md
+└── MP-06_focused_report.md
+```

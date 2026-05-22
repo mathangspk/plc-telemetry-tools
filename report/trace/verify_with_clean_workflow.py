@@ -30,7 +30,7 @@ if sys.platform == "win32":
 # ---------------------------------------------------------------------------
 DEFAULT_HOST = "10.2.3.4"
 PORT_RW = 49870
-PORT_RO_DESCRIBE = 49880
+PORT_RO_DESCRIBE = 49870
 PORT_RO_EMIT = 49890
 TERMINATOR = b"|$>"
 PROMPT = b"$>"
@@ -370,12 +370,13 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
         return None
         
     # Store expected paths
-    expected_signals = {}
+    expected_signals = []
     for sig in signals:
-        expected_signals[normalize_path(sig["path"])] = {
+        expected_signals.append({
             "name": sig["name"],
-            "original_path": sig["path"]
-        }
+            "original_path": sig["path"],
+            "normalized_path": normalize_path(sig["path"])
+        })
         
     # 2. Step 1: REGISTER
     print(f"\nSTEP 1: Registering {len(signals)} signals on RW port {PORT_RW}...")
@@ -385,8 +386,8 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
         wait_for_greeting(rw_sock)
         for i, sig in enumerate(signals, 1):
             path = sig["path"]
-            # Stripping 'System/' prefix for registration command as per telemetry protocol
-            reg_path = path[7:] if path.startswith("System/") else path
+            # Preserve full path (including System/ prefix if present) to ensure direct leaves register correctly
+            reg_path = path
             sig_metric = sig.get("metric", default_metric)
             cmd = f"{sig_metric} register object={reg_path}"
             try:
@@ -487,7 +488,8 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
     silent_signals = []
     failed_signals = []
     
-    for norm_path, info in expected_signals.items():
+    for info in expected_signals:
+        norm_path = info["normalized_path"]
         is_registered = norm_path in registered_paths
         is_described = norm_path in confirmed_paths
         is_emitted = norm_path in emitted_paths
