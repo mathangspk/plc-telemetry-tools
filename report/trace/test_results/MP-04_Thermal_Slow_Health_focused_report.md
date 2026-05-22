@@ -1,8 +1,9 @@
 # Telemetry Focused Report: MP-04_Thermal_Slow_Health
 
-- **Tested At:** 2026-05-22 16:55:34
+- **Tested At:** 2026-05-22 17:11:01
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric5s
+- **Configured Metrics in Files:** Metric5s
+- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
 
 ## Summary Statistics
 

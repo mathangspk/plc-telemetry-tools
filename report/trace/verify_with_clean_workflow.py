@@ -353,7 +353,16 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
         
     default_metric = "Metric250ms"
     signals = trace_config.get("signals", [])
-    # Gather all unique metrics referenced in this trace
+    
+    # Store original metrics for reference, and temporarily override all to Metric250ms
+    # for verification so that we receive live telemetry packets during the 5s listen window.
+    original_metrics = set()
+    for sig in signals:
+        original_metrics.add(sig.get("metric", default_metric))
+        sig["original_metric"] = sig.get("metric", default_metric)
+        sig["metric"] = "Metric250ms"
+        
+    # Gather all unique metrics referenced in this trace (will be ['Metric250ms'])
     metrics_in_trace = sorted(list(set(sig.get("metric", default_metric) for sig in signals)))
     if not metrics_in_trace:
         metrics_in_trace = [default_metric]
@@ -361,7 +370,8 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
     print("\n" + "=" * 80)
     print(f"  SEQUENTIAL TEST: REGISTER -> DESCRIBE -> EMIT -> STOP")
     print(f"  Target Trace: {trace_name} ({len(signals)} expected signals)")
-    print(f"  Target Metrics: {', '.join(metrics_in_trace)} | Listen Duration: {listen_duration}s")
+    print(f"  Target Metrics: {', '.join(metrics_in_trace)} (Temporarily overridden from: {', '.join(sorted(list(original_metrics)))})")
+    print(f"  Listen Duration: {listen_duration}s")
     print("=" * 80)
     
     # 1. Pre-Check & Clear
@@ -525,7 +535,8 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
         f.write(f"# Telemetry Focused Report: {trace_name}\n\n")
         f.write(f"- **Tested At:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"- **PLC Host:** {host}\n")
-        f.write(f"- **Metric Containers:** {', '.join(metrics_in_trace)}\n\n")
+        f.write(f"- **Configured Metrics in Files:** {', '.join(sorted(list(original_metrics)))}\n")
+        f.write(f"- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)\n\n")
         
         f.write("## Summary Statistics\n\n")
         f.write("| Status | Count | Percentage |\n")

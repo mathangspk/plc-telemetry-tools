@@ -1,8 +1,9 @@
 # Telemetry Focused Report: MP-06_Performance_Burst_Efficiency
 
-- **Tested At:** 2026-05-22 16:57:20
+- **Tested At:** 2026-05-22 17:12:30
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric250ms
+- **Configured Metrics in Files:** Metric250ms
+- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
 
 ## Summary Statistics
 

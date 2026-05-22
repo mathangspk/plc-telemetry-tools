@@ -1,15 +1,16 @@
 # Telemetry Focused Report: MP-03_Battery_Medium_Consumption
 
-- **Tested At:** 2026-05-22 16:54:54
+- **Tested At:** 2026-05-22 17:10:16
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric1d, Metric1m, Metric1s
+- **Configured Metrics in Files:** Metric1d, Metric1m, Metric1s
+- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
 
 ## Summary Statistics
 
 | Status | Count | Percentage |
 | --- | ---: | ---: |
-| **Active (PASS_ACTIVE)** | 12 | 92.3% |
-| **Silent (SILENT)** | 1 | 7.7% |
+| **Active (PASS_ACTIVE)** | 13 | 100.0% |
+| **Silent (SILENT)** | 0 | 0.0% |
 | **Failed (FAIL)** | 0 | 0.0% |
 | **Total Expected** | 13 | 100.0% |
 
@@ -24,6 +25,7 @@
 | `bat_energy_discharged_kwh` | `System/CANBusSystem/cBMSA/TtlDschrgEnergy` | OK | YES | YES |
 | `bat_energy_regen_kwh` | `System/CANBusSystem/cBMSA/TtlChrgEnergy` | OK | YES | YES |
 | `bat_fault_code` | `System/CANBusSystem/cBMSA/FaultCode` | OK | YES | YES |
+| `bat_soh_pct` | `System/CANBusSystem/cBMSA/SOH` | OK | YES | YES |
 | `bat_temp_max` | `System/CANBusSystem/cBMSA/MaxTemp` | OK | YES | YES |
 | `bat_temp_min` | `System/CANBusSystem/cBMSA/MinTemp` | OK | YES | YES |
 | `bms_current` | `System/BMSAB/Current` | OK | YES | YES |

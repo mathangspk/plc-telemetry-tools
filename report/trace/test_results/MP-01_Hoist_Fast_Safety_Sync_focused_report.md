@@ -1,8 +1,9 @@
 # Telemetry Focused Report: MP-01_Hoist_Fast_Safety_Sync
 
-- **Tested At:** 2026-05-22 16:52:16
+- **Tested At:** 2026-05-22 17:08:44
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric1s, Metric250ms
+- **Configured Metrics in Files:** Metric1s, Metric250ms
+- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
 
 ## Summary Statistics
 

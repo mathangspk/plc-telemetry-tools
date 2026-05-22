@@ -1,8 +1,9 @@
 # Telemetry Focused Report: MP-02_Drive_Fast_Travel_Steer
 
-- **Tested At:** 2026-05-22 16:53:28
+- **Tested At:** 2026-05-22 17:09:32
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric1s, Metric250ms
+- **Configured Metrics in Files:** Metric1s, Metric250ms
+- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
 
 ## Summary Statistics
 
