@@ -378,6 +378,14 @@ ReportableChannelManagerBuild (project)
 114. ✅ **Redundant Script Cleanup**: Purged the entire obsolete `scripts/telemetry/` directory, along with root-level `trace_validator.py` and `explore_plc.py`, leaving `report/trace/` as the single source of truth for telemetry.
 115. ✅ **Live Verification**: Successfully validated the new workflow and closed-loop scripts against the live PLC using the `TraccDriveTemperatures` trace profile. All 26 signals registered and verified active on start, and forced to silence via recovery clear on stop.
 
+### Phase 14 — Measuring Profile Mapping & Gap Analysis (2026-05-22)
+116. ✅ **Automated Mapping Script**: Developed `scratch/analyze_mp_mapping.py` utilizing `openpyxl` and `json` to parse the 6 Measuring Profile Excel templates and map them against live active telemetry streams (`pass_active/`) and failed streams (`fail/`).
+117. ✅ **Robust Path Normalization**: Resolved prefixes like `System/` and namespaces to achieve accurate mapping between the Excel and trace JSON files.
+118. ✅ **Detailed Gap Analysis Report**: Compiled [GAP_ANALYSIS_REPORT.md](file:///c:/local/opencode/codesys/exports/measuring-profiles/GAP_ANALYSIS_REPORT.md) capturing coverage metrics: 120 total requested signals, 35 Covered (PASS_ACTIVE) (29.2%), 45 Missing/Untested (37.5%), 40 Unmapped/N/A (33.3%).
+119. ✅ **Identified Coverage Recommendations**: Highlighted critical actions:
+     - Expand telemetry trace configs to include missing steer currents/temperatures and hoist currents/temperatures.
+     - Move unmapped/N/A derived metrics (like cumulative energy integration and State of Health) to the edge data processor or Grafana dashboard instead of executing on the PLC.
+
 ---
 
 ## 8. Next Steps / TODO
