@@ -1,5 +1,16 @@
 {
-  "name": "MP-02",
+  "name": "MP-02_Drive_Fast_Travel_Steer",
+  "title": "MP-02 Drive Fast - Travel & Steer Performance (Hiệu Năng Di Chuyển & Bẻ Lái Tốc Độ Cao)",
+  "description": "High-speed tracking of travel motor currents, steering positions, steering throttle command inputs, and BMS battery limits during dynamic driving maneuvers. / Theo dõi tốc độ cao dòng điện động cơ di chuyển, vị trí góc lái thực tế, lệnh điều khiển joystick (X, Y) và giới hạn dòng sạc/xả BMS khi di chuyển bẻ lái tăng tốc.",
+  "target_tests": [
+    "LOAD-004",
+    "LOAD-005",
+    "LOAD-013",
+    "PERF-003",
+    "PERF-005",
+    "PERF-006",
+    "PERF-007"
+  ],
   "signals": [
     {
       "name": "current_travelA",
@@ -24,6 +35,26 @@
     {
       "name": "batt_voltage_travelA",
       "path": "CANBusDrive/cTransA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M1",
+      "path": "System/CANBusDrive/cTransA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M2",
+      "path": "System/CANBusDrive/cTransB/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M3",
+      "path": "System/CANBusDrive/cTransC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M4",
+      "path": "System/CANBusDrive/cTransD/Velocity",
       "metric": "Metric250ms"
     },
     {
@@ -54,6 +85,16 @@
     {
       "name": "motor_temp_steerA",
       "path": "CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "joystick_cmd_x",
+      "path": "System/Steer/Throttle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "joystick_cmd_y",
+      "path": "System/Travel/Throttle",
       "metric": "Metric250ms"
     },
     {

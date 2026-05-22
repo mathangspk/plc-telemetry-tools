@@ -1,0 +1,110 @@
+{
+  "name": "MP-06_Performance_Burst_Efficiency",
+  "title": "MP-06 Performance Burst - Efficiency & Power Map (Bản Đồ Công Suất & Hiệu Suất Tăng Tốc)",
+  "description": "Ultra-high-speed (10ms) voltage, current, and torque data collection across all travel drives and battery output during peak acceleration bursts to compile a power map. / Ghi dữ liệu tốc độ cực nhanh (10ms) dòng điện, điện áp, mô-men xoắn của cả 4 động cơ di chuyển (M1-M4), tốc độ động cơ (Velocity) và BMS để xây dựng bản đồ công suất xe.",
+  "target_tests": [
+    "PERF-003",
+    "PERF-004",
+    "PERF-007",
+    "PERF-008",
+    "LOAD-004",
+    "LOAD-008"
+  ],
+  "signals": [
+    {
+      "name": "batt_voltage_travelA",
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelA",
+      "path": "CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "batt_voltage_travelB",
+      "path": "CANBusDrive/cTransB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelB",
+      "path": "CANBusDrive/cTransB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "batt_voltage_travelC",
+      "path": "CANBusDrive/cTransC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelC",
+      "path": "CANBusDrive/cTransC/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "batt_voltage_travelD",
+      "path": "CANBusDrive/cTransD",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "current_travelD",
+      "path": "CANBusDrive/cTransD/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "torque_travelA",
+      "path": "CANBusDrive/cTransA/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "torque_travelB",
+      "path": "CANBusDrive/cTransB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "torque_travelC",
+      "path": "CANBusDrive/cTransC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "torque_travelD",
+      "path": "CANBusDrive/cTransD",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M1",
+      "path": "System/CANBusDrive/cTransA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M2",
+      "path": "System/CANBusDrive/cTransB/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M3",
+      "path": "System/CANBusDrive/cTransC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_rpm_M4",
+      "path": "System/CANBusDrive/cTransD/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "operating_mode",
+      "path": "System/OperatingMode",
+      "metric": "Metric250ms"
+    }
+  ]
+}

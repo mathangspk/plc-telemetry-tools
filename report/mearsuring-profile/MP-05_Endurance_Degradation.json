@@ -1,0 +1,62 @@
+{
+  "name": "MP-05_Endurance_Degradation",
+  "title": "MP-05 Endurance - Long-Run Degradation Tracking (Theo Dõi Hao Mòn & Độ Bền Dài Hạn)",
+  "description": "Tracking of long-term vehicle wear and tear, including battery SOH, filter differential pressures, cycle logs, fault counts, and total operating runtime hours. / Theo dõi chu kỳ cực chậm (1h-1d) các thông số hao mòn dài hạn gồm sức khỏe pin (SOH), chênh lệch áp suất lọc dầu thủy lực, số lần xuất hiện lỗi PLC và tổng số giờ hoạt động của xe.",
+  "target_tests": [
+    "END-001",
+    "END-002",
+    "END-003",
+    "END-004",
+    "END-005",
+    "END-006",
+    "END-007",
+    "END-008",
+    "END-009",
+    "END-010",
+    "END-011",
+    "END-012",
+    "SAFE-004"
+  ],
+  "signals": [
+    {
+      "name": "bat_soh_pct",
+      "path": "System/CANBusSystem/cBMSA/SOH",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "bat_cycle_count",
+      "path": "System/BMSAB",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "bat_capacity_ah",
+      "path": "System/BMSAB",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "bat_r_internal_mohm",
+      "path": "System/BMSAB",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "fault_code_count_total",
+      "path": "System/PLC",
+      "metric": "Metric1h"
+    },
+    {
+      "name": "fault_code_log",
+      "path": "System/PLC",
+      "metric": "Metric1h"
+    },
+    {
+      "name": "hydraulic_filter_dp_bar",
+      "path": "CANBusDrive/cSpreader/HydraulicFilter",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "runtime_hours_total",
+      "path": "System/Cycle/AllHours",
+      "metric": "Metric1h"
+    }
+  ]
+}

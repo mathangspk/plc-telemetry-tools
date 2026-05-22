@@ -1,8 +1,8 @@
 # Telemetry Focused Report: MP-02
 
-- **Tested At:** 2026-05-22 15:40:48
+- **Tested At:** 2026-05-22 15:57:31
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric250ms
+- **Metric Containers:** Metric1s, Metric250ms
 
 ## Summary Statistics
 

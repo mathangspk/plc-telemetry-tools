@@ -1,0 +1,80 @@
+{
+  "name": "MP-03_Battery_Medium_Consumption",
+  "title": "MP-03 Battery Medium - Consumption & Regen (Giám Sát Năng Lượng & Sức Khỏe Pin BMS)",
+  "description": "Medium-frequency monitoring of battery management system (BMS) voltage, current, state of charge (SOC), health (SOH), energy charged/discharged, and temperatures. / Giám sát chu kỳ trung bình (1s-5s) điện áp, dòng điện, trạng thái sạc (SOC), sức khỏe pin (SOH), nhiệt độ cell cực đại/cực tiểu, điện trở trong và năng lượng sạc/xả tích lũy.",
+  "target_tests": [
+    "LOAD-008",
+    "LOAD-010",
+    "PERF-004",
+    "PERF-008",
+    "END-012",
+    "SAFE-004"
+  ],
+  "signals": [
+    {
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bms_soc",
+      "path": "System/BMSAB/SOC",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_soh_pct",
+      "path": "System/CANBusSystem/cBMSA/SOH",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "bat_energy_discharged_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlDschrgEnergy",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_energy_regen_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlChrgEnergy",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_temp_max",
+      "path": "System/CANBusSystem/cBMSA/MaxTemp",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_temp_min",
+      "path": "System/CANBusSystem/cBMSA/MinTemp",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_cell_vmin",
+      "path": "System/BMSAB",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_cell_vmax",
+      "path": "System/BMSAB",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_fault_code",
+      "path": "System/CANBusSystem/cBMSA/FaultCode",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_cycle_count",
+      "path": "System/BMSAB",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "bat_charge_power_kw",
+      "path": "System/BMSAB",
+      "metric": "Metric1m"
+    }
+  ]
+}

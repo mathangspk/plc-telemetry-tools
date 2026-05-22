@@ -1,17 +1,17 @@
-# Telemetry Focused Report: MP-05
+# Telemetry Focused Report: MP-04_Thermal_Slow_Health
 
-- **Tested At:** 2026-05-22 16:00:48
+- **Tested At:** 2026-05-22 16:21:32
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric1d, Metric1h
+- **Metric Containers:** Metric5s
 
 ## Summary Statistics
 
 | Status | Count | Percentage |
 | --- | ---: | ---: |
 | **Active (PASS_ACTIVE)** | 0 | 0.0% |
-| **Silent (SILENT)** | 7 | 100.0% |
+| **Silent (SILENT)** | 15 | 100.0% |
 | **Failed (FAIL)** | 0 | 0.0% |
-| **Total Expected** | 7 | 100.0% |
+| **Total Expected** | 15 | 100.0% |
 
 ## 🟢 Verified Active Signals (PASS_ACTIVE)
 
