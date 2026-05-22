@@ -1,7 +1,7 @@
 {
   "name": "MP-06_Performance_Burst_Efficiency",
-  "title": "MP-06 Performance Burst - Efficiency & Power Map (Bản Đồ Công Suất & Hiệu Suất Tăng Tốc)",
-  "description": "Ultra-high-speed (10ms) voltage, current, and torque data collection across all travel drives and battery output during peak acceleration bursts to compile a power map. / Ghi dữ liệu tốc độ cực nhanh (10ms) dòng điện, điện áp, mô-men xoắn của cả 4 động cơ di chuyển (M1-M4), tốc độ động cơ (Velocity) và BMS để xây dựng bản đồ công suất xe.",
+  "title": "MP-06 Performance Burst - Efficiency & Power Map",
+  "description": "Ultra-high-speed (10ms) voltage, current, and torque data collection across all travel drives and battery output during peak acceleration bursts to compile a power map.",
   "target_tests": [
     "PERF-003",
     "PERF-004",

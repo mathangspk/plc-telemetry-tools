@@ -1,7 +1,7 @@
 {
   "name": "MP-02_Drive_Fast_Travel_Steer",
-  "title": "MP-02 Drive Fast - Travel & Steer Performance (Hiệu Năng Di Chuyển & Bẻ Lái Tốc Độ Cao)",
-  "description": "High-speed tracking of travel motor currents, steering positions, steering throttle command inputs, and BMS battery limits during dynamic driving maneuvers. / Theo dõi tốc độ cao dòng điện động cơ di chuyển, vị trí góc lái thực tế, lệnh điều khiển joystick (X, Y) và giới hạn dòng sạc/xả BMS khi di chuyển bẻ lái tăng tốc.",
+  "title": "MP-02 Drive Fast - Travel & Steer Performance",
+  "description": "High-speed tracking of travel motor currents, steering positions, steering throttle command inputs, and BMS battery limits during dynamic driving maneuvers.",
   "target_tests": [
     "LOAD-004",
     "LOAD-005",

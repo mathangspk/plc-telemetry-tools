@@ -1,7 +1,7 @@
 {
   "name": "MP-04_Thermal_Slow_Health",
-  "title": "MP-04 Thermal Slow - Motor & Drivetrain Health (Giám Sát Nhiệt Độ Hệ Truyền Động)",
-  "description": "Slow-frequency temperature tracking for travel motors, hoist winches, controllers, and hydraulics to monitor thermal health over long operation periods. / Theo dõi nhiệt độ chu kỳ chậm (5s) của các động cơ di chuyển, động cơ tời, nhiệt độ dầu thủy lực, áp lực bơm và nhiệt độ thiết bị PLC để đánh giá độ bền nhiệt hệ truyền động.",
+  "title": "MP-04 Thermal Slow - Motor & Drivetrain Health",
+  "description": "Slow-frequency temperature tracking for travel motors, hoist winches, controllers, and hydraulics to monitor thermal health over long operation periods.",
   "target_tests": [
     "LOAD-002",
     "LOAD-004",

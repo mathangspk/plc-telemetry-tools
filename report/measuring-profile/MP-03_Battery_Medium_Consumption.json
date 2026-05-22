@@ -1,7 +1,7 @@
 {
   "name": "MP-03_Battery_Medium_Consumption",
-  "title": "MP-03 Battery Medium - Consumption & Regen (Giám Sát Năng Lượng & Sức Khỏe Pin BMS)",
-  "description": "Medium-frequency monitoring of battery management system (BMS) voltage, current, state of charge (SOC), health (SOH), energy charged/discharged, and temperatures. / Giám sát chu kỳ trung bình (1s-5s) điện áp, dòng điện, trạng thái sạc (SOC), sức khỏe pin (SOH), nhiệt độ cell cực đại/cực tiểu, điện trở trong và năng lượng sạc/xả tích lũy.",
+  "title": "MP-03 Battery Medium - Consumption & Regen",
+  "description": "Medium-frequency monitoring of battery management system (BMS) voltage, current, state of charge (SOC), health (SOH), energy charged/discharged, and temperatures.",
   "target_tests": [
     "LOAD-008",
     "LOAD-010",

@@ -1,7 +1,7 @@
 {
   "name": "MP-05_Endurance_Degradation",
-  "title": "MP-05 Endurance - Long-Run Degradation Tracking (Theo Dõi Hao Mòn & Độ Bền Dài Hạn)",
-  "description": "Tracking of long-term vehicle wear and tear, including battery SOH, filter differential pressures, cycle logs, fault counts, and total operating runtime hours. / Theo dõi chu kỳ cực chậm (1h-1d) các thông số hao mòn dài hạn gồm sức khỏe pin (SOH), chênh lệch áp suất lọc dầu thủy lực, số lần xuất hiện lỗi PLC và tổng số giờ hoạt động của xe.",
+  "title": "MP-05 Endurance - Long-Run Degradation Tracking",
+  "description": "Tracking of long-term vehicle wear and tear, including battery SOH, filter differential pressures, cycle logs, fault counts, and total operating runtime hours.",
   "target_tests": [
     "END-001",
     "END-002",

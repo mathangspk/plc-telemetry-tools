@@ -1,7 +1,7 @@
 {
   "name": "MP-01_Hoist_Fast_Safety_Sync",
-  "title": "MP-01 Hoist Fast - Safety & Sync Critical (Giám Sát Đồng Bộ Tời Tốc Độ Cao & An Toàn)",
-  "description": "High-speed monitoring of hoist winch positions, currents, temperatures, and synchronization to detect mechanical errors during heavy lift tests. / Giám sát tần suất cao (250ms) vị trí tời nâng, dòng điện, nhiệt độ và sai lệch đồng bộ cơ khí (AB, CD) để phát hiện lỗi cơ cấu nâng hạ và đảm bảo an toàn thử tải.",
+  "title": "MP-01 Hoist Fast - Safety & Sync Critical",
+  "description": "High-speed monitoring of hoist winch positions, currents, temperatures, and synchronization to detect mechanical errors during heavy lift tests.",
   "target_tests": [
     "LOAD-002",
     "LOAD-003",

@@ -1,6 +1,6 @@
 # Telemetry Focused Report: MP-03_Battery_Medium_Consumption
 
-- **Tested At:** 2026-05-22 16:20:46
+- **Tested At:** 2026-05-22 16:39:41
 - **PLC Host:** 10.2.3.4
 - **Metric Containers:** Metric1d, Metric1m, Metric1s
 
