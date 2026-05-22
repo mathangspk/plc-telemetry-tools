@@ -1,0 +1,16 @@
+Signal Path,Time Sample (ms)
+gSystem.lTravel.lInput.lValue,20
+gSystem.lCANOpenMasterDrive.lTransA.lProposedThrottle,20
+gSystem.lCANOpenMasterDrive.lTransB.lProposedThrottle,20
+gSystem.lCANOpenMasterDrive.lTransC.lProposedThrottle,20
+gSystem.lCANOpenMasterDrive.lTransD.lProposedThrottle,20
+gSystem.lCANOpenMasterDrive.lSpreader.lBrakeDisengaged.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lBrakeDisengageCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lTransA.lEnable.lValue,20
+gSystem.lCANOpenMasterDrive.lTransB.lEnable.lValue,20
+gSystem.lCANOpenMasterDrive.lTransC.lEnable.lValue,20
+gSystem.lCANOpenMasterDrive.lTransD.lEnable.lValue,20
+gSystem.lCANOpenMasterDrive.lTransA.lFreeWheel,20
+gSystem.lCANOpenMasterDrive.lTransB.lFreeWheel,20
+gSystem.lCANOpenMasterDrive.lTransC.lFreeWheel,20
+gSystem.lCANOpenMasterDrive.lTransD.lFreeWheel,20

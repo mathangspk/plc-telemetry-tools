@@ -1,0 +1,343 @@
+{
+  "success": [
+    {
+      "path": "CANBusDrive/cTransA/Current",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/Current\""
+    },
+    {
+      "path": "CANBusDrive/cTransA/MotorTemp",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/MotorTem"
+    },
+    {
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/BattVolt"
+    },
+    {
+      "path": "CANBusDrive/cTransA/BattCurrent",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/BattCurr"
+    },
+    {
+      "path": "CANBusDrive/cTransA/CntrlTemp",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/CntrlTem"
+    },
+    {
+      "path": "CANBusDrive/cTransA/Velocity",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/Velocity"
+    },
+    {
+      "path": "CANBusDrive/cTransA/Torque",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/Torque\","
+    },
+    {
+      "path": "CANBusDrive/cTransA/TargetSpeed",
+      "category": "TransA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cTransA/TargetSp"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/Current",
+      "category": "SteerA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerA/Current\""
+    },
+    {
+      "path": "CANBusDrive/cSteerA/MotorTemp",
+      "category": "SteerA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerA/MotorTem"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/Velocity",
+      "category": "SteerA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerA/Velocity"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/TargetSpeed",
+      "category": "SteerA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerA/TargetSp"
+    },
+    {
+      "path": "CANBusDrive/cSteerAngleA/Angle",
+      "category": "SteerA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerAngleA/Ang"
+    },
+    {
+      "path": "CANBusDrive/cWinchA/Current",
+      "category": "WinchA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cWinchA/Current\""
+    },
+    {
+      "path": "CANBusDrive/cWinchA/MotorTemp",
+      "category": "WinchA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cWinchA/MotorTem"
+    },
+    {
+      "path": "CANBusDrive/cWinchA/Velocity",
+      "category": "WinchA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cWinchA/Velocity"
+    },
+    {
+      "path": "CANBusDrive/cWinchA/TargetSpeed",
+      "category": "WinchA",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cWinchA/TargetSp"
+    },
+    {
+      "path": "System/SystemState",
+      "category": "System",
+      "value": "{\"identity\": \"PrimaryPLC.System.SystemState\", \"type\": \"Syste"
+    },
+    {
+      "path": "Lift/Input",
+      "category": "Lift",
+      "value": "{\"identity\": \"PrimaryPLC.System.Lift/Input\", \"type\": \"ValObj"
+    },
+    {
+      "path": "Travel/Input",
+      "category": "Travel",
+      "value": "{\"identity\": \"PrimaryPLC.System.Travel/Input\", \"type\": \"ValO"
+    },
+    {
+      "path": "CANBusDrive/cWinchA/BattVoltage",
+      "category": "Risky-Abbrev",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cWinchA/BattVolt"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/BattVoltage",
+      "category": "Risky-Abbrev",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerA/BattVolt"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/BattCurrent",
+      "category": "Risky-Abbrev",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSteerA/BattCurr"
+    },
+    {
+      "path": "TMS/ReqState",
+      "category": "TMS-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.TMS/ReqState\", \"type\": \"ValO",
+      "label": "was RequestedState"
+    },
+    {
+      "path": "TMS/CurrState",
+      "category": "TMS-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.TMS/CurrState\", \"type\": \"Val",
+      "label": "was CurrentState"
+    },
+    {
+      "path": "TMS/ClntReservoir",
+      "category": "TMS-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.TMS/ClntReservoir\", \"type\": ",
+      "label": "was CoolantReservoir"
+    },
+    {
+      "path": "TMS/ClntTemp",
+      "category": "TMS-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.TMS/ClntTemp\", \"type\": \"ValO",
+      "label": "was CurrentCoolantTemperature"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/TelscpActive",
+      "category": "Spreader-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSpreader/Telscp",
+      "label": "was TelescopingActive"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/TwstEnbl",
+      "category": "Spreader-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSpreader/TwstEn",
+      "label": "was TwistlocksEnabled"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/HydPressure",
+      "category": "Spreader-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSpreader/HydPre",
+      "label": "was HydraulicPressure"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/HydTemp",
+      "category": "Spreader-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSpreader/HydTem",
+      "label": "was HydraulicTemperature"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/BrakeDisengage",
+      "category": "Spreader-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.CANBusDrive/cSpreader/BrakeD",
+      "label": "was BrakeDisengaged"
+    },
+    {
+      "path": "System/BMSAB/SOC",
+      "category": "BMS-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.BMSAB/SOC\", \"type\": \"ValRefP",
+      "label": "was System/BMS/SOC"
+    },
+    {
+      "path": "System/BMSAB/Current",
+      "category": "BMS-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.BMSAB/Current\", \"type\": \"Val",
+      "label": "was System/BMS/Current"
+    },
+    {
+      "path": "System/Steer/Input",
+      "category": "Steer-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.Steer/Input\", \"type\": \"ValOb",
+      "label": "was System/Steering/Input"
+    },
+    {
+      "path": "Travel/Throttle",
+      "category": "Travel-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.Travel/Throttle\", \"type\": \"T",
+      "label": "was ThrottleValue"
+    },
+    {
+      "path": "Travel/mMovement",
+      "category": "Travel-corrected",
+      "value": "{\"identity\": \"PrimaryPLC.System.Travel/mMovement\", \"type\": \"",
+      "label": "was MovementD"
+    }
+  ],
+  "failure": [
+    {
+      "path": "CANBusDrive/cTransA/ProposedThrottle",
+      "category": "TransA",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/Diagnostic",
+      "category": "SteerA",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cSteerA/Stalled",
+      "category": "SteerA",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cWinchA/ProposedThrottle",
+      "category": "WinchA",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/TelescopingActive",
+      "category": "Spreader",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/TwistlocksEnabled",
+      "category": "Spreader",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cSpreader/HydraulicPressure",
+      "category": "Spreader",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/ChargingEnabled",
+      "category": "System",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "Lift/Diagnostic",
+      "category": "Lift",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "Travel/Diagnostic",
+      "category": "Travel",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "Travel/ThrottleValue",
+      "category": "Travel",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "TMS/RequestedState",
+      "category": "TMS",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "TMS/CurrentState",
+      "category": "TMS",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "TMS/CurrentCoolantTemperature",
+      "category": "TMS",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "CANBusDrive/cWinchA/BattCurrent",
+      "category": "Risky-Abbrev",
+      "response": "all_ports_failed"
+    },
+    {
+      "path": "Travel/MovementD/LDiagnostic",
+      "category": "Risky-Typo",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "Travel/MovementD/Diagnostic",
+      "category": "Risky-Typo",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "Travel/MovementD/lDiagnostic",
+      "category": "Risky-Typo",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/BMS/SOC",
+      "category": "RootUnknown",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/BMS/Current",
+      "category": "RootUnknown",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/Steering/Input",
+      "category": "RootUnknown",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/Charger/ChargerDiagnostic",
+      "category": "RootUnknown",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/SecondaryPowerSupply/CurrentState",
+      "category": "RootUnknown",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/ProgrammedMovementControl/Movement/Code",
+      "category": "RootUnknown",
+      "response": "unknown_name\n$>\u0000"
+    },
+    {
+      "path": "System/ChargerABC/ChargerDiagnostic",
+      "category": "Charger-corrected",
+      "response": "unknown_name\n$>\u0000",
+      "label": "was System/Charger/ChargerDiagnostic"
+    },
+    {
+      "path": "System/Secondary/CurrentState",
+      "category": "Secondary-corrected",
+      "response": "unknown_name\n$>\u0000",
+      "label": "was System/SecondaryPowerSupply/CurrentState"
+    },
+    {
+      "path": "System/ProgMovCntrl/Movement/Code",
+      "category": "PMC-corrected",
+      "response": "unknown_name\n$>\u0000",
+      "label": "was System/ProgrammedMovementControl/Movement/Code"
+    }
+  ]
+}

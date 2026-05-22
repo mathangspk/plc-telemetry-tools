@@ -1,0 +1,15 @@
+{
+  "name": "TraceLiftPrimaryInterlock",
+  "signals": [
+    {
+      "name": "lift_input",
+      "path": "System/Lift/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "lift_throttle",
+      "path": "System/Lift/Throttle",
+      "metric": "Metric250ms"
+    }
+  ]
+}

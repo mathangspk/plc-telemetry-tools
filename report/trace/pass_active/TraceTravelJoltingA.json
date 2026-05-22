@@ -1,0 +1,35 @@
+{
+  "name": "TraceTravelJoltingA",
+  "signals": [
+    {
+      "name": "travel_input",
+      "path": "System/Travel/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_brakeDisengage",
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_velocity",
+      "path": "System/CANBusDrive/cTransA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_current",
+      "path": "System/CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_forward",
+      "path": "System/CANBusDrive/cTransA/Forward",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_reverse",
+      "path": "System/CANBusDrive/cTransA/Reverse",
+      "metric": "Metric250ms"
+    }
+  ]
+}

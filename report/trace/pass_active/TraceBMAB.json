@@ -1,0 +1,45 @@
+{
+  "name": "TraceBMAB",
+  "signals": [
+    {
+      "name": "systemState_state",
+      "path": "System/SystemState/State",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_restartCount",
+      "path": "System/BMSAB/RestartCount",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_availability",
+      "path": "System/BMSAB/Availability",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_sOC",
+      "path": "System/BMSAB/SOC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_sOCMismatch",
+      "path": "System/BMSAB/SOCMismatch",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltageMismatch",
+      "path": "System/BMSAB/VoltageMismatch",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentMismatch",
+      "path": "System/BMSAB/CurrentMismatch",
+      "metric": "Metric250ms"
+    }
+  ]
+}

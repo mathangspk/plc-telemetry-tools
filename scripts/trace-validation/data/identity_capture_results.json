@@ -1,0 +1,86 @@
+[
+  {
+    "runtime_path": "CANBusDrive/cWinchA/Current",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Current",
+    "sample_value": "0.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchB/Current",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchB/Current",
+    "sample_value": "0.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchB/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchB\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchC/Current",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchC/Current",
+    "sample_value": "0.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchC/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchC\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchD/Current",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchD/Current",
+    "sample_value": "0.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchD/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchD\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchA/BattVoltage",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/BattVoltage",
+    "sample_value": "129.48",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/BattVoltage\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":129.48, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchA/Torque",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Torque",
+    "sample_value": "0.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/Torque\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchA/MotorTemp",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp",
+    "sample_value": "45.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":45.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchB/MotorTemp",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchB/MotorTemp",
+    "sample_value": "169.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchB/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchB\", \"override\":0, \"value\":169.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchC/MotorTemp",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchC/MotorTemp",
+    "sample_value": "45.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchC/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchC\", \"override\":0, \"value\":45.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "CANBusDrive/cWinchD/MotorTemp",
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchD/MotorTemp",
+    "sample_value": "42.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchD/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchD\", \"override\":0, \"value\":42.0, \"override_value\":0.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "System/BMSAB/Current",
+    "identity": "PrimaryPLC.System.BMSAB/Current",
+    "sample_value": "1.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.BMSAB/Current\", \"type\":\"ValRefReal\", \"subsystem\":\"Machine\", \"value\":1.0}\n$>\u0000"
+  },
+  {
+    "runtime_path": "System/BMSAB/Voltage",
+    "identity": "PrimaryPLC.System.BMSAB/Voltage",
+    "sample_value": "1.0",
+    "outcome": "OK",
+    "raw_response": "{\"identity\":\"PrimaryPLC.System.BMSAB/Voltage\", \"type\":\"ValRefReal\", \"subsystem\":\"Machine\", \"value\":1.0}\n$>\u0000"
+  }
+]

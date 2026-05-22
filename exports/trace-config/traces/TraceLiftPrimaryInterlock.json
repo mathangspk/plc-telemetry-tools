@@ -1,0 +1,95 @@
+{
+  "name": "TraceLiftPrimaryInterlock",
+  "signals": [
+    {
+      "name": "lift_input",
+      "path": "System/Lift/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "lift_throttle",
+      "path": "System/Lift/Throttle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "metric": "Metric250ms"
+    }
+  ]
+}

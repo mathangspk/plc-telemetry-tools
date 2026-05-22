@@ -1,0 +1,235 @@
+{
+  "name": "TraceSteerB",
+  "signals": [
+    {
+      "name": "steer_inputProcessed",
+      "path": "System/Steer/InputProcessed",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_inputPresentAny",
+      "path": "System/Steer/InputPresentAny",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngleIncrement",
+      "path": "System/Steer/TargetAngleIncrement",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_targetAngle",
+      "path": "System/Steer/WheelB/TargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_previousTargetAngle",
+      "path": "System/Steer/WheelB/PreviousTargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_targetPredictionOffset",
+      "path": "System/Steer/WheelB/TargetPredictionOffset",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_predictedTargetAngle",
+      "path": "System/Steer/WheelB/PredictedTargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_targetAngleAdjustment",
+      "path": "System/Steer/WheelB/TargetAngleAdjustment",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_targetAngleAdjusted",
+      "path": "System/Steer/WheelB/TargetAngleAdjusted",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_delta",
+      "path": "System/Steer/WheelB/Delta",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_filteredDelta",
+      "path": "System/Steer/WheelB/FilteredDelta",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_deltaConverging",
+      "path": "System/Steer/WheelB/DeltaConverging",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttleValue",
+      "path": "System/Steer/WheelB/ThrottleValue",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_inflexions",
+      "path": "System/Steer/WheelB/RequestedCurve/Inflexions",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_adjustState",
+      "path": "System/Steer/AdjustState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_overshoot",
+      "path": "System/Steer/WheelB/Overshoot",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_overshootTimer_expired",
+      "path": "System/Steer/WheelB/OvershootTimer/Expired",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_currentVelocity",
+      "path": "System/Steer/WheelB/CurrentVelocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_targetVelocity",
+      "path": "System/CANBusDrive/cSteerB/TargetVelocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_state",
+      "path": "System/Steer/WheelB/State",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_diagnostic",
+      "path": "System/Steer/WheelB/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttle_stationary",
+      "path": "System/Steer/WheelB/Throttle/Stationary",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_steerModeDiagnostic",
+      "path": "System/Steer/SteerModeDiagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_modeChange",
+      "path": "System/Steer/WheelB/ModeChange",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_modeChangeDisableControl",
+      "path": "System/Steer/WheelB/ModeChangeDisableControl",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_mode_mode",
+      "path": "System/Steer/Mode/Mode",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_modeChange",
+      "path": "System/Steer/ModeChange",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_adjustState",
+      "path": "System/Steer/AdjustState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_delta",
+      "path": "System/Steer/WheelB/Delta",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_input",
+      "path": "System/Steer/WheelB/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_moving",
+      "path": "System/Steer/WheelB/Moving",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requested",
+      "path": "System/Steer/WheelB/Requested",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_inputAsPercentage",
+      "path": "System/Steer/WheelB/RequestedCurve/InputAsPercentage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve",
+      "path": "System/Steer/WheelB/RequestedCurve",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_previous",
+      "path": "System/Steer/WheelB/RequestedCurve/Previous",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_delta",
+      "path": "System/Steer/WheelB/RequestedCurve/Delta",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_deltaPrevious",
+      "path": "System/Steer/WheelB/RequestedCurve/DeltaPrevious",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_nonZero",
+      "path": "System/Steer/WheelB/RequestedCurve/NonZero",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_nonZeroPrevious",
+      "path": "System/Steer/WheelB/RequestedCurve/NonZeroPrevious",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_movementEventCount",
+      "path": "System/Steer/WheelB/MovementEventCount",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttle_stalled",
+      "path": "System/Steer/WheelB/Throttle/Stalled",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttle_currentVelocity",
+      "path": "System/Steer/WheelB/Throttle/CurrentVelocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttle",
+      "path": "System/Steer/WheelB/Throttle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttle_stationary",
+      "path": "System/Steer/WheelB/Throttle/Stationary",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_diagnostic",
+      "path": "System/CANBusDrive/cSteerB/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_diagnostic",
+      "path": "System/CANBusDrive/cSteerA/Diagnostic",
+      "metric": "Metric250ms"
+    }
+  ]
+}

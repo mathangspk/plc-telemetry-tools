@@ -1,0 +1,35 @@
+{
+  "name": "TraceTravelJoltingA",
+  "signals": [
+    {
+      "name": "transA_diagnostic",
+      "path": "System/CANBusDrive/cTransA/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_freeWheel",
+      "path": "System/CANBusDrive/cTransA/FreeWheel",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_initializeMotorHoldCounter",
+      "path": "System/CANBusDrive/cTransA/InitializeMotorHoldCounter",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_targetVelocity",
+      "path": "System/CANBusDrive/cTransA/TargetVelocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_enable",
+      "path": "System/CANBusDrive/cTransA/Enable",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_proposedThrottle",
+      "path": "System/CANBusDrive/cTransA/ProposedThrottle",
+      "metric": "Metric250ms"
+    }
+  ]
+}

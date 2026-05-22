@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="STW CODESYS V3.5 SP11 - ESX-3CS" creationDateTime="2026-05-19T11:30:55.3644721" />
+  <contentHeader name="build" version="0.101" modificationDateTime="2026-01-27T11:36:40" organization="Isoloader">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="Company" type="string">Isoloader</property>
+          <property name="Project" type="string">build-isoloader</property>
+          <property name="Title" type="string">build</property>
+          <property name="Version" type="version">0.101</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="t_persistent_id">
+        <baseType>
+          <enum>
+            <values>
+              <value name="cPersistentID_OperationalHours" value="0" />
+              <value name="cPersistentID_Hours" value="1" />
+              <value name="cPersistentID_WinchAUpper" value="2" />
+              <value name="cPersistentID_WinchBUpper" value="3" />
+              <value name="cPersistentID_WinchCUpper" value="4" />
+              <value name="cPersistentID_WinchDUpper" value="5" />
+              <value name="cPersistentID_Default" value="6" />
+              <value name="cPersistentID_SteerUpper" value="7" />
+              <value name="cPersistentID_PMID_Lift_Top" value="8" />
+              <value name="cPersistentID_PMID_Lift_Bottom" value="9" />
+              <value name="cPersistentID_PMID_Lift_StandardGround" value="10" />
+              <value name="cPersistentID_PMID_Lift_StandardOnGround" value="11" />
+              <value name="cPersistentID_PMID_Lift_StandardTruck" value="12" />
+              <value name="cPersistentID_PMID_Lift_StandardStack1" value="13" />
+              <value name="cPersistentID_PMID_Lift_StandardStack2" value="14" />
+              <value name="cPersistentID_PMID_Lift_HicubeGround" value="15" />
+              <value name="cPersistentID_PMID_Lift_HicubeOnGround" value="16" />
+              <value name="cPersistentID_PMID_Lift_HicubeTruck" value="17" />
+              <value name="cPersistentID_PMID_Lift_HicubeStack1" value="18" />
+              <value name="cPersistentID_PMID_Lift_HicubeStack2" value="19" />
+              <value name="cPersistentID_WheelBase" value="30" />
+              <value name="cPersistentID_WheelTrack" value="31" />
+              <value name="cPersistentID_WinchUIRangeLower" value="32" />
+              <value name="cPersistentID_WinchUIRangeUpper" value="33" />
+              <value name="cPersistentID_MachineName" value="100" />
+              <value name="cPersistentID_StartTime" value="105" />
+              <value name="cPersistentID_Timezone" value="110" />
+              <value name="cPersistentID_StartCount" value="113" />
+              <value name="cPersistentID_StartTimeMicroseconds" value="114" />
+              <value name="cPersistentID_SoftwareCrashCount" value="116" />
+              <value name="cPersistentID_ShutdownCode" value="117" />
+              <value name="cPersistentID_CrashSeverity" value="118" />
+              <value name="cPersistentID_DebugFlags" value="119" />
+              <value name="cPersistentID_FailSafeDebugFlags" value="120" />
+              <value name="cPersistentID_RecoveryDetectionStep" value="121" />
+              <value name="cPersistentID_TemporaryDisableWatchdog" value="122" />
+              <value name="cPersistentID_RecoveryDetectionStepActive" value="123" />
+              <value name="cPersistentID_EnableBMS" value="124" />
+              <value name="cPersistentID_VoltageMismatchThreshold" value="125" />
+              <value name="cPersistentID_BMSAvailabilityFactor" value="126" />
+              <value name="cPersistentID_SOCMismatchThreshold" value="127" />
+              <value name="cPersistentID_VoltageMismatchManagement" value="128" />
+              <value name="cPersistentID_CurrentMismatchThreshold" value="129" />
+              <value name="cPersistentID_Next" value="130" />
+              <value name="cPersistentID_UserRepositoryCount" value="200" />
+              <value name="cPersistentID_UserRepositoryLower" value="201" />
+              <value name="cPersistentID_UserRepositoryUpper" value="499" />
+              <value name="cPersistentID_CommandRepositoryLower" value="500" />
+              <value name="cPersistentID_CommandRepositoryUpper" value="6100" />
+              <value name="cPersistentID_Max_CR1204" value="4095" />
+              <value name="cPersistentID_Max_3CS" value="6142" />
+              <value name="cPersistentID_Max" value="6143" />
+            </values>
+          </enum>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/enumvaluedocumentation" handleUnknown="implementation">
+            <EnumValueDocumentation>
+              <EnumValue>
+                <Name>cPersistentID_Max_CR1204</Name>
+                <Documentation>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml"> cPersistentID_Store_1 := 500,
+ cPersistentID_Store_2 := 1200,
+ cPersistentID_Store_3 := 1900,
+ cPersistentID_Store_4 := 2600,
+ cPersistentID_Store_5 := 3300,
+ cPersistentID_Store_6 := 4000,
+ cPersistentID_Store_7 := 4700,
+ cPersistentID_Store_8 := 5400,</xhtml>
+                </Documentation>
+              </EnumValue>
+            </EnumValueDocumentation>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>81236323-88bc-4194-a387-40c058cdc31a</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+    </dataTypes>
+    <pous />
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/libraries" handleUnknown="implementation">
+      <Libraries>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9c8abad4-e614-4742-8aa8-7dad00f7759a</ObjectId>
+          </data>
+        </addData>
+      </Libraries>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="Library Manager" ObjectId="9c8abad4-e614-4742-8aa8-7dad00f7759a" />
+        <Folder Name="POUs">
+          <Folder Name="persistence">
+            <Object Name="t_persistent_id" ObjectId="81236323-88bc-4194-a387-40c058cdc31a" />
+          </Folder>
+        </Folder>
+        <Object Name="Project Information" ObjectId="11c0fc3a-9bcf-4dd8-ac38-efb93363e521" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

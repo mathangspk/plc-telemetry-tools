@@ -1,0 +1,15 @@
+{
+  "name": "TraceTravel",
+  "signals": [
+    {
+      "name": "travel_input",
+      "path": "System/Travel/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngle",
+      "path": "System/Steer/TargetAngle",
+      "metric": "Metric250ms"
+    }
+  ]
+}

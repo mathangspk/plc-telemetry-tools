@@ -1,0 +1,65 @@
+{
+  "name": "TraceTravelJolting",
+  "signals": [
+    {
+      "name": "travel_input",
+      "path": "System/Travel/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_brakeDisengage",
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngle",
+      "path": "System/Steer/TargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_velocity",
+      "path": "System/CANBusDrive/cTransA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_velocity",
+      "path": "System/CANBusDrive/cTransB/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_velocity",
+      "path": "System/CANBusDrive/cTransC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_velocity",
+      "path": "System/CANBusDrive/cTransD/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_forward",
+      "path": "System/CANBusDrive/cTransA/Forward",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_reverse",
+      "path": "System/CANBusDrive/cTransA/Reverse",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_targetSpeed",
+      "path": "System/CANBusDrive/cTransA/TargetSpeed",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_current",
+      "path": "System/CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_current",
+      "path": "System/CANBusDrive/cTransB/Current",
+      "metric": "Metric250ms"
+    }
+  ]
+}

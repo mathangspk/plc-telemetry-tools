@@ -1,0 +1,45 @@
+{
+  "name": "TraceLiftDrive",
+  "signals": [
+    {
+      "name": "winchA_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchA/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchB/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchC/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchD/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchA/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchB/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchC/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchD/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    }
+  ]
+}

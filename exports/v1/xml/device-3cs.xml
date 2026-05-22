@@ -1,0 +1,2906 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="STW CODESYS V3.5 SP11 - ESX-3CS" creationDateTime="2026-05-19T11:33:34.046707" />
+  <contentHeader name="device" version="0.1" modificationDateTime="2026-01-26T16:59:03" organization="Isoloader">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="Company" type="string">Isoloader</property>
+          <property name="Project" type="string">device-3cs</property>
+          <property name="Title" type="string">device</property>
+          <property name="Version" type="version">0.1</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="t_persistent_bool">
+        <baseType>
+          <derived name="PersistentBool" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>14f5dcea-045c-4d84-b56c-612a7df38be8</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_DWORD">
+        <baseType>
+          <derived name="PersistentDWORD" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>0fce9067-86a2-4731-b33c-f0a7cca6c3c9</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_int">
+        <baseType>
+          <derived name="PersistentINT" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>718317fe-bf67-4921-81ad-8ab78e6c1642</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_medium_string">
+        <baseType>
+          <derived name="PersistentMediumString" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>770934bb-a1a4-4e72-9494-639818be5f74</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_real">
+        <baseType>
+          <derived name="PersistentReal" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>5e4527b2-4763-48f1-a8f4-03b42846c855</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_short_string">
+        <baseType>
+          <derived name="PersistentShortString" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>432a7744-5d1c-4745-af77-987a97f51aee</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_store">
+        <baseType>
+          <derived name="PersistentStore" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a59602b9-97e2-43bc-940b-3f585d8d9d6f</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_uint">
+        <baseType>
+          <derived name="PersistentUINT" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>2015a29f-a44d-41cb-bbc2-43b81be9b1c5</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_persistent_ULINT">
+        <baseType>
+          <derived name="PersistentULINT" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ca544029-1e4b-4587-972b-5348e1833f61</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_store_buffer">
+        <baseType>
+          <array>
+            <dimension lower="0" upper="cStoreBufferSize" />
+            <baseType>
+              <BYTE />
+            </baseType>
+          </array>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>14867049-4421-436b-a161-3dfd8c26dd28</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_store_type">
+        <baseType>
+          <struct>
+            <variable name="buffer">
+              <type>
+                <derived name="t_store_buffer" />
+              </type>
+            </variable>
+            <variable name="enabled">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </struct>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a29e0b43-b370-48e7-ac9b-58cda2d6272b</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+    </dataTypes>
+    <pous>
+      <pou name="HeartbeatHandler" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lHeartbeatTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>ReceiveCANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="f6d7485b-d341-4ff6-a2d4-a74712ddab1d">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lHeartbeatTimer.Period := T#300MS;
+lHeartbeatTimer.Enable := TRUE;
+lHeartbeatTimer.initialize();
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="035847b4-5864-4128-9b08-7ad92e859e0f">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+lHeartbeatTimer.operator();
+
+IF (Received) THEN
+	lHeartbeatTimer.reset();
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeMessage" ObjectId="1cab6ed1-dff7-4afe-92e9-2a16f22138fc">
+              <interface>
+                <inputVars>
+                  <variable name="handle">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                  <variable name="channel">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandler.ou32_Handle := handle;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Period" ObjectId="f4bae877-02d1-4227-ad7b-887ff0daf85b">
+              <interface>
+                <returnType>
+                  <derived name="t_time" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Period := lHeartbeatTimer.Period;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lHeartbeatTimer.Period := Period;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="HeartbeatFault" ObjectId="55c89c54-542c-4267-a368-9a6d65cb85af">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">HeartbeatFault := lHeartbeatTimer.Expired;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ef47edff-e07e-41e3-9d42-aaa3fe56c24e</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="ReceiveCANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lHandle">
+              <type>
+                <UDINT />
+              </type>
+            </variable>
+            <variable name="lHandler">
+              <type>
+                <derived name="FB_x_can_obj_get_msg" />
+              </type>
+            </variable>
+            <variable name="lMessage">
+              <type>
+                <derived name="T_x_can_msg" />
+              </type>
+            </variable>
+            <variable name="lReturnStatus">
+              <type>
+                <INT />
+              </type>
+            </variable>
+            <variable name="lReceived">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lReceivedCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lProceedOnFail">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnTimeout">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeReceive" ObjectId="a8f01e91-4414-4d23-aef2-29646a120836">
+              <interface>
+                <inputVars>
+                  <variable name="handle">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="ce3fa6a2-29ad-433f-bebd-79195047c3fe">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+lHandler(ou32_Handle := lHandle,ot_Msg =&gt; lMessage,os16_Status =&gt; lReturnStatus);
+
+IF (lReturnStatus=C_NO_ERR) THEN
+	lReceivedCount := lReceivedCount + 1;
+
+	lReceived := TRUE;
+	lSuccess := TRUE;
+	lFinished := TRUE;
+	lProceed := TRUE;
+	
+	finish();
+	RETURN;
+END_IF
+
+IF (lReturnStatus&lt;&gt;C_NOACT) THEN
+	lReceived := FALSE;
+	lSuccess := FALSE;
+	lFinished := TRUE;
+	lProceed := lProceedOnFail;
+	
+	finish();
+	RETURN;	
+END_IF
+
+lTimer.operator();
+IF (lTimer.Expired) THEN
+	lReceived := FALSE;
+	lSuccess := FALSE;
+	lFinished := TRUE;
+	lProceed := lProceedOnTimeout;
+	
+	finish();
+	RETURN;	
+END_IF
+
+lReceived := FALSE;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="895ddd2e-eb87-4e8d-9330-65a0521f9bb5">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lReceived := FALSE;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="8cdbd570-b7e0-48d8-af50-b5bf5289506b">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.start();
+
+lTImer.reset();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="bb2110f1-2f58-4e6c-8f51-e1781b4f2437">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lReceivedCount := 0;
+
+lTimer.Enable := TRUE;
+lTimer.Period := T#1S;
+lTimer.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Handle" ObjectId="b2baa1b3-5224-48bc-947a-3e83faf3dd9b">
+              <interface>
+                <returnType>
+                  <UDINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Handle := lHandle;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandle := Handle;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Period" ObjectId="debae468-b34e-441a-a8fc-0a5eb361e00e">
+              <interface>
+                <returnType>
+                  <derived name="t_time" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Period := lTImer.Period;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lTimer.Period := Period;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Received" ObjectId="38904fde-38b4-4c62-b6ce-4d18f508a687">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Received := lReceived;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>faf152a9-ccd7-4594-92ca-88e278a245e3</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SDOReadCANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lSDORead">
+              <type>
+                <derived name="CIA405.SDO_READ_DATA" />
+              </type>
+            </variable>
+            <variable name="lSDOReadData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDODReadDataLength">
+              <type>
+                <UDINT />
+              </type>
+            </variable>
+            <variable name="lSDOReadAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> lSDOLastSuccessfulReadData: DWORD;</xhtml>
+              </documentation>
+            </variable>
+            <variable name="lSDOReadSuccessCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnFail">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="cancelSDORead" ObjectId="4b6031bb-2705-4243-99af-8b2595b549c1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDORead.ENABLE := FALSE;
+lSDORead(DATALENGTH:=lSDODReadDataLength);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="e07ab735-8e27-44dd-93eb-e2de2f2d94d4">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lSDOReadAttemptCounter := 0;
+lSDOReadSuccessCounter := 0;
+
+lSDORead.CHANNEL := 0;
+lSDORead.ENABLE := FALSE;
+lSDORead.TIMEOUT := 500;
+lSDORead.MODE := CIA405.SDO_MODE.AUTO;
+lSDORead.DATA := ADR(lSDOReadData);</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="6aa994f5-fba8-4bc3-b0f1-8881ef55640a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (lSDORead.ENABLE) THEN
+	lSDORead(DATALENGTH:=lSDODReadDataLength);
+	IF ((lSDORead.CONFIRM) OR (lSDORead.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+		lSDORead.ENABLE := FALSE;
+		lSDOReadAttemptCounter := lSDOReadAttemptCounter + 1;
+		IF (lSDORead.CONFIRM) THEN
+			lSuccess := TRUE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			sdoReadHandler();
+			lSDOReadSuccessCounter := lSDOReadSuccessCounter + 1;
+			
+			finish();
+			RETURN;
+		END_IF
+		IF (lSDORead.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR) THEN
+			lSuccess := FALSE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			finish();
+			RETURN;
+		END_IF
+	END_IF	
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="404993f3-d8f6-4a67-9928-1299a7b07c7a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="sdoReadHandler" ObjectId="42e15ceb-5e54-4995-862d-d233eda0a206">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="5004f561-a399-4755-aab8-52c35bb0e427">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">cancelSDORead();
+lSDORead.ENABLE := TRUE;
+
+SUPER^.start();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>538f1d31-5c6c-40b3-bf3d-d312c4e7ce14</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SDOWriteCANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lSDOWrite">
+              <type>
+                <derived name="CIA405.SDO_WRITE_DATA" />
+              </type>
+            </variable>
+            <variable name="lSDOWriteData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDOWriteAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lSDOWriteSuccessCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnFail">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="cancelSDOWrite" ObjectId="db700fc4-d1a8-4ea8-a9f8-0bfa16027707">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDOWrite.ENABLE := FALSE;
+lSDOWrite();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="5d73b100-384a-4760-a5e2-7bb0c7f3e162">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lSDOWriteAttemptCounter := 0;
+lSDOWriteSuccessCounter := 0;
+
+lSDOWrite.CHANNEL := 0;
+lSDOWrite.ENABLE := FALSE;
+lSDOWrite.TIMEOUT := 500;
+lSDOWrite.MODE := CIA405.SDO_MODE.AUTO;
+lSDOWrite.DATA := ADR(lSDOWriteData);</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="e0c953bc-923d-4ca7-a571-ec844bd59804">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (lSDOWrite.ENABLE) THEN
+	lSDOWrite();
+	IF ((lSDOWrite.CONFIRM) OR (lSDOWrite.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+		lSDOWrite.ENABLE := FALSE;
+		lSDOWriteAttemptCounter := lSDOWriteAttemptCounter + 1;
+		IF (lSDOWrite.CONFIRM) THEN
+			lSuccess := TRUE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			lSDOWriteSuccessCounter := lSDOWriteSuccessCounter + 1;
+			
+			finish();
+			RETURN;
+		END_IF
+		IF (lSDOWrite.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR) THEN
+			lSuccess := FALSE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			finish();
+			RETURN;
+		END_IF
+	END_IF	
+END_IF
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="090149df-f71c-475c-9ccd-994d785925c1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="f9144dcf-0b85-46f3-a809-87d8aafba8f6">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">cancelSDOWrite();
+lSDOWrite.ENABLE := TRUE;
+
+SUPER^.start();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>72ccc614-3ce4-4e92-999e-aaeb31a2059d</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="TransmitCANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lHandle">
+              <type>
+                <UDINT />
+              </type>
+            </variable>
+            <variable name="lHandler">
+              <type>
+                <derived name="FB_x_can_obj_send_msg" />
+              </type>
+            </variable>
+            <variable name="lMessage">
+              <type>
+                <derived name="T_x_can_msg" />
+              </type>
+            </variable>
+            <variable name="lReturnStatus">
+              <type>
+                <INT />
+              </type>
+            </variable>
+            <variable name="lTransmitted">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTransmittedCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnFail">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="debaf895-90c7-4ed5-9bab-65c519af7c6a">
+              <interface>
+                <inputVars>
+                  <variable name="handle">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lTransmittedCount := 0;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="a2ffb7ba-e396-4b5b-8f24-7a503768b1b8">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+lHandler(lHandle,lMessage,lReturnStatus);
+
+IF (lReturnStatus=C_NO_ERR) THEN
+	lTransmittedCount := lTransmittedCount + 1;
+
+	lTransmitted := TRUE;
+	lSuccess := TRUE;
+	lFinished := TRUE;
+	lProceed := TRUE;
+	
+	finish();
+	RETURN;
+END_IF
+
+IF (lReturnStatus&lt;&gt;C_OVERFLOW) THEN
+	lTransmitted := FALSE;
+	lSuccess := FALSE;
+	lFinished := TRUE;
+	lProceed := lProceedOnFail;
+	
+	finish();
+	RETURN;	
+END_IF
+
+lTransmitted := FALSE;
+lSuccess := FALSE;
+lFinished := TRUE;
+lProceed := lProceedOnOverflow;
+
+finish();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="fd5eedd1-96dd-4f52-8221-e2a48f200f90">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lTransmitted := false;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="504eb4ba-b5e4-4dd5-9682-0db98eaa985d">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.start();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>dc043f81-44b9-4be7-947b-8583e1f88d87</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="TransmitMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lHandler">
+              <type>
+                <derived name="FB_x_can_obj_send_msg" />
+              </type>
+            </variable>
+            <variable name="lMessage">
+              <type>
+                <derived name="T_x_can_msg" />
+              </type>
+            </variable>
+            <variable name="lReturnStatus">
+              <type>
+                <INT />
+              </type>
+            </variable>
+            <variable name="lOverflowCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeMessage" ObjectId="243ec90b-9018-454a-a20c-a703471509c2">
+              <interface>
+                <inputVars>
+                  <variable name="handle">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                  <variable name="channel">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandler.ou32_Handle := handle;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="8b31a016-f56b-4c3e-b306-d0393968ff6b">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">reset();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="2a42980e-638b-4804-b84e-a58315d8f5dd">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandler(ot_Msg := lMessage,os16_Status =&gt; lReturnStatus);
+
+IF (lReturnStatus=C_OVERFLOW) THEN
+	lOverflowCount := lOverflowCount + 1;
+END_IF</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="007ba974-cf9f-49d6-ab8c-ce5aa6f1746b">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lOverflowCount := 0;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="transmit" ObjectId="18f48e9b-7dde-4140-9b08-59857c938175">
+              <interface>
+                <returnType>
+                  <INT />
+                </returnType>
+                <inputVars>
+                  <variable name="message">
+                    <type>
+                      <derived name="T_x_can_msg" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandler(ot_Msg := message,os16_Status =&gt; lReturnStatus);
+
+IF (lReturnStatus=C_OVERFLOW) THEN
+	lOverflowCount := lOverflowCount + 1;
+END_IF
+
+transmit := lReturnStatus;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>cf1243e8-47e8-4211-b0b9-2e26d6bf927c</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="TransmitNMT" pouType="functionBlock">
+        <interface>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>TransmitMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="4b4a00cd-54b9-4690-bdcc-21798dcc51d1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lMessage.t_Id.u32_Id := 16#0;
+lMessage.t_Id.u8_Xtd := X_OFF;
+lMessage.u8_Dlc := 2;
+lMessage.au8_Data[0] := 0;
+lMessage.au8_Data[1] := 0;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="preOperationalAllNodes" ObjectId="c154d64e-a8fc-4f2f-955e-d3394019d06a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 128;
+lMessage.au8_Data[1] := 0;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="preOperationalNode" ObjectId="904fdb1c-837a-4b4c-96c2-b5b75a461998">
+              <interface>
+                <inputVars>
+                  <variable name="node">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 128;
+lMessage.au8_Data[1] := node;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="resetAllNodes" ObjectId="f1fa037d-153a-480d-b589-bb02be9c869f">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 129;
+lMessage.au8_Data[1] := 0;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="resetNode" ObjectId="2897b758-a461-4f7e-93a9-a2e15aec4299">
+              <interface>
+                <inputVars>
+                  <variable name="node">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 129;
+lMessage.au8_Data[1] := node;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="startAllNodes" ObjectId="5581b5ed-5b0f-4b4b-89ed-b32d400af517">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 1;
+lMessage.au8_Data[1] := 0;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="startNode" ObjectId="d0869a24-5056-4fd8-ab77-a6fb7fe28a63">
+              <interface>
+                <inputVars>
+                  <variable name="node">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 1;
+lMessage.au8_Data[1] := node;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="stopAllNodes" ObjectId="910a4983-e626-4566-a97f-36dce249bfa4">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 2;
+lMessage.au8_Data[1] := 0;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="stopNode" ObjectId="a7d568cd-5573-40a9-9eac-1e82e4a22e87">
+              <interface>
+                <inputVars>
+                  <variable name="node">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 2;
+lMessage.au8_Data[1] := node;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>8998af4e-78b1-4be6-9716-cce641d849e5</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="TransmitSDO" pouType="functionBlock">
+        <interface>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>TransmitMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="3fa63cfc-2389-42f9-b25a-7847454c1586">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lMessage.t_Id.u32_Id := 16#0;
+lMessage.t_Id.u8_Xtd := X_OFF;
+lMessage.u8_Dlc := 2;
+lMessage.au8_Data[0] := 0;
+lMessage.au8_Data[1] := 0;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="stopAllNodes" ObjectId="68bff75f-bb62-4572-8e9e-669ac846e43f">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 2;
+lMessage.au8_Data[1] := 0;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="stopNode" ObjectId="c88c5935-1c65-4de5-80af-9df583fba964">
+              <interface>
+                <inputVars>
+                  <variable name="node">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lMessage.au8_Data[0] := 2;
+lMessage.au8_Data[1] := node;
+
+operator();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ac42be0d-23de-4a2d-97e7-3d62925c4619</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistenceManager" pouType="functionBlock">
+        <interface>
+          <localVars constant="true">
+            <variable name="cBlockSize">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="4" />
+              </initialValue>
+            </variable>
+            <variable name="cAllocatedBlockMax">
+              <type>
+                <UDINT />
+              </type>
+              <initialValue>
+                <simpleValue value="6101" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="lAllocated">
+              <type>
+                <UDINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lWriteCounter">
+              <type>
+                <UDINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="allocate" ObjectId="e126767d-048a-41c9-8237-00192880694f">
+              <interface>
+                <returnType>
+                  <UDINT />
+                </returnType>
+                <inputVars>
+                  <variable name="sz">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                  <variable name="id">
+                    <type>
+                      <derived name="t_persistent_id" />
+                    </type>
+                  </variable>
+                  <variable name="blocks">
+                    <type>
+                      <derived name="REFERENCE TO UINT" />
+                    </type>
+                  </variable>
+                </inputVars>
+                <localVars>
+                  <variable name="address">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">allocate := INT_TO_UINT(id) * cBlockSize;
+
+blocks := REAL_TO_UINT(UDINT_TO_REAL(sz)/USINT_TO_REAL(cBlockSize));
+IF ((blocks*cBlockSize)&lt;sz) THEN
+	blocks := blocks + 1;
+END_IF
+
+lAllocated := MAX(allocate + sz,lAllocated);
+
+IF (lAllocated&gt;(cAllocatedBlockMax*cBlockSize)) THEN
+	gCodeErrorHandler(pMessage:='over allocation in PersistenceManager');
+END_IF</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="clear" ObjectId="a9cdfcc0-dc3b-4668-97c2-1af139e53799">
+              <interface>
+                <localVars>
+                  <variable name="lData">
+                    <type>
+                      <array>
+                        <dimension lower="0" upper="cAllocatedBlockMax" />
+                        <baseType>
+                          <DWORD />
+                        </baseType>
+                      </array>
+                    </type>
+                  </variable>
+                  <variable name="lHandler">
+                    <type>
+                      <derived name="FB_x_eep_write" />
+                    </type>
+                  </variable>
+                  <variable name="i">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">FOR i:=0 TO cAllocatedBlockMax DO
+	lData[i] := 0;
+END_FOR
+
+lHandler.ou32_Address := 0;
+lHandler.ou32_Count := SIZEOF(lData);
+lHandler.opu8_Data := ADR(lData);
+
+lHandler();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="read" ObjectId="88d575f9-1688-433c-b172-974e9bc0d965">
+              <interface>
+                <returnType>
+                  <DWORD />
+                </returnType>
+                <inputVars>
+                  <variable name="index">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+                <localVars>
+                  <variable name="lHandler">
+                    <type>
+                      <derived name="FB_x_eep_read" />
+                    </type>
+                  </variable>
+                  <variable name="data">
+                    <type>
+                      <DWORD />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandler.ou32_Address := MIN(index,cAllocatedBlockMax)*cBlockSize;
+lHandler.ou32_Count := cBlockSize;
+lHandler.opu8_Data := ADR(data);
+
+lHandler();
+read := data;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="write" ObjectId="18d405cb-c19f-4986-82d5-b6ee55fa9d6c">
+              <interface>
+                <inputVars>
+                  <variable name="index">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                  <variable name="data">
+                    <type>
+                      <DWORD />
+                    </type>
+                  </variable>
+                </inputVars>
+                <localVars>
+                  <variable name="lHandler">
+                    <type>
+                      <derived name="FB_x_eep_write" />
+                    </type>
+                  </variable>
+                  <variable name="lFlush">
+                    <type>
+                      <derived name="FB_x_eep_flush" />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHandler.ou32_Address := MIN(index,cAllocatedBlockMax)*cBlockSize;
+lHandler.ou32_Count := cBlockSize;
+lHandler.opu8_Data := ADR(data);
+
+lHandler();
+lFlush();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="WriteCounter" ObjectId="06a471f3-a74b-4966-947e-c24e15eb7b00">
+              <interface>
+                <returnType>
+                  <UDINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lWriteCounter := WriteCounter + 1;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">WriteCounter := lWriteCounter;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="IndexMax" ObjectId="3c62e887-d8a5-4a47-88bd-471536b5677f">
+              <interface>
+                <returnType>
+                  <UDINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IndexMax := lAllocated/cBlockSize;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>d656c9d5-51b3-4c7f-9a5a-342fa62713e9</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentBool" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="bf5736e8-62d6-4cb7-ac33-27898847f911">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="945b0212-0393-4d83-9c96-151fbbe0269e">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (Value=lValue) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();
+
+
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>eaab247e-03c6-40b7-b096-b91546068b27</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentDWORD" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="08a63fbb-3200-4c99-a66d-f03691e0df18">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();
+
+IF (lValue=NOT(16#0)) THEN //foobar why?
+	lValue := 16#0;
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="69db31fb-bcb0-4308-8531-39d4c374840b">
+              <interface>
+                <returnType>
+                  <DWORD />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (Value=lValue) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>3c667499-ebbc-4fd1-b29b-3b3f73dc88d8</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentINT" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <INT />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="0ce8e65c-ea95-41f0-ad06-1f59d3c609fb">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="a24f472f-0530-4c7e-a9d8-dcf48951dc99">
+              <interface>
+                <returnType>
+                  <INT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (Value=lValue) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();
+
+
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>0b13e321-f16e-4f4d-9a5c-cbb5a0e611af</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentMediumString" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <derived name="t_medium_string" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="7dbb1fd5-0769-4329-be00-f61bde732202">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue[0]);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="a27defb0-ba11-4b26-8f62-209885194dd6">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (lValue[0]=255) THEN
+	Value := '';
+	RETURN;
+END_IF
+
+Value := lValue;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (strcmp(Value,lValue)) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>32cfcac6-ef9b-4301-b701-79630c3e2cb5</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentReal" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <REAL />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="00c59663-8d05-4141-b893-33f8b496c62b">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="7494a3b2-b9d0-4ce2-8014-626b1cab621a">
+              <interface>
+                <returnType>
+                  <REAL />
+                </returnType>
+                <documentation>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml"> {attribute 'monitoring' := 'call'}</xhtml>
+                </documentation>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (Value=lValue) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>99a3b0da-299f-487c-91bc-078200575dfc</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentShortString" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <derived name="t_short_string" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="2bcb96f6-e883-4c65-9d28-9f4f2ee9d23d">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue[0]);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="063e1219-6593-4454-beb4-1526fa24a294">
+              <interface>
+                <returnType>
+                  <derived name="t_short_string" />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (strcmp(Value,lValue)) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (lValue[0]=255) THEN
+	Value := '';
+	RETURN;
+END_IF
+
+Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>70c1891e-d442-466a-a390-6e762ef83846</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentStore" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <derived name="t_store_type" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="4918c839-8e38-4b11-9b39-511c66ea3fcc">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="clear" ObjectId="ac2072b8-bd8f-4fb6-b140-4d3f0f3930f0">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">MEMUtils.MemSet(ADR(lValue),0,UDINT_TO_DWORD(lCount));
+write();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="export" ObjectId="78b6917a-95b2-4dbc-8db0-2b4d81d266e1">
+              <interface>
+                <inputVars>
+                  <variable name="store">
+                    <type>
+                      <derived name="REFERENCE TO t_store_type" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(__ISVALIDREF(store))) THEN
+	RETURN;	
+END_IF
+
+MEMUtils.MemCpy(ADR(store),ADR(lValue),UDINT_TO_DWORD(lCount));
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="import" ObjectId="c2425168-c767-4e04-804d-6261c6df7bf9">
+              <interface>
+                <inputVars>
+                  <variable name="store">
+                    <type>
+                      <derived name="REFERENCE TO t_store_type" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(__ISVALIDREF(store))) THEN
+	RETURN;	
+END_IF
+
+IF (MEMUtils.MemCmp(ADR(lValue),ADR(store),UDINT_TO_DWORD(lCount))) THEN
+	RETURN;
+END_IF
+
+MEMUtils.MemCpy(ADR(lValue),ADR(store),UDINT_TO_DWORD(lCount));
+write();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>454e2b02-c79c-4cb2-9676-6c382d90c0f9</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentUINT" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <UINT />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="13da7425-2d70-45a8-b3b2-0ac072bbe8c5">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="44f2b66b-45f1-45dc-a188-ca20288dcfe5">
+              <interface>
+                <returnType>
+                  <UINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (Value=lValue) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();
+
+
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>e8868065-33a1-4500-b97a-ee69007912c7</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentULINT" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lValue">
+              <type>
+                <ULINT />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PersistentValue</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="51ad5190-0fcd-4444-b4b5-323de7098b29">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lData := ADR(lValue);
+lCount := SIZEOF(lValue);
+
+SUPER^.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Value" ObjectId="9a77656b-48da-410c-a64c-f16d206683ed">
+              <interface>
+                <returnType>
+                  <ULINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (Value=lValue) THEN
+	RETURN;
+END_IF
+
+lValue := Value;
+write();
+
+
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Value := lValue;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>85854c2d-251b-4ecf-9701-965c8fc30d55</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PersistentValue" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lReadHandler">
+              <type>
+                <derived name="FB_x_eep_read" />
+              </type>
+            </variable>
+            <variable name="lWriteHandler">
+              <type>
+                <derived name="FB_x_eep_write" />
+              </type>
+            </variable>
+            <variable name="lIdentifier">
+              <type>
+                <derived name="t_persistent_id" />
+              </type>
+              <initialValue>
+                <simpleValue value="t_persistent_id.cPersistentID_Default" />
+              </initialValue>
+            </variable>
+            <variable name="lAddress">
+              <type>
+                <UDINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lCount">
+              <type>
+                <UDINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lBlocks">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lData">
+              <type>
+                <pointer>
+                  <baseType>
+                    <USINT />
+                  </baseType>
+                </pointer>
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lWriteCounter">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="07c61659-7243-4906-a87d-22492d27ab63">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lAddress := gPersistenceManager.allocate(lCount,lIdentifier,lBlocks);
+
+lReadHandler.ou32_Address := lAddress;
+lReadHandler.ou32_Count := lCount;
+lReadHandler.opu8_Data := lData;
+
+lWriteHandler.ou32_Address := lAddress;
+lWriteHandler.ou32_Count := lCount;
+lWriteHandler.opu8_Data := lData;
+
+read();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="read" ObjectId="65ba7e53-129f-4c68-9aa0-e7b5e0cece1a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lReadHandler();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="write" ObjectId="ae85af3f-0eb2-457c-b17f-91260d27a4a2">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lWriteHandler();
+
+lWriteCounter := lWriteCounter + 1;
+gPersistenceManager.WriteCounter := gPersistenceManager.WriteCounter + 1;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Identifier" ObjectId="c7445f15-85a5-4bbc-b689-a45be69d295f">
+              <interface>
+                <returnType>
+                  <derived name="t_persistent_id" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Identifier := lIdentifier;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lIdentifier := Identifier;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Blocks" ObjectId="7ed1769a-584b-4a88-bcf8-5e6d264efb71">
+              <interface>
+                <returnType>
+                  <UINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Blocks := lBlocks;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>715730d9-a182-46dc-a2f0-3143a5ce01dd</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="fIsValidTCPHandle" pouType="function">
+        <interface>
+          <returnType>
+            <BOOL />
+          </returnType>
+          <inputVars>
+            <variable name="handle">
+              <type>
+                <derived name="RTS_IEC_HANDLE" />
+              </type>
+            </variable>
+          </inputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">fIsValidTCPHandle := (handle&lt;&gt;CmpErrors.SysTypes.RTS_INVALID_HANDLE);
+</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>42d930c0-ba06-44f3-82ee-7de9d9f7eb37</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+      <globalVars name="GlobalVariablesDevice" constant="true">
+        <variable name="cStoreBufferSize">
+          <type>
+            <UINT />
+          </type>
+          <initialValue>
+            <simpleValue value="2798" />
+          </initialValue>
+        </variable>
+        <variable name="gPersistenceManager">
+          <type>
+            <derived name="PersistenceManager" />
+          </type>
+        </variable>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1eef3bb9-44af-47d1-adf8-742d3372c79f</ObjectId>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/mixedattrsvarlist" handleUnknown="implementation">
+            <MixedAttrsVarList>
+              <globalVars name="GlobalVariablesDevice" constant="true">
+                <variable name="cStoreBufferSize">
+                  <type>
+                    <UINT />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="2798" />
+                  </initialValue>
+                </variable>
+              </globalVars>
+              <globalVars name="GlobalVariablesDevice">
+                <variable name="gPersistenceManager">
+                  <type>
+                    <derived name="PersistenceManager" />
+                  </type>
+                </variable>
+              </globalVars>
+            </MixedAttrsVarList>
+          </data>
+        </addData>
+      </globalVars>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/libraries" handleUnknown="implementation">
+      <Libraries>
+        <Library Name="Standard, * (System)" Namespace="Standard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="common, 0.1 (Isoloader)" Namespace="common" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="STW ESX-3CS BIOS, * (STW - Sensor-Technik Wiedemann GmbH)" Namespace="STW_ESX_3CS_BIOS" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="STW Errors, * (STW - Sensor-Technik Wiedemann GmbH)" Namespace="STW_ERRORS" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="SysTypes, * (System)" Namespace="SysTypes" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="CmpErrors, * (System)" Namespace="CmpErrors" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="MemoryUtils, 3.5.9.0 (3S - Smart Software Solutions GmbH)" Namespace="MEMUtils" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="build, * (Isoloader)" Namespace="build" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9c8abad4-e614-4742-8aa8-7dad00f7759a</ObjectId>
+          </data>
+        </addData>
+      </Libraries>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Folder Name="Global Variables">
+          <Object Name="GlobalVariablesDevice" ObjectId="1eef3bb9-44af-47d1-adf8-742d3372c79f" />
+        </Folder>
+        <Object Name="Library Manager" ObjectId="9c8abad4-e614-4742-8aa8-7dad00f7759a" />
+        <Folder Name="POUs">
+          <Folder Name="CAN">
+            <Folder Name="messages">
+              <Object Name="TransmitCANMessage" ObjectId="dc043f81-44b9-4be7-947b-8583e1f88d87">
+                <Object Name="initialize" ObjectId="debaf895-90c7-4ed5-9bab-65c519af7c6a" />
+                <Object Name="operator" ObjectId="a2ffb7ba-e396-4b5b-8f24-7a503768b1b8" />
+                <Object Name="reset" ObjectId="fd5eedd1-96dd-4f52-8221-e2a48f200f90" />
+                <Object Name="start" ObjectId="504eb4ba-b5e4-4dd5-9682-0db98eaa985d" />
+                <Object Name="Transmitted" ObjectId="78b9397a-da1c-4cb2-98b6-2103a2549618" />
+                <Object Name="Handle" ObjectId="989e8e03-4aed-477b-9c0b-2d65f6b76f7c" />
+              </Object>
+              <Object Name="SDOWriteCANMessage" ObjectId="72ccc614-3ce4-4e92-999e-aaeb31a2059d">
+                <Object Name="cancelSDOWrite" ObjectId="db700fc4-d1a8-4ea8-a9f8-0bfa16027707" />
+                <Object Name="ControllerId" ObjectId="73580faa-5b70-4444-a079-cfc3bc3a5fc1" />
+                <Object Name="initialize" ObjectId="5d73b100-384a-4760-a5e2-7bb0c7f3e162" />
+                <Object Name="NetworkId" ObjectId="74cf2d6d-c29d-43d3-93d6-5f0d81da5686" />
+                <Object Name="operator" ObjectId="e0c953bc-923d-4ca7-a571-ec844bd59804" />
+                <Object Name="reset" ObjectId="090149df-f71c-475c-9ccd-994d785925c1" />
+                <Object Name="start" ObjectId="f9144dcf-0b85-46f3-a809-87d8aafba8f6" />
+              </Object>
+              <Object Name="HeartbeatHandler" ObjectId="ef47edff-e07e-41e3-9d42-aaa3fe56c24e">
+                <Object Name="Period" ObjectId="f4bae877-02d1-4227-ad7b-887ff0daf85b" />
+                <Object Name="initialize" ObjectId="f6d7485b-d341-4ff6-a2d4-a74712ddab1d" />
+                <Object Name="HeartbeatFault" ObjectId="55c89c54-542c-4267-a368-9a6d65cb85af" />
+                <Object Name="operator" ObjectId="035847b4-5864-4128-9b08-7ad92e859e0f" />
+                <Object Name="initializeMessage" ObjectId="1cab6ed1-dff7-4afe-92e9-2a16f22138fc" />
+              </Object>
+              <Object Name="TransmitMessage" ObjectId="cf1243e8-47e8-4211-b0b9-2e26d6bf927c">
+                <Object Name="initializeMessage" ObjectId="243ec90b-9018-454a-a20c-a703471509c2" />
+                <Object Name="initialize" ObjectId="8b31a016-f56b-4c3e-b306-d0393968ff6b" />
+                <Object Name="operator" ObjectId="2a42980e-638b-4804-b84e-a58315d8f5dd" />
+                <Object Name="reset" ObjectId="007ba974-cf9f-49d6-ab8c-ce5aa6f1746b" />
+                <Object Name="transmit" ObjectId="18f48e9b-7dde-4140-9b08-59857c938175" />
+              </Object>
+              <Object Name="ReceiveCANMessage" ObjectId="faf152a9-ccd7-4594-92ca-88e278a245e3">
+                <Object Name="Handle" ObjectId="b2baa1b3-5224-48bc-947a-3e83faf3dd9b" />
+                <Object Name="initializeReceive" ObjectId="a8f01e91-4414-4d23-aef2-29646a120836" />
+                <Object Name="operator" ObjectId="ce3fa6a2-29ad-433f-bebd-79195047c3fe" />
+                <Object Name="Period" ObjectId="debae468-b34e-441a-a8fc-0a5eb361e00e" />
+                <Object Name="Received" ObjectId="38904fde-38b4-4c62-b6ce-4d18f508a687" />
+                <Object Name="reset" ObjectId="895ddd2e-eb87-4e8d-9330-65a0521f9bb5" />
+                <Object Name="start" ObjectId="8cdbd570-b7e0-48d8-af50-b5bf5289506b" />
+                <Object Name="initialize" ObjectId="bb2110f1-2f58-4e6c-8f51-e1781b4f2437" />
+              </Object>
+              <Object Name="SDOReadCANMessage" ObjectId="538f1d31-5c6c-40b3-bf3d-d312c4e7ce14">
+                <Object Name="cancelSDORead" ObjectId="4b6031bb-2705-4243-99af-8b2595b549c1" />
+                <Object Name="ControllerId" ObjectId="90407413-a1f0-40ec-a8a2-fd1d7a3c8556" />
+                <Object Name="initialize" ObjectId="e07ab735-8e27-44dd-93eb-e2de2f2d94d4" />
+                <Object Name="NetworkId" ObjectId="933957a6-c14d-41e2-afb9-c1149a115766" />
+                <Object Name="operator" ObjectId="6aa994f5-fba8-4bc3-b0f1-8881ef55640a" />
+                <Object Name="reset" ObjectId="404993f3-d8f6-4a67-9928-1299a7b07c7a" />
+                <Object Name="sdoReadHandler" ObjectId="42e15ceb-5e54-4995-862d-d233eda0a206" />
+                <Object Name="start" ObjectId="5004f561-a399-4755-aab8-52c35bb0e427" />
+              </Object>
+              <Object Name="TransmitNMT" ObjectId="8998af4e-78b1-4be6-9716-cce641d849e5">
+                <Object Name="initialize" ObjectId="4b4a00cd-54b9-4690-bdcc-21798dcc51d1" />
+                <Object Name="preOperationalAllNodes" ObjectId="c154d64e-a8fc-4f2f-955e-d3394019d06a" />
+                <Object Name="preOperationalNode" ObjectId="904fdb1c-837a-4b4c-96c2-b5b75a461998" />
+                <Object Name="resetAllNodes" ObjectId="f1fa037d-153a-480d-b589-bb02be9c869f" />
+                <Object Name="resetNode" ObjectId="2897b758-a461-4f7e-93a9-a2e15aec4299" />
+                <Object Name="startAllNodes" ObjectId="5581b5ed-5b0f-4b4b-89ed-b32d400af517" />
+                <Object Name="startNode" ObjectId="d0869a24-5056-4fd8-ab77-a6fb7fe28a63" />
+                <Object Name="stopAllNodes" ObjectId="910a4983-e626-4566-a97f-36dce249bfa4" />
+                <Object Name="stopNode" ObjectId="a7d568cd-5573-40a9-9eac-1e82e4a22e87" />
+              </Object>
+              <Object Name="TransmitSDO" ObjectId="ac42be0d-23de-4a2d-97e7-3d62925c4619">
+                <Object Name="initialize" ObjectId="3fa63cfc-2389-42f9-b25a-7847454c1586" />
+                <Object Name="stopAllNodes" ObjectId="68bff75f-bb62-4572-8e9e-669ac846e43f" />
+                <Object Name="stopNode" ObjectId="c88c5935-1c65-4de5-80af-9df583fba964" />
+              </Object>
+            </Folder>
+          </Folder>
+          <Folder Name="persistence">
+            <Object Name="PersistenceManager" ObjectId="d656c9d5-51b3-4c7f-9a5a-342fa62713e9">
+              <Object Name="allocate" ObjectId="e126767d-048a-41c9-8237-00192880694f" />
+              <Object Name="clear" ObjectId="a9cdfcc0-dc3b-4668-97c2-1af139e53799" />
+              <Object Name="WriteCounter" ObjectId="06a471f3-a74b-4966-947e-c24e15eb7b00" />
+              <Object Name="read" ObjectId="88d575f9-1688-433c-b172-974e9bc0d965" />
+              <Object Name="write" ObjectId="18d405cb-c19f-4986-82d5-b6ee55fa9d6c" />
+              <Object Name="IndexMax" ObjectId="3c62e887-d8a5-4a47-88bd-471536b5677f" />
+            </Object>
+            <Object Name="PersistentMediumString" ObjectId="32cfcac6-ef9b-4301-b701-79630c3e2cb5">
+              <Object Name="initialize" ObjectId="7dbb1fd5-0769-4329-be00-f61bde732202" />
+              <Object Name="Value" ObjectId="a27defb0-ba11-4b26-8f62-209885194dd6" />
+            </Object>
+            <Object Name="PersistentReal" ObjectId="99a3b0da-299f-487c-91bc-078200575dfc">
+              <Object Name="initialize" ObjectId="00c59663-8d05-4141-b893-33f8b496c62b" />
+              <Object Name="Value" ObjectId="7494a3b2-b9d0-4ce2-8014-626b1cab621a" />
+            </Object>
+            <Object Name="PersistentValue" ObjectId="715730d9-a182-46dc-a2f0-3143a5ce01dd">
+              <Object Name="Identifier" ObjectId="c7445f15-85a5-4bbc-b689-a45be69d295f" />
+              <Object Name="initialize" ObjectId="07c61659-7243-4906-a87d-22492d27ab63" />
+              <Object Name="read" ObjectId="65ba7e53-129f-4c68-9aa0-e7b5e0cece1a" />
+              <Object Name="write" ObjectId="ae85af3f-0eb2-457c-b17f-91260d27a4a2" />
+              <Object Name="Blocks" ObjectId="7ed1769a-584b-4a88-bcf8-5e6d264efb71" />
+            </Object>
+            <Object Name="t_persistent_real" ObjectId="5e4527b2-4763-48f1-a8f4-03b42846c855" />
+            <Object Name="t_persistent_medium_string" ObjectId="770934bb-a1a4-4e72-9494-639818be5f74" />
+            <Object Name="PersistentShortString" ObjectId="70c1891e-d442-466a-a390-6e762ef83846">
+              <Object Name="initialize" ObjectId="2bcb96f6-e883-4c65-9d28-9f4f2ee9d23d" />
+              <Object Name="Value" ObjectId="063e1219-6593-4454-beb4-1526fa24a294" />
+            </Object>
+            <Object Name="t_persistent_short_string" ObjectId="432a7744-5d1c-4745-af77-987a97f51aee" />
+            <Object Name="PersistentDWORD" ObjectId="3c667499-ebbc-4fd1-b29b-3b3f73dc88d8">
+              <Object Name="initialize" ObjectId="08a63fbb-3200-4c99-a66d-f03691e0df18" />
+              <Object Name="Value" ObjectId="69db31fb-bcb0-4308-8531-39d4c374840b" />
+            </Object>
+            <Object Name="t_persistent_DWORD" ObjectId="0fce9067-86a2-4731-b33c-f0a7cca6c3c9" />
+            <Object Name="t_persistent_int" ObjectId="718317fe-bf67-4921-81ad-8ab78e6c1642" />
+            <Object Name="t_persistent_uint" ObjectId="2015a29f-a44d-41cb-bbc2-43b81be9b1c5" />
+            <Object Name="PersistentINT" ObjectId="0b13e321-f16e-4f4d-9a5c-cbb5a0e611af">
+              <Object Name="initialize" ObjectId="0ce8e65c-ea95-41f0-ad06-1f59d3c609fb" />
+              <Object Name="Value" ObjectId="a24f472f-0530-4c7e-a9d8-dcf48951dc99" />
+            </Object>
+            <Object Name="PersistentUINT" ObjectId="e8868065-33a1-4500-b97a-ee69007912c7">
+              <Object Name="initialize" ObjectId="13da7425-2d70-45a8-b3b2-0ac072bbe8c5" />
+              <Object Name="Value" ObjectId="44f2b66b-45f1-45dc-a188-ca20288dcfe5" />
+            </Object>
+            <Object Name="PersistentULINT" ObjectId="85854c2d-251b-4ecf-9701-965c8fc30d55">
+              <Object Name="initialize" ObjectId="51ad5190-0fcd-4444-b4b5-323de7098b29" />
+              <Object Name="Value" ObjectId="9a77656b-48da-410c-a64c-f16d206683ed" />
+            </Object>
+            <Object Name="t_persistent_ULINT" ObjectId="ca544029-1e4b-4587-972b-5348e1833f61" />
+            <Object Name="PersistentBool" ObjectId="eaab247e-03c6-40b7-b096-b91546068b27">
+              <Object Name="initialize" ObjectId="bf5736e8-62d6-4cb7-ac33-27898847f911" />
+              <Object Name="Value" ObjectId="945b0212-0393-4d83-9c96-151fbbe0269e" />
+            </Object>
+            <Object Name="t_persistent_bool" ObjectId="14f5dcea-045c-4d84-b56c-612a7df38be8" />
+            <Object Name="PersistentStore" ObjectId="454e2b02-c79c-4cb2-9676-6c382d90c0f9">
+              <Object Name="initialize" ObjectId="4918c839-8e38-4b11-9b39-511c66ea3fcc" />
+              <Object Name="clear" ObjectId="ac2072b8-bd8f-4fb6-b140-4d3f0f3930f0" />
+              <Object Name="export" ObjectId="78b6917a-95b2-4dbc-8db0-2b4d81d266e1" />
+              <Object Name="import" ObjectId="c2425168-c767-4e04-804d-6261c6df7bf9" />
+            </Object>
+            <Object Name="t_persistent_store" ObjectId="a59602b9-97e2-43bc-940b-3f585d8d9d6f" />
+            <Object Name="t_store_type" ObjectId="a29e0b43-b370-48e7-ac9b-58cda2d6272b" />
+            <Object Name="t_store_buffer" ObjectId="14867049-4421-436b-a161-3dfd8c26dd28" />
+          </Folder>
+          <Folder Name="TCP">
+            <Object Name="fIsValidTCPHandle" ObjectId="42d930c0-ba06-44f3-82ee-7de9d9f7eb37" />
+          </Folder>
+        </Folder>
+        <Object Name="Project Information" ObjectId="11c0fc3a-9bcf-4dd8-ac38-efb93363e521" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

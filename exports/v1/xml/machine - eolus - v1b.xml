@@ -1,0 +1,2455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="STW CODESYS V3.5 SP11 - ESX-3CS" creationDateTime="2026-05-19T11:34:01.4368509" />
+  <contentHeader name="machine" version="0.1" modificationDateTime="2026-01-26T17:08:03" organization="Isoloader" author="isoloader">
+    <Comment>isoloader machine - common to both plc and secondary devices</Comment>
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="Author" type="string">isoloader</property>
+          <property name="Company" type="string">Isoloader</property>
+          <property name="DefaultNamespace" type="string" />
+          <property name="Description" type="string">isoloader machine - common to both plc and secondary devices</property>
+          <property name="DocFormat" type="string">reStructuredText</property>
+          <property name="IsEndUserLibrary" type="boolean">false</property>
+          <property name="Placeholder" type="string">machine</property>
+          <property name="Project" type="string">machine - eolus - v1b</property>
+          <property name="Released" type="boolean">false</property>
+          <property name="Title" type="string">machine</property>
+          <property name="Version" type="version">0.1</property>
+          <property name="library-category-list" type="library-category-list" />
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="t_pack_code">
+        <baseType>
+          <enum>
+            <values>
+              <value name="cPackCodeNone" value="0" />
+              <value name="cPackCodeSystem" value="1" />
+              <value name="cPackCodeMovement" value="2" />
+              <value name="cPackCodeReportable" value="3" />
+              <value name="cPackCodeSpreader" value="4" />
+              <value name="cPackCodeConfiguration" value="5" />
+              <value name="cPackCodeUICommand" value="6" />
+            </values>
+          </enum>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>22d7618f-0d6d-4a90-af2f-a64bcadfaee2</ObjectId>
+          </data>
+        </addData>
+        <documentation>
+          <xhtml xmlns="http://www.w3.org/1999/xhtml">{attribute 'qualified_only'}</xhtml>
+        </documentation>
+      </dataType>
+    </dataTypes>
+    <pous>
+      <pou name="PackChannelUInterface" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lPLCIncomingChannel">
+              <type>
+                <derived name="PackChannel" />
+              </type>
+            </variable>
+            <variable name="lPLCOutgoingChannel">
+              <type>
+                <derived name="PackChannel" />
+              </type>
+            </variable>
+            <variable name="lPLCOutgoingPacket">
+              <type>
+                <derived name="t_packet" />
+              </type>
+            </variable>
+            <variable name="lPLCIncomingPacket">
+              <type>
+                <derived name="t_packet" />
+              </type>
+            </variable>
+            <variable name="lDebugPack">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lDebugUnpack">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lDebugPackPacket">
+              <type>
+                <derived name="t_packet" />
+              </type>
+            </variable>
+            <variable name="lDebugUnpackPacket">
+              <type>
+                <derived name="t_packet" />
+              </type>
+            </variable>
+            <variable name="lPackTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lPackSystem">
+              <type>
+                <derived name="REFERENCE TO PackSystem" />
+              </type>
+            </variable>
+            <variable name="lPackMovement">
+              <type>
+                <derived name="REFERENCE TO PackMovement" />
+              </type>
+            </variable>
+            <variable name="lPackReportable">
+              <type>
+                <derived name="REFERENCE TO PackReportable" />
+              </type>
+            </variable>
+            <variable name="lPackSpreader">
+              <type>
+                <derived name="REFERENCE TO PackSpreader" />
+              </type>
+            </variable>
+            <variable name="lPackUICommand">
+              <type>
+                <derived name="REFERENCE TO PackUICommand" />
+              </type>
+            </variable>
+            <variable name="lPackProvider">
+              <type>
+                <derived name="REFERENCE TO PackProvider" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>NonOperationalParticleSet</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="da61c7a4-84ba-4614-9487-c5a888ae8700">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF ((NOT(__ISVALIDREF(lPackSystem))) OR
+	(NOT(__ISVALIDREF(lPackMovement))) OR
+	(NOT(__ISVALIDREF(lPackReportable))) OR
+	(NOT(__ISVALIDREF(lPackSpreader))) OR
+	(NOT(__ISVALIDREF(lPackUICommand))) OR
+	(NOT(__ISVALIDREF(lPackProvider)))) THEN
+	gCodeErrorHandler(pMessage:=CONCAT('null reference in ',lIdentity));
+END_IF
+	
+lPackTimer.lEnable := TRUE;
+lPackTimer.lPeriod := T#60MS;
+lPackTimer.initialize();
+
+lPLCOutgoingChannel.register(ADR(lPackSystem)); // foobar particle reorganization
+lPLCOutgoingChannel.register(ADR(lPackMovement));
+lPLCOutgoingChannel.register(ADR(lPackReportable));
+lPLCOutgoingChannel.register(ADR(lPackSpreader));
+lPLCOutgoingChannel.initialize();
+
+lPLCIncomingChannel.register(ADR(lPackUICommand));
+lPLCIncomingChannel.initialize();
+
+SUPER^.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializePackChannelUInterface" ObjectId="55cbd8a1-0f1c-4b36-b190-e01a3b0fab06">
+              <interface>
+                <inputVars>
+                  <variable name="packSystem">
+                    <type>
+                      <derived name="REFERENCE TO PackSystem" />
+                    </type>
+                  </variable>
+                  <variable name="packMovement">
+                    <type>
+                      <derived name="REFERENCE TO PackMovement" />
+                    </type>
+                  </variable>
+                  <variable name="packReportable">
+                    <type>
+                      <derived name="REFERENCE TO PackReportable" />
+                    </type>
+                  </variable>
+                  <variable name="packSpreader">
+                    <type>
+                      <derived name="REFERENCE TO PackSpreader" />
+                    </type>
+                  </variable>
+                  <variable name="packUICommand">
+                    <type>
+                      <derived name="REFERENCE TO PackUICommand" />
+                    </type>
+                  </variable>
+                  <variable name="packProvider">
+                    <type>
+                      <derived name="REFERENCE TO PackProvider" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackSystem REF= packSystem;
+lPackMovement REF= packMovement;
+lPackReportable REF= packReportable;
+lPackSpreader REF= packSpreader;
+
+lPackUICommand REF= packUICommand;
+
+lPackProvider REF= packProvider;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="trigger" ObjectId="d0fd5840-3bf9-4712-8fbc-3b14bbf4993b">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+                <inputVars>
+                  <variable name="machineStateId">
+                    <type>
+                      <derived name="t_machine_state_id" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPLCOutgoingChannel.trigger(lPLCOutgoingPacket,machineStateId);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackMovement" ObjectId="def3b27c-3f7d-43bb-a320-329e33a3f4fd">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO PackMovement" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackMovement ref= lPackMovement;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackReportable" ObjectId="fa550f88-20f4-482e-af72-23c1f6bf63a8">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO PackReportable" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackReportable ref= lPackReportable;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackSpreader" ObjectId="eb4d8b62-4b51-446c-b8f7-843b91a435f7">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO PackSpreader" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackSpreader ref= lPackSpreader;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackSystem" ObjectId="c051979f-23d1-46e3-9a0d-1102c6f776e1">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO PackSystem" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackSystem ref= lPackSystem;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackUICommand" ObjectId="bc248e21-deba-43dc-9f2c-fd2a7fbb0e27">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO PackUICommand" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackUICommand ref= lPackUICommand;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="a1a1a069-596e-4566-8d30-2449ef9a1d61">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'PackChannelUI';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a535bbca-d749-4949-b2f8-94c2e971b436</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackChannelUInterfacePLC" pouType="functionBlock">
+        <interface>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>PackChannelUInterface</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="pullPLCIncomingChannel" ObjectId="81ae6ec8-db49-4a78-9cc1-d875a51f502d">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">pullPLCIncomingChannel := FALSE;
+
+lPackProvider.pull();
+
+IF (lPLCIncomingPacket.Byte1&lt;&gt;lPackProvider.PackIn1) THEN
+	lPLCIncomingPacket.Byte1 := lPackProvider.PackIn1;
+	lPLCIncomingPacket.Byte1 := lPLCIncomingPacket.Byte1 OR INT_TO_USINT(cPackCodeUICommand);
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte2&lt;&gt;lPackProvider.PackIn2) THEN
+	lPLCIncomingPacket.Byte2 := lPackProvider.PackIn2;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte3&lt;&gt;lPackProvider.PackIn3) THEN
+	lPLCIncomingPacket.Byte3 := lPackProvider.PackIn3;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte4&lt;&gt;lPackProvider.PackIn4) THEN
+	lPLCIncomingPacket.Byte4 := lPackProvider.PackIn4;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte5&lt;&gt;lPackProvider.PackIn5) THEN
+	lPLCIncomingPacket.Byte5 := lPackProvider.PackIn5;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte6&lt;&gt;lPackProvider.PackIn6) THEN
+	lPLCIncomingPacket.Byte6 := lPackProvider.PackIn6;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte7&lt;&gt;lPackProvider.PackIn7) THEN
+	lPLCIncomingPacket.Byte7 := lPackProvider.PackIn7;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+
+IF (lPLCIncomingPacket.Byte8&lt;&gt;lPackProvider.PackIn8) THEN
+	lPLCIncomingPacket.Byte8 := lPackProvider.PackIn8;
+	gSystemPrimary.Active.registerUI();
+	pullPLCIncomingChannel := TRUE;
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="pushPLCOutgoingChannel" ObjectId="632b42e8-58b0-46a4-9f40-ccc7e737a8ee">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackProvider.PackOut1 := lPLCOutgoingPacket.Byte1;
+lPackProvider.PackOut2 := lPLCOutgoingPacket.Byte2;
+lPackProvider.PackOut3 := lPLCOutgoingPacket.Byte3;
+lPackProvider.PackOut4 := lPLCOutgoingPacket.Byte4;
+lPackProvider.PackOut5 := lPLCOutgoingPacket.Byte5;
+lPackProvider.PackOut6 := lPLCOutgoingPacket.Byte6;
+lPackProvider.PackOut7 := lPLCOutgoingPacket.Byte7;
+lPackProvider.PackOut8 := lPLCOutgoingPacket.Byte8;
+
+lPackProvider.push();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="185862c1-f008-43be-a661-354aa06b3b28">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackTimer.operator();
+IF ((NOT(lPackTimer.Enable)) OR (lPackTimer.Expired)) THEN
+	lPackTimer.reset();
+
+	lPLCOutgoingChannel.pack(lPLCOutgoingPacket);
+	pushPLCOutgoingChannel();
+			
+	IF (lDebugPack) THEN
+		lDebugPackPacket.copy(lPLCOutgoingPacket);
+	END_IF
+END_IF
+
+IF (pullPLCIncomingChannel()) THEN
+	IF (lDebugUnpack) THEN
+		lDebugUnpackPacket.copy(lPLCIncomingPacket);
+	END_IF
+
+	lPLCIncomingChannel.unpack(lPLCIncomingPacket);
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1ee8b12e-8e37-43b0-b502-c44ab5600e85</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackMovement" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lSteerStateA">
+              <type>
+                <derived name="t_adjust_state" />
+              </type>
+            </variable>
+            <variable name="lSteerStateB">
+              <type>
+                <derived name="t_adjust_state" />
+              </type>
+            </variable>
+            <variable name="lSteerStateC">
+              <type>
+                <derived name="t_adjust_state" />
+              </type>
+            </variable>
+            <variable name="lSteerStateD">
+              <type>
+                <derived name="t_adjust_state" />
+              </type>
+            </variable>
+            <variable name="lSteerTargetAngle">
+              <type>
+                <REAL />
+              </type>
+            </variable>
+            <variable name="lSteerCurrentMode">
+              <type>
+                <derived name="t_steer_mode" />
+              </type>
+            </variable>
+            <variable name="lTravelActive">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTravelVelocity">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lLiftActive">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lLiftABPosition">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lLiftCDPosition">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lProgrammedMovementCurrent">
+              <type>
+                <derived name="t_prog_mov_code" />
+              </type>
+            </variable>
+            <variable name="lProgrammedMovementState">
+              <type>
+                <derived name="t_prog_mov_state" />
+              </type>
+            </variable>
+          </inputVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>Packer</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_unpack" ObjectId="842dd383-973d-40ab-b422-4458042b3964">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSteerStateA := packet.unpackUSINT(5,3);
+lSteerStateB := packet.unpackUSINT(8,3);
+lSteerStateC := packet.unpackUSINT(11,3);
+lSteerStateD := packet.unpackUSINT(14,3);
+
+lSteerTargetAngle := AngleFromSINT(packet.unpackSINT(17,8));
+lSteerCurrentMode := USINT_TO_INT(packet.unpackUSINT(25,4));
+
+lTravelActive := packet.unpackBool(29);
+lTravelVelocity :=  SignedPercentageFrom6bits(packet.unpackUSINT(30,6));
+
+lLiftActive := packet.unpackBool(36);
+lLiftABPosition := SignedPercentageFrom7bits(packet.unpackUSINT(37,7));
+lLiftCDPosition := SignedPercentageFrom7bits(packet.unpackUSINT(44,7));
+
+lProgrammedMovementCurrent := packet.unpackUSINT(51,5);
+lProgrammedMovementState := packet.unpackUSINT(56,3);</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_pack" ObjectId="af4eb5fa-8a38-469a-a7f5-2a70139f6f7e">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">packet.packUSINT(INT_TO_USINT(lSteerStateA),5,3);
+packet.packUSINT(INT_TO_USINT(lSteerStateB),8,3);
+packet.packUSINT(INT_TO_USINT(lSteerStateC),11,3);
+packet.packUSINT(INT_TO_USINT(lSteerStateD),14,3);
+
+packet.packSINT(AngleAsSINT(lSteerTargetAngle),17,8);
+packet.packUSINT(INT_TO_USINT(lSteerCurrentMode),25,4);
+
+packet.packBool(lTravelActive,29);
+packet.packUSINT(SignedPercentageAs6bits(lTravelVelocity),30,6);
+
+packet.packBool(lLiftActive,36);
+packet.packUSINT(SignedPercentageAs7bits(lLiftABPosition),37,7);
+packet.packUSINT(SignedPercentageAs7bits(lLiftCDPosition),44,7);
+
+packet.packUSINT(INT_TO_USINT(lProgrammedMovementCurrent),51,5);
+packet.packUSINT(INT_TO_USINT(lProgrammedMovementState),56,3);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="3517c6aa-2f12-43f4-8e52-1519e028606a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCode := INT_TO_USINT(t_pack_code.cPackCodeMovement);
+
+SUPER^.initialize();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>8282bf88-da89-4385-ba1d-666f0baf6258</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackReportable" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lReportableA">
+              <type>
+                <derived name="t_ui_reportable" />
+              </type>
+            </variable>
+            <variable name="lReportableB">
+              <type>
+                <derived name="t_ui_reportable" />
+              </type>
+            </variable>
+            <variable name="lReportableC">
+              <type>
+                <derived name="t_ui_reportable" />
+              </type>
+            </variable>
+            <variable name="lReportableD">
+              <type>
+                <derived name="t_ui_reportable" />
+              </type>
+            </variable>
+          </inputVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>Packer</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_unpack" ObjectId="72b2297b-afb2-4d5e-abbc-4b8bd8e62bde">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+                <localVars>
+                  <variable name="b">
+                    <type>
+                      <BOOL />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (packet.unpackBool(5)) THEN
+	lReportableA.valid := TRUE;
+	lReportableA.state := packet.unpackUSINT(6,8);
+ELSE
+	lReportableA.event := packet.unpackUSINT(6,8);
+	IF (lReportableA.event=cECNone) THEN
+		lReportableA.valid := FALSE;
+		lReportableB.valid := FALSE;
+		lReportableC.valid := FALSE;
+		lReportableD.valid := FALSE;
+		
+		RETURN;				
+	END_IF
+	lReportableA.valid := TRUE;
+END_IF
+lReportableA.active := packet.unpackBool(14);
+lReportableA.subsystem := packet.unpackUSINT(15,5);
+
+IF (packet.unpackBool(20)) THEN
+	lReportableB.valid := TRUE;
+	lReportableB.state := packet.unpackUSINT(21,8);
+ELSE
+	lReportableB.event := packet.unpackUSINT(21,8);	
+	IF (lReportableB.event=cECNone) THEN
+		lReportableB.valid := FALSE;
+		lReportableC.valid := FALSE;
+		lReportableD.valid := FALSE;
+		
+		RETURN;				
+	END_IF
+	lReportableB.valid := TRUE;
+END_IF
+lReportableB.active := packet.unpackBool(29);
+lReportableB.subsystem := packet.unpackUSINT(30,5);
+
+IF (packet.unpackBool(35)) THEN
+	lReportableC.valid := TRUE;
+	lReportableC.state := packet.unpackUSINT(36,8);
+ELSE
+	lReportableC.event := packet.unpackUSINT(36,8);	
+	IF (lReportableC.event=cECNone) THEN
+		lReportableC.valid := FALSE;
+		lReportableD.valid := FALSE;
+		
+		RETURN;				
+	END_IF
+	lReportableC.valid := TRUE;
+END_IF
+lReportableC.active := packet.unpackBool(44);
+lReportableC.subsystem := packet.unpackUSINT(45,5);
+
+IF (packet.unpackBool(50)) THEN
+	lReportableD.valid := TRUE;
+	lReportableD.state := packet.unpackUSINT(51,8);
+ELSE
+	lReportableD.event := packet.unpackUSINT(51,8);	
+	IF (lReportableD.event=cECNone) THEN
+		lReportableD.valid := FALSE;
+		
+		RETURN;				
+	END_IF
+	lReportableD.valid := TRUE;
+END_IF
+lReportableD.active := packet.unpackBool(59);
+lReportableD.subsystem := packet.unpackUSINT(60,5);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_pack" ObjectId="f3fec7fe-8eac-40bf-bf6d-0ac4624bbeca">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(lReportableA.valid)) THEN
+	RETURN;
+END_IF
+	
+IF (lReportableA.event=cECNone) THEN
+	packet.packBool(TRUE,5);
+	packet.packUSINT(INT_TO_USINT(lReportableA.state),6,8);
+ELSE
+	packet.packBool(FALSE,5);
+	packet.packUSINT(INT_TO_USINT(lReportableA.event),6,8);
+END_IF
+packet.packBool(lReportableA.active,14);
+packet.packUSINT(INT_TO_USINT(lReportableA.subsystem),15,5);
+
+IF (NOT(lReportableB.valid)) THEN
+	RETURN;
+END_IF
+
+IF (lReportableB.event=cECNone) THEN
+	packet.packBool(TRUE,20);
+	packet.packUSINT(INT_TO_USINT(lReportableB.state),21,8);
+ELSE
+	packet.packBool(FALSE,20);
+	packet.packUSINT(INT_TO_USINT(lReportableB.event),21,8);
+END_IF
+packet.packBool(lReportableB.active,29);
+packet.packUSINT(INT_TO_USINT(lReportableB.subsystem),30,5);
+
+IF (NOT(lReportableC.valid)) THEN
+	RETURN;
+END_IF
+
+IF (lReportableC.event=cECNone) THEN
+	packet.packBool(TRUE,35);
+	packet.packUSINT(INT_TO_USINT(lReportableC.state),36,8);
+ELSE
+	packet.packBool(FALSE,35);
+	packet.packUSINT(INT_TO_USINT(lReportableC.event),36,8);
+END_IF
+packet.packBool(lReportableC.active,44);
+packet.packUSINT(INT_TO_USINT(lReportableC.subsystem),45,5);
+
+IF (NOT(lReportableD.valid)) THEN
+	RETURN;
+END_IF
+
+IF (lReportableD.event=cECNone) THEN
+	packet.packBool(TRUE,50);
+	packet.packUSINT(INT_TO_USINT(lReportableD.state),51,8);
+ELSE
+	packet.packBool(FALSE,50);
+	packet.packUSINT(INT_TO_USINT(lReportableD.event),51,8);
+END_IF
+packet.packBool(lReportableD.active,59);
+packet.packUSINT(INT_TO_USINT(lReportableD.subsystem),60,5);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="66ff7aa3-32b6-4a85-ad59-54ae4b69a2b1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCode := INT_TO_USINT(t_pack_code.cPackCodeReportable);
+
+SUPER^.initialize();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="0a02cf50-dbcc-4a19-b922-709956901ed7">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();
+
+lReportableA.valid := FALSE;
+lReportableB.valid := FALSE;
+lReportableC.valid := FALSE;
+lReportableD.valid := FALSE;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9130ef5a-732b-482a-add2-658a6ae74675</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackSpreader" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lSideShiftActive">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTwistlocksState">
+              <type>
+                <derived name="t_lock_state" />
+              </type>
+            </variable>
+            <variable name="lStateA">
+              <type>
+                <derived name="t_lock_state" />
+              </type>
+            </variable>
+            <variable name="lLoweredA">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lStateB">
+              <type>
+                <derived name="t_lock_state" />
+              </type>
+            </variable>
+            <variable name="lLoweredB">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lStateC">
+              <type>
+                <derived name="t_lock_state" />
+              </type>
+            </variable>
+            <variable name="lLoweredC">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lStateD">
+              <type>
+                <derived name="t_lock_state" />
+              </type>
+            </variable>
+            <variable name="lLoweredD">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lExtensionState">
+              <type>
+                <derived name="t_spreader_extension_state" />
+              </type>
+            </variable>
+            <variable name="lSpreaderOperationEnabled">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSpreaderOperationActive">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSpreaderConfigurationOptionEnabled">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSpreaderConfigurationEnabled">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSpreaderConfigurationActive">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSpreaderConfigurationExtending">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSpreaderConfigurationRetracting">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTopbeamActive">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTopbeamABPosition">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lTopbeamCDPosition">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+          </inputVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>Packer</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_unpack" ObjectId="e5de3091-0d5f-4918-96d8-bb2bfede3d62">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSideShiftActive := packet.unpackBool(5);
+
+lTwistlocksState := packet.unpackUSINT(6,2);
+
+lStateA := packet.unpackUSINT(8,2);
+lLoweredA := packet.unpackBool(10);
+lStateB := packet.unpackUSINT(11,2);
+lLoweredB := packet.unpackBool(13);
+lStateC := packet.unpackUSINT(14,2);
+lLoweredC := packet.unpackBool(16);
+lStateD := packet.unpackUSINT(17,2);
+lLoweredD := packet.unpackBool(19);
+
+lExtensionState := packet.unpackUSINT(20,2);
+lSpreaderOperationEnabled := packet.unpackBool(22);
+lSpreaderOperationActive := packet.unpackBool(23);
+
+lSpreaderConfigurationOptionEnabled := packet.unpackBool(24);
+lSpreaderConfigurationEnabled := packet.unpackBool(25);
+lSpreaderConfigurationActive := packet.unpackBool(26);
+lSpreaderConfigurationExtending := packet.unpackBool(27);
+lSpreaderConfigurationRetracting := packet.unpackBool(28);
+
+lTopbeamActive := packet.unpackBool(29);
+lTopbeamABPosition := SignedPercentageFrom7bits(packet.unpackUSINT(30,7));
+lTopbeamCDPosition := SignedPercentageFrom7bits(packet.unpackUSINT(37,7));
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_pack" ObjectId="ac39b378-f061-4c03-851b-92fb5718334e">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">packet.packBool(lSideShiftActive,5);
+
+//6-32 27 bits
+
+packet.packUSINT(INT_TO_USINT(lTwistlocksState),6,2);
+
+packet.packUSINT(INT_TO_USINT(lStateA),8,2);
+packet.packBool(lLoweredA,10);
+packet.packUSINT(INT_TO_USINT(lStateB),11,2);
+packet.packBool(lLoweredB,13);
+packet.packUSINT(INT_TO_USINT(lStateC),14,2);
+packet.packBool(lLoweredC,16);
+packet.packUSINT(INT_TO_USINT(lStateD),17,2);
+packet.packBool(lLoweredD,19);
+
+packet.packUSINT(INT_TO_USINT(lExtensionState),20,2);
+packet.packBool(lSpreaderOperationEnabled,22);
+packet.packBool(lSpreaderOperationActive,23);
+
+packet.packBool(lSpreaderConfigurationOptionEnabled,24);
+packet.packBool(lSpreaderConfigurationEnabled,25);
+packet.packBool(lSpreaderConfigurationActive,26);
+packet.packBool(lSpreaderConfigurationExtending,27);
+packet.packBool(lSpreaderConfigurationRetracting,28);
+
+packet.packBool(lTopbeamActive,29);
+packet.packUSINT(SignedPercentageAs7bits(lTopbeamABPosition),30,7);
+packet.packUSINT(SignedPercentageAs7bits(lTopbeamCDPosition),37,7);
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="e4c50408-10e3-483d-adbb-c6670b9365cd">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCode := INT_TO_USINT(t_pack_code.cPackCodeSpreader);
+
+SUPER^.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ec52c69f-fd4a-45d5-b54d-2c7fdba8af7c</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackSystem" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lFunctionalMode">
+              <type>
+                <derived name="t_functional_mode" />
+              </type>
+            </variable>
+            <variable name="lToggle">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lSystemState">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lOperatingMode">
+              <type>
+                <derived name="t_operating_mode" />
+              </type>
+            </variable>
+            <variable name="lSpeedModeSlow">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lLightStatus">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lUIReady">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lUIModeRequest">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lUIMode">
+              <type>
+                <derived name="t_ui_mode" />
+              </type>
+            </variable>
+            <variable name="lHours">
+              <type>
+                <UINT />
+              </type>
+            </variable>
+            <variable name="lSOC">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lCurrent">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lInputMode">
+              <type>
+                <derived name="t_input_mode" />
+              </type>
+            </variable>
+            <variable name="lUIOrientation">
+              <type>
+                <derived name="t_ui_orientation" />
+              </type>
+            </variable>
+            <variable name="lAvailability">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+          </inputVars>
+          <localVars>
+            <variable name="lOverrideSystemState">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lOverrideSystemStateValue">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+              <initialValue>
+                <simpleValue value="cSystemStateOperational" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>Packer</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_unpack" ObjectId="223e9d8b-ebae-4b49-bce3-61cfdd9daf46">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lFunctionalMode := packet.unpackUSINT(5,3);
+lToggle := packet.unpackBool(8);
+lSystemState := packet.unpackUSINT(9,4);
+lOperatingMode := packet.unpackUSINT(13,4);
+lSpeedModeSlow := packet.unpackBool(17);
+lLightStatus := packet.unpackBool(18);
+lUIReady := packet.unpackBool(19);
+lUIModeRequest := packet.unpackBool(20);
+lUIMode := packet.unpackUSINT(21,2);
+lHours := packet.unpackUINT(23,16);
+lSOC := PercentageFrom7bits(packet.unpackUSINT(39,7));
+lCurrent := SignedPercentageFrom8bits(packet.unpackUSINT(46,8));
+lInputMode := packet.unpackUSINT(54,2);
+lUIOrientation := packet.unpackUSINT(56,3);
+lAvailability := PercentageFrom4bits(packet.unpackUSINT(59,4));
+
+IF (lOverrideSystemState) THEN
+	lSystemState := lOverrideSystemStateValue;
+END_IF
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_pack" ObjectId="d0b123b4-004e-4c0e-91c8-9861e1b2fb75">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">packet.packUSINT(INT_TO_USINT(lFunctionalMode),5,3);
+packet.packBool(lToggle,8);
+packet.packUSINT(INT_TO_USINT(lSystemState),9,4);
+packet.packUSINT(INT_TO_USINT(lOperatingMode),13,4);
+packet.packBool(lSpeedModeSlow,17);
+packet.packBool(lLightStatus,18);
+packet.packBool(lUIReady,19);
+packet.packBool(lUIModeRequest,20);
+packet.packUSINT(INT_TO_USINT(lUIMode),21,2);
+packet.packUINT(lHours,23,16);
+packet.packUSINT(PercentageAs7bits(lSOC),39,7);
+packet.packUSINT(SignedPercentageAs8bits(lCurrent),46,8);
+packet.packUSINT(INT_TO_USINT(lInputMode),54,2);
+packet.packUSINT(INT_TO_USINT(lUIOrientation),56,3);
+packet.packUSINT(PercentageAs4bits(lAvailability),59,4);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="bf00c9a8-3388-4763-84e0-4d13aaa74418">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCode := INT_TO_USINT(t_pack_code.cPackCodeSystem);
+
+SUPER^.initialize();
+
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9b82393a-0a9b-4f02-ae9e-796e890acead</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackUICommand" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lUIModeResponse">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lUIEventCodeRequest">
+              <type>
+                <derived name="t_ui_event_code" />
+              </type>
+            </variable>
+            <variable name="lSteerModeRequest">
+              <type>
+                <derived name="t_steer_mode" />
+              </type>
+            </variable>
+            <variable name="lOperatingMethodRequest">
+              <type>
+                <derived name="t_operating_method" />
+              </type>
+            </variable>
+            <variable name="lFunctionalModeRequest">
+              <type>
+                <derived name="t_functional_mode" />
+              </type>
+            </variable>
+            <variable name="lInputModeRequest">
+              <type>
+                <derived name="t_input_mode" />
+              </type>
+            </variable>
+            <variable name="lUIOrientationRequest">
+              <type>
+                <derived name="t_ui_orientation" />
+              </type>
+            </variable>
+            <variable name="lAutomationRequest">
+              <type>
+                <derived name="t_prog_mov_code" />
+              </type>
+            </variable>
+            <variable name="lIsBeginner">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lOverride">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lReportableA">
+              <type>
+                <derived name="t_ui_reportable" />
+              </type>
+            </variable>
+            <variable name="lReportableB">
+              <type>
+                <derived name="t_ui_reportable" />
+              </type>
+            </variable>
+          </inputVars>
+          <localVars>
+            <variable name="lTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>Packer</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="18f0ed47-76f0-4e31-b37c-776e091356e4">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();
+
+lUIModeResponse := FALSE;
+lUIEventCodeRequest := cUIEventCodeNone;
+lSteerModeRequest := cSteerModeNone;
+lOperatingMethodRequest := cOperatingMethodNone;
+lFunctionalModeRequest := cFunctionalModeAny;
+lInputModeRequest := cInputModeNone;
+lAutomationRequest := cProgMovCodeNone;
+lIsBeginner := FALSE;
+
+lReportableA.valid := FALSE;
+lReportableB.valid := FALSE;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="trigger" ObjectId="a4683236-daf6-4553-9b7b-9a531cb960e6">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                  <variable name="machineStateId">
+                    <type>
+                      <derived name="t_machine_state_id" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">trigger := TRUE;
+(*
+CASE machineStateId OF
+	t_machine_state_id.cMSIdNone:
+		RETURN;
+
+	t_machine_state_id.cMSIdSteerModeRequest:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(lPackRadioDashboard.lSteerModeRequest),14,3);
+		RETURN;
+
+	t_machine_state_id.cMSIdSteerModeRequest4WS:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_steer_mode.cSteerMode4WS),14,3);
+		RETURN;
+
+	t_machine_state_id.cMSIdSteerModeRequestLateral:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_steer_mode.cSteerModeLateral),14,3);
+		RETURN;
+
+	t_machine_state_id.cMSIdSteerModeRequestCarousel:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_steer_mode.cSteerModeCarousel),14,3);
+		RETURN;
+
+	
+	t_machine_state_id.cMSIdToggleLightsRequest:
+		lTimer.reset();
+		packet.packUSINT(INT_TO_USINT(t_ui_event_code.cUIEventCodeToggleLights),8,6);
+		RETURN;
+	
+	t_machine_state_id.cMSIdRadioModeResponse:
+		lTimer.reset();
+		packet.packUSINT(INT_TO_USINT(t_ui_event_code.cUIEventCodeUIModeResponse),8,6);		
+		RETURN;
+		
+	t_machine_state_id.cMSIdOperatingModeRequest:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(lPackRadioDashboard.lOperatingMethodRequest),17,3);	
+		RETURN;
+
+	t_machine_state_id.cMSIdSpreaderTelescopingExtensionStateRequest6m:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_state.cSpreaderExtensionState6m),20,2);
+		RETURN;
+	
+	t_machine_state_id.cMSIdSpreaderTelescopingExtensionStateRequest9m:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_state.cSpreaderExtensionState9m),20,2);
+		RETURN;
+		
+	t_machine_state_id.cMSIdSpreaderTelescopingExtensionStateRequest12m:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_state.cSpreaderExtensionState12m),20,2);
+		RETURN;
+
+	t_machine_state_id.cMSIdSpreaderGrabArmsExtendABRequest:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_method.cSpreaderExtensionMethodABExtend),22,3);
+		RETURN;
+
+	t_machine_state_id.cMSIdSpreaderGrabArmsRetractABRequest:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_method.cSpreaderExtensionMethodABRetract),22,3);	
+		RETURN;
+
+	t_machine_state_id.cMSIdSpreaderGrabArmsExtendCDRequest:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_method.cSpreaderExtensionMethodCDExtend),22,3);	
+		RETURN;
+
+	t_machine_state_id.cMSIdSpreaderGrabArmsRetractCDRequest:
+		lTimer.reset();		
+		packet.packUSINT(INT_TO_USINT(t_spreader_extension_method.cSpreaderExtensionMethodCDRetract),22,3);		
+		RETURN;
+		
+	t_machine_state_id.cMSIdLiftTopRequest:
+		lTimer.reset();
+		packet.packUSINT(INT_TO_USINT(t_ui_event_code.cUIEventCodeLiftTop),8,6);
+		RETURN;	
+		
+END_CASE
+*)
+trigger := FALSE;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_unpack" ObjectId="90982bc5-9d1c-48d8-b54d-dc8e40ca8278">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lUIModeResponse := packet.unpackBool(5);
+lUIEventCodeRequest := packet.unpackUSINT(6,6);
+lSteerModeRequest := packet.unpackUSINT(12,3);
+lOperatingMethodRequest := packet.unpackUSINT(15,3);
+lFunctionalModeRequest := packet.unpackUSINT(18,3);
+lInputModeRequest := packet.unpackUSINT(21,2);
+lUIOrientationRequest := packet.unpackUSINT(23,3);
+lAutomationRequest := packet.unpackUSINT(26,5);
+lIsBeginner := packet.unpackBool(31);
+lOverride := packet.unpackBool(32);
+
+IF (packet.unpackBool(33)) THEN
+	lReportableA.valid := TRUE;
+	lReportableA.state := packet.unpackUSINT(34,8);
+ELSE
+	lReportableA.event := packet.unpackUSINT(34,8);
+	IF (lReportableA.event=cECNone) THEN
+		lReportableA.valid := FALSE;
+		lReportableB.valid := FALSE;
+		
+		RETURN;				
+	END_IF
+	lReportableA.valid := TRUE;
+END_IF
+lReportableA.active := packet.unpackBool(42);
+lReportableA.subsystem := packet.unpackUSINT(43,5);
+
+IF (packet.unpackBool(49)) THEN
+	lReportableB.valid := TRUE;
+	lReportableB.state := packet.unpackUSINT(50,8);
+ELSE
+	lReportableB.event := packet.unpackUSINT(50,8);	
+	IF (lReportableB.event=cECNone) THEN
+		lReportableB.valid := FALSE;
+		
+		RETURN;				
+	END_IF
+	lReportableB.valid := TRUE;
+END_IF
+lReportableB.active := packet.unpackBool(58);
+lReportableB.subsystem := packet.unpackUSINT(59,5);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="98c1ef86-5786-4b73-8fad-90c7aec61ab0">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCode := INT_TO_USINT(t_pack_code.cPackCodeUICommand);
+
+SUPER^.initialize();
+
+lTimer.initialize();
+lTimer.Enable := TRUE;
+lTimer.Period := T#60MS;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="_pack" ObjectId="ac46eb54-da56-4eee-b8f0-2a2d09ea2584">
+              <interface>
+                <inputVars>
+                  <variable name="packet">
+                    <type>
+                      <derived name="REFERENCE TO t_packet" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">packet.packBool(lUIModeResponse,5);
+packet.packUSINT(INT_TO_USINT(lUIEventCodeRequest),6,6);
+packet.packUSINT(INT_TO_USINT(lSteerModeRequest),12,3);
+packet.packUSINT(INT_TO_USINT(lOperatingMethodRequest),15,3);
+packet.packUSINT(INT_TO_USINT(lFunctionalModeRequest),18,3);
+packet.packUSINT(INT_TO_USINT(lInputModeRequest),21,2);
+packet.packUSINT(INT_TO_USINT(lUIOrientationRequest),23,3);
+packet.packUSINT(INT_TO_USINT(lAutomationRequest),26,5);
+packet.packBool(lIsBeginner,31);
+packet.packBool(lOverride,32);
+
+IF (NOT(lReportableA.valid)) THEN
+	RETURN;
+END_IF
+	
+IF (lReportableA.event=cECNone) THEN
+	packet.packBool(TRUE,33);
+	packet.packUSINT(INT_TO_USINT(lReportableA.state),34,8);
+ELSE
+	packet.packBool(FALSE,33);
+	packet.packUSINT(INT_TO_USINT(lReportableA.event),34,8);
+END_IF
+packet.packBool(lReportableA.active,42);
+packet.packUSINT(INT_TO_USINT(lReportableA.subsystem),43,5);
+
+IF (NOT(lReportableB.valid)) THEN
+	RETURN;
+END_IF
+	
+IF (lReportableB.event=cECNone) THEN
+	packet.packBool(TRUE,49);
+	packet.packUSINT(INT_TO_USINT(lReportableB.state),50,8);
+ELSE
+	packet.packBool(FALSE,49);
+	packet.packUSINT(INT_TO_USINT(lReportableB.event),50,8);
+END_IF
+packet.packBool(lReportableB.active,58);
+packet.packUSINT(INT_TO_USINT(lReportableB.subsystem),59,5);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>94af21f2-8c7b-4d11-a6e6-7da55945b1c8</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="PackProvider" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lPackIn1">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn2">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn3">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn4">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn5">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn6">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn7">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackIn8">
+              <type>
+                <derived name="ValueObjectUSINTInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut1">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut2">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut3">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut4">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut5">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut6">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut7">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lPackOut8">
+              <type>
+                <derived name="ValueObjectUSINTOutputReferenceUSINT" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>NonOperationalParticleSet</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="push" ObjectId="09dc651a-d88f-4f33-be13-76b8b4719080">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut1.operator();
+lPackOut2.operator();
+lPackOut3.operator();
+lPackOut4.operator();
+lPackOut5.operator();
+lPackOut6.operator();
+lPackOut7.operator();
+lPackOut8.operator();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="pull" ObjectId="bf77622c-c708-477a-8091-36d8e19de0f1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackIn1.operator();
+lPackIn2.operator();
+lPackIn3.operator();
+lPackIn4.operator();
+lPackIn5.operator();
+lPackIn6.operator();
+lPackIn7.operator();
+lPackIn8.operator();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="3f727541-d27a-49fc-a0da-2140b3b2cb9a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackIn1.initializeValueObjectOp(NopSelf,'PackIn1','Packet 1 to master','',cValueStyleConfigurable);
+lPackIn2.initializeValueObjectOp(NopSelf,'PackIn2','Packet 2 to master','',cValueStyleConfigurable);
+lPackIn3.initializeValueObjectOp(NopSelf,'PackIn3','Packet 3 to master','',cValueStyleConfigurable);
+lPackIn4.initializeValueObjectOp(NopSelf,'PackIn4','Packet 4 to master','',cValueStyleConfigurable);
+lPackIn5.initializeValueObjectOp(NopSelf,'PackIn5','Packet 5 to master','',cValueStyleConfigurable);
+lPackIn6.initializeValueObjectOp(NopSelf,'PackIn6','Packet 6 to master','',cValueStyleConfigurable);
+lPackIn7.initializeValueObjectOp(NopSelf,'PackIn7','Packet 7 to master','',cValueStyleConfigurable);
+lPackIn8.initializeValueObjectOp(NopSelf,'PackIn8','Packet 8 to master','',cValueStyleConfigurable);
+
+lPackOut1.initializeValueObjectOp(NopSelf,'PackOut1','Packet 1 from master','',cValueStyleConfigurable);
+lPackOut2.initializeValueObjectOp(NopSelf,'PackOut2','Packet 2 from master','',cValueStyleConfigurable);
+lPackOut3.initializeValueObjectOp(NopSelf,'PackOut3','Packet 3 from master','',cValueStyleConfigurable);
+lPackOut4.initializeValueObjectOp(NopSelf,'PackOut4','Packet 4 from master','',cValueStyleConfigurable);
+lPackOut5.initializeValueObjectOp(NopSelf,'PackOut5','Packet 5 from master','',cValueStyleConfigurable);
+lPackOut6.initializeValueObjectOp(NopSelf,'PackOut6','Packet 6 from master','',cValueStyleConfigurable);
+lPackOut7.initializeValueObjectOp(NopSelf,'PackOut7','Packet 7 from master','',cValueStyleConfigurable);
+lPackOut8.initializeValueObjectOp(NopSelf,'PackOut8','Packet 8 from master','',cValueStyleConfigurable);
+
+SUPER^.initialize();
+SubSystem := cSubsystemUInterface;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializePackProvider" ObjectId="60b9843e-a460-4b4b-9f2b-e996a1fd9e50">
+              <interface>
+                <inputVars>
+                  <variable name="packIn1">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn2">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn3">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn4">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn5">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn6">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn7">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packIn8">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut1">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut2">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut3">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut4">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut5">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut6">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut7">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="packOut8">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackIn1.InputReference REF= packIn1;
+lPackIn2.InputReference REF= packIn2;
+lPackIn3.InputReference REF= packIn3;
+lPackIn4.InputReference REF= packIn4;
+lPackIn5.InputReference REF= packIn5;
+lPackIn6.InputReference REF= packIn6;
+lPackIn7.InputReference REF= packIn7;
+lPackIn8.InputReference REF= packIn8;
+
+lPackOut1.OutputReference ref= packOut1;
+lPackOut2.OutputReference ref= packOut2;
+lPackOut3.OutputReference ref= packOut3;
+lPackOut4.OutputReference ref= packOut4;
+lPackOut5.OutputReference ref= packOut5;
+lPackOut6.OutputReference ref= packOut6;
+lPackOut7.OutputReference ref= packOut7;
+lPackOut8.OutputReference ref= packOut8;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn1" ObjectId="405951c9-5eac-4a51-8f6a-45e712a8c3d6">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn1 := lPackIn1.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn2" ObjectId="81a8290a-76fb-4cab-89ba-30e58d916773">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn2 := lPackIn2.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn3" ObjectId="e4a01386-5517-44f2-8ff2-f88e27138aea">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn3 := lPackIn3.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn4" ObjectId="f1afbe93-004f-412c-92b1-e9d41550da88">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn4 := lPackIn4.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn5" ObjectId="b676d2b4-2877-447a-a8c6-3777149b8846">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn5 := lPackIn5.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn6" ObjectId="da1c7a5f-ad05-4e42-82b0-9aa7312addec">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn6 := lPackIn6.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut1" ObjectId="34d2ba6c-273f-4ac8-906e-143cca1c1878">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut1.Value := PackOut1;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut2" ObjectId="a9359c6f-631e-4ea4-88fd-0f0248b37e18">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut2.Value := PackOut2;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut3" ObjectId="e8494497-ad7d-4a9f-bfef-431382ecae0c">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut3.Value := PackOut3;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut4" ObjectId="13488b56-9bf1-4051-80b5-5c00c203dc13">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut4.Value := PackOut4;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut5" ObjectId="9c11d03f-360b-495c-b2b1-5a66582da73c">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut5.Value := PackOut5;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut6" ObjectId="12ba03b3-093c-4cbb-a5f2-e27fddb3a98e">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut6.Value := PackOut6;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut7" ObjectId="3a63bf94-bbe4-49e0-a003-31e78967f8b5">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut7.Value := PackOut7;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackOut8" ObjectId="b03c1400-e8b0-4312-8270-ac363a1b3f84">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPackOut8.Value := PackOut8;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn7" ObjectId="106d1123-4f0a-482a-b762-fab2b141078d">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn7 := lPackIn7.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PackIn8" ObjectId="4c75a135-4c04-4edd-bfdd-06c263d8f0da">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PackIn8 := lPackIn8.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="3d24f969-b53d-4fdb-8057-6cf7a0f0589e">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'PackProvider';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>23c7bc21-70c4-4ddb-a152-3bb599c9d8e1</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/libraries" handleUnknown="implementation">
+      <Libraries>
+        <Library Name="#MemoryUtils" Namespace="MEMUtils" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" DefaultResolution="MemoryUtils, * (3S - Smart Software Solutions GmbH)" />
+        <Library Name="Standard, * (System)" Namespace="Standard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="services, * (Isoloader)" Namespace="services" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="common, * (Isoloader)" Namespace="common" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>cbc9e3a9-061b-4b81-a212-7a05246e76eb</ObjectId>
+          </data>
+        </addData>
+      </Libraries>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Object Name="Library Manager" ObjectId="cbc9e3a9-061b-4b81-a212-7a05246e76eb" />
+        <Folder Name="machine">
+          <Folder Name="pack">
+            <Folder Name="packer">
+              <Folder Name="instances">
+                <Object Name="PackUICommand" ObjectId="94af21f2-8c7b-4d11-a6e6-7da55945b1c8">
+                  <Object Name="reset" ObjectId="18f0ed47-76f0-4e31-b37c-776e091356e4" />
+                  <Object Name="trigger" ObjectId="a4683236-daf6-4553-9b7b-9a531cb960e6" />
+                  <Object Name="_unpack" ObjectId="90982bc5-9d1c-48d8-b54d-dc8e40ca8278" />
+                  <Object Name="initialize" ObjectId="98c1ef86-5786-4b73-8fad-90c7aec61ab0" />
+                  <Object Name="_pack" ObjectId="ac46eb54-da56-4eee-b8f0-2a2d09ea2584" />
+                </Object>
+                <Object Name="PackReportable" ObjectId="9130ef5a-732b-482a-add2-658a6ae74675">
+                  <Object Name="_unpack" ObjectId="72b2297b-afb2-4d5e-abbc-4b8bd8e62bde" />
+                  <Object Name="_pack" ObjectId="f3fec7fe-8eac-40bf-bf6d-0ac4624bbeca" />
+                  <Object Name="initialize" ObjectId="66ff7aa3-32b6-4a85-ad59-54ae4b69a2b1" />
+                  <Object Name="reset" ObjectId="0a02cf50-dbcc-4a19-b922-709956901ed7" />
+                </Object>
+                <Object Name="PackMovement" ObjectId="8282bf88-da89-4385-ba1d-666f0baf6258">
+                  <Object Name="_unpack" ObjectId="842dd383-973d-40ab-b422-4458042b3964" />
+                  <Object Name="_pack" ObjectId="af4eb5fa-8a38-469a-a7f5-2a70139f6f7e" />
+                  <Object Name="initialize" ObjectId="3517c6aa-2f12-43f4-8e52-1519e028606a" />
+                </Object>
+                <Object Name="PackSpreader" ObjectId="ec52c69f-fd4a-45d5-b54d-2c7fdba8af7c">
+                  <Object Name="_unpack" ObjectId="e5de3091-0d5f-4918-96d8-bb2bfede3d62" />
+                  <Object Name="_pack" ObjectId="ac39b378-f061-4c03-851b-92fb5718334e" />
+                  <Object Name="initialize" ObjectId="e4c50408-10e3-483d-adbb-c6670b9365cd" />
+                </Object>
+                <Object Name="PackSystem" ObjectId="9b82393a-0a9b-4f02-ae9e-796e890acead">
+                  <Object Name="_unpack" ObjectId="223e9d8b-ebae-4b49-bce3-61cfdd9daf46" />
+                  <Object Name="_pack" ObjectId="d0b123b4-004e-4c0e-91c8-9861e1b2fb75" />
+                  <Object Name="initialize" ObjectId="bf00c9a8-3388-4763-84e0-4d13aaa74418" />
+                </Object>
+              </Folder>
+              <Object Name="t_pack_code" ObjectId="22d7618f-0d6d-4a90-af2f-a64bcadfaee2" />
+            </Folder>
+            <Object Name="PackChannelUInterface" ObjectId="a535bbca-d749-4949-b2f8-94c2e971b436">
+              <Object Name="initialize" ObjectId="da61c7a4-84ba-4614-9487-c5a888ae8700" />
+              <Object Name="PackMovement" ObjectId="def3b27c-3f7d-43bb-a320-329e33a3f4fd" />
+              <Object Name="PackReportable" ObjectId="fa550f88-20f4-482e-af72-23c1f6bf63a8" />
+              <Object Name="PackSpreader" ObjectId="eb4d8b62-4b51-446c-b8f7-843b91a435f7" />
+              <Object Name="PackSystem" ObjectId="c051979f-23d1-46e3-9a0d-1102c6f776e1" />
+              <Object Name="PackUICommand" ObjectId="bc248e21-deba-43dc-9f2c-fd2a7fbb0e27" />
+              <Object Name="initializePackChannelUInterface" ObjectId="55cbd8a1-0f1c-4b36-b190-e01a3b0fab06" />
+              <Object Name="trigger" ObjectId="d0fd5840-3bf9-4712-8fbc-3b14bbf4993b" />
+              <Object Name="TypeToken" ObjectId="a1a1a069-596e-4566-8d30-2449ef9a1d61" />
+            </Object>
+            <Object Name="PackProvider" ObjectId="23c7bc21-70c4-4ddb-a152-3bb599c9d8e1">
+              <Object Name="PackIn1" ObjectId="405951c9-5eac-4a51-8f6a-45e712a8c3d6" />
+              <Object Name="push" ObjectId="09dc651a-d88f-4f33-be13-76b8b4719080" />
+              <Object Name="PackIn2" ObjectId="81a8290a-76fb-4cab-89ba-30e58d916773" />
+              <Object Name="pull" ObjectId="bf77622c-c708-477a-8091-36d8e19de0f1" />
+              <Object Name="PackIn3" ObjectId="e4a01386-5517-44f2-8ff2-f88e27138aea" />
+              <Object Name="initialize" ObjectId="3f727541-d27a-49fc-a0da-2140b3b2cb9a" />
+              <Object Name="PackIn4" ObjectId="f1afbe93-004f-412c-92b1-e9d41550da88" />
+              <Object Name="PackIn5" ObjectId="b676d2b4-2877-447a-a8c6-3777149b8846" />
+              <Object Name="PackIn6" ObjectId="da1c7a5f-ad05-4e42-82b0-9aa7312addec" />
+              <Object Name="PackOut1" ObjectId="34d2ba6c-273f-4ac8-906e-143cca1c1878" />
+              <Object Name="PackOut2" ObjectId="a9359c6f-631e-4ea4-88fd-0f0248b37e18" />
+              <Object Name="PackOut3" ObjectId="e8494497-ad7d-4a9f-bfef-431382ecae0c" />
+              <Object Name="PackOut4" ObjectId="13488b56-9bf1-4051-80b5-5c00c203dc13" />
+              <Object Name="PackOut5" ObjectId="9c11d03f-360b-495c-b2b1-5a66582da73c" />
+              <Object Name="PackOut6" ObjectId="12ba03b3-093c-4cbb-a5f2-e27fddb3a98e" />
+              <Object Name="PackOut7" ObjectId="3a63bf94-bbe4-49e0-a003-31e78967f8b5" />
+              <Object Name="PackOut8" ObjectId="b03c1400-e8b0-4312-8270-ac363a1b3f84" />
+              <Object Name="PackIn7" ObjectId="106d1123-4f0a-482a-b762-fab2b141078d" />
+              <Object Name="PackIn8" ObjectId="4c75a135-4c04-4edd-bfdd-06c263d8f0da" />
+              <Object Name="initializePackProvider" ObjectId="60b9843e-a460-4b4b-9f2b-e996a1fd9e50" />
+              <Object Name="TypeToken" ObjectId="3d24f969-b53d-4fdb-8057-6cf7a0f0589e" />
+            </Object>
+            <Object Name="PackChannelUInterfacePLC" ObjectId="1ee8b12e-8e37-43b0-b502-c44ab5600e85">
+              <Object Name="pullPLCIncomingChannel" ObjectId="81ae6ec8-db49-4a78-9cc1-d875a51f502d" />
+              <Object Name="pushPLCOutgoingChannel" ObjectId="632b42e8-58b0-46a4-9f40-ccc7e737a8ee" />
+              <Object Name="operator" ObjectId="185862c1-f008-43be-a661-354aa06b3b28" />
+            </Object>
+          </Folder>
+        </Folder>
+        <Object Name="Project Information" ObjectId="11c0fc3a-9bcf-4dd8-ac38-efb93363e521" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

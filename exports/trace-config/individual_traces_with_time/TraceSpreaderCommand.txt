@@ -1,0 +1,15 @@
+Signal Path,Time Sample (ms)
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingActive.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingEnabled.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingAutoCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingEnableCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingExtendAutoCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingExtendCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingRetractAutoCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingRetractCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksLockCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksUnlockCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lBrakeDisengageCommand.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lBrakeDisengaged.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lHydraulicPressure.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lHydraulicTemperature.lValue,20

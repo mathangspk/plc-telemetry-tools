@@ -31,3 +31,9 @@ CODESYS_Code_Review.md
 # Python cache
 __pycache__/
 *.pyc
+
+# Scratch directory
+scratch/
+
+# Temporary Excel lock files
+~$*

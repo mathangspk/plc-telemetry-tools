@@ -1,0 +1,65 @@
+{
+  "name": "cTransTest",
+  "signals": [
+    {
+      "name": "transA_velocity",
+      "path": "System/CANBusDrive/cTransA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_current",
+      "path": "System/CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_motorTemp",
+      "path": "System/CANBusDrive/cTransA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_velocity",
+      "path": "System/CANBusDrive/cTransB/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_current",
+      "path": "System/CANBusDrive/cTransB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_motorTemp",
+      "path": "System/CANBusDrive/cTransB/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_velocity",
+      "path": "System/CANBusDrive/cTransC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_current",
+      "path": "System/CANBusDrive/cTransC/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_motorTemp",
+      "path": "System/CANBusDrive/cTransC/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_velocity",
+      "path": "System/CANBusDrive/cTransD/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_current",
+      "path": "System/CANBusDrive/cTransD/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_motorTemp",
+      "path": "System/CANBusDrive/cTransD/MotorTemp",
+      "metric": "Metric250ms"
+    }
+  ]
+}

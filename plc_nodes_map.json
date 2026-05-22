@@ -1,4 +1,7 @@
 {
+  "_deprecated": true,
+  "_deprecation_date": "2026-05-20",
+  "_deprecation_note": "This file is deprecated. Its content has been migrated to exports/v1/INDEX.json. This file will be removed in Phase 2.",
   "describe": {
     "identity": "PrimaryPLC.System",
     "type": "System",

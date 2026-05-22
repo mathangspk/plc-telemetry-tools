@@ -1,0 +1,7 @@
+Signal Path,Time Sample (ms)
+gSystem.lCANOpenMasterSystem.lBMSA.lNodeState,20
+gSystem.lCANOpenMasterSystem.lBMSB.lNodeState,20
+gSystem.lCANOpenMasterSystem.lSecondaryPowerSupplyA.lNodeState,20
+gSystem.lCANOpenMasterSystem.lSecondaryPowerSupplyB.lNodeState,20
+gSystem.lCANOpenMasterSystem.lUInterfaceCabin.lNodeState,20
+gSystem.lCANOpenMasterSystem.lChargerA.lNodeState,20

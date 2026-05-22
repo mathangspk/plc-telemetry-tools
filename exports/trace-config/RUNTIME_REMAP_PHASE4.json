@@ -1,0 +1,3890 @@
+{
+  "connectivity": {
+    "rw_port_49870": "CONNECTED",
+    "ro_port_49880": "CONNECTED",
+    "emit_port_49890": "CONNECTED",
+    "system_state": {
+      "systemstate": "preparing",
+      "initialized": true,
+      "initialization_stage": 5
+    },
+    "timestamp": "2026-05-21 16:04:53"
+  },
+  "reconciliation": {
+    "total_unique_signals": 588,
+    "exact_match_count": 27,
+    "remapped_abbrev_count": 461,
+    "no_match_count": 96,
+    "nonexistent_confirmed_count": 4,
+    "exact_matches": [
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lCurrentBMSState.lValue",
+        "translated": "System.CANBusSystem.BMSA.CurrentBMSState.Value",
+        "runtime": "System/CANBusSystem/BMSA/CurrentBMSState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lNodeState",
+        "translated": "System.CANBusSystem.BMSA.NodeState",
+        "runtime": "System/CANBusSystem/BMSA/NodeState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lPackAverageTemperature.lValue",
+        "translated": "System.CANBusSystem.BMSA.PackAverageTemperature.Value",
+        "runtime": "System/CANBusSystem/BMSA/PackAverageTemperature"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lPackFaultCode.lValue",
+        "translated": "System.CANBusSystem.BMSA.PackFaultCode.Value",
+        "runtime": "System/CANBusSystem/BMSA/PackFaultCode"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lPackFaultNumber.lValue",
+        "translated": "System.CANBusSystem.BMSA.PackFaultNumber.Value",
+        "runtime": "System/CANBusSystem/BMSA/PackFaultNumber"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lPackMaxTemperature.lValue",
+        "translated": "System.CANBusSystem.BMSA.PackMaxTemperature.Value",
+        "runtime": "System/CANBusSystem/BMSA/PackMaxTemperature"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lPackMinTemperature.lValue",
+        "translated": "System.CANBusSystem.BMSA.PackMinTemperature.Value",
+        "runtime": "System/CANBusSystem/BMSA/PackMinTemperature"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSA.lRequestedBMSState.lValue",
+        "translated": "System.CANBusSystem.BMSA.RequestedBMSState.Value",
+        "runtime": "System/CANBusSystem/BMSA/RequestedBMSState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lCurrentBMSState.lValue",
+        "translated": "System.CANBusSystem.BMSB.CurrentBMSState.Value",
+        "runtime": "System/CANBusSystem/BMSB/CurrentBMSState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lNodeState",
+        "translated": "System.CANBusSystem.BMSB.NodeState",
+        "runtime": "System/CANBusSystem/BMSB/NodeState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lPackAverageTemperature.lValue",
+        "translated": "System.CANBusSystem.BMSB.PackAverageTemperature.Value",
+        "runtime": "System/CANBusSystem/BMSB/PackAverageTemperature"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lPackFaultCode.lValue",
+        "translated": "System.CANBusSystem.BMSB.PackFaultCode.Value",
+        "runtime": "System/CANBusSystem/BMSB/PackFaultCode"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lPackFaultNumber.lValue",
+        "translated": "System.CANBusSystem.BMSB.PackFaultNumber.Value",
+        "runtime": "System/CANBusSystem/BMSB/PackFaultNumber"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lPackMaxTemperature.lValue",
+        "translated": "System.CANBusSystem.BMSB.PackMaxTemperature.Value",
+        "runtime": "System/CANBusSystem/BMSB/PackMaxTemperature"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lPackMinTemperature.lValue",
+        "translated": "System.CANBusSystem.BMSB.PackMinTemperature.Value",
+        "runtime": "System/CANBusSystem/BMSB/PackMinTemperature"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lBMSB.lRequestedBMSState.lValue",
+        "translated": "System.CANBusSystem.BMSB.RequestedBMSState.Value",
+        "runtime": "System/CANBusSystem/BMSB/RequestedBMSState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lNodeState",
+        "translated": "System.CANBusSystem.ChargerA.NodeState",
+        "runtime": "System/CANBusSystem/ChargerA/NodeState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lOBCStatus.lValue",
+        "translated": "System.CANBusSystem.ChargerA.OBCStatus.Value",
+        "runtime": "System/CANBusSystem/ChargerA/OBCStatus"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lOBCStatusDerived",
+        "translated": "System.CANBusSystem.ChargerA.OBCStatusDerived",
+        "runtime": "System/CANBusSystem/ChargerA/OBCStatusDerived"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lRequestedOBCState.lValue",
+        "translated": "System.CANBusSystem.ChargerA.RequestedOBCState.Value",
+        "runtime": "System/CANBusSystem/ChargerA/RequestedOBCState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lStatusCC.lValue",
+        "translated": "System.CANBusSystem.ChargerA.StatusCC.Value",
+        "runtime": "System/CANBusSystem/ChargerA/StatusCC"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lStatusCP.lValue",
+        "translated": "System.CANBusSystem.ChargerA.StatusCP.Value",
+        "runtime": "System/CANBusSystem/ChargerA/StatusCP"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lChargerA.lStopCharging.lValue",
+        "translated": "System.CANBusSystem.ChargerA.StopCharging.Value",
+        "runtime": "System/CANBusSystem/ChargerA/StopCharging"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lSecondaryPowerSupplyA.lNodeState",
+        "translated": "System.CANBusSystem.SecondaryPowerSupplyA.NodeState",
+        "runtime": "System/CANBusSystem/SecondaryPowerSupplyA/NodeState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lSecondaryPowerSupplyB.lNodeState",
+        "translated": "System.CANBusSystem.SecondaryPowerSupplyB.NodeState",
+        "runtime": "System/CANBusSystem/SecondaryPowerSupplyB/NodeState"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterSystem.lUInterfaceCabin.lNodeState",
+        "translated": "System.CANBusSystem.UInterfaceCabin.NodeState",
+        "runtime": "System/CANBusSystem/UInterfaceCabin/NodeState"
+      },
+      {
+        "raw": "gSystem.lSystemState.lState.lValue",
+        "translated": "System.SystemState.State.Value",
+        "runtime": "System/SystemState/State"
+      }
+    ],
+    "remapped_abbrev": [
+      {
+        "raw": "gSystem.lBMS.lAlarmBMSSOCMismatch.lActive",
+        "translated": "System.BMS.AlarmBMSSOCMismatch.Active",
+        "runtime_old": "System/BMS/AlarmBMSSOCMismatch/Active",
+        "runtime_new": "System/BMSAB/AlarmBMSSOCMismatch/Active",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lAvailability",
+        "translated": "System.BMS.Availability",
+        "runtime_old": "System/BMS/Availability",
+        "runtime_new": "System/BMSAB/Availability",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lChargingCurrentTarget",
+        "translated": "System.BMS.ChargingCurrentTarget",
+        "runtime_old": "System/BMS/ChargingCurrentTarget",
+        "runtime_new": "System/BMSAB/ChargingCurrentTarget",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lControllerBMSA.lPackChargingCurrentTarget.lValue",
+        "translated": "System.BMS.ControllerBMSA.PackChargingCurrentTarget.Value",
+        "runtime_old": "System/BMS/ControllerBMSA/PackChargingCurrentTarget/Value",
+        "runtime_new": "System/BMSAB/ControllerBMSA/PackChargingCurrentTarget",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lControllerBMSA.lPackChargingVoltageTarget.lValue",
+        "translated": "System.BMS.ControllerBMSA.PackChargingVoltageTarget.Value",
+        "runtime_old": "System/BMS/ControllerBMSA/PackChargingVoltageTarget/Value",
+        "runtime_new": "System/BMSAB/ControllerBMSA/PackChargingVoltageTarget",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lControllerBMSA.lRequestDisconnect.lValue",
+        "translated": "System.BMS.ControllerBMSA.RequestDisconnect.Value",
+        "runtime_old": "System/BMS/ControllerBMSA/RequestDisconnect/Value",
+        "runtime_new": "System/BMSAB/ControllerBMSA/RequestDisconnect",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lControllerBMSB.lPackChargingCurrentTarget.lValue",
+        "translated": "System.BMS.ControllerBMSB.PackChargingCurrentTarget.Value",
+        "runtime_old": "System/BMS/ControllerBMSB/PackChargingCurrentTarget/Value",
+        "runtime_new": "System/BMSAB/ControllerBMSB/PackChargingCurrentTarget",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lControllerBMSB.lPackChargingVoltageTarget.lValue",
+        "translated": "System.BMS.ControllerBMSB.PackChargingVoltageTarget.Value",
+        "runtime_old": "System/BMS/ControllerBMSB/PackChargingVoltageTarget/Value",
+        "runtime_new": "System/BMSAB/ControllerBMSB/PackChargingVoltageTarget",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lControllerBMSB.lRequestDisconnect.lValue",
+        "translated": "System.BMS.ControllerBMSB.RequestDisconnect.Value",
+        "runtime_old": "System/BMS/ControllerBMSB/RequestDisconnect/Value",
+        "runtime_new": "System/BMSAB/ControllerBMSB/RequestDisconnect",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrent",
+        "translated": "System.BMS.Current",
+        "runtime_old": "System/BMS/Current",
+        "runtime_new": "System/BMSAB/Current",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrentA",
+        "translated": "System.BMS.CurrentA",
+        "runtime_old": "System/BMS/CurrentA",
+        "runtime_new": "System/BMSAB/CurrentA",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrentB",
+        "translated": "System.BMS.CurrentB",
+        "runtime_old": "System/BMS/CurrentB",
+        "runtime_new": "System/BMSAB/CurrentB",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrentBMSChargeState",
+        "translated": "System.BMS.CurrentBMSChargeState",
+        "runtime_old": "System/BMS/CurrentBMSChargeState",
+        "runtime_new": "System/BMSAB/CurrentBMSChargeState",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrentInbalance",
+        "translated": "System.BMS.CurrentInbalance",
+        "runtime_old": "System/BMS/CurrentInbalance",
+        "runtime_new": "System/BMSAB/CurrentInbalance",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrentMismatch",
+        "translated": "System.BMS.CurrentMismatch",
+        "runtime_old": "System/BMS/CurrentMismatch",
+        "runtime_new": "System/BMSAB/CurrentMismatch",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lCurrentState",
+        "translated": "System.BMS.CurrentState",
+        "runtime_old": "System/BMS/CurrentState",
+        "runtime_new": "System/BMSAB/CurrentState",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lEnableBMS.lValue",
+        "translated": "System.BMS.EnableBMS.Value",
+        "runtime_old": "System/BMS/EnableBMS/Value",
+        "runtime_new": "System/BMSAB/EnableBMS",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lRequestedBMSChargeState",
+        "translated": "System.BMS.RequestedBMSChargeState",
+        "runtime_old": "System/BMS/RequestedBMSChargeState",
+        "runtime_new": "System/BMSAB/RequestedBMSChargeState",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lRequestedState",
+        "translated": "System.BMS.RequestedState",
+        "runtime_old": "System/BMS/RequestedState",
+        "runtime_new": "System/BMSAB/RequestedState",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lRestartCount",
+        "translated": "System.BMS.RestartCount",
+        "runtime_old": "System/BMS/RestartCount",
+        "runtime_new": "System/BMSAB/RestartCount",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSOC",
+        "translated": "System.BMS.SOC",
+        "runtime_old": "System/BMS/SOC",
+        "runtime_new": "System/BMSAB/SOC",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSOCA",
+        "translated": "System.BMS.SOCA",
+        "runtime_old": "System/BMS/SOCA",
+        "runtime_new": "System/BMSAB/SOCA",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSOCB",
+        "translated": "System.BMS.SOCB",
+        "runtime_old": "System/BMS/SOCB",
+        "runtime_new": "System/BMSAB/SOCB",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSOCInbalance",
+        "translated": "System.BMS.SOCInbalance",
+        "runtime_old": "System/BMS/SOCInbalance",
+        "runtime_new": "System/BMSAB/SOCInbalance",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSOCMismatch",
+        "translated": "System.BMS.SOCMismatch",
+        "runtime_old": "System/BMS/SOCMismatch",
+        "runtime_new": "System/BMSAB/SOCMismatch",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSOCRecoveryTimer.lExpired",
+        "translated": "System.BMS.SOCRecoveryTimer.Expired",
+        "runtime_old": "System/BMS/SOCRecoveryTimer/Expired",
+        "runtime_new": "System/BMSAB/SOCRecoveryTimer/Expired",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lSwitchingStateTimer.lExpired",
+        "translated": "System.BMS.SwitchingStateTimer.Expired",
+        "runtime_old": "System/BMS/SwitchingStateTimer/Expired",
+        "runtime_new": "System/BMSAB/SwitchingStateTimer/Expired",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lTargetStateA",
+        "translated": "System.BMS.TargetStateA",
+        "runtime_old": "System/BMS/TargetStateA",
+        "runtime_new": "System/BMSAB/TargetStateA",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lTargetStateB",
+        "translated": "System.BMS.TargetStateB",
+        "runtime_old": "System/BMS/TargetStateB",
+        "runtime_new": "System/BMSAB/TargetStateB",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lVoltageA",
+        "translated": "System.BMS.VoltageA",
+        "runtime_old": "System/BMS/VoltageA",
+        "runtime_new": "System/BMSAB/VoltageA",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lVoltageB",
+        "translated": "System.BMS.VoltageB",
+        "runtime_old": "System/BMS/VoltageB",
+        "runtime_new": "System/BMSAB/VoltageB",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lVoltageInbalance",
+        "translated": "System.BMS.VoltageInbalance",
+        "runtime_old": "System/BMS/VoltageInbalance",
+        "runtime_new": "System/BMSAB/VoltageInbalance",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lBMS.lVoltageMismatch",
+        "translated": "System.BMS.VoltageMismatch",
+        "runtime_old": "System/BMS/VoltageMismatch",
+        "runtime_new": "System/BMSAB/VoltageMismatch",
+        "rule": "System/BMS -> System/BMSAB"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.TransA.lCurrent.lValue",
+        "translated": "System.CANBusDrive.TransA.Current.Value",
+        "runtime_old": "System/CANBusDrive/TransA/Current/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.TransA.lDiagnostic",
+        "translated": "System.CANBusDrive.TransA.Diagnostic",
+        "runtime_old": "System/CANBusDrive/TransA/Diagnostic",
+        "runtime_new": "System/CANBusDrive/cTransA/Diagnostic",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lBrakeDisengageCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.BrakeDisengageCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/BrakeDisengageCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/BrakeDisengage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lBrakeDisengaged.lValue",
+        "translated": "System.CANBusDrive.Spreader.BrakeDisengaged.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/BrakeDisengaged/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/BrakeDisengage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.Spreader.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/Spreader/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSpreader/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lHydraulicPressure.lValue",
+        "translated": "System.CANBusDrive.Spreader.HydraulicPressure.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/HydraulicPressure/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/HydPressure",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lHydraulicTemperature.lValue",
+        "translated": "System.CANBusDrive.Spreader.HydraulicTemperature.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/HydraulicTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/HydTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lNodeState",
+        "translated": "System.CANBusDrive.Spreader.NodeState",
+        "runtime_old": "System/CANBusDrive/Spreader/NodeState",
+        "runtime_new": "System/CANBusDrive/cSpreader/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lPumpControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.Spreader.PumpControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/PumpControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/PmpCntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lPumpMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.Spreader.PumpMotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/PumpMotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/PmpMotTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingActive.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingActive.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingActive/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpActive",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingAutoCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingAutoCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingAutoCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpAuto",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingEnableCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingEnableCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingEnableCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpEnbl",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingEnabled.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingEnabled.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingEnabled/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpEnbl",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingExtendAutoCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingExtendAutoCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingExtendAutoCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpAutoExt",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingExtendCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingExtendCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingExtendCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpExtend",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingRetractAutoCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingRetractAutoCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingRetractAutoCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpAutoRet",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTelescopingRetractCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TelescopingRetractCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TelescopingRetractCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TelscpRetract",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockACurrentState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockACurrentState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockACurrentState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstAStt",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockALoweredState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockALoweredState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockALoweredState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstALow",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockBCurrentState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockBCurrentState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockBCurrentState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstBStt",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockBLoweredState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockBLoweredState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockBLoweredState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstBLow",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockCCurrentState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockCCurrentState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockCCurrentState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstCStt",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockCLoweredState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockCLoweredState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockCLoweredState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstCLow",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockDCurrentState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockDCurrentState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockDCurrentState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstDStt",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockDLoweredState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlockDLoweredState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlockDLoweredState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstDLow",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksActive.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlocksActive.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlocksActive/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstActive",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksCurrentState.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlocksCurrentState.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlocksCurrentState/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstStt",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksEnabled.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlocksEnabled.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlocksEnabled/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstEnbl",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksLockCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlocksLockCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlocksLockCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstLock",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksUnlockCommand.lValue",
+        "translated": "System.CANBusDrive.Spreader.TwistlocksUnlockCommand.Value",
+        "runtime_old": "System/CANBusDrive/Spreader/TwistlocksUnlockCommand/Value",
+        "runtime_new": "System/CANBusDrive/cSpreader/TwstUnlock",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerA.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.SteerA.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.SteerA.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerA.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerA.Current.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/Current/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lDiagnostic",
+        "translated": "System.CANBusDrive.SteerA.Diagnostic",
+        "runtime_old": "System/CANBusDrive/SteerA/Diagnostic",
+        "runtime_new": "System/CANBusDrive/cSteerA/Diagnostic",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerA.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerA/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerA/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerA.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lNodeState",
+        "translated": "System.CANBusDrive.SteerA.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerA/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerA/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lProposedThrottle",
+        "translated": "System.CANBusDrive.SteerA.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/SteerA/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cSteerA/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.SteerA.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/SteerA/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cSteerA/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lTargetSpeed.lValue",
+        "translated": "System.CANBusDrive.SteerA.TargetSpeed.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/TargetSpeed/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/TargetSpeed",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lTargetVelocity",
+        "translated": "System.CANBusDrive.SteerA.TargetVelocity",
+        "runtime_old": "System/CANBusDrive/SteerA/TargetVelocity",
+        "runtime_new": "System/CANBusDrive/cSteerA/TargetVelocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lTorque.lValue",
+        "translated": "System.CANBusDrive.SteerA.Torque.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerA.lVelocity.lValue",
+        "translated": "System.CANBusDrive.SteerA.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/SteerA/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cSteerA/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleA.lAngle.lValue",
+        "translated": "System.CANBusDrive.SteerAngleA.Angle.Value",
+        "runtime_old": "System/CANBusDrive/SteerAngleA/Angle/Value",
+        "runtime_new": "System/CANBusDrive/cSteerAngleA/Angle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleA.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerAngleA.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerAngleA/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerAngleA/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleA.lNodeState",
+        "translated": "System.CANBusDrive.SteerAngleA.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerAngleA/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerAngleA/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleB.lAngle.lValue",
+        "translated": "System.CANBusDrive.SteerAngleB.Angle.Value",
+        "runtime_old": "System/CANBusDrive/SteerAngleB/Angle/Value",
+        "runtime_new": "System/CANBusDrive/cSteerAngleB/Angle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleB.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerAngleB.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerAngleB/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerAngleB/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleB.lNodeState",
+        "translated": "System.CANBusDrive.SteerAngleB.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerAngleB/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerAngleB/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleC.lAngle.lValue",
+        "translated": "System.CANBusDrive.SteerAngleC.Angle.Value",
+        "runtime_old": "System/CANBusDrive/SteerAngleC/Angle/Value",
+        "runtime_new": "System/CANBusDrive/cSteerAngleC/Angle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleC.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerAngleC.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerAngleC/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerAngleC/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleC.lNodeState",
+        "translated": "System.CANBusDrive.SteerAngleC.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerAngleC/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerAngleC/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleD.lAngle.lValue",
+        "translated": "System.CANBusDrive.SteerAngleD.Angle.Value",
+        "runtime_old": "System/CANBusDrive/SteerAngleD/Angle/Value",
+        "runtime_new": "System/CANBusDrive/cSteerAngleD/Angle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleD.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerAngleD.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerAngleD/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerAngleD/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerAngleD.lNodeState",
+        "translated": "System.CANBusDrive.SteerAngleD.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerAngleD/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerAngleD/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerB.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.SteerB.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.SteerB.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerB.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerB.Current.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/Current/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lDiagnostic",
+        "translated": "System.CANBusDrive.SteerB.Diagnostic",
+        "runtime_old": "System/CANBusDrive/SteerB/Diagnostic",
+        "runtime_new": "System/CANBusDrive/cSteerB/Diagnostic",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerB.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerB/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerB/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerB.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lNodeState",
+        "translated": "System.CANBusDrive.SteerB.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerB/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerB/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lProposedThrottle",
+        "translated": "System.CANBusDrive.SteerB.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/SteerB/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cSteerB/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.SteerB.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/SteerB/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cSteerB/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lTargetSpeed.lValue",
+        "translated": "System.CANBusDrive.SteerB.TargetSpeed.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/TargetSpeed/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/TargetSpeed",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lTargetVelocity",
+        "translated": "System.CANBusDrive.SteerB.TargetVelocity",
+        "runtime_old": "System/CANBusDrive/SteerB/TargetVelocity",
+        "runtime_new": "System/CANBusDrive/cSteerB/TargetVelocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lTorque.lValue",
+        "translated": "System.CANBusDrive.SteerB.Torque.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerB.lVelocity.lValue",
+        "translated": "System.CANBusDrive.SteerB.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/SteerB/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cSteerB/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerC.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.SteerC.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.SteerC.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerC.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerC.Current.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/Current/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerC.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerC/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerC/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerC.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lNodeState",
+        "translated": "System.CANBusDrive.SteerC.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerC/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerC/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lProposedThrottle",
+        "translated": "System.CANBusDrive.SteerC.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/SteerC/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cSteerC/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.SteerC.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/SteerC/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cSteerC/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lTargetSpeed.lValue",
+        "translated": "System.CANBusDrive.SteerC.TargetSpeed.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/TargetSpeed/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/TargetSpeed",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lTargetVelocity",
+        "translated": "System.CANBusDrive.SteerC.TargetVelocity",
+        "runtime_old": "System/CANBusDrive/SteerC/TargetVelocity",
+        "runtime_new": "System/CANBusDrive/cSteerC/TargetVelocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lTorque.lValue",
+        "translated": "System.CANBusDrive.SteerC.Torque.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerC.lVelocity.lValue",
+        "translated": "System.CANBusDrive.SteerC.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/SteerC/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cSteerC/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerD.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.SteerD.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.SteerD.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerD.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lCurrent.lValue",
+        "translated": "System.CANBusDrive.SteerD.Current.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/Current/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lDiagnostic",
+        "translated": "System.CANBusDrive.SteerD.Diagnostic",
+        "runtime_old": "System/CANBusDrive/SteerD/Diagnostic",
+        "runtime_new": "System/CANBusDrive/cSteerD/Diagnostic",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.SteerD.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/SteerD/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cSteerD/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lMeasuredThrottle",
+        "translated": "System.CANBusDrive.SteerD.MeasuredThrottle",
+        "runtime_old": "System/CANBusDrive/SteerD/MeasuredThrottle",
+        "runtime_new": "System/CANBusDrive/cSteerD/MeasuredThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.SteerD.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lNodeState",
+        "translated": "System.CANBusDrive.SteerD.NodeState",
+        "runtime_old": "System/CANBusDrive/SteerD/NodeState",
+        "runtime_new": "System/CANBusDrive/cSteerD/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lProposedThrottle",
+        "translated": "System.CANBusDrive.SteerD.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/SteerD/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cSteerD/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStallIndicator",
+        "translated": "System.CANBusDrive.SteerD.StallIndicator",
+        "runtime_old": "System/CANBusDrive/SteerD/StallIndicator",
+        "runtime_new": "System/CANBusDrive/cSteerD/StallIndicator",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStallInput",
+        "translated": "System.CANBusDrive.SteerD.StallInput",
+        "runtime_old": "System/CANBusDrive/SteerD/StallInput",
+        "runtime_new": "System/CANBusDrive/cSteerD/StallInput",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStallState",
+        "translated": "System.CANBusDrive.SteerD.StallState",
+        "runtime_old": "System/CANBusDrive/SteerD/StallState",
+        "runtime_new": "System/CANBusDrive/cSteerD/StallState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStallTimer.lExpired",
+        "translated": "System.CANBusDrive.SteerD.StallTimer.Expired",
+        "runtime_old": "System/CANBusDrive/SteerD/StallTimer/Expired",
+        "runtime_new": "System/CANBusDrive/cSteerD/StallTimer/Expired",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStalled",
+        "translated": "System.CANBusDrive.SteerD.Stalled",
+        "runtime_old": "System/CANBusDrive/SteerD/Stalled",
+        "runtime_new": "System/CANBusDrive/cSteerD/Stalled",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStalledCount",
+        "translated": "System.CANBusDrive.SteerD.StalledCount",
+        "runtime_old": "System/CANBusDrive/SteerD/StalledCount",
+        "runtime_new": "System/CANBusDrive/cSteerD/StalledCount",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStalledIndicator",
+        "translated": "System.CANBusDrive.SteerD.StalledIndicator",
+        "runtime_old": "System/CANBusDrive/SteerD/StalledIndicator",
+        "runtime_new": "System/CANBusDrive/cSteerD/StalledIndicator",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lStationary",
+        "translated": "System.CANBusDrive.SteerD.Stationary",
+        "runtime_old": "System/CANBusDrive/SteerD/Stationary",
+        "runtime_new": "System/CANBusDrive/cSteerD/Stationary",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.SteerD.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/SteerD/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cSteerD/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lTargetSpeed.lValue",
+        "translated": "System.CANBusDrive.SteerD.TargetSpeed.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/TargetSpeed/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/TargetSpeed",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lTargetVelocity",
+        "translated": "System.CANBusDrive.SteerD.TargetVelocity",
+        "runtime_old": "System/CANBusDrive/SteerD/TargetVelocity",
+        "runtime_new": "System/CANBusDrive/cSteerD/TargetVelocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lTorque.lValue",
+        "translated": "System.CANBusDrive.SteerD.Torque.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lVelocity.lValue",
+        "translated": "System.CANBusDrive.SteerD.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/SteerD/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cSteerD/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lZeroCurrentVelocityIndicator",
+        "translated": "System.CANBusDrive.SteerD.ZeroCurrentVelocityIndicator",
+        "runtime_old": "System/CANBusDrive/SteerD/ZeroCurrentVelocityIndicator",
+        "runtime_new": "System/CANBusDrive/cSteerD/ZeroCurrentVelocityIndicator",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lSteerD.lZeroTargetSpeedIndicator",
+        "translated": "System.CANBusDrive.SteerD.ZeroTargetSpeedIndicator",
+        "runtime_old": "System/CANBusDrive/SteerD/ZeroTargetSpeedIndicator",
+        "runtime_new": "System/CANBusDrive/cSteerD/ZeroTargetSpeedIndicator",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.TransA.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/TransA/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.TransA.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/TransA/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.TransA.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/TransA/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.TransA.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransA/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lCurrent.lValue",
+        "translated": "System.CANBusDrive.TransA.Current.Value",
+        "runtime_old": "System/CANBusDrive/TransA/Current/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lEnable.lValue",
+        "translated": "System.CANBusDrive.TransA.Enable.Value",
+        "runtime_old": "System/CANBusDrive/TransA/Enable/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/Enable",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lForward.lValue",
+        "translated": "System.CANBusDrive.TransA.Forward.Value",
+        "runtime_old": "System/CANBusDrive/TransA/Forward/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/Forward",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lFreeWheel",
+        "translated": "System.CANBusDrive.TransA.FreeWheel",
+        "runtime_old": "System/CANBusDrive/TransA/FreeWheel",
+        "runtime_new": "System/CANBusDrive/cTransA/FreeWheel",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.TransA.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/TransA/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cTransA/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lInitializeMotorHoldCounter",
+        "translated": "System.CANBusDrive.TransA.InitializeMotorHoldCounter",
+        "runtime_old": "System/CANBusDrive/TransA/InitializeMotorHoldCounter",
+        "runtime_new": "System/CANBusDrive/cTransA/InitializeMotorHoldCounter",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.TransA.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransA/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lNodeState",
+        "translated": "System.CANBusDrive.TransA.NodeState",
+        "runtime_old": "System/CANBusDrive/TransA/NodeState",
+        "runtime_new": "System/CANBusDrive/cTransA/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lProposedThrottle",
+        "translated": "System.CANBusDrive.TransA.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/TransA/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cTransA/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lReverse.lValue",
+        "translated": "System.CANBusDrive.TransA.Reverse.Value",
+        "runtime_old": "System/CANBusDrive/TransA/Reverse/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/Reverse",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lTargetSpeed.lValue",
+        "translated": "System.CANBusDrive.TransA.TargetSpeed.Value",
+        "runtime_old": "System/CANBusDrive/TransA/TargetSpeed/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/TargetSpeed",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lTargetVelocity",
+        "translated": "System.CANBusDrive.TransA.TargetVelocity",
+        "runtime_old": "System/CANBusDrive/TransA/TargetVelocity",
+        "runtime_new": "System/CANBusDrive/cTransA/TargetVelocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransA.lVelocity.lValue",
+        "translated": "System.CANBusDrive.TransA.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/TransA/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cTransA/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.TransB.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/TransB/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.TransB.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/TransB/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.TransB.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/TransB/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.TransB.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransB/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lCurrent.lValue",
+        "translated": "System.CANBusDrive.TransB.Current.Value",
+        "runtime_old": "System/CANBusDrive/TransB/Current/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lEnable.lValue",
+        "translated": "System.CANBusDrive.TransB.Enable.Value",
+        "runtime_old": "System/CANBusDrive/TransB/Enable/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/Enable",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lFreeWheel",
+        "translated": "System.CANBusDrive.TransB.FreeWheel",
+        "runtime_old": "System/CANBusDrive/TransB/FreeWheel",
+        "runtime_new": "System/CANBusDrive/cTransB/FreeWheel",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.TransB.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/TransB/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cTransB/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lInitializeMotorHoldCounter",
+        "translated": "System.CANBusDrive.TransB.InitializeMotorHoldCounter",
+        "runtime_old": "System/CANBusDrive/TransB/InitializeMotorHoldCounter",
+        "runtime_new": "System/CANBusDrive/cTransB/InitializeMotorHoldCounter",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.TransB.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransB/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lNodeState",
+        "translated": "System.CANBusDrive.TransB.NodeState",
+        "runtime_old": "System/CANBusDrive/TransB/NodeState",
+        "runtime_new": "System/CANBusDrive/cTransB/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lProposedThrottle",
+        "translated": "System.CANBusDrive.TransB.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/TransB/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cTransB/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransB.lVelocity.lValue",
+        "translated": "System.CANBusDrive.TransB.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/TransB/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cTransB/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.TransC.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/TransC/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.TransC.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/TransC/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.TransC.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/TransC/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.TransC.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransC/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lCurrent.lValue",
+        "translated": "System.CANBusDrive.TransC.Current.Value",
+        "runtime_old": "System/CANBusDrive/TransC/Current/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lEnable.lValue",
+        "translated": "System.CANBusDrive.TransC.Enable.Value",
+        "runtime_old": "System/CANBusDrive/TransC/Enable/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/Enable",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lFreeWheel",
+        "translated": "System.CANBusDrive.TransC.FreeWheel",
+        "runtime_old": "System/CANBusDrive/TransC/FreeWheel",
+        "runtime_new": "System/CANBusDrive/cTransC/FreeWheel",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.TransC.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/TransC/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cTransC/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.TransC.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransC/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lNodeState",
+        "translated": "System.CANBusDrive.TransC.NodeState",
+        "runtime_old": "System/CANBusDrive/TransC/NodeState",
+        "runtime_new": "System/CANBusDrive/cTransC/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lProposedThrottle",
+        "translated": "System.CANBusDrive.TransC.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/TransC/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cTransC/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransC.lVelocity.lValue",
+        "translated": "System.CANBusDrive.TransC.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/TransC/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cTransC/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.TransD.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/TransD/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.TransD.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/TransD/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.TransD.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/TransD/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.TransD.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransD/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lCurrent.lValue",
+        "translated": "System.CANBusDrive.TransD.Current.Value",
+        "runtime_old": "System/CANBusDrive/TransD/Current/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lEnable.lValue",
+        "translated": "System.CANBusDrive.TransD.Enable.Value",
+        "runtime_old": "System/CANBusDrive/TransD/Enable/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/Enable",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lFreeWheel",
+        "translated": "System.CANBusDrive.TransD.FreeWheel",
+        "runtime_old": "System/CANBusDrive/TransD/FreeWheel",
+        "runtime_new": "System/CANBusDrive/cTransD/FreeWheel",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.TransD.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/TransD/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cTransD/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.TransD.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/TransD/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lNodeState",
+        "translated": "System.CANBusDrive.TransD.NodeState",
+        "runtime_old": "System/CANBusDrive/TransD/NodeState",
+        "runtime_new": "System/CANBusDrive/cTransD/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lProposedThrottle",
+        "translated": "System.CANBusDrive.TransD.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/TransD/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cTransD/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lTransD.lVelocity.lValue",
+        "translated": "System.CANBusDrive.TransD.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/TransD/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cTransD/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lAlarmControllerTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchA.AlarmControllerTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchA/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lAlarmControllerTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchA.AlarmControllerTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchA/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lAlarmMotorTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchA.AlarmMotorTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchA/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lAlarmMotorTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchA.AlarmMotorTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchA/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchA.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.WinchA.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.WinchA.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchA.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchA.Current.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/Current/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchA.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchA/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchA/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchA.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lNodeState",
+        "translated": "System.CANBusDrive.WinchA.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchA/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchA/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lProposedThrottle",
+        "translated": "System.CANBusDrive.WinchA.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/WinchA/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cWinchA/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.WinchA.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/WinchA/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cWinchA/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lTorque.lValue",
+        "translated": "System.CANBusDrive.WinchA.Torque.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchA.lVelocity.lValue",
+        "translated": "System.CANBusDrive.WinchA.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/WinchA/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cWinchA/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleA.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchAngleA.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchAngleA/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchAngleA/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleA.lNodeState",
+        "translated": "System.CANBusDrive.WinchAngleA.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchAngleA/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchAngleA/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleA.lPosition.lValue",
+        "translated": "System.CANBusDrive.WinchAngleA.Position.Value",
+        "runtime_old": "System/CANBusDrive/WinchAngleA/Position/Value",
+        "runtime_new": "System/CANBusDrive/cWinchAngleA/Position",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleB.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchAngleB.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchAngleB/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchAngleB/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleB.lNodeState",
+        "translated": "System.CANBusDrive.WinchAngleB.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchAngleB/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchAngleB/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleB.lPosition.lValue",
+        "translated": "System.CANBusDrive.WinchAngleB.Position.Value",
+        "runtime_old": "System/CANBusDrive/WinchAngleB/Position/Value",
+        "runtime_new": "System/CANBusDrive/cWinchAngleB/Position",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleC.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchAngleC.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchAngleC/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchAngleC/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleC.lNodeState",
+        "translated": "System.CANBusDrive.WinchAngleC.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchAngleC/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchAngleC/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleC.lPosition.lValue",
+        "translated": "System.CANBusDrive.WinchAngleC.Position.Value",
+        "runtime_old": "System/CANBusDrive/WinchAngleC/Position/Value",
+        "runtime_new": "System/CANBusDrive/cWinchAngleC/Position",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleD.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchAngleD.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchAngleD/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchAngleD/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleD.lNodeState",
+        "translated": "System.CANBusDrive.WinchAngleD.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchAngleD/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchAngleD/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchAngleD.lPosition.lValue",
+        "translated": "System.CANBusDrive.WinchAngleD.Position.Value",
+        "runtime_old": "System/CANBusDrive/WinchAngleD/Position/Value",
+        "runtime_new": "System/CANBusDrive/cWinchAngleD/Position",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lAlarmControllerTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchB.AlarmControllerTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchB/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lAlarmControllerTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchB.AlarmControllerTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchB/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lAlarmMotorTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchB.AlarmMotorTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchB/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lAlarmMotorTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchB.AlarmMotorTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchB/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchB.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.WinchB.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.WinchB.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchB.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchB.Current.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/Current/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchB.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchB/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchB/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchB.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lNodeState",
+        "translated": "System.CANBusDrive.WinchB.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchB/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchB/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lProposedThrottle",
+        "translated": "System.CANBusDrive.WinchB.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/WinchB/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cWinchB/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.WinchB.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/WinchB/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cWinchB/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lTorque.lValue",
+        "translated": "System.CANBusDrive.WinchB.Torque.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchB.lVelocity.lValue",
+        "translated": "System.CANBusDrive.WinchB.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/WinchB/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cWinchB/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lAlarmControllerTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchC.AlarmControllerTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchC/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lAlarmControllerTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchC.AlarmControllerTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchC/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lAlarmMotorTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchC.AlarmMotorTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchC/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lAlarmMotorTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchC.AlarmMotorTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchC/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchC.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.WinchC.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.WinchC.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchC.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchC.Current.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/Current/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchC.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchC/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchC/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchC.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lNodeState",
+        "translated": "System.CANBusDrive.WinchC.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchC/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchC/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lProposedThrottle",
+        "translated": "System.CANBusDrive.WinchC.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/WinchC/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cWinchC/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.WinchC.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/WinchC/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cWinchC/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lTorque.lValue",
+        "translated": "System.CANBusDrive.WinchC.Torque.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchC.lVelocity.lValue",
+        "translated": "System.CANBusDrive.WinchC.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/WinchC/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cWinchC/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lAlarmControllerTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchD.AlarmControllerTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchD/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lAlarmControllerTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchD.AlarmControllerTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchD/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lAlarmMotorTemperatureCutback.lThresholdCharge",
+        "translated": "System.CANBusDrive.WinchD.AlarmMotorTemperatureCutback.ThresholdCharge",
+        "runtime_old": "System/CANBusDrive/WinchD/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "runtime_new": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdCharge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lAlarmMotorTemperatureCutback.lThresholdDischarge",
+        "translated": "System.CANBusDrive.WinchD.AlarmMotorTemperatureCutback.ThresholdDischarge",
+        "runtime_old": "System/CANBusDrive/WinchD/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "runtime_new": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdDischarge",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lBatteryCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchD.BatteryCurrent.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/BatteryCurrent/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/BattCurrent",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lBatteryPower.lValue",
+        "translated": "System.CANBusDrive.WinchD.BatteryPower.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/BatteryPower/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/BattPower",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lBatteryVoltage.lValue",
+        "translated": "System.CANBusDrive.WinchD.BatteryVoltage.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/BatteryVoltage/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/BattVoltage",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lControllerTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchD.ControllerTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/ControllerTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/CntrlTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lCurrent.lValue",
+        "translated": "System.CANBusDrive.WinchD.Current.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/Current/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/Current",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lHeartbeatCounter._Unique",
+        "translated": "System.CANBusDrive.WinchD.HeartbeatCounter._Unique",
+        "runtime_old": "System/CANBusDrive/WinchD/HeartbeatCounter/_Unique",
+        "runtime_new": "System/CANBusDrive/cWinchD/HeartbeatCounter/",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lMotorTemperature.lValue",
+        "translated": "System.CANBusDrive.WinchD.MotorTemperature.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/MotorTemperature/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/MotorTemp",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lNodeState",
+        "translated": "System.CANBusDrive.WinchD.NodeState",
+        "runtime_old": "System/CANBusDrive/WinchD/NodeState",
+        "runtime_new": "System/CANBusDrive/cWinchD/NodeState",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lProposedThrottle",
+        "translated": "System.CANBusDrive.WinchD.ProposedThrottle",
+        "runtime_old": "System/CANBusDrive/WinchD/ProposedThrottle",
+        "runtime_new": "System/CANBusDrive/cWinchD/ProposedThrottle",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lTargetSpeed.lOutput",
+        "translated": "System.CANBusDrive.WinchD.TargetSpeed.Output",
+        "runtime_old": "System/CANBusDrive/WinchD/TargetSpeed/Output",
+        "runtime_new": "System/CANBusDrive/cWinchD/TargetSpeed/Output",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lTorque.lValue",
+        "translated": "System.CANBusDrive.WinchD.Torque.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/Torque/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/Torque",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCANOpenMasterDrive.lWinchD.lVelocity.lValue",
+        "translated": "System.CANBusDrive.WinchD.Velocity.Value",
+        "runtime_old": "System/CANBusDrive/WinchD/Velocity/Value",
+        "runtime_new": "System/CANBusDrive/cWinchD/Velocity",
+        "rule": "device rename + abbrev"
+      },
+      {
+        "raw": "gSystem.lCharger.lChargerDiagnostic",
+        "translated": "System.Charger.ChargerDiagnostic",
+        "runtime_old": "System/Charger/ChargerDiagnostic",
+        "runtime_new": "System/ChargerABC/ChargerDiagnostic",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lCharger.lChargingCurrentTarget",
+        "translated": "System.Charger.ChargingCurrentTarget",
+        "runtime_old": "System/Charger/ChargingCurrentTarget",
+        "runtime_new": "System/ChargerABC/ChargingCurrentTarget",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lCharger.lChargingVoltageTarget",
+        "translated": "System.Charger.ChargingVoltageTarget",
+        "runtime_old": "System/Charger/ChargingVoltageTarget",
+        "runtime_new": "System/ChargerABC/ChargingVoltageTarget",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lCharger.lCurrentBMSChargeState",
+        "translated": "System.Charger.CurrentBMSChargeState",
+        "runtime_old": "System/Charger/CurrentBMSChargeState",
+        "runtime_new": "System/ChargerABC/CurrentBMSChargeState",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lCharger.lCurrentOBCState",
+        "translated": "System.Charger.CurrentOBCState",
+        "runtime_old": "System/Charger/CurrentOBCState",
+        "runtime_new": "System/ChargerABC/CurrentOBCState",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lCharger.lRequestedBMSChargeState",
+        "translated": "System.Charger.RequestedBMSChargeState",
+        "runtime_old": "System/Charger/RequestedBMSChargeState",
+        "runtime_new": "System/ChargerABC/RequestedBMSChargeState",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lCharger.lRequestedOBCState",
+        "translated": "System.Charger.RequestedOBCState",
+        "runtime_old": "System/Charger/RequestedOBCState",
+        "runtime_new": "System/ChargerABC/RequestedOBCState",
+        "rule": "System/Charger -> System/ChargerABC"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lActive",
+        "translated": "System.ProgrammedMovementControl.Movement.Active",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Active",
+        "runtime_new": "System/ProgMovCntrl/Movement/Active",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lCode",
+        "translated": "System.ProgrammedMovementControl.Movement.Code",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Code",
+        "runtime_new": "System/ProgMovCntrl/Movement/Code",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lDiagnostic",
+        "translated": "System.ProgrammedMovementControl.Movement.Diagnostic",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Diagnostic",
+        "runtime_new": "System/ProgMovCntrl/Movement/Diagnostic",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lEnabled",
+        "translated": "System.ProgrammedMovementControl.Movement.Enabled",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Enabled",
+        "runtime_new": "System/ProgMovCntrl/Movement/Enabled",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lInput.lValue",
+        "translated": "System.ProgrammedMovementControl.Movement.Input.Value",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Input/Value",
+        "runtime_new": "System/ProgMovCntrl/Movement/Input",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lMoving",
+        "translated": "System.ProgrammedMovementControl.Movement.Moving",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Moving",
+        "runtime_new": "System/ProgMovCntrl/Movement/Moving",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lProgMovDiagnostic",
+        "translated": "System.ProgrammedMovementControl.Movement.ProgMovDiagnostic",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/ProgMovDiagnostic",
+        "runtime_new": "System/ProgMovCntrl/Movement/ProgMovDiagnostic",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lState",
+        "translated": "System.ProgrammedMovementControl.Movement.State",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/State",
+        "runtime_new": "System/ProgMovCntrl/Movement/State",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lSuccess",
+        "translated": "System.ProgrammedMovementControl.Movement.Success",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/Success",
+        "runtime_new": "System/ProgMovCntrl/Movement/Success",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lThrottleValue",
+        "translated": "System.ProgrammedMovementControl.Movement.ThrottleValue",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/ThrottleValue",
+        "runtime_new": "System/ProgMovCntrl/Movement/ThrottleValue",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lMovement.lTimeStep",
+        "translated": "System.ProgrammedMovementControl.Movement.TimeStep",
+        "runtime_old": "System/ProgrammedMovementControl/Movement/TimeStep",
+        "runtime_new": "System/ProgMovCntrl/Movement/TimeStep",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lProgrammedMovementControl.lRequested",
+        "translated": "System.ProgrammedMovementControl.Requested",
+        "runtime_old": "System/ProgrammedMovementControl/Requested",
+        "runtime_new": "System/ProgMovCntrl/Requested",
+        "rule": "System/ProgrammedMovementControl -> System/ProgMovCntrl"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lAvailability",
+        "translated": "System.SecondaryPowerSupply.Availability",
+        "runtime_old": "System/SecondaryPowerSupply/Availability",
+        "runtime_new": "System/Secondary/Availability",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lCurrent.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.Current.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/Current/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/Current",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lCurrentRunState.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.CurrentRunState.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/CurrentRunState/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/CurrentRunState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lDiagnosticState.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.DiagnosticState.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/DiagnosticState/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/DiagnosticState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lNodeState",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.NodeState",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/NodeState",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/NodeState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lRequestedRunState.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.RequestedRunState.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/RequestedRunState/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/RequestedRunState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lTargetVoltage.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.TargetVoltage.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/TargetVoltage/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/TargetVoltage",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lTemperature.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.Temperature.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/Temperature/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/Temperature",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyA.lVoltage.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyA.Voltage.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyA/Voltage/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyA/Voltage",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lCurrent.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.Current.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/Current/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/Current",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lCurrentRunState.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.CurrentRunState.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/CurrentRunState/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/CurrentRunState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lDiagnosticState.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.DiagnosticState.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/DiagnosticState/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/DiagnosticState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lNodeState",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.NodeState",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/NodeState",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/NodeState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lRequestedRunState.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.RequestedRunState.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/RequestedRunState/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/RequestedRunState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lTargetVoltage.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.TargetVoltage.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/TargetVoltage/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/TargetVoltage",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lTemperature.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.Temperature.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/Temperature/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/Temperature",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lControllerSecondaryPowerSupplyB.lVoltage.lValue",
+        "translated": "System.SecondaryPowerSupply.ControllerSecondaryPowerSupplyB.Voltage.Value",
+        "runtime_old": "System/SecondaryPowerSupply/ControllerSecondaryPowerSupplyB/Voltage/Value",
+        "runtime_new": "System/Secondary/ControllerSecondaryPowerSupplyB/Voltage",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lCurrentState",
+        "translated": "System.SecondaryPowerSupply.CurrentState",
+        "runtime_old": "System/SecondaryPowerSupply/CurrentState",
+        "runtime_new": "System/Secondary/CurrentState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lRequestedState",
+        "translated": "System.SecondaryPowerSupply.RequestedState",
+        "runtime_old": "System/SecondaryPowerSupply/RequestedState",
+        "runtime_new": "System/Secondary/RequestedState",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSecondaryPowerSupply.lStartDelayTimer.lExpired",
+        "translated": "System.SecondaryPowerSupply.StartDelayTimer.Expired",
+        "runtime_old": "System/SecondaryPowerSupply/StartDelayTimer/Expired",
+        "runtime_new": "System/Secondary/StartDelayTimer/Expired",
+        "rule": "System/SecondaryPowerSupply -> System/Secondary"
+      },
+      {
+        "raw": "gSystem.lSteering.lAdjustState",
+        "translated": "System.Steering.AdjustState",
+        "runtime_old": "System/Steering/AdjustState",
+        "runtime_new": "System/Steer/AdjustState",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lCurrentAbsDelta",
+        "translated": "System.Steering.CurrentAbsDelta",
+        "runtime_old": "System/Steering/CurrentAbsDelta",
+        "runtime_new": "System/Steer/CurrentAbsDelta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lInput.lValue",
+        "translated": "System.Steering.Input.Value",
+        "runtime_old": "System/Steering/Input/Value",
+        "runtime_new": "System/Steer/Input",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lInputPresentAny",
+        "translated": "System.Steering.InputPresentAny",
+        "runtime_old": "System/Steering/InputPresentAny",
+        "runtime_new": "System/Steer/InputPresentAny",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lInputProcessed",
+        "translated": "System.Steering.InputProcessed",
+        "runtime_old": "System/Steering/InputProcessed",
+        "runtime_new": "System/Steer/InputProcessed",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lMode.lMode",
+        "translated": "System.Steering.Mode.Mode",
+        "runtime_old": "System/Steering/Mode/Mode",
+        "runtime_new": "System/Steer/Mode/Mode",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lModeChange",
+        "translated": "System.Steering.ModeChange",
+        "runtime_old": "System/Steering/ModeChange",
+        "runtime_new": "System/Steer/ModeChange",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lRequestedAbsoluteTargetAngle",
+        "translated": "System.Steering.RequestedAbsoluteTargetAngle",
+        "runtime_old": "System/Steering/RequestedAbsoluteTargetAngle",
+        "runtime_new": "System/Steer/RequestedAbsoluteTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lSteerModeDiagnostic",
+        "translated": "System.Steering.SteerModeDiagnostic",
+        "runtime_old": "System/Steering/SteerModeDiagnostic",
+        "runtime_new": "System/Steer/SteerModeDiagnostic",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lTargetAngle.lValue",
+        "translated": "System.Steering.TargetAngle.Value",
+        "runtime_old": "System/Steering/TargetAngle/Value",
+        "runtime_new": "System/Steer/TargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lTargetAngleIncrement",
+        "translated": "System.Steering.TargetAngleIncrement",
+        "runtime_old": "System/Steering/TargetAngleIncrement",
+        "runtime_new": "System/Steer/TargetAngleIncrement",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lTargetAngleIncrementDerived",
+        "translated": "System.Steering.TargetAngleIncrementDerived",
+        "runtime_old": "System/Steering/TargetAngleIncrementDerived",
+        "runtime_new": "System/Steer/TargetAngleIncrementDerived",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lTargetAngleIncrementDerivedPost",
+        "translated": "System.Steering.TargetAngleIncrementDerivedPost",
+        "runtime_old": "System/Steering/TargetAngleIncrementDerivedPost",
+        "runtime_new": "System/Steer/TargetAngleIncrementDerivedPost",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lTargetAngleShift",
+        "translated": "System.Steering.TargetAngleShift",
+        "runtime_old": "System/Steering/TargetAngleShift",
+        "runtime_new": "System/Steer/TargetAngleShift",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lTargetAngleUpdateTimer.lExpired",
+        "translated": "System.Steering.TargetAngleUpdateTimer.Expired",
+        "runtime_old": "System/Steering/TargetAngleUpdateTimer/Expired",
+        "runtime_new": "System/Steer/TargetAngleUpdateTimer/Expired",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lCurrentVelocity",
+        "translated": "System.Steering.WheelA.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelA/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelA/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lDelta",
+        "translated": "System.Steering.WheelA.Delta",
+        "runtime_old": "System/Steering/WheelA/Delta",
+        "runtime_new": "System/Steer/WheelA/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lDeltaConverging",
+        "translated": "System.Steering.WheelA.DeltaConverging",
+        "runtime_old": "System/Steering/WheelA/DeltaConverging",
+        "runtime_new": "System/Steer/WheelA/DeltaConverging",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lDiagnostic",
+        "translated": "System.Steering.WheelA.Diagnostic",
+        "runtime_old": "System/Steering/WheelA/Diagnostic",
+        "runtime_new": "System/Steer/WheelA/Diagnostic",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lFilteredDelta",
+        "translated": "System.Steering.WheelA.FilteredDelta",
+        "runtime_old": "System/Steering/WheelA/FilteredDelta",
+        "runtime_new": "System/Steer/WheelA/FilteredDelta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lInput.lValue",
+        "translated": "System.Steering.WheelA.Input.Value",
+        "runtime_old": "System/Steering/WheelA/Input/Value",
+        "runtime_new": "System/Steer/WheelA/Input",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lModeChange",
+        "translated": "System.Steering.WheelA.ModeChange",
+        "runtime_old": "System/Steering/WheelA/ModeChange",
+        "runtime_new": "System/Steer/WheelA/ModeChange",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lModeChangeDisableControl",
+        "translated": "System.Steering.WheelA.ModeChangeDisableControl",
+        "runtime_old": "System/Steering/WheelA/ModeChangeDisableControl",
+        "runtime_new": "System/Steer/WheelA/ModeChangeDisableControl",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lMovementEventCount",
+        "translated": "System.Steering.WheelA.MovementEventCount",
+        "runtime_old": "System/Steering/WheelA/MovementEventCount",
+        "runtime_new": "System/Steer/WheelA/MovementEventCount",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lMoving",
+        "translated": "System.Steering.WheelA.Moving",
+        "runtime_old": "System/Steering/WheelA/Moving",
+        "runtime_new": "System/Steer/WheelA/Moving",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lOvershoot",
+        "translated": "System.Steering.WheelA.Overshoot",
+        "runtime_old": "System/Steering/WheelA/Overshoot",
+        "runtime_new": "System/Steer/WheelA/Overshoot",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lOvershootTimer.lExpired",
+        "translated": "System.Steering.WheelA.OvershootTimer.Expired",
+        "runtime_old": "System/Steering/WheelA/OvershootTimer/Expired",
+        "runtime_new": "System/Steer/WheelA/OvershootTimer/Expired",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lPredictedTargetAngle",
+        "translated": "System.Steering.WheelA.PredictedTargetAngle",
+        "runtime_old": "System/Steering/WheelA/PredictedTargetAngle",
+        "runtime_new": "System/Steer/WheelA/PredictedTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lPreviousTargetAngle",
+        "translated": "System.Steering.WheelA.PreviousTargetAngle",
+        "runtime_old": "System/Steering/WheelA/PreviousTargetAngle",
+        "runtime_new": "System/Steer/WheelA/PreviousTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequested",
+        "translated": "System.Steering.WheelA.Requested",
+        "runtime_old": "System/Steering/WheelA/Requested",
+        "runtime_new": "System/Steer/WheelA/Requested",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lDelta",
+        "translated": "System.Steering.WheelA.RequestedCurve.Delta",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/Delta",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lDeltaPrevious",
+        "translated": "System.Steering.WheelA.RequestedCurve.DeltaPrevious",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/DeltaPrevious",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve/DeltaPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lInflexions",
+        "translated": "System.Steering.WheelA.RequestedCurve.Inflexions",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/Inflexions",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve/Inflexions",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lNonZero",
+        "translated": "System.Steering.WheelA.RequestedCurve.NonZero",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/NonZero",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve/NonZero",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lNonZeroPrevious",
+        "translated": "System.Steering.WheelA.RequestedCurve.NonZeroPrevious",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/NonZeroPrevious",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve/NonZeroPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lPrevious",
+        "translated": "System.Steering.WheelA.RequestedCurve.Previous",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/Previous",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve/Previous",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lRequestedCurve.lValue",
+        "translated": "System.Steering.WheelA.RequestedCurve.Value",
+        "runtime_old": "System/Steering/WheelA/RequestedCurve/Value",
+        "runtime_new": "System/Steer/WheelA/RequestedCurve",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lState",
+        "translated": "System.Steering.WheelA.State",
+        "runtime_old": "System/Steering/WheelA/State",
+        "runtime_new": "System/Steer/WheelA/State",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lTargetAngle",
+        "translated": "System.Steering.WheelA.TargetAngle",
+        "runtime_old": "System/Steering/WheelA/TargetAngle",
+        "runtime_new": "System/Steer/WheelA/TargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lTargetAngleAdjusted",
+        "translated": "System.Steering.WheelA.TargetAngleAdjusted",
+        "runtime_old": "System/Steering/WheelA/TargetAngleAdjusted",
+        "runtime_new": "System/Steer/WheelA/TargetAngleAdjusted",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lTargetAngleAdjustment",
+        "translated": "System.Steering.WheelA.TargetAngleAdjustment",
+        "runtime_old": "System/Steering/WheelA/TargetAngleAdjustment",
+        "runtime_new": "System/Steer/WheelA/TargetAngleAdjustment",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lTargetPredictionOffset",
+        "translated": "System.Steering.WheelA.TargetPredictionOffset",
+        "runtime_old": "System/Steering/WheelA/TargetPredictionOffset",
+        "runtime_new": "System/Steer/WheelA/TargetPredictionOffset",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lThrottle.lCurrentVelocity",
+        "translated": "System.Steering.WheelA.Throttle.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelA/Throttle/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelA/Throttle/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lThrottle.lStalled",
+        "translated": "System.Steering.WheelA.Throttle.Stalled",
+        "runtime_old": "System/Steering/WheelA/Throttle/Stalled",
+        "runtime_new": "System/Steer/WheelA/Throttle/Stalled",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lThrottle.lStationary",
+        "translated": "System.Steering.WheelA.Throttle.Stationary",
+        "runtime_old": "System/Steering/WheelA/Throttle/Stationary",
+        "runtime_new": "System/Steer/WheelA/Throttle/Stationary",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lThrottle.lValue",
+        "translated": "System.Steering.WheelA.Throttle.Value",
+        "runtime_old": "System/Steering/WheelA/Throttle/Value",
+        "runtime_new": "System/Steer/WheelA/Throttle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelA.lThrottleValue",
+        "translated": "System.Steering.WheelA.ThrottleValue",
+        "runtime_old": "System/Steering/WheelA/ThrottleValue",
+        "runtime_new": "System/Steer/WheelA/ThrottleValue",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lCurrentVelocity",
+        "translated": "System.Steering.WheelB.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelB/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelB/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lDelta",
+        "translated": "System.Steering.WheelB.Delta",
+        "runtime_old": "System/Steering/WheelB/Delta",
+        "runtime_new": "System/Steer/WheelB/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lDeltaConverging",
+        "translated": "System.Steering.WheelB.DeltaConverging",
+        "runtime_old": "System/Steering/WheelB/DeltaConverging",
+        "runtime_new": "System/Steer/WheelB/DeltaConverging",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lDiagnostic",
+        "translated": "System.Steering.WheelB.Diagnostic",
+        "runtime_old": "System/Steering/WheelB/Diagnostic",
+        "runtime_new": "System/Steer/WheelB/Diagnostic",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lFilteredDelta",
+        "translated": "System.Steering.WheelB.FilteredDelta",
+        "runtime_old": "System/Steering/WheelB/FilteredDelta",
+        "runtime_new": "System/Steer/WheelB/FilteredDelta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lInput.lValue",
+        "translated": "System.Steering.WheelB.Input.Value",
+        "runtime_old": "System/Steering/WheelB/Input/Value",
+        "runtime_new": "System/Steer/WheelB/Input",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lModeChange",
+        "translated": "System.Steering.WheelB.ModeChange",
+        "runtime_old": "System/Steering/WheelB/ModeChange",
+        "runtime_new": "System/Steer/WheelB/ModeChange",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lModeChangeDisableControl",
+        "translated": "System.Steering.WheelB.ModeChangeDisableControl",
+        "runtime_old": "System/Steering/WheelB/ModeChangeDisableControl",
+        "runtime_new": "System/Steer/WheelB/ModeChangeDisableControl",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lMovementEventCount",
+        "translated": "System.Steering.WheelB.MovementEventCount",
+        "runtime_old": "System/Steering/WheelB/MovementEventCount",
+        "runtime_new": "System/Steer/WheelB/MovementEventCount",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lMoving",
+        "translated": "System.Steering.WheelB.Moving",
+        "runtime_old": "System/Steering/WheelB/Moving",
+        "runtime_new": "System/Steer/WheelB/Moving",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lOvershoot",
+        "translated": "System.Steering.WheelB.Overshoot",
+        "runtime_old": "System/Steering/WheelB/Overshoot",
+        "runtime_new": "System/Steer/WheelB/Overshoot",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lOvershootTimer.lExpired",
+        "translated": "System.Steering.WheelB.OvershootTimer.Expired",
+        "runtime_old": "System/Steering/WheelB/OvershootTimer/Expired",
+        "runtime_new": "System/Steer/WheelB/OvershootTimer/Expired",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lPredictedTargetAngle",
+        "translated": "System.Steering.WheelB.PredictedTargetAngle",
+        "runtime_old": "System/Steering/WheelB/PredictedTargetAngle",
+        "runtime_new": "System/Steer/WheelB/PredictedTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lPreviousTargetAngle",
+        "translated": "System.Steering.WheelB.PreviousTargetAngle",
+        "runtime_old": "System/Steering/WheelB/PreviousTargetAngle",
+        "runtime_new": "System/Steer/WheelB/PreviousTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequested",
+        "translated": "System.Steering.WheelB.Requested",
+        "runtime_old": "System/Steering/WheelB/Requested",
+        "runtime_new": "System/Steer/WheelB/Requested",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lDelta",
+        "translated": "System.Steering.WheelB.RequestedCurve.Delta",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/Delta",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lDeltaPrevious",
+        "translated": "System.Steering.WheelB.RequestedCurve.DeltaPrevious",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/DeltaPrevious",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/DeltaPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lInflexions",
+        "translated": "System.Steering.WheelB.RequestedCurve.Inflexions",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/Inflexions",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/Inflexions",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lInputAsPercentage",
+        "translated": "System.Steering.WheelB.RequestedCurve.InputAsPercentage",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/InputAsPercentage",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/InputAsPercentage",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lNonZero",
+        "translated": "System.Steering.WheelB.RequestedCurve.NonZero",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/NonZero",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/NonZero",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lNonZeroPrevious",
+        "translated": "System.Steering.WheelB.RequestedCurve.NonZeroPrevious",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/NonZeroPrevious",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/NonZeroPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lPrevious",
+        "translated": "System.Steering.WheelB.RequestedCurve.Previous",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/Previous",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve/Previous",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lRequestedCurve.lValue",
+        "translated": "System.Steering.WheelB.RequestedCurve.Value",
+        "runtime_old": "System/Steering/WheelB/RequestedCurve/Value",
+        "runtime_new": "System/Steer/WheelB/RequestedCurve",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lState",
+        "translated": "System.Steering.WheelB.State",
+        "runtime_old": "System/Steering/WheelB/State",
+        "runtime_new": "System/Steer/WheelB/State",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lTargetAngle",
+        "translated": "System.Steering.WheelB.TargetAngle",
+        "runtime_old": "System/Steering/WheelB/TargetAngle",
+        "runtime_new": "System/Steer/WheelB/TargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lTargetAngleAdjusted",
+        "translated": "System.Steering.WheelB.TargetAngleAdjusted",
+        "runtime_old": "System/Steering/WheelB/TargetAngleAdjusted",
+        "runtime_new": "System/Steer/WheelB/TargetAngleAdjusted",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lTargetAngleAdjustment",
+        "translated": "System.Steering.WheelB.TargetAngleAdjustment",
+        "runtime_old": "System/Steering/WheelB/TargetAngleAdjustment",
+        "runtime_new": "System/Steer/WheelB/TargetAngleAdjustment",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lTargetPredictionOffset",
+        "translated": "System.Steering.WheelB.TargetPredictionOffset",
+        "runtime_old": "System/Steering/WheelB/TargetPredictionOffset",
+        "runtime_new": "System/Steer/WheelB/TargetPredictionOffset",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lThrottle.lCurrentVelocity",
+        "translated": "System.Steering.WheelB.Throttle.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelB/Throttle/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelB/Throttle/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lThrottle.lStalled",
+        "translated": "System.Steering.WheelB.Throttle.Stalled",
+        "runtime_old": "System/Steering/WheelB/Throttle/Stalled",
+        "runtime_new": "System/Steer/WheelB/Throttle/Stalled",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lThrottle.lStationary",
+        "translated": "System.Steering.WheelB.Throttle.Stationary",
+        "runtime_old": "System/Steering/WheelB/Throttle/Stationary",
+        "runtime_new": "System/Steer/WheelB/Throttle/Stationary",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lThrottle.lValue",
+        "translated": "System.Steering.WheelB.Throttle.Value",
+        "runtime_old": "System/Steering/WheelB/Throttle/Value",
+        "runtime_new": "System/Steer/WheelB/Throttle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelB.lThrottleValue",
+        "translated": "System.Steering.WheelB.ThrottleValue",
+        "runtime_old": "System/Steering/WheelB/ThrottleValue",
+        "runtime_new": "System/Steer/WheelB/ThrottleValue",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lCurrentVelocity",
+        "translated": "System.Steering.WheelC.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelC/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelC/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lDelta",
+        "translated": "System.Steering.WheelC.Delta",
+        "runtime_old": "System/Steering/WheelC/Delta",
+        "runtime_new": "System/Steer/WheelC/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lDeltaConverging",
+        "translated": "System.Steering.WheelC.DeltaConverging",
+        "runtime_old": "System/Steering/WheelC/DeltaConverging",
+        "runtime_new": "System/Steer/WheelC/DeltaConverging",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lDiagnostic",
+        "translated": "System.Steering.WheelC.Diagnostic",
+        "runtime_old": "System/Steering/WheelC/Diagnostic",
+        "runtime_new": "System/Steer/WheelC/Diagnostic",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lFilteredDelta",
+        "translated": "System.Steering.WheelC.FilteredDelta",
+        "runtime_old": "System/Steering/WheelC/FilteredDelta",
+        "runtime_new": "System/Steer/WheelC/FilteredDelta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lInput.lValue",
+        "translated": "System.Steering.WheelC.Input.Value",
+        "runtime_old": "System/Steering/WheelC/Input/Value",
+        "runtime_new": "System/Steer/WheelC/Input",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lModeChange",
+        "translated": "System.Steering.WheelC.ModeChange",
+        "runtime_old": "System/Steering/WheelC/ModeChange",
+        "runtime_new": "System/Steer/WheelC/ModeChange",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lModeChangeDisableControl",
+        "translated": "System.Steering.WheelC.ModeChangeDisableControl",
+        "runtime_old": "System/Steering/WheelC/ModeChangeDisableControl",
+        "runtime_new": "System/Steer/WheelC/ModeChangeDisableControl",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lMovementEventCount",
+        "translated": "System.Steering.WheelC.MovementEventCount",
+        "runtime_old": "System/Steering/WheelC/MovementEventCount",
+        "runtime_new": "System/Steer/WheelC/MovementEventCount",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lMoving",
+        "translated": "System.Steering.WheelC.Moving",
+        "runtime_old": "System/Steering/WheelC/Moving",
+        "runtime_new": "System/Steer/WheelC/Moving",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lOvershoot",
+        "translated": "System.Steering.WheelC.Overshoot",
+        "runtime_old": "System/Steering/WheelC/Overshoot",
+        "runtime_new": "System/Steer/WheelC/Overshoot",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lOvershootTimer.lExpired",
+        "translated": "System.Steering.WheelC.OvershootTimer.Expired",
+        "runtime_old": "System/Steering/WheelC/OvershootTimer/Expired",
+        "runtime_new": "System/Steer/WheelC/OvershootTimer/Expired",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lPredictedTargetAngle",
+        "translated": "System.Steering.WheelC.PredictedTargetAngle",
+        "runtime_old": "System/Steering/WheelC/PredictedTargetAngle",
+        "runtime_new": "System/Steer/WheelC/PredictedTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lPreviousTargetAngle",
+        "translated": "System.Steering.WheelC.PreviousTargetAngle",
+        "runtime_old": "System/Steering/WheelC/PreviousTargetAngle",
+        "runtime_new": "System/Steer/WheelC/PreviousTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequested",
+        "translated": "System.Steering.WheelC.Requested",
+        "runtime_old": "System/Steering/WheelC/Requested",
+        "runtime_new": "System/Steer/WheelC/Requested",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lDelta",
+        "translated": "System.Steering.WheelC.RequestedCurve.Delta",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/Delta",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lDeltaPrevious",
+        "translated": "System.Steering.WheelC.RequestedCurve.DeltaPrevious",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/DeltaPrevious",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve/DeltaPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lInflexions",
+        "translated": "System.Steering.WheelC.RequestedCurve.Inflexions",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/Inflexions",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve/Inflexions",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lNonZero",
+        "translated": "System.Steering.WheelC.RequestedCurve.NonZero",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/NonZero",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve/NonZero",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lNonZeroPrevious",
+        "translated": "System.Steering.WheelC.RequestedCurve.NonZeroPrevious",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/NonZeroPrevious",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve/NonZeroPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lPrevious",
+        "translated": "System.Steering.WheelC.RequestedCurve.Previous",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/Previous",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve/Previous",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lRequestedCurve.lValue",
+        "translated": "System.Steering.WheelC.RequestedCurve.Value",
+        "runtime_old": "System/Steering/WheelC/RequestedCurve/Value",
+        "runtime_new": "System/Steer/WheelC/RequestedCurve",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lState",
+        "translated": "System.Steering.WheelC.State",
+        "runtime_old": "System/Steering/WheelC/State",
+        "runtime_new": "System/Steer/WheelC/State",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lTargetAngle",
+        "translated": "System.Steering.WheelC.TargetAngle",
+        "runtime_old": "System/Steering/WheelC/TargetAngle",
+        "runtime_new": "System/Steer/WheelC/TargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lTargetAngleAdjusted",
+        "translated": "System.Steering.WheelC.TargetAngleAdjusted",
+        "runtime_old": "System/Steering/WheelC/TargetAngleAdjusted",
+        "runtime_new": "System/Steer/WheelC/TargetAngleAdjusted",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lTargetAngleAdjustment",
+        "translated": "System.Steering.WheelC.TargetAngleAdjustment",
+        "runtime_old": "System/Steering/WheelC/TargetAngleAdjustment",
+        "runtime_new": "System/Steer/WheelC/TargetAngleAdjustment",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lTargetPredictionOffset",
+        "translated": "System.Steering.WheelC.TargetPredictionOffset",
+        "runtime_old": "System/Steering/WheelC/TargetPredictionOffset",
+        "runtime_new": "System/Steer/WheelC/TargetPredictionOffset",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lThrottle.lCurrentVelocity",
+        "translated": "System.Steering.WheelC.Throttle.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelC/Throttle/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelC/Throttle/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lThrottle.lStalled",
+        "translated": "System.Steering.WheelC.Throttle.Stalled",
+        "runtime_old": "System/Steering/WheelC/Throttle/Stalled",
+        "runtime_new": "System/Steer/WheelC/Throttle/Stalled",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lThrottle.lStationary",
+        "translated": "System.Steering.WheelC.Throttle.Stationary",
+        "runtime_old": "System/Steering/WheelC/Throttle/Stationary",
+        "runtime_new": "System/Steer/WheelC/Throttle/Stationary",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lThrottle.lValue",
+        "translated": "System.Steering.WheelC.Throttle.Value",
+        "runtime_old": "System/Steering/WheelC/Throttle/Value",
+        "runtime_new": "System/Steer/WheelC/Throttle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelC.lThrottleValue",
+        "translated": "System.Steering.WheelC.ThrottleValue",
+        "runtime_old": "System/Steering/WheelC/ThrottleValue",
+        "runtime_new": "System/Steer/WheelC/ThrottleValue",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lCurrentVelocity",
+        "translated": "System.Steering.WheelD.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelD/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelD/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lDelta",
+        "translated": "System.Steering.WheelD.Delta",
+        "runtime_old": "System/Steering/WheelD/Delta",
+        "runtime_new": "System/Steer/WheelD/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lDeltaConverging",
+        "translated": "System.Steering.WheelD.DeltaConverging",
+        "runtime_old": "System/Steering/WheelD/DeltaConverging",
+        "runtime_new": "System/Steer/WheelD/DeltaConverging",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lDiagnostic",
+        "translated": "System.Steering.WheelD.Diagnostic",
+        "runtime_old": "System/Steering/WheelD/Diagnostic",
+        "runtime_new": "System/Steer/WheelD/Diagnostic",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lFilteredDelta",
+        "translated": "System.Steering.WheelD.FilteredDelta",
+        "runtime_old": "System/Steering/WheelD/FilteredDelta",
+        "runtime_new": "System/Steer/WheelD/FilteredDelta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lInput.lValue",
+        "translated": "System.Steering.WheelD.Input.Value",
+        "runtime_old": "System/Steering/WheelD/Input/Value",
+        "runtime_new": "System/Steer/WheelD/Input",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lModeChange",
+        "translated": "System.Steering.WheelD.ModeChange",
+        "runtime_old": "System/Steering/WheelD/ModeChange",
+        "runtime_new": "System/Steer/WheelD/ModeChange",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lModeChangeDisableControl",
+        "translated": "System.Steering.WheelD.ModeChangeDisableControl",
+        "runtime_old": "System/Steering/WheelD/ModeChangeDisableControl",
+        "runtime_new": "System/Steer/WheelD/ModeChangeDisableControl",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lMovementCount",
+        "translated": "System.Steering.WheelD.MovementCount",
+        "runtime_old": "System/Steering/WheelD/MovementCount",
+        "runtime_new": "System/Steer/WheelD/MovementCount",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lMovementEventCount",
+        "translated": "System.Steering.WheelD.MovementEventCount",
+        "runtime_old": "System/Steering/WheelD/MovementEventCount",
+        "runtime_new": "System/Steer/WheelD/MovementEventCount",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lMoving",
+        "translated": "System.Steering.WheelD.Moving",
+        "runtime_old": "System/Steering/WheelD/Moving",
+        "runtime_new": "System/Steer/WheelD/Moving",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lOvershoot",
+        "translated": "System.Steering.WheelD.Overshoot",
+        "runtime_old": "System/Steering/WheelD/Overshoot",
+        "runtime_new": "System/Steer/WheelD/Overshoot",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lOvershootTimer.lExpired",
+        "translated": "System.Steering.WheelD.OvershootTimer.Expired",
+        "runtime_old": "System/Steering/WheelD/OvershootTimer/Expired",
+        "runtime_new": "System/Steer/WheelD/OvershootTimer/Expired",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lPredictedTargetAngle",
+        "translated": "System.Steering.WheelD.PredictedTargetAngle",
+        "runtime_old": "System/Steering/WheelD/PredictedTargetAngle",
+        "runtime_new": "System/Steer/WheelD/PredictedTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lPreviousTargetAngle",
+        "translated": "System.Steering.WheelD.PreviousTargetAngle",
+        "runtime_old": "System/Steering/WheelD/PreviousTargetAngle",
+        "runtime_new": "System/Steer/WheelD/PreviousTargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequested",
+        "translated": "System.Steering.WheelD.Requested",
+        "runtime_old": "System/Steering/WheelD/Requested",
+        "runtime_new": "System/Steer/WheelD/Requested",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lDelta",
+        "translated": "System.Steering.WheelD.RequestedCurve.Delta",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/Delta",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve/Delta",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lDeltaPrevious",
+        "translated": "System.Steering.WheelD.RequestedCurve.DeltaPrevious",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/DeltaPrevious",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve/DeltaPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lInflexions",
+        "translated": "System.Steering.WheelD.RequestedCurve.Inflexions",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/Inflexions",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve/Inflexions",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lNonZero",
+        "translated": "System.Steering.WheelD.RequestedCurve.NonZero",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/NonZero",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve/NonZero",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lNonZeroPrevious",
+        "translated": "System.Steering.WheelD.RequestedCurve.NonZeroPrevious",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/NonZeroPrevious",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve/NonZeroPrevious",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lPrevious",
+        "translated": "System.Steering.WheelD.RequestedCurve.Previous",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/Previous",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve/Previous",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lRequestedCurve.lValue",
+        "translated": "System.Steering.WheelD.RequestedCurve.Value",
+        "runtime_old": "System/Steering/WheelD/RequestedCurve/Value",
+        "runtime_new": "System/Steer/WheelD/RequestedCurve",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lState",
+        "translated": "System.Steering.WheelD.State",
+        "runtime_old": "System/Steering/WheelD/State",
+        "runtime_new": "System/Steer/WheelD/State",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lTargetAngle",
+        "translated": "System.Steering.WheelD.TargetAngle",
+        "runtime_old": "System/Steering/WheelD/TargetAngle",
+        "runtime_new": "System/Steer/WheelD/TargetAngle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lTargetAngleAdjusted",
+        "translated": "System.Steering.WheelD.TargetAngleAdjusted",
+        "runtime_old": "System/Steering/WheelD/TargetAngleAdjusted",
+        "runtime_new": "System/Steer/WheelD/TargetAngleAdjusted",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lTargetAngleAdjustment",
+        "translated": "System.Steering.WheelD.TargetAngleAdjustment",
+        "runtime_old": "System/Steering/WheelD/TargetAngleAdjustment",
+        "runtime_new": "System/Steer/WheelD/TargetAngleAdjustment",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lTargetPredictionOffset",
+        "translated": "System.Steering.WheelD.TargetPredictionOffset",
+        "runtime_old": "System/Steering/WheelD/TargetPredictionOffset",
+        "runtime_new": "System/Steer/WheelD/TargetPredictionOffset",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lThrottle.lCurrentVelocity",
+        "translated": "System.Steering.WheelD.Throttle.CurrentVelocity",
+        "runtime_old": "System/Steering/WheelD/Throttle/CurrentVelocity",
+        "runtime_new": "System/Steer/WheelD/Throttle/CurrentVelocity",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lThrottle.lStalled",
+        "translated": "System.Steering.WheelD.Throttle.Stalled",
+        "runtime_old": "System/Steering/WheelD/Throttle/Stalled",
+        "runtime_new": "System/Steer/WheelD/Throttle/Stalled",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lThrottle.lStationary",
+        "translated": "System.Steering.WheelD.Throttle.Stationary",
+        "runtime_old": "System/Steering/WheelD/Throttle/Stationary",
+        "runtime_new": "System/Steer/WheelD/Throttle/Stationary",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lThrottle.lValue",
+        "translated": "System.Steering.WheelD.Throttle.Value",
+        "runtime_old": "System/Steering/WheelD/Throttle/Value",
+        "runtime_new": "System/Steer/WheelD/Throttle",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lWheelD.lThrottleValue",
+        "translated": "System.Steering.WheelD.ThrottleValue",
+        "runtime_old": "System/Steering/WheelD/ThrottleValue",
+        "runtime_new": "System/Steer/WheelD/ThrottleValue",
+        "rule": "System/Steering -> System/Steer"
+      },
+      {
+        "raw": "gSystem.lSteering.lZeroTargetAngleSwitch.lValue",
+        "translated": "System.Steering.ZeroTargetAngleSwitch.Value",
+        "runtime_old": "System/Steering/ZeroTargetAngleSwitch/Value",
+        "runtime_new": "System/Steer/ZeroTargetAngleSwitch",
+        "rule": "System/Steering -> System/Steer"
+      }
+    ],
+    "no_match": [
+      {
+        "raw": "gSystem.lLift.lChargeInterlock.lQualifier.lValue",
+        "translated": "System.Lift.ChargeInterlock.Qualifier.Value",
+        "runtime": "System/Lift/ChargeInterlock/Qualifier"
+      },
+      {
+        "raw": "gSystem.lLift.lChargeInterlock.lScalingCharge.lValue",
+        "translated": "System.Lift.ChargeInterlock.ScalingCharge.Value",
+        "runtime": "System/Lift/ChargeInterlock/ScalingCharge"
+      },
+      {
+        "raw": "gSystem.lLift.lChargeInterlock.lScalingDischarge.lValue",
+        "translated": "System.Lift.ChargeInterlock.ScalingDischarge.Value",
+        "runtime": "System/Lift/ChargeInterlock/ScalingDischarge"
+      },
+      {
+        "raw": "gSystem.lLift.lChargeInterlock.lThresholdCharge.lValue",
+        "translated": "System.Lift.ChargeInterlock.ThresholdCharge.Value",
+        "runtime": "System/Lift/ChargeInterlock/ThresholdCharge"
+      },
+      {
+        "raw": "gSystem.lLift.lChargeInterlock.lThresholdDischarge.lValue",
+        "translated": "System.Lift.ChargeInterlock.ThresholdDischarge.Value",
+        "runtime": "System/Lift/ChargeInterlock/ThresholdDischarge"
+      },
+      {
+        "raw": "gSystem.lLift.lInput.lValue",
+        "translated": "System.Lift.Input.Value",
+        "runtime": "System/Lift/Input"
+      },
+      {
+        "raw": "gSystem.lLift.lInputProcessed",
+        "translated": "System.Lift.InputProcessed",
+        "runtime": "System/Lift/InputProcessed"
+      },
+      {
+        "raw": "gSystem.lLift.lInterlock.lInterlockState.lValue",
+        "translated": "System.Lift.Interlock.InterlockState.Value",
+        "runtime": "System/Lift/Interlock/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLift.lInterlock.lScalingNegative.lValue",
+        "translated": "System.Lift.Interlock.ScalingNegative.Value",
+        "runtime": "System/Lift/Interlock/ScalingNegative"
+      },
+      {
+        "raw": "gSystem.lLift.lInterlock.lScalingPositive.lValue",
+        "translated": "System.Lift.Interlock.ScalingPositive.Value",
+        "runtime": "System/Lift/Interlock/ScalingPositive"
+      },
+      {
+        "raw": "gSystem.lLift.lInterlock.lThresholdNegative.lValue",
+        "translated": "System.Lift.Interlock.ThresholdNegative.Value",
+        "runtime": "System/Lift/Interlock/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLift.lInterlock.lThresholdPositive.lValue",
+        "translated": "System.Lift.Interlock.ThresholdPositive.Value",
+        "runtime": "System/Lift/Interlock/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLift.lMovementA.lDiagnostic",
+        "translated": "System.Lift.MovementA.Diagnostic",
+        "runtime": "System/Lift/MovementA/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lLift.lMovementB.lDiagnostic",
+        "translated": "System.Lift.MovementB.Diagnostic",
+        "runtime": "System/Lift/MovementB/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lLift.lMovementC.lDiagnostic",
+        "translated": "System.Lift.MovementC.Diagnostic",
+        "runtime": "System/Lift/MovementC/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lLift.lMovementD.lDiagnostic",
+        "translated": "System.Lift.MovementD.Diagnostic",
+        "runtime": "System/Lift/MovementD/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lLift.lScalingA",
+        "translated": "System.Lift.ScalingA",
+        "runtime": "System/Lift/ScalingA"
+      },
+      {
+        "raw": "gSystem.lLift.lScalingB",
+        "translated": "System.Lift.ScalingB",
+        "runtime": "System/Lift/ScalingB"
+      },
+      {
+        "raw": "gSystem.lLift.lScalingC",
+        "translated": "System.Lift.ScalingC",
+        "runtime": "System/Lift/ScalingC"
+      },
+      {
+        "raw": "gSystem.lLift.lScalingD",
+        "translated": "System.Lift.ScalingD",
+        "runtime": "System/Lift/ScalingD"
+      },
+      {
+        "raw": "gSystem.lLift.lThrottleValue",
+        "translated": "System.Lift.ThrottleValue",
+        "runtime": "System/Lift/ThrottleValue"
+      },
+      {
+        "raw": "gSystem.lLiftABSynchronousInterlock.lClientA.lInterlockState",
+        "translated": "System.LiftABSynchronousInterlock.ClientA.InterlockState",
+        "runtime": "System/LiftABSynchronousInterlock/ClientA/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftABSynchronousInterlock.lClientA.lThresholdNegative",
+        "translated": "System.LiftABSynchronousInterlock.ClientA.ThresholdNegative",
+        "runtime": "System/LiftABSynchronousInterlock/ClientA/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftABSynchronousInterlock.lClientA.lThresholdPositive",
+        "translated": "System.LiftABSynchronousInterlock.ClientA.ThresholdPositive",
+        "runtime": "System/LiftABSynchronousInterlock/ClientA/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftABSynchronousInterlock.lClientB.lInterlockState",
+        "translated": "System.LiftABSynchronousInterlock.ClientB.InterlockState",
+        "runtime": "System/LiftABSynchronousInterlock/ClientB/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftABSynchronousInterlock.lClientB.lThresholdNegative",
+        "translated": "System.LiftABSynchronousInterlock.ClientB.ThresholdNegative",
+        "runtime": "System/LiftABSynchronousInterlock/ClientB/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftABSynchronousInterlock.lClientB.lThresholdPositive",
+        "translated": "System.LiftABSynchronousInterlock.ClientB.ThresholdPositive",
+        "runtime": "System/LiftABSynchronousInterlock/ClientB/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftAPositionInterlock.lClient.lInterlockState",
+        "translated": "System.LiftAPositionInterlock.Client.InterlockState",
+        "runtime": "System/LiftAPositionInterlock/Client/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftAPositionInterlock.lClient.lThresholdNegative",
+        "translated": "System.LiftAPositionInterlock.Client.ThresholdNegative",
+        "runtime": "System/LiftAPositionInterlock/Client/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftAPositionInterlock.lClient.lThresholdPositive",
+        "translated": "System.LiftAPositionInterlock.Client.ThresholdPositive",
+        "runtime": "System/LiftAPositionInterlock/Client/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftBPositionInterlock.lClient.lInterlockState",
+        "translated": "System.LiftBPositionInterlock.Client.InterlockState",
+        "runtime": "System/LiftBPositionInterlock/Client/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftBPositionInterlock.lClient.lThresholdNegative",
+        "translated": "System.LiftBPositionInterlock.Client.ThresholdNegative",
+        "runtime": "System/LiftBPositionInterlock/Client/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftBPositionInterlock.lClient.lThresholdPositive",
+        "translated": "System.LiftBPositionInterlock.Client.ThresholdPositive",
+        "runtime": "System/LiftBPositionInterlock/Client/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftCDSynchronousInterlock.lClientA.lInterlockState",
+        "translated": "System.LiftCDSynchronousInterlock.ClientA.InterlockState",
+        "runtime": "System/LiftCDSynchronousInterlock/ClientA/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftCDSynchronousInterlock.lClientA.lThresholdNegative",
+        "translated": "System.LiftCDSynchronousInterlock.ClientA.ThresholdNegative",
+        "runtime": "System/LiftCDSynchronousInterlock/ClientA/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftCDSynchronousInterlock.lClientA.lThresholdPositive",
+        "translated": "System.LiftCDSynchronousInterlock.ClientA.ThresholdPositive",
+        "runtime": "System/LiftCDSynchronousInterlock/ClientA/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftCDSynchronousInterlock.lClientB.lInterlockState",
+        "translated": "System.LiftCDSynchronousInterlock.ClientB.InterlockState",
+        "runtime": "System/LiftCDSynchronousInterlock/ClientB/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftCDSynchronousInterlock.lClientB.lThresholdNegative",
+        "translated": "System.LiftCDSynchronousInterlock.ClientB.ThresholdNegative",
+        "runtime": "System/LiftCDSynchronousInterlock/ClientB/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftCDSynchronousInterlock.lClientB.lThresholdPositive",
+        "translated": "System.LiftCDSynchronousInterlock.ClientB.ThresholdPositive",
+        "runtime": "System/LiftCDSynchronousInterlock/ClientB/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftCPositionInterlock.lClient.lInterlockState",
+        "translated": "System.LiftCPositionInterlock.Client.InterlockState",
+        "runtime": "System/LiftCPositionInterlock/Client/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftCPositionInterlock.lClient.lThresholdNegative",
+        "translated": "System.LiftCPositionInterlock.Client.ThresholdNegative",
+        "runtime": "System/LiftCPositionInterlock/Client/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftCPositionInterlock.lClient.lThresholdPositive",
+        "translated": "System.LiftCPositionInterlock.Client.ThresholdPositive",
+        "runtime": "System/LiftCPositionInterlock/Client/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftDPositionInterlock.lClient.lInterlockState",
+        "translated": "System.LiftDPositionInterlock.Client.InterlockState",
+        "runtime": "System/LiftDPositionInterlock/Client/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftDPositionInterlock.lClient.lThresholdNegative",
+        "translated": "System.LiftDPositionInterlock.Client.ThresholdNegative",
+        "runtime": "System/LiftDPositionInterlock/Client/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftDPositionInterlock.lClient.lThresholdPositive",
+        "translated": "System.LiftDPositionInterlock.Client.ThresholdPositive",
+        "runtime": "System/LiftDPositionInterlock/Client/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lClientA.lInterlockState",
+        "translated": "System.LiftSynchronousInterlock.ClientA.InterlockState",
+        "runtime": "System/LiftSynchronousInterlock/ClientA/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lClientA.lThresholdNegative",
+        "translated": "System.LiftSynchronousInterlock.ClientA.ThresholdNegative",
+        "runtime": "System/LiftSynchronousInterlock/ClientA/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lClientA.lThresholdPositive",
+        "translated": "System.LiftSynchronousInterlock.ClientA.ThresholdPositive",
+        "runtime": "System/LiftSynchronousInterlock/ClientA/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lClientB.lInterlockState",
+        "translated": "System.LiftSynchronousInterlock.ClientB.InterlockState",
+        "runtime": "System/LiftSynchronousInterlock/ClientB/InterlockState"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lClientB.lThresholdNegative",
+        "translated": "System.LiftSynchronousInterlock.ClientB.ThresholdNegative",
+        "runtime": "System/LiftSynchronousInterlock/ClientB/ThresholdNegative"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lClientB.lThresholdPositive",
+        "translated": "System.LiftSynchronousInterlock.ClientB.ThresholdPositive",
+        "runtime": "System/LiftSynchronousInterlock/ClientB/ThresholdPositive"
+      },
+      {
+        "raw": "gSystem.lLiftSynchronousInterlock.lTransform.lInnerRegion",
+        "translated": "System.LiftSynchronousInterlock.Transform.InnerRegion",
+        "runtime": "System/LiftSynchronousInterlock/Transform/InnerRegion"
+      },
+      {
+        "raw": "gSystem.lSystemState.lAllowDownTrace.lContext.lCount",
+        "translated": "System.SystemState.AllowDownTrace.Context.Count",
+        "runtime": "System/SystemState/AllowDownTrace/Context/Count"
+      },
+      {
+        "raw": "gSystem.lSystemState.lAllowUpTrace.lContext.lCount",
+        "translated": "System.SystemState.AllowUpTrace.Context.Count",
+        "runtime": "System/SystemState/AllowUpTrace/Context/Count"
+      },
+      {
+        "raw": "gSystem.lSystemState.lChargingEnabled",
+        "translated": "System.SystemState.ChargingEnabled",
+        "runtime": "System/SystemState/ChargingEnabled"
+      },
+      {
+        "raw": "gSystem.lSystemState.lForceMaxTrace.lContext.lCount",
+        "translated": "System.SystemState.ForceMaxTrace.Context.Count",
+        "runtime": "System/SystemState/ForceMaxTrace/Context/Count"
+      },
+      {
+        "raw": "gSystem.lSystemState.lNextStateTrace.lContext.lCount",
+        "translated": "System.SystemState.NextStateTrace.Context.Count",
+        "runtime": "System/SystemState/NextStateTrace/Context/Count"
+      },
+      {
+        "raw": "gSystem.lSystemState.lSystemControlTrace.lContext.lCount",
+        "translated": "System.SystemState.SystemControlTrace.Context.Count",
+        "runtime": "System/SystemState/SystemControlTrace/Context/Count"
+      },
+      {
+        "raw": "gSystem.lTMS.lCoolantChilling.lValue",
+        "translated": "System.TMS.CoolantChilling.Value",
+        "runtime": "System/TMS/CoolantChilling"
+      },
+      {
+        "raw": "gSystem.lTMS.lCoolantHeating.lValue",
+        "translated": "System.TMS.CoolantHeating.Value",
+        "runtime": "System/TMS/CoolantHeating"
+      },
+      {
+        "raw": "gSystem.lTMS.lCoolantPump.lValue",
+        "translated": "System.TMS.CoolantPump.Value",
+        "runtime": "System/TMS/CoolantPump"
+      },
+      {
+        "raw": "gSystem.lTMS.lCoolantReservoir.lValue",
+        "translated": "System.TMS.CoolantReservoir.Value",
+        "runtime": "System/TMS/CoolantReservoir"
+      },
+      {
+        "raw": "gSystem.lTMS.lCurrentCoolantTemperature.lValue",
+        "translated": "System.TMS.CurrentCoolantTemperature.Value",
+        "runtime": "System/TMS/CurrentCoolantTemperature"
+      },
+      {
+        "raw": "gSystem.lTMS.lCurrentState.lValue",
+        "translated": "System.TMS.CurrentState.Value",
+        "runtime": "System/TMS/CurrentState"
+      },
+      {
+        "raw": "gSystem.lTMS.lRequestedCoolantTemperature",
+        "translated": "System.TMS.RequestedCoolantTemperature",
+        "runtime": "System/TMS/RequestedCoolantTemperature"
+      },
+      {
+        "raw": "gSystem.lTMS.lRequestedState.lValue",
+        "translated": "System.TMS.RequestedState.Value",
+        "runtime": "System/TMS/RequestedState"
+      },
+      {
+        "raw": "gSystem.lTravel.lActive",
+        "translated": "System.Travel.Active",
+        "runtime": "System/Travel/Active"
+      },
+      {
+        "raw": "gSystem.lTravel.lCurrentFunctionSlowFactor",
+        "translated": "System.Travel.CurrentFunctionSlowFactor",
+        "runtime": "System/Travel/CurrentFunctionSlowFactor"
+      },
+      {
+        "raw": "gSystem.lTravel.lCurrentOperatingModeSlowFactor",
+        "translated": "System.Travel.CurrentOperatingModeSlowFactor",
+        "runtime": "System/Travel/CurrentOperatingModeSlowFactor"
+      },
+      {
+        "raw": "gSystem.lTravel.lCurrentUInterfaceSlowFactor",
+        "translated": "System.Travel.CurrentUInterfaceSlowFactor",
+        "runtime": "System/Travel/CurrentUInterfaceSlowFactor"
+      },
+      {
+        "raw": "gSystem.lTravel.lEnableInputSecondary",
+        "translated": "System.Travel.EnableInputSecondary",
+        "runtime": "System/Travel/EnableInputSecondary"
+      },
+      {
+        "raw": "gSystem.lTravel.lInput.lValue",
+        "translated": "System.Travel.Input.Value",
+        "runtime": "System/Travel/Input"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputNulled",
+        "translated": "System.Travel.InputNulled",
+        "runtime": "System/Travel/InputNulled"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputPresentAny",
+        "translated": "System.Travel.InputPresentAny",
+        "runtime": "System/Travel/InputPresentAny"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputPresentSecondary",
+        "translated": "System.Travel.InputPresentSecondary",
+        "runtime": "System/Travel/InputPresentSecondary"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputProcessed",
+        "translated": "System.Travel.InputProcessed",
+        "runtime": "System/Travel/InputProcessed"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputResolved",
+        "translated": "System.Travel.InputResolved",
+        "runtime": "System/Travel/InputResolved"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputScaling",
+        "translated": "System.Travel.InputScaling",
+        "runtime": "System/Travel/InputScaling"
+      },
+      {
+        "raw": "gSystem.lTravel.lInputSecondary.lValue",
+        "translated": "System.Travel.InputSecondary.Value",
+        "runtime": "System/Travel/InputSecondary"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementA.lDiagnostic",
+        "translated": "System.Travel.MovementA.Diagnostic",
+        "runtime": "System/Travel/MovementA/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementA.lInput.lValue",
+        "translated": "System.Travel.MovementA.Input.Value",
+        "runtime": "System/Travel/MovementA/Input"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementA.lInputDeadBand",
+        "translated": "System.Travel.MovementA.InputDeadBand",
+        "runtime": "System/Travel/MovementA/InputDeadBand"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementB.lDiagnostic",
+        "translated": "System.Travel.MovementB.Diagnostic",
+        "runtime": "System/Travel/MovementB/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementB.lInput.lValue",
+        "translated": "System.Travel.MovementB.Input.Value",
+        "runtime": "System/Travel/MovementB/Input"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementB.lInputDeadBand",
+        "translated": "System.Travel.MovementB.InputDeadBand",
+        "runtime": "System/Travel/MovementB/InputDeadBand"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementC.lDiagnostic",
+        "translated": "System.Travel.MovementC.Diagnostic",
+        "runtime": "System/Travel/MovementC/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementC.lInput.lValue",
+        "translated": "System.Travel.MovementC.Input.Value",
+        "runtime": "System/Travel/MovementC/Input"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementC.lInputDeadBand",
+        "translated": "System.Travel.MovementC.InputDeadBand",
+        "runtime": "System/Travel/MovementC/InputDeadBand"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementD.lInput.lValue",
+        "translated": "System.Travel.MovementD.Input.Value",
+        "runtime": "System/Travel/MovementD/Input"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementD.lInputDeadBand",
+        "translated": "System.Travel.MovementD.InputDeadBand",
+        "runtime": "System/Travel/MovementD/InputDeadBand"
+      },
+      {
+        "raw": "gSystem.lTravel.lScalingA",
+        "translated": "System.Travel.ScalingA",
+        "runtime": "System/Travel/ScalingA"
+      },
+      {
+        "raw": "gSystem.lTravel.lScalingB",
+        "translated": "System.Travel.ScalingB",
+        "runtime": "System/Travel/ScalingB"
+      },
+      {
+        "raw": "gSystem.lTravel.lScalingC",
+        "translated": "System.Travel.ScalingC",
+        "runtime": "System/Travel/ScalingC"
+      },
+      {
+        "raw": "gSystem.lTravel.lScalingD",
+        "translated": "System.Travel.ScalingD",
+        "runtime": "System/Travel/ScalingD"
+      },
+      {
+        "raw": "gSystem.lTravel.lSteerAdjustTimer.lExpired",
+        "translated": "System.Travel.SteerAdjustTimer.Expired",
+        "runtime": "System/Travel/SteerAdjustTimer/Expired"
+      },
+      {
+        "raw": "gSystem.lTravel.lThrottleValue",
+        "translated": "System.Travel.ThrottleValue",
+        "runtime": "System/Travel/ThrottleValue"
+      }
+    ],
+    "nonexistent_confirmed": [
+      {
+        "raw": "gSystem.lLift.lDiagnostic",
+        "translated": "System.Lift.Diagnostic",
+        "runtime": "System/Lift/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lTravel.lDiagnostic",
+        "translated": "System.Travel.Diagnostic",
+        "runtime": "System/Travel/Diagnostic"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementD.LDiagnostic",
+        "translated": "System.Travel.MovementD.LDiagnostic",
+        "runtime": "System/Travel/MovementD/LDiagnostic"
+      },
+      {
+        "raw": "gSystem.lTravel.lMovementD.lDiagnostic",
+        "translated": "System.Travel.MovementD.Diagnostic",
+        "runtime": "System/Travel/MovementD/Diagnostic"
+      }
+    ]
+  }
+}

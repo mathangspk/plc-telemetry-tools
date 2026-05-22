@@ -1,0 +1,1542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="STW CODESYS V3.5 SP11 - ESX-3CS" creationDateTime="2026-05-19T11:31:35.1210252" />
+  <contentHeader name="common" version="0.1" modificationDateTime="2026-01-27T11:29:48" organization="Isoloader">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="Company" type="string">Isoloader</property>
+          <property name="Project" type="string">common</property>
+          <property name="Title" type="string">common</property>
+          <property name="Version" type="version">0.1</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="t_can_message">
+        <baseType>
+          <derived name="CANMessage" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>634c6962-68b8-4317-a3c9-80a776121e0c</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_can_message_set">
+        <baseType>
+          <array>
+            <dimension lower="1" upper="32" />
+            <baseType>
+              <pointer>
+                <baseType>
+                  <derived name="t_can_message" />
+                </baseType>
+              </pointer>
+            </baseType>
+          </array>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>0ba79101-be59-4f01-a321-9a2e84971d3a</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_long_string">
+        <baseType>
+          <string length="72" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>af42bed1-0c9c-4311-9deb-12edee4676af</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_long_string_reference">
+        <baseType>
+          <derived name="REFERENCE TO t_long_string" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>3c292214-3ca6-46ed-8693-5ae804c0444b</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_medium_string">
+        <baseType>
+          <string length="16" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1d74c348-140f-4c65-8f85-5c75e725f358</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_medium_string_reference">
+        <baseType>
+          <derived name="REFERENCE TO t_medium_string" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>f03d72eb-44ac-4009-9daf-044b61935fce</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_mediumlong_string">
+        <baseType>
+          <string length="32" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>045f0805-0d73-42da-b695-210e8773ad8c</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_mediumlong_string_reference">
+        <baseType>
+          <derived name="REFERENCE TO t_mediumlong_string" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a8d114ff-9073-4253-a045-129b2ae1b0de</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_ms_time">
+        <baseType>
+          <TIME />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>fc77188b-e48a-48e5-8947-4e5a81d8b79a</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_onoff_state">
+        <baseType>
+          <enum>
+            <values>
+              <value name="cOnOffStateOff" value="0" />
+              <value name="cOnOffStateTurningOn" value="1" />
+              <value name="cOnOffStateOn" value="2" />
+              <value name="cOnOffStateTurningOff" value="3" />
+            </values>
+          </enum>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>80409ed0-ea03-40cf-8488-86b64c717ae7</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_percentage">
+        <baseType>
+          <REAL />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>8149e371-9f42-4732-9bfb-17eb8d776cc2</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_short_string">
+        <baseType>
+          <string length="8" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>dbbacda4-9ac5-4abf-8030-f37c3a719030</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_short_string_reference">
+        <baseType>
+          <derived name="REFERENCE TO t_short_string" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>4d0db711-c7f8-42de-a636-62e833708444</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_time">
+        <baseType>
+          <TIME />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>feed1e25-fcbc-4ee2-97da-9e7b4f076b51</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_timer">
+        <baseType>
+          <derived name="Timer" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a19bd428-2297-4762-a126-b92194de9f60</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_system_handler">
+        <baseType>
+          <derived name="SystemHandler" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>fa92295a-ff01-45d4-aae2-0e77a27594a6</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+    </dataTypes>
+    <pous>
+      <pou name="CANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lSuccess">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lProceed">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lFinished">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lStarted">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lMessageCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lPostTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="finish" ObjectId="77c459b4-09f2-4f5e-8ffa-6a52d19d153e">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">reset();
+
+lStarted := TRUE;
+lMessageCount := lMessageCount + 1;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="679d1dbc-02cb-4fcc-996b-80d2f769246e">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">reset();
+
+lMessageCount := 0;
+
+lPostTimer.Enable := TRUE;
+lPostTimer.Period := T#5S;
+lPostTimer.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="4f0b6ccb-1d5a-4356-ba73-bbad42cd4326">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(Finished)) then
+	lPostTimer.reset();
+END_IF
+
+lPostTimer.operator();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="895799c7-e8da-4148-b875-1338e47bd655">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSuccess := FALSE;
+lProceed := FALSE;
+lFinished := FALSE;
+lStarted := FALSE;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="7f70525e-a045-43f8-bfec-f385e3616ae3">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">reset();
+
+lStarted := TRUE;
+lMessageCount := lMessageCount + 1;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Finished" ObjectId="4ebe57c5-9354-4977-aa1b-c507bfd7642f">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Finished := lFinished;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="PostPeriod" ObjectId="1bd3089a-7436-476e-83bf-515150ecbb08">
+              <interface>
+                <returnType>
+                  <derived name="t_time" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PostPeriod := lPostTImer.Period;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPostTimer.Period := PostPeriod;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Proceed" ObjectId="77b44167-6676-4ba6-8b32-81d4606aff52">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Proceed := lProceed;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Running" ObjectId="60f8567f-d0cf-452a-8ee8-b4feec5c41cd">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Running := ((lStarted) and (NOT(lPostTimer.Expired)));</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Started" ObjectId="39976cb2-d09b-4238-9c89-767ef05a010f">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Started := lStarted;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Success" ObjectId="7b9312fa-1073-4635-92f7-1560f6cd1ea4">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Success := lSuccess;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>17e1f495-22eb-4885-8630-d08bcf3252bd</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="CANMessageSequence" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lSequence">
+              <type>
+                <derived name="t_can_message_set" />
+              </type>
+            </variable>
+            <variable name="lSequenceCount">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lSequenceIndex">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="25563cd2-d2ad-4d24-80e4-91b913246b83">
+              <interface>
+                <localVars>
+                  <variable name="i">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+FOR i:=1 TO lSequenceCount DO
+	lSequence[i]^.initialize();
+END_FOR
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="4c187a34-8875-4b51-896a-6347591d290a">
+              <interface>
+                <localVars>
+                  <variable name="b">
+                    <type>
+                      <BOOL />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF ((NOT(Enabled)) OR (NOT(Running))) THEN
+	RETURN;
+END_IF
+
+SUPER^.operator();
+
+lSequence[lSequenceIndex]^.operator();
+
+IF (lSequence[lSequenceIndex]^.Finished) THEN
+	IF (lSequence[lSequenceIndex]^.Proceed) THEN
+		b:= lSequence[lSequenceIndex]^.Success;
+		
+		lSequenceIndex := lSequenceIndex + 1;
+		IF (lSequenceIndex&gt;lSequenceCount) THEN
+			lSuccess := b;
+			lFinished := TRUE;
+			finish();
+		ELSE
+			lSequence[lSequenceIndex]^.start();	
+		END_IF
+	ELSE
+		lSuccess := FALSE;
+		lFinished := TRUE;
+		finish();
+	END_IF
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="registerMessage" ObjectId="8b0df0ce-6ffb-4f0c-82c4-9d0a972393be">
+              <interface>
+                <returnType>
+                  <pointer>
+                    <baseType>
+                      <derived name="t_can_message" />
+                    </baseType>
+                  </pointer>
+                </returnType>
+                <inputVars>
+                  <variable name="message">
+                    <type>
+                      <pointer>
+                        <baseType>
+                          <derived name="t_can_message" />
+                        </baseType>
+                      </pointer>
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (lSequenceCount&gt;32) THEN
+	registerMessage := 0;
+	RETURN;
+END_IF
+
+lSequenceCount := lSequenceCount + 1;
+lSequence[lSequenceCount] := message;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="54bc8122-0ff6-45ac-a832-480fbd479b7a">
+              <interface>
+                <localVars>
+                  <variable name="i">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();
+
+lSequenceIndex := 0;
+
+FOR i:=1 TO lSequenceCount DO
+	lSequence[i]^.reset();
+END_FOR
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="87a12971-55c0-4a4a-b235-457a7bbff15a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();
+
+IF (lSequenceCount=0) THEN
+	lSequenceIndex := 0;
+	RETURN;
+END_IF
+
+lSequenceIndex := 1;
+
+lSequence[lSequenceIndex]^.start();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Enabled" ObjectId="ce18a87c-54f2-49f9-9a72-80bfb24b1366">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Enabled := (lSequenceIndex&gt;0);
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>55a1e938-3d43-498a-a846-6893a977bec7</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SystemHandler" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="pResult">
+              <type>
+                <BYTE />
+              </type>
+            </variable>
+            <variable name="pMessage">
+              <type>
+                <string />
+              </type>
+            </variable>
+            <variable name="pFlag">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </inputVars>
+          <localVars>
+            <variable name="lState">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">lState := TRUE;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="37bae249-9828-4c34-a30e-f6e5216bcb36">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lState := FALSE;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a0e91af0-cb7c-4cff-ac26-419d07f34af7</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="Counter" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lCount">
+              <type>
+                <USINT />
+              </type>
+            </variable>
+            <variable name="lCountPrev">
+              <type>
+                <USINT />
+              </type>
+            </variable>
+            <variable name="_Unique">
+              <type>
+                <UINT />
+              </type>
+            </variable>
+            <variable name="lUnique">
+              <type>
+                <derived name="REFERENCE TO UINT" />
+              </type>
+              <initialValue>
+                <simpleValue value="_Unique" />
+              </initialValue>
+            </variable>
+            <variable name="lRising">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lFalling">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lHigh">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="register" ObjectId="a6e75bf0-543f-4b47-ad8b-c463475dee85">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCount := lCount + 1;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="2eaba768-ee75-47a3-a075-00a7a5c7cdd2">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lRising := (lCountPrev=0) AND (lCount&gt;0);
+lFalling := (lCountPrev&gt;0) AND (lCount=0);
+lHigh := (lCount&gt;0);
+
+IF (lRising) THEN
+	lUnique := lUnique + 1;
+END_IF
+
+lCountPrev := lCount;
+lCount := 0;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="469a9876-133c-47f6-aa96-faa17503c9d1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCount := lCountPrev := 0;
+lUnique := 0;
+lRising := lFalling := lHigh := FALSE;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="4ed77b5a-bc73-40d8-9ff2-d2adb0b4da70">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCount := lCountPrev := 0;
+lUnique := 0;
+lRising := lFalling := lHigh := FALSE;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="setReference" ObjectId="4769a17b-3be7-48fc-9ed9-10f00b256d0c">
+              <interface>
+                <inputVars>
+                  <variable name="u">
+                    <type>
+                      <derived name="REFERENCE TO UINT" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lUnique REF= u;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Count" ObjectId="8d45151d-3e25-4154-b1ce-69a70b4b4479">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Count := lCount;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Rising" ObjectId="8d2e79ff-1a1c-4a0e-a1b3-c943bdebb474">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Rising := lRising;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Falling" ObjectId="0796fa0b-13aa-472d-92ff-eea05b45ae1a">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Falling := lFalling;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="High" ObjectId="c1771411-1d5b-4e88-98d6-87406d06954e">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">High := lHigh;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Unique" ObjectId="c0da812b-1aae-42f6-a03f-95b9f511fa4f">
+              <interface>
+                <returnType>
+                  <UINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Unique := lUnique;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1c7f5903-d592-400b-8576-d7aa778ba493</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="strcmp" pouType="function">
+        <interface>
+          <returnType>
+            <BOOL />
+          </returnType>
+          <inputVars>
+            <variable name="str1">
+              <type>
+                <string />
+              </type>
+            </variable>
+            <variable name="str2">
+              <type>
+                <string />
+              </type>
+            </variable>
+          </inputVars>
+          <localVars>
+            <variable name="i">
+              <type>
+                <UINT />
+              </type>
+            </variable>
+            <variable name="lng">
+              <type>
+                <UINT />
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">lng :=INT_TO_UINT(LEN(str1));
+
+IF (lng&lt;&gt;INT_TO_UINT(LEN(str2))) THEN
+	strcmp := FALSE;
+	RETURN;
+END_IF
+
+FOR i:=0 TO lng DO
+	IF (str1[i]&lt;&gt;str2[i]) THEN
+		strcmp := FALSE;
+		RETURN;
+	END_IF
+END_FOR
+
+strcmp := TRUE;
+</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>d0c5184f-5ae7-4e3b-b9ee-0f43fd3a5a82</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="Timer" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lEnable">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lPeriod">
+              <type>
+                <derived name="t_ms_time" />
+              </type>
+            </variable>
+          </inputVars>
+          <localVars>
+            <variable name="lTimer">
+              <type>
+                <derived name="TON" />
+              </type>
+            </variable>
+            <variable name="lExpired">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="00a29b7b-79db-4fd5-b171-45212b83a3d8">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lExpired := FALSE;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="9805f3bb-51e3-4c57-a2b4-0aa9c48a9ab6">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lTimer(IN:=lEnable,PT:=lPeriod,Q=&gt;lExpired);</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="d2f1aa5e-ad26-4dc0-bb86-7edfad862f7e">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lTimer(IN:=FALSE,PT:=lPeriod);
+lExpired := FALSE;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Enable" ObjectId="eddeee31-bcb4-4237-b23f-b03b790cff07">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lEnable := Enable;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Enable := lEnable;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Expired" ObjectId="6a84793d-10fb-4bad-9a00-ac64bb4e9dfa">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Expired := lExpired;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Period" ObjectId="dfc346d6-7a84-4bab-a0cf-751fd023417d">
+              <interface>
+                <returnType>
+                  <derived name="t_time" />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lPeriod := Period;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Period := lPeriod;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>4247319e-f6b6-40cc-bfb1-431fe33d707f</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="TimerWithStatistics" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lUnexpiredMax">
+              <type>
+                <derived name="t_time" />
+              </type>
+              <initialValue>
+                <simpleValue value="TIME#0ms" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>Timer</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="4f6a968a-f2f9-4b65-a1d4-5b58fded13c2">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(lExpired)) THEN
+	lUnexpiredMax := MAX(lUnexpiredMax,lTimer.ET);
+END_IF
+
+SUPER^.reset();
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="UnexpiredMax" ObjectId="bf659b59-e7e1-4805-9321-3137619c90b2">
+              <interface>
+                <returnType>
+                  <derived name="t_time" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">UnexpiredMax := lUnexpiredMax;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>0eb2d629-bcb6-41bb-8781-1befc4f86219</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+      <globalVars name="GlobalVariablesCommon" constant="true">
+        <variable name="cPi">
+          <type>
+            <REAL />
+          </type>
+          <initialValue>
+            <simpleValue value="3.141592654" />
+          </initialValue>
+        </variable>
+        <variable name="c2Pi">
+          <type>
+            <REAL />
+          </type>
+          <initialValue>
+            <simpleValue value="6.283185307" />
+          </initialValue>
+        </variable>
+        <variable name="cPiNegative">
+          <type>
+            <REAL />
+          </type>
+          <initialValue>
+            <simpleValue value="-3.141592654" />
+          </initialValue>
+        </variable>
+        <variable name="cPIOn2">
+          <type>
+            <REAL />
+          </type>
+          <initialValue>
+            <simpleValue value="1.5708" />
+          </initialValue>
+        </variable>
+        <variable name="cRelayCoilCurrentMinThreshold">
+          <type>
+            <WORD />
+          </type>
+          <initialValue>
+            <simpleValue value="200" />
+          </initialValue>
+        </variable>
+        <variable name="cRelayCoilCurrentMaxThreshold">
+          <type>
+            <WORD />
+          </type>
+          <initialValue>
+            <simpleValue value="500" />
+          </initialValue>
+        </variable>
+        <variable name="cRelayCoilResistanceThreshold">
+          <type>
+            <WORD />
+          </type>
+          <initialValue>
+            <simpleValue value="80" />
+          </initialValue>
+        </variable>
+        <variable name="cRelayCoilCurrentThreshold">
+          <type>
+            <WORD />
+          </type>
+          <initialValue>
+            <simpleValue value="200" />
+          </initialValue>
+        </variable>
+        <variable name="cRelayCoilTimeout">
+          <type>
+            <derived name="t_time" />
+          </type>
+          <initialValue>
+            <simpleValue value="TIME#500ms" />
+          </initialValue>
+        </variable>
+        <variable name="cRelayCoilTimeoutIndirect">
+          <type>
+            <derived name="t_time" />
+          </type>
+          <initialValue>
+            <simpleValue value="TIME#600ms" />
+          </initialValue>
+        </variable>
+        <variable name="gCodeErrorHandler">
+          <type>
+            <derived name="t_system_handler" />
+          </type>
+        </variable>
+        <variable name="gConfigErrorHandler">
+          <type>
+            <derived name="t_system_handler" />
+          </type>
+        </variable>
+        <variable name="gManualTemporaryOveride">
+          <type>
+            <BOOL />
+          </type>
+          <initialValue>
+            <simpleValue value="FALSE" />
+          </initialValue>
+        </variable>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1eef3bb9-44af-47d1-adf8-742d3372c79f</ObjectId>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/mixedattrsvarlist" handleUnknown="implementation">
+            <MixedAttrsVarList>
+              <globalVars name="GlobalVariablesCommon" constant="true">
+                <variable name="cPi">
+                  <type>
+                    <REAL />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="3.141592654" />
+                  </initialValue>
+                </variable>
+                <variable name="c2Pi">
+                  <type>
+                    <REAL />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="6.283185307" />
+                  </initialValue>
+                </variable>
+                <variable name="cPiNegative">
+                  <type>
+                    <REAL />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="-3.141592654" />
+                  </initialValue>
+                </variable>
+                <variable name="cPIOn2">
+                  <type>
+                    <REAL />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="1.5708" />
+                  </initialValue>
+                </variable>
+                <variable name="cRelayCoilCurrentMinThreshold">
+                  <type>
+                    <WORD />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="200" />
+                  </initialValue>
+                </variable>
+                <variable name="cRelayCoilCurrentMaxThreshold">
+                  <type>
+                    <WORD />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="500" />
+                  </initialValue>
+                </variable>
+                <variable name="cRelayCoilResistanceThreshold">
+                  <type>
+                    <WORD />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="80" />
+                  </initialValue>
+                </variable>
+                <variable name="cRelayCoilCurrentThreshold">
+                  <type>
+                    <WORD />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="200" />
+                  </initialValue>
+                </variable>
+                <variable name="cRelayCoilTimeout">
+                  <type>
+                    <derived name="t_time" />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="TIME#500ms" />
+                  </initialValue>
+                </variable>
+                <variable name="cRelayCoilTimeoutIndirect">
+                  <type>
+                    <derived name="t_time" />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="TIME#600ms" />
+                  </initialValue>
+                </variable>
+              </globalVars>
+              <globalVars name="GlobalVariablesCommon">
+                <variable name="gCodeErrorHandler">
+                  <type>
+                    <derived name="t_system_handler" />
+                  </type>
+                </variable>
+                <variable name="gConfigErrorHandler">
+                  <type>
+                    <derived name="t_system_handler" />
+                  </type>
+                </variable>
+                <variable name="gManualTemporaryOveride">
+                  <type>
+                    <BOOL />
+                  </type>
+                  <initialValue>
+                    <simpleValue value="FALSE" />
+                  </initialValue>
+                </variable>
+              </globalVars>
+            </MixedAttrsVarList>
+          </data>
+        </addData>
+      </globalVars>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/libraries" handleUnknown="implementation">
+      <Libraries>
+        <Library Name="Standard, * (System)" Namespace="Standard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="#Standard" Namespace="Standard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" DefaultResolution="Standard, * (System)" />
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9c8abad4-e614-4742-8aa8-7dad00f7759a</ObjectId>
+          </data>
+        </addData>
+      </Libraries>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Folder Name="Global Variables">
+          <Object Name="GlobalVariablesCommon" ObjectId="1eef3bb9-44af-47d1-adf8-742d3372c79f" />
+        </Folder>
+        <Object Name="Library Manager" ObjectId="9c8abad4-e614-4742-8aa8-7dad00f7759a" />
+        <Folder Name="POUs">
+          <Folder Name="housekeeping">
+            <Object Name="t_system_handler" ObjectId="fa92295a-ff01-45d4-aae2-0e77a27594a6" />
+            <Object Name="SystemHandler" ObjectId="a0e91af0-cb7c-4cff-ac26-419d07f34af7">
+              <Object Name="reset" ObjectId="37bae249-9828-4c34-a30e-f6e5216bcb36" />
+            </Object>
+          </Folder>
+          <Folder Name="std">
+            <Object Name="Timer" ObjectId="4247319e-f6b6-40cc-bfb1-431fe33d707f">
+              <Object Name="initialize" ObjectId="00a29b7b-79db-4fd5-b171-45212b83a3d8" />
+              <Object Name="Enable" ObjectId="eddeee31-bcb4-4237-b23f-b03b790cff07" />
+              <Object Name="operator" ObjectId="9805f3bb-51e3-4c57-a2b4-0aa9c48a9ab6" />
+              <Object Name="Expired" ObjectId="6a84793d-10fb-4bad-9a00-ac64bb4e9dfa" />
+              <Object Name="reset" ObjectId="d2f1aa5e-ad26-4dc0-bb86-7edfad862f7e" />
+              <Object Name="Period" ObjectId="dfc346d6-7a84-4bab-a0cf-751fd023417d" />
+            </Object>
+            <Object Name="Counter" ObjectId="1c7f5903-d592-400b-8576-d7aa778ba493">
+              <Object Name="Count" ObjectId="8d45151d-3e25-4154-b1ce-69a70b4b4479" />
+              <Object Name="register" ObjectId="a6e75bf0-543f-4b47-ad8b-c463475dee85" />
+              <Object Name="operator" ObjectId="2eaba768-ee75-47a3-a075-00a7a5c7cdd2" />
+              <Object Name="initialize" ObjectId="469a9876-133c-47f6-aa96-faa17503c9d1" />
+              <Object Name="reset" ObjectId="4ed77b5a-bc73-40d8-9ff2-d2adb0b4da70" />
+              <Object Name="Rising" ObjectId="8d2e79ff-1a1c-4a0e-a1b3-c943bdebb474" />
+              <Object Name="Falling" ObjectId="0796fa0b-13aa-472d-92ff-eea05b45ae1a" />
+              <Object Name="High" ObjectId="c1771411-1d5b-4e88-98d6-87406d06954e" />
+              <Object Name="Unique" ObjectId="c0da812b-1aae-42f6-a03f-95b9f511fa4f" />
+              <Object Name="setReference" ObjectId="4769a17b-3be7-48fc-9ed9-10f00b256d0c" />
+            </Object>
+            <Folder Name="functions">
+              <Object Name="strcmp" ObjectId="d0c5184f-5ae7-4e3b-b9ee-0f43fd3a5a82" />
+            </Folder>
+            <Object Name="TimerWithStatistics" ObjectId="0eb2d629-bcb6-41bb-8781-1befc4f86219">
+              <Object Name="reset" ObjectId="4f6a968a-f2f9-4b65-a1d4-5b58fded13c2" />
+              <Object Name="UnexpiredMax" ObjectId="bf659b59-e7e1-4805-9321-3137619c90b2" />
+            </Object>
+          </Folder>
+          <Folder Name="data types">
+            <Object Name="t_medium_string" ObjectId="1d74c348-140f-4c65-8f85-5c75e725f358" />
+            <Object Name="t_ms_time" ObjectId="fc77188b-e48a-48e5-8947-4e5a81d8b79a" />
+            <Object Name="t_onoff_state" ObjectId="80409ed0-ea03-40cf-8488-86b64c717ae7" />
+            <Object Name="t_percentage" ObjectId="8149e371-9f42-4732-9bfb-17eb8d776cc2" />
+            <Object Name="t_short_string" ObjectId="dbbacda4-9ac5-4abf-8030-f37c3a719030" />
+            <Object Name="t_time" ObjectId="feed1e25-fcbc-4ee2-97da-9e7b4f076b51" />
+            <Object Name="t_timer" ObjectId="a19bd428-2297-4762-a126-b92194de9f60" />
+            <Object Name="t_medium_string_reference" ObjectId="f03d72eb-44ac-4009-9daf-044b61935fce" />
+            <Object Name="t_long_string" ObjectId="af42bed1-0c9c-4311-9deb-12edee4676af" />
+            <Object Name="t_long_string_reference" ObjectId="3c292214-3ca6-46ed-8693-5ae804c0444b" />
+            <Object Name="t_short_string_reference" ObjectId="4d0db711-c7f8-42de-a636-62e833708444" />
+            <Object Name="t_mediumlong_string" ObjectId="045f0805-0d73-42da-b695-210e8773ad8c" />
+            <Object Name="t_mediumlong_string_reference" ObjectId="a8d114ff-9073-4253-a045-129b2ae1b0de" />
+          </Folder>
+          <Folder Name="CAN">
+            <Object Name="t_can_message" ObjectId="634c6962-68b8-4317-a3c9-80a776121e0c" />
+            <Object Name="t_can_message_set" ObjectId="0ba79101-be59-4f01-a321-9a2e84971d3a" />
+            <Object Name="CANMessage" ObjectId="17e1f495-22eb-4885-8630-d08bcf3252bd">
+              <Object Name="finish" ObjectId="77c459b4-09f2-4f5e-8ffa-6a52d19d153e" />
+              <Object Name="Finished" ObjectId="4ebe57c5-9354-4977-aa1b-c507bfd7642f" />
+              <Object Name="initialize" ObjectId="679d1dbc-02cb-4fcc-996b-80d2f769246e" />
+              <Object Name="operator" ObjectId="4f0b6ccb-1d5a-4356-ba73-bbad42cd4326" />
+              <Object Name="PostPeriod" ObjectId="1bd3089a-7436-476e-83bf-515150ecbb08" />
+              <Object Name="Proceed" ObjectId="77b44167-6676-4ba6-8b32-81d4606aff52" />
+              <Object Name="reset" ObjectId="895799c7-e8da-4148-b875-1338e47bd655" />
+              <Object Name="Running" ObjectId="60f8567f-d0cf-452a-8ee8-b4feec5c41cd" />
+              <Object Name="Started" ObjectId="39976cb2-d09b-4238-9c89-767ef05a010f" />
+              <Object Name="Success" ObjectId="7b9312fa-1073-4635-92f7-1560f6cd1ea4" />
+              <Object Name="start" ObjectId="7f70525e-a045-43f8-bfec-f385e3616ae3" />
+            </Object>
+            <Object Name="CANMessageSequence" ObjectId="55a1e938-3d43-498a-a846-6893a977bec7">
+              <Object Name="Enabled" ObjectId="ce18a87c-54f2-49f9-9a72-80bfb24b1366" />
+              <Object Name="initialize" ObjectId="25563cd2-d2ad-4d24-80e4-91b913246b83" />
+              <Object Name="operator" ObjectId="4c187a34-8875-4b51-896a-6347591d290a" />
+              <Object Name="registerMessage" ObjectId="8b0df0ce-6ffb-4f0c-82c4-9d0a972393be" />
+              <Object Name="reset" ObjectId="54bc8122-0ff6-45ac-a832-480fbd479b7a" />
+              <Object Name="start" ObjectId="87a12971-55c0-4a4a-b235-457a7bbff15a" />
+            </Object>
+          </Folder>
+        </Folder>
+        <Object Name="Project Information" ObjectId="11c0fc3a-9bcf-4dd8-ac38-efb93363e521" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

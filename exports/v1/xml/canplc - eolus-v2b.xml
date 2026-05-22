@@ -1,0 +1,4726 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="STW CODESYS V3.5 SP11 - ESX-3CS" creationDateTime="2026-05-19T11:32:05.4310643" />
+  <contentHeader name="canplc" version="0.101" modificationDateTime="2026-02-01T07:40:15" organization="Isoloader">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="Company" type="string">Isoloader</property>
+          <property name="Project" type="string">canplc - eolus-v2b</property>
+          <property name="Title" type="string">canplc</property>
+          <property name="Version" type="version">0.101</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes>
+      <dataType name="t_can_errorfield">
+        <baseType>
+          <array>
+            <dimension lower="0" upper="5" />
+            <baseType>
+              <WORD />
+            </baseType>
+          </array>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1e15aed5-7382-4624-ad33-0c16ff80e9ac</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_can_heartbeaterrors">
+        <baseType>
+          <array>
+            <dimension lower="0" upper="7" />
+            <baseType>
+              <BYTE />
+            </baseType>
+          </array>
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>7686609a-8cc6-47cb-890d-2cd9a7e389e2</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_canopen_emcy">
+        <baseType>
+          <derived name="CIA405.EMCY_ERROR" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>a57f0d55-7597-4ba1-aa46-2e9179940d85</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+      <dataType name="t_node_state">
+        <baseType>
+          <derived name="_3SCOS.DEVICE_STATE" />
+        </baseType>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>0e0f43e2-c17d-40a6-8c7b-e4610904f13b</ObjectId>
+          </data>
+        </addData>
+      </dataType>
+    </dataTypes>
+    <pous>
+      <pou name="CANOpenLocalDevice" pouType="functionBlock">
+        <interface>
+          <localVars constant="true">
+            <variable name="cHeartbeatTimer">
+              <type>
+                <derived name="t_time" />
+              </type>
+              <initialValue>
+                <simpleValue value="TIME#500ms" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="lAlarmCANOpenMasterNotOperational">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lAlarmCANOpenMasterModulation">
+              <type>
+                <derived name="ReportableSignedModulation" />
+              </type>
+            </variable>
+            <variable name="lAlarmCANOpenMasterAllowableUp">
+              <type>
+                <derived name="ReportableAlarmAllowableUp" />
+              </type>
+            </variable>
+            <variable name="lVREnabled">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lEnabled">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lVRTriggerStart">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lTriggerStart">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lVROverrideConnected">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lOverrideConnected">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lModulationSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lOperationalSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lStartSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lModulationSeverity">
+              <type>
+                <derived name="t_severity" />
+              </type>
+            </variable>
+            <variable name="lNetworkId">
+              <type>
+                <BYTE />
+              </type>
+            </variable>
+            <variable name="_EmergencyInfo">
+              <type>
+                <derived name="t_canopen_emcy" />
+              </type>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> foobar emcy messages not monitored</xhtml>
+              </documentation>
+            </variable>
+            <variable name="lEmergencyInfo">
+              <type>
+                <derived name="REFERENCE TO t_canopen_emcy" />
+              </type>
+              <initialValue>
+                <simpleValue value="_EmergencyInfo" />
+              </initialValue>
+            </variable>
+            <variable name="lControllerId">
+              <type>
+                <BYTE />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lCANOpenDevice">
+              <type>
+                <derived name="REFERENCE TO _3SCSS.CANopenDevice" />
+              </type>
+            </variable>
+            <variable name="lMasterHeartbeat">
+              <type>
+                <derived name="HeartbeatHandler" />
+              </type>
+            </variable>
+            <variable name="lNodeState">
+              <type>
+                <derived name="t_node_state" />
+              </type>
+            </variable>
+            <variable name="lNodeStatePrev">
+              <type>
+                <derived name="t_node_state" />
+              </type>
+            </variable>
+            <variable name="lNMTStartCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lNMTTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lNMTEnableStart">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lHeartbeatCounter">
+              <type>
+                <derived name="Counter" />
+              </type>
+            </variable>
+            <variable name="lHeartbeatTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lEmergencyCounter">
+              <type>
+                <derived name="Counter" />
+              </type>
+            </variable>
+            <variable name="lReceiveEmcy">
+              <type>
+                <derived name="CIA405.RECV_EMCY_DEV" />
+              </type>
+            </variable>
+            <variable name="lEmergencyCode">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="lOverflowCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lConnected">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>OperationalParticleSet</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="620895cd-ae25-46b2-a074-8ec7cb73113a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(__ISVALIDREF(lCANOpenDevice))) THEN
+	gCodeErrorHandler(pMessage:=CONCAT('null reference in ',lIdentity));
+END_IF
+
+lAlarmCANOpenMasterNotOperational.initializeState(NopSelf,'',cACCANOpenMasterNotOperational);
+lAlarmCANOpenMasterNotOperational.InitialSeverity := cSeverityWarning;
+lAlarmCANOpenMasterNotOperational.SeverityWarningTimeout := T#0S;
+lAlarmCANOpenMasterNotOperational.SeverityErrorTimeout := T#100MS;
+lAlarmCANOpenMasterNotOperational.SeverityCriticalTimeout := T#5S;
+
+lAlarmCANOpenMasterModulation.initializeState(NopSelf,'',cACCANOpenMasterModulation);
+lAlarmCANOpenMasterModulation.pause(); // foobar - what impact does this have, should act as if not connected, ie put all joysticks to zero
+
+lAlarmCANOpenMasterAllowableUp.initializeState(NopSelf,'',cACCANOpenMasterAllowableUp);
+lAlarmCANOpenMasterAllowableUp.AllowableSystemState := cSystemStatePreOperational;
+lAlarmCANOpenMasterAllowableUp.UpperSystemStateScope := cSystemStatePreOperational;
+lAlarmCANOpenMasterAllowableUp.LowerSystemStateScope := cSystemStatePreOperational;
+lAlarmCANOpenMasterAllowableUp.Life := 10;
+lAlarmCANOpenMasterAllowableUp.InitialSeverity := cSeverityNone;
+lAlarmCANOpenMasterAllowableUp.SeverityWarningTimeout := T#250MS;
+lAlarmCANOpenMasterAllowableUp.SeverityErrorTimeout := T#1S;
+lAlarmCANOpenMasterAllowableUp.SeverityCriticalTimeout := T#5S;	
+
+lVREnabled.initializeValueReference(lEnabled,NopSelf,'Enabled','Enable canopen node','',cValueStyleParameter);
+lVRTriggerStart.initializeValueReference(lTriggerStart,NopSelf,'TriggerStart','Trigger NMT message to take canopen node Operational','',cValueStyleTrigger);
+lVROverrideConnected.initializeValueReference(lOverrideConnected,NopSelf,'OvrdConnected','Force state of canopen node to show as connected','',cValueStyleParameter);
+
+SUPER^.initialize();
+	
+lModulationSystemStateScope := cSystemStateOperational;	
+lOperationalSystemStateScope := cSystemStateGoOperational;
+lStartSystemStateScope := cSystemStateGoOperational;
+lModulationSeverity := cSeverityError;
+
+lHeartbeatCounter.initialize();
+lEmergencyCounter.initialize();
+lMasterHeartbeat.initialize();
+
+lHeartbeatTimer.initialize();
+lHeartbeatTimer.Enable := TRUE;
+lHeartbeatTimer.Period := cHeartbeatTimer;
+
+lControllerId := lCANOpenDevice.NodeID;
+
+lNMTStartCounter := 0;
+lNMTTimer.Enable := TRUE;
+lNMTTimer.Period := T#250MS;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="93c593db-1472-4799-b4e5-d9afb616ea20">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCANOpenDevice.SwitchToOp();
+
+lNMTStartCounter := lNMTStartCounter + 1;
+
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="resetTraces" ObjectId="a52620f2-48b7-48d5-9f49-9bacafaa4cc2">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lHeartbeatCounter.reset();
+lEmergencyCounter.reset();
+lOverflowCounter := 0;
+
+lEmergencyInfo.EMCY_ERROR_CODE := 0;
+lEmergencyInfo.ERROR_REGISTER := 0;
+lEmergencyInfo.ERROR_FIELD[1] := 0;
+lEmergencyInfo.ERROR_FIELD[2] := 0;
+lEmergencyInfo.ERROR_FIELD[3] := 0;
+lEmergencyInfo.ERROR_FIELD[4] := 0;
+lEmergencyInfo.ERROR_FIELD[5] := 0;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="b8835c09-b6bc-4604-b3e0-8ec41702084a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="emergencyHandler" ObjectId="cf96fcd0-6ee0-4642-9ac4-21fdc6881d34">
+              <interface>
+                <inputVars>
+                  <variable name="info">
+                    <type>
+                      <derived name="t_canopen_emcy" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="d655a166-3c24-4c77-9ac9-db9ca3559ad9">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (NOT(lEnabled)) THEN
+	lNodeState := t_node_state.OPERATIONAL;
+	lConnected := TRUE;
+	RETURN;
+END_IF
+
+lNodeStatePrev := NodeState;
+NodeState := LINT_TO_INT(INT_TO_LINT(lCANOpenDevice.State));
+
+IF (((NodeState&lt;&gt;t_node_state.OPERATIONAL) AND (gSystemServices.SystemState.State&gt;=lStartSystemStateScope)) OR
+	(lTriggerStart)) THEN
+	lTriggerStart := FALSE;
+	start();
+END_IF
+
+lMasterHeartbeat.operator(); // foobar corrected - impact?
+lHeartbeatCounter.operator();
+lHeartbeatTimer.operator();
+
+IF (lMasterHeartbeat.HeartbeatFault) THEN
+	
+	IF (gSystemServices.SystemState.State&gt;=lOperationalSystemStateScope) THEN
+		lAlarmCANOpenMasterNotOperational.trigger(FALSE);
+
+		IF (lHeartbeatTimer.Expired) THEN
+			lHeartbeatCounter.register();
+		END_IF
+	
+		IF ((lAlarmCANOpenMasterNotOperational.Severity&gt;=lModulationSeverity) AND
+			(gSystemServices.SystemState.State&gt;=lModulationSystemStateScope)) THEN
+			lAlarmCANOpenMasterModulation.trigger(FALSE);
+		END_IF
+	END_IF
+	
+	lAlarmCANOpenMasterAllowableUp.test(FALSE);
+ELSE
+	lHeartbeatTimer.reset();
+END_IF
+lConnected := ((NOT(lHeartbeatTimer.Expired)) OR (lOverrideConnected)); // observational only
+
+	</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeLocal" ObjectId="9395e3d0-34f1-4750-8125-0f5bb9e7cc04">
+              <interface>
+                <inputVars>
+                  <variable name="device">
+                    <type>
+                      <derived name="REFERENCE TO _3SCSS.CANopenDevice" />
+                    </type>
+                  </variable>
+                  <variable name="channel">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                  <variable name="handleHeartbeatHandler">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCANOpenDevice REF= device;
+
+lMasterHeartbeat.initializeMessage(handleHeartbeatHandler,channel);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Operational" ObjectId="098d67b5-f37a-44be-b1f5-3e0a0878f5ed">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Operational := (NodeState=t_node_state.OPERATIONAL);</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="EmergencyCounter" ObjectId="8379fca6-a7db-4887-975a-6be6fda7615f">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">EmergencyCounter := lEmergencyCounter.Count;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="OperationalSystemStateScope" ObjectId="e487e9d0-02e6-428e-b960-8141dc1ce025">
+              <interface>
+                <returnType>
+                  <derived name="t_system_state" />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lOperationalSystemStateScope := OperationalSystemStateScope;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">OperationalSystemStateScope := lOperationalSystemStateScope;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="EmergencyInfo" ObjectId="2f743926-9c89-42ea-94ce-52c8226ecab6">
+              <interface>
+                <returnType>
+                  <derived name="t_canopen_emcy" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">EmergencyInfo := lEmergencyInfo;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="HeartbeatCounter" ObjectId="a6b5e29c-2de0-4ffa-b9b7-2932c17f0860">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">HeartbeatCounter := lHeartbeatCounter.Count;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Connected" ObjectId="4162b154-22b1-42f2-b797-953ad040ca5e">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Connected := lConnected;
+
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="OK" ObjectId="51e3cb8d-e35c-42a0-9c05-309496124810">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">OK := ((NodeState=t_node_state.OPERATIONAL) OR
+	(gSystemServices.SystemState.State&lt;lOperationalSystemStateScope));
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NetworkId" ObjectId="673573c3-68ee-4d44-8b2a-69a81f1a4bf0">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">NetworkId := lNetworkId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lNetworkId := NetworkId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="EmergencyCode" ObjectId="7a24d04d-0968-4554-b533-1c16b017f3bc">
+              <interface>
+                <returnType>
+                  <WORD />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">EmergencyCode := lEmergencyCode;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="ControllerId" ObjectId="854acd31-f81e-447e-a97b-56258acfbe4f">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">ControllerId := lControllerId;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Enabled" ObjectId="fb7f7b69-d48f-493f-8413-9395a59bfb9e">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Enabled := lEnabled;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lEnabled := Enabled;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NodeState" ObjectId="37bc0f36-d548-41ce-91da-4794218c9708">
+              <interface>
+                <returnType>
+                  <derived name="t_node_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">NodeState := lNodeState;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lNodeState := NodeState;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="a1a1a069-596e-4566-8d30-2449ef9a1d61">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'CANLocal';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>283aa33a-787b-425d-815b-bd0a3949d25a</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="CANOpenMaster" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lVREnable">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lEnable">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lAlarmChannelNotGood">
+              <type>
+                <derived name="ReportableAlarmAllowableUp" />
+              </type>
+            </variable>
+            <variable name="lAlarmChannelOperationalFail">
+              <type>
+                <derived name="ReportableSystemControl" />
+              </type>
+            </variable>
+            <variable name="lAlarmChannelNotOperational">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lAlarmChannelOverflow">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lAlarmChannelSlaveFailed">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lOperationalSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lAllowableUpSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lSystemControlRecovery">
+              <type>
+                <derived name="t_system_control" />
+              </type>
+            </variable>
+            <variable name="lBusPower">
+              <type>
+                <derived name="OutputSystemStateAuto" />
+              </type>
+            </variable>
+            <variable name="lEstopOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lRestartOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lEnablePerNodeHandling">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lEstopOnNodeState">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lRestartOnNodeState">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lCANOpenManager">
+              <type>
+                <derived name="REFERENCE TO _3SCOS.CANopenManager" />
+              </type>
+            </variable>
+            <variable name="lGetDeviceState">
+              <type>
+                <derived name="CIA405.GET_STATE" />
+              </type>
+            </variable>
+            <variable name="lGetKernelState">
+              <type>
+                <derived name="CIA405.GET_CANOPEN_KERNEL_STATE" />
+              </type>
+            </variable>
+            <variable name="lChannelState">
+              <type>
+                <derived name="t_channel_state" />
+              </type>
+              <initialValue>
+                <simpleValue value="cChannelStateNone" />
+              </initialValue>
+            </variable>
+            <variable name="lMasterState">
+              <type>
+                <derived name="CIA405.DEVICE_STATE" />
+              </type>
+            </variable>
+            <variable name="lKernelState">
+              <type>
+                <derived name="CIA405.CANOPEN_KERNEL_ERROR" />
+              </type>
+            </variable>
+            <variable name="lKernel">
+              <type>
+                <derived name="_3SCOS.CANOPEN_KERNEL_STATE" />
+              </type>
+            </variable>
+            <variable name="lMandatoryBooted">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lOptionalBooted">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lClearErrors">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lClearRxOverflowFlag">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lClearTxOverflowFlag">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lRXOverflowFlag">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTXOverflowFlag">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lHeartbeatErrorCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lTXOverflowErrorCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lRXOverflowErrorCount">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lResetCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lNMT">
+              <type>
+                <derived name="CIA405.NMT" />
+              </type>
+            </variable>
+            <variable name="lNMTStartCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lNMTStartAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lNMTEnableStart">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lTransmitNMT">
+              <type>
+                <derived name="TransmitNMT" />
+              </type>
+            </variable>
+            <variable name="lTransmitMessage">
+              <type>
+                <derived name="TransmitMessage" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>OperationalParticleSet</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="good" ObjectId="9c02b988-715b-4e05-a476-b4e576e37c5c">
+              <interface>
+                <localVars>
+                  <variable name="i">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (lMasterState&lt;&gt;CIA405.DEVICE_STATE.OPERATIONAL) THEN
+	lAlarmChannelNotOperational.trigger(FALSE);
+	lChannelState := cChannelStateStarting;
+	reset();
+	RETURN;
+END_IF
+
+IF ((lEnablePerNodeHandling) AND (NOT(ChildrenOK))) THEN
+	lAlarmChannelSlaveFailed.trigger(FALSE);
+
+	IF (lRestartOnNodeState) THEN
+		lChannelState := cChannelStateStarting;
+		reset();
+	END_IF
+END_IF</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="1e4ed8e3-0cca-46f9-8cca-0307c85793ee">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(__ISVALIDREF(lCANOpenManager))) THEN
+	gCodeErrorHandler(pMessage:=CONCAT('null reference in ',lIdentity));
+END_IF
+
+lBusPower.Name := 'BusPower';
+registerOperational(ADR(lBusPower));
+
+lAlarmChannelNotGood.initializeState(NopSelf,'',cACChannelNotGood);
+lAlarmChannelNotGood.AllowableSystemState := lAllowableUpSystemStateScope;
+lAlarmChannelNotGood.UpperSystemStateScope := lAllowableUpSystemStateScope;
+lAlarmChannelNotGood.LowerSystemStateScope := lAllowableUpSystemStateScope;
+lAlarmChannelNotGood.InitialSeverity := cSeverityWarning;
+lAlarmChannelNotGood.SeverityWarningTimeout := T#100MS;
+lAlarmChannelNotGood.SeverityErrorTimeout := T#250MS;
+lAlarmChannelNotGood.SeverityCriticalTimeout := T#2S;
+lAlarmChannelNotGood.ForceTrigger := TRUE;
+
+lAlarmChannelOperationalFail.initializeState(NopSelf,'',cACChannelOperationalFail);
+lAlarmChannelOperationalFail.Control := lSystemControlRecovery;
+lAlarmChannelOperationalFail.AllowableSystemState := lAllowableUpSystemStateScope;
+
+lAlarmChannelNotOperational.initializeState(NopSelf,'',cACChannelNotOperational);
+lAlarmChannelNotOperational.InitialSeverity := cSeverityWarning;
+lAlarmChannelNotOperational.SeverityWarningTimeout := T#100MS;
+lAlarmChannelNotOperational.SeverityErrorTimeout := T#250MS;
+lAlarmChannelNotOperational.SeverityCriticalTimeout := T#1S;
+
+lAlarmChannelOverflow.initializeState(NopSelf,'',cACChannelOverflow);
+lAlarmChannelOverflow.InitialSeverity := cSeverityWarning;
+lAlarmChannelOverflow.SeverityWarningTimeout := T#100MS;
+lAlarmChannelOverflow.SeverityErrorTimeout := T#500MS;
+lAlarmChannelOverflow.SeverityCriticalTimeout := T#1S;
+
+lAlarmChannelSlaveFailed.initializeState(NopSelf,'',cACChannelSlaveFailed);
+lAlarmChannelSlaveFailed.InitialSeverity := cSeverityWarning;
+lAlarmChannelSlaveFailed.SeverityWarningTimeout := T#100MS;
+lAlarmChannelSlaveFailed.SeverityErrorTimeout := T#1000MS;
+lAlarmChannelSlaveFailed.SeverityCriticalTimeout := T#5S;
+
+SUPER^.initialize();
+
+lBusPower.OutputSystemState := cSystemStateStandby;
+
+lChannelState := cChannelStateStarting;
+
+lGetDeviceState.ENABLE := TRUE;
+lGetDeviceState.DEVICE := 0;
+lGetDeviceState.TIMEOUT := 200;
+
+lGetKernelState.ENABLE := TRUE;
+lGetKernelState.TIMEOUT := 200;
+
+lNMT.DEVICE := 1;
+lNMT.ENABLE := TRUE;
+lNMT.TIMEOUT := 500;
+lNMTStartCounter := 0;
+lNMTStartAttemptCounter := 0;
+
+lTransmitNMT.initialize();
+lTransmitMessage.initialize();
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeMaster" ObjectId="83be26a8-5492-482d-ba2a-1844f7a31ac4">
+              <interface>
+                <inputVars>
+                  <variable name="manager">
+                    <type>
+                      <derived name="REFERENCE TO _3SCOS.CANopenManager" />
+                    </type>
+                  </variable>
+                  <variable name="channel">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                  <variable name="handleTransmitNMT">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                  <variable name="handleTransmitMessage">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCANOpenManager REF= manager;
+
+lGetDeviceState.NETWORK := channel;
+lGetKernelState.NETWORK := channel;
+lNMT.NETWORK := channel;
+
+lTransmitNMT.initializeMessage(handleTransmitNMT,channel);
+lTransmitMessage.initializeMessage(handleTransmitMessage,channel);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="46dcc46f-f16b-4f11-86a6-d00d91e46fde">
+              <interface>
+                <localVars>
+                  <variable name="i">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(lEnable)) THEN
+	lChannelState := cChannelStateGood;
+	RETURN;
+END_IF
+
+SUPER^.operator();
+
+CASE lChannelState OF
+	cChannelStateNone:
+		;
+	cChannelStateError:
+		starting();
+	cChannelStateStarting:
+		starting();
+	cChannelStateGood:
+		good();
+	cChannelStateOverflow:
+		starting();
+	cChannelStateHeartbeat:
+		starting();
+	cChannelStateEmergency:
+		starting();
+END_CASE
+
+lKernel := lCANOpenManager.KernelState;
+lMandatoryBooted := lCANOpenManager.MandatorySlavesBooted;
+lOptionalBooted := lCANOpenManager.OptionalSlavesBooted;
+
+lGetDeviceState.ENABLE := TRUE;
+lGetDeviceState();
+IF (lGetDeviceState.CONFIRM) THEN
+	lMasterState := lGetDeviceState.STATE;
+END_IF
+IF ((lGetDeviceState.CONFIRM) OR (lGetDeviceState.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+	lGetDeviceState.ENABLE := FALSE;
+	lGetDeviceState();
+END_IF
+
+lGetKernelState.ENABLE := TRUE;
+lGetKernelState();
+IF (lGetKernelState.CONFIRM) THEN
+	lKernelState := lGetKernelState.STATE;
+END_IF
+IF ((lGetKernelState.CONFIRM) OR (lGetKernelState.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+	lGetKernelState.ENABLE := FALSE;
+	lGetKernelState();
+END_IF
+
+IF (lChannelState&lt;cChannelStateGood) THEN
+	lAlarmChannelNotGood.trigger(FALSE);
+	
+	IF (gSystemServices.SystemState.State&gt;=lOperationalSystemStateScope) THEN
+		lAlarmChannelOperationalFail.trigger(FALSE);
+	END_IF
+END_IF
+
+CASE lKernelState OF
+	CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_DATA_OVERFLOW:
+		overflow();
+END_CASE
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="overflow" ObjectId="bfbebfd0-62bd-4f85-b115-4e68229a1a84">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lAlarmChannelOverflow.report(FALSE);
+
+IF ((lEstopOnOverflow) AND (gSystemServices.SystemState.State=cSystemStateOperational)) THEN
+	lAlarmChannelOverflow.propagate(); //foobar should be pause everything due to canbus system health, or go slow on all travel
+END_IF
+
+IF (lRestartOnOverflow) THEN
+	lChannelState := cChannelStateStarting;
+	reset();
+END_IF
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="96e03908-394c-401f-ace5-875a704a9dba">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lResetCounter := lResetCounter + 1;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="restart" ObjectId="3ee297cc-8c79-4cef-ab38-73a738af0798">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lNMT.STATE := CIA405.TRANSITION_STATE.RESET_NODE;
+lNMT.DEVICE := 1;
+lNMT.ENABLE := lNMTEnableStart;
+lNMT();
+IF ((lNMT.CONFIRM) OR (lNMT.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+	lNMT.ENABLE := FALSE;
+	lNMTStartAttemptCounter := lNMTStartAttemptCounter + 1;
+	IF (lNMT.CONFIRM) THEN
+		lNMTStartCounter := lNMTStartCounter + 1;
+	END_IF
+	lNMT();
+END_IF</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="starting" ObjectId="79ffbd7a-b533-4de6-9b69-1bdb05aa92a5">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (lMasterState=CIA405.DEVICE_STATE.OPERATIONAL) THEN
+	lChannelState := cChannelStateGood;
+END_IF</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeMasterPower" ObjectId="ca1fb6ba-768d-4141-bf58-95770f59bb60">
+              <interface>
+                <inputVars>
+                  <variable name="busPower">
+                    <type>
+                      <derived name="REFERENCE TO DINT" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lBusPower.OutputObject.OutputReference REF= busPower;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="BusPower" ObjectId="f87621e4-a401-4ae3-a744-a7774806b777">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">BusPower := lBusPower.State;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="ChannelState" ObjectId="74296846-2ef0-4801-86c5-8de1eb8d24c8">
+              <interface>
+                <returnType>
+                  <derived name="t_channel_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">ChannelState := lChannelState;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="MasterState" ObjectId="11576b06-e448-4116-8548-14a81938aca3">
+              <interface>
+                <returnType>
+                  <derived name="CIA405.DEVICE_STATE" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">MasterState := lMasterState;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TransmitMessage" ObjectId="25c1e711-d930-401c-9189-5d8ae81af098">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO TransmitMessage" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TransmitMessage ref= lTransmitMessage;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TransmitNMT" ObjectId="5a1b6d9b-a6b6-4b98-8523-7a7487755784">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO TransmitNMT" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TransmitNMT ref= lTransmitNMT;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="206015d3-8efe-48d4-8cd4-1470b7419980">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'CANMaster';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>60b79ecb-07fe-467f-8cdc-e56b669a841e</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="CANOpenSlave" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="lAlarmCANOpenSlaveModulation">
+              <type>
+                <derived name="ReportableSignedModulation" />
+              </type>
+            </variable>
+          </inputVars>
+          <localVars constant="true">
+            <variable name="cNodeStatePeriod">
+              <type>
+                <derived name="t_time" />
+              </type>
+              <initialValue>
+                <simpleValue value="TIME#10ms" />
+              </initialValue>
+            </variable>
+            <variable name="cHeartbeatPeriod">
+              <type>
+                <derived name="t_time" />
+              </type>
+              <initialValue>
+                <simpleValue value="TIME#50ms" />
+              </initialValue>
+            </variable>
+            <variable name="cEmergencyRegisterMax">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="16" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="lAlarmCANOpenSlaveNotOperational">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lAlarmCANOpenSlaveAllowableUp">
+              <type>
+                <derived name="ReportableAlarmAllowableUp" />
+              </type>
+            </variable>
+            <variable name="lAlarmCANOpenSlaveNotify">
+              <type>
+                <derived name="ReportableAlarm" />
+              </type>
+            </variable>
+            <variable name="lAlarmCANOpenSlaveBlock">
+              <type>
+                <derived name="LockoutInterlock" />
+              </type>
+            </variable>
+            <variable name="lAlarmCANOpenSlaveStop">
+              <type>
+                <derived name="ReportableSystemControl" />
+              </type>
+            </variable>
+            <variable name="lVREnabled">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lEnabled">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lVRTriggerStart">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lTriggerStart">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lVROverrideConnected">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lOverrideConnected">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lModulationSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lOperationalSystemStateScopeLower">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lOperationalSystemStateScopeUpper">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lStartSystemStateScope">
+              <type>
+                <derived name="t_system_state" />
+              </type>
+            </variable>
+            <variable name="lModulationSeverity">
+              <type>
+                <derived name="t_severity" />
+              </type>
+            </variable>
+            <variable name="lNetworkId">
+              <type>
+                <BYTE />
+              </type>
+            </variable>
+            <variable name="_EmergencyInfo">
+              <type>
+                <derived name="t_canopen_emcy" />
+              </type>
+            </variable>
+            <variable name="lEmergencyInfo">
+              <type>
+                <derived name="REFERENCE TO t_canopen_emcy" />
+              </type>
+              <initialValue>
+                <simpleValue value="_EmergencyInfo" />
+              </initialValue>
+            </variable>
+            <variable name="lControllerId">
+              <type>
+                <BYTE />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lCANRemoteDevice">
+              <type>
+                <derived name="REFERENCE TO _3SCOS.CANRemoteDevice" />
+              </type>
+            </variable>
+            <variable name="lMaster">
+              <type>
+                <derived name="REFERENCE TO CANOpenMaster" />
+              </type>
+            </variable>
+            <variable name="lNodeState">
+              <type>
+                <derived name="t_node_state" />
+              </type>
+            </variable>
+            <variable name="lNodeStatePrev">
+              <type>
+                <derived name="t_node_state" />
+              </type>
+            </variable>
+            <variable name="lNMTStartCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lNMTTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lNMTEnableStart">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lHeartbeatCounter">
+              <type>
+                <derived name="Counter" />
+              </type>
+            </variable>
+            <variable name="lHeartbeatTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lNodeStateTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lEmergencyCounter">
+              <type>
+                <derived name="Counter" />
+              </type>
+            </variable>
+            <variable name="lEmergencyClearCount">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lReceiveEmcy">
+              <type>
+                <derived name="CIA405.RECV_EMCY_DEV" />
+              </type>
+            </variable>
+            <variable name="lEmergencyCode">
+              <type>
+                <WORD />
+              </type>
+            </variable>
+            <variable name="lSDOWrite">
+              <type>
+                <derived name="CIA405.SDO_WRITE_DATA" />
+              </type>
+            </variable>
+            <variable name="lSDOWriteData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDOWriteAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lSDOWriteSuccessCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lSDORead">
+              <type>
+                <derived name="CIA405.SDO_READ_DATA" />
+              </type>
+            </variable>
+            <variable name="lSDOReadData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDOLastSuccessfulReadData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDODReadDataLength">
+              <type>
+                <UDINT />
+              </type>
+              <initialValue>
+                <simpleValue value="4" />
+              </initialValue>
+            </variable>
+            <variable name="lSDOReadSuccess">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lSDOReadAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lSDOReadSuccessCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lOverflowCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lStartHandlerCounter">
+              <type>
+                <UINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lConnected">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lEmergencyRegister">
+              <type>
+                <array>
+                  <dimension lower="1" upper="cEmergencyRegisterMax" />
+                  <baseType>
+                    <derived name="t_canopen_emcy" />
+                  </baseType>
+                </array>
+              </type>
+            </variable>
+            <variable name="lEmergencyCount">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>OperationalParticleSet</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="cancelSDORead" ObjectId="45eaedd0-8757-40f8-89df-9fc83c636b5a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDORead.ENABLE := FALSE;
+lSDODReadDataLength := 4;
+lSDORead(DATALENGTH:=lSDODReadDataLength);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="cancelSDOWrite" ObjectId="c95730fd-8215-4222-9d64-dcf88aed15b2">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDOWrite.ENABLE := FALSE;
+lSDOWrite();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="emergencyHandler" ObjectId="09dd2097-e1d0-404a-ba9b-e7d53db21598">
+              <interface>
+                <inputVars>
+                  <variable name="info">
+                    <type>
+                      <derived name="t_canopen_emcy" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">emergencyRegisterAdd(info);
+lAlarmCANOpenSlaveNotify.triggerWithContext(WORD_TO_LWORD(info.EMCY_ERROR_CODE));
+
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="b1c0ec54-ce74-4372-af7a-77946097b042">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF ((NOT(__ISVALIDREF(lCANRemoteDevice))) OR
+	(NOT(__ISVALIDREF(lMaster)))) THEN
+	gCodeErrorHandler(pMessage:=CONCAT('null reference in ',lIdentity));
+END_IF
+
+lAlarmCANOpenSlaveNotOperational.initializeState(NopSelf,'',cACCANOpenSlaveNotOperational);
+lAlarmCANOpenSlaveNotOperational.InitialSeverity := cSeverityWarning;
+lAlarmCANOpenSlaveNotOperational.SeverityWarningTimeout := T#0S;
+lAlarmCANOpenSlaveNotOperational.SeverityErrorTimeout := T#100MS;
+lAlarmCANOpenSlaveNotOperational.SeverityCriticalTimeout := T#5S;
+
+lAlarmCANOpenSlaveModulation.initializeState(NopSelf,'',cACCANOpenSlaveModulation); // foobar life was zero
+lAlarmCANOpenSlaveModulation.pause();
+
+lAlarmCANOpenSlaveAllowableUp.initializeState(NopSelf,'',cACCANOpenSlaveAllowableUp);
+lAlarmCANOpenSlaveAllowableUp.AllowableSystemState := cSystemStateGoOperational;
+lAlarmCANOpenSlaveAllowableUp.UpperSystemStateScope := cSystemStateGoOperational;
+lAlarmCANOpenSlaveAllowableUp.LowerSystemStateScope := cSystemStateGoOperational;
+lAlarmCANOpenSlaveAllowableUp.Life := 10;
+lAlarmCANOpenSlaveAllowableUp.InitialSeverity := cSeverityNone;
+lAlarmCANOpenSlaveAllowableUp.SeverityWarningTimeout := T#250MS;
+lAlarmCANOpenSlaveAllowableUp.SeverityErrorTimeout := T#1S;
+lAlarmCANOpenSlaveAllowableUp.SeverityCriticalTimeout := T#5S;	
+
+lVREnabled.initializeValueReference(lEnabled,NopSelf,'Enabled','Enable canopen node','',cValueStyleParameter);
+lVRTriggerStart.initializeValueReference(lTriggerStart,NopSelf,'TriggerStart','Trigger NMT message to take canopen node Operational','',cValueStyleTrigger);
+lVROverrideConnected.initializeValueReference(lOverrideConnected,NopSelf,'OvrdConnected','Force state of canopen node to show as connected','',cValueStyleParameter);
+
+lAlarmCANOpenSlaveNotify.initializeState(NopSelf,'',cACCANOpenSlaveNotify);
+lAlarmCANOpenSlaveNotify.Life := 10;
+lAlarmCANOpenSlaveNotify.Severity := cSeverityWarning;
+
+lAlarmCANOpenSlaveBlock.initializeState(NopSelf,'',cACCANOpenSlaveBlock);
+lAlarmCANOpenSlaveBlock.Life := 10;
+
+lAlarmCANOpenSlaveStop.initializeState(NopSelf,'',cACCANOpenSlaveStop); // foobar life was zero
+lAlarmCANOpenSlaveStop.Control := cSystemControlStop; //foobar consider restart
+lAlarmCANOpenSlaveStop.AllowableSystemState := cSystemStatePreOperational;
+
+SUPER^.initialize();
+
+lModulationSystemStateScope := cSystemStateOperational;	
+lOperationalSystemStateScopeLower := cSystemStateOperational;
+lOperationalSystemStateScopeUpper := cSystemStateOperational;
+lStartSystemStateScope := cSystemStateGoOperational;
+lModulationSeverity := cSeverityError;
+
+lHeartbeatCounter.initialize();
+lEmergencyCounter.initialize();
+
+lHeartbeatTimer.initialize();
+lHeartbeatTimer.Enable := TRUE;
+lHeartbeatTimer.Period := cHeartbeatPeriod;
+
+lNodeStateTimer.initialize();
+lNodeStateTimer.Enable := TRUE;
+lNodeStateTimer.Period := cNodeStatePeriod;
+
+lCANRemoteDevice.NMTErrorBehaviour := _3SCOS.NMT_ERROR_BEHAVIOUR.RESTART_SLAVE;
+lControllerId := lCANRemoteDevice.NodeID;
+
+//lNMT.DEVICE := lControllerId;
+//lNMT.ENABLE := TRUE;
+//lNMT.NETWORK := lNetworkId;
+//lNMT.TIMEOUT := 500;
+lNMTStartCounter := 0;
+lNMTTimer.Enable := TRUE;
+lNMTTimer.Period := T#250MS;
+//lNMTStartFailedCounter := 0;
+
+lSDOWrite.DEVICE := lControllerId;
+lSDOWrite.CHANNEL := 0;
+lSDOWrite.NETWORK := lNetworkId;
+lSDOWrite.ENABLE := FALSE;
+lSDOWrite.TIMEOUT := 500;
+lSDOWrite.MODE := CIA405.SDO_MODE.AUTO;
+lSDOWrite.DATA := ADR(lSDOWriteData);
+
+lSDORead.DEVICE := lControllerId;
+lSDORead.CHANNEL := 0;
+lSDORead.NETWORK := lNetworkId;
+lSDORead.ENABLE := FALSE;
+lSDORead.TIMEOUT := 500;
+lSDORead.MODE := CIA405.SDO_MODE.AUTO;
+lSDORead.DATA := ADR(lSDOReadData);
+
+lReceiveEmcy.DEVICE := lControllerId;
+lReceiveEmcy.ENABLE := TRUE;
+lReceiveEmcy.NETWORK := lNetworkId;
+lReceiveEmcy.TIMEOUT := 200;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeSlave" ObjectId="da2c5f63-3887-4f81-9bcf-36662c7e7caa">
+              <interface>
+                <inputVars>
+                  <variable name="device">
+                    <type>
+                      <derived name="REFERENCE TO _3SCOS.CANRemoteDevice" />
+                    </type>
+                  </variable>
+                  <variable name="master">
+                    <type>
+                      <derived name="REFERENCE TO CANOpenMaster" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCANRemoteDevice REF= device;
+lMaster REF= master;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="5daac541-72a0-40b5-9a9b-0b605b46f278">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (NOT(lEnabled)) THEN
+	lNodeState := t_node_state.OPERATIONAL;
+	lConnected := TRUE;
+	RETURN;
+END_IF
+
+lNodeStatePrev := NodeState;
+NodeState := lCANRemoteDevice.CANopenState;
+
+IF (((NodeState=t_node_state.PRE_OPERATIONAL) AND (gSystemServices.SystemState.State&gt;=lStartSystemStateScope)) OR
+	(lTriggerStart)) THEN
+	lTriggerStart := FALSE;
+	start();
+END_IF
+
+IF ((gSystemServices.SystemState.State&gt;=lStartSystemStateScope) AND (gSystemServices.SystemState.State&lt;lOperationalSystemStateScopeLower)) THEN
+	startHandler();
+END_IF
+
+IF (gSystemServices.SystemState.State&lt;lStartSystemStateScope) THEN
+	startResetHandler();
+END_IF
+
+IF (lSDOWrite.ENABLE) THEN
+	lSDOWrite();
+	IF ((lSDOWrite.CONFIRM) OR (lSDOWrite.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+		lSDOWrite.ENABLE := FALSE;
+		lSDOWriteAttemptCounter := lSDOWriteAttemptCounter + 1;
+		IF (lSDOWrite.CONFIRM) THEN
+			lSDOWriteSuccessCounter := lSDOWriteSuccessCounter + 1;
+		END_IF
+	END_IF	
+END_IF
+
+IF (lSDORead.ENABLE) THEN
+	lSDORead(DATALENGTH:=lSDODReadDataLength);
+	IF ((lSDORead.CONFIRM) OR (lSDORead.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+		lSDORead.ENABLE := FALSE;
+		lSDOReadAttemptCounter := lSDOReadAttemptCounter + 1;
+		IF (lSDORead.CONFIRM) THEN
+			lSDOReadSuccess := TRUE;
+			sdoReadHandler();
+			lSDOLastSuccessfulReadData := lSDOReadData;
+			lSDOReadSuccessCounter := lSDOReadSuccessCounter + 1;
+		END_IF
+	END_IF	
+END_IF
+
+lHeartbeatCounter.operator();
+lHeartbeatTimer.operator();
+
+IF (NodeState&lt;&gt;t_node_state.OPERATIONAL) THEN
+	
+	notOperational();
+	
+	IF ((gSystemServices.SystemState.State&gt;=lOperationalSystemStateScopeLower) AND
+		(gSystemServices.SystemState.State&lt;=lOperationalSystemStateScopeUpper)) THEN
+		lAlarmCANOpenSlaveNotOperational.trigger(FALSE);
+
+		IF ((NodeState=t_node_state.NOT_AVAIL) AND 
+			(lHeartbeatTimer.Expired)) THEN
+			lHeartbeatCounter.register();
+		END_IF
+	
+		IF ((lAlarmCANOpenSlaveNotOperational.Severity&gt;=lModulationSeverity) AND
+			(gSystemServices.SystemState.State&gt;=lModulationSystemStateScope)) THEN
+			lAlarmCANOpenSlaveModulation.trigger(FALSE);
+		END_IF
+	END_IF
+	
+	lAlarmCANOpenSlaveAllowableUp.test(FALSE);
+ELSE
+	lHeartbeatTimer.reset();
+END_IF
+lConnected := ((NOT(lHeartbeatTimer.Expired)) OR (lOverrideConnected)); // observational only
+
+lReceiveEmcy.ENABLE := TRUE;
+lReceiveEmcy();
+IF (lReceiveEmcy.CONFIRM) THEN
+	lEmergencyCounter.operator();
+	
+	IF (lReceiveEmcy.ERRORINFO.EMCY_ERROR_CODE&lt;&gt;0) THEN
+		lEmergencyCounter.register();
+		lEmergencyInfo := lReceiveEmcy.ERRORINFO;
+		IF (gCANPLCBoolA) THEN emergencyHandler(lReceiveEmcy.ERRORINFO); END_IF
+	ELSE
+		emergencyRegisterClear();
+	END_IF
+	
+	lEmergencyCode := lReceiveEmcy.ERRORINFO.EMCY_ERROR_CODE;
+END_IF
+IF ((lReceiveEmcy.CONFIRM) OR (lReceiveEmcy.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+	lReceiveEmcy.ENABLE := FALSE;
+	lReceiveEmcy();
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="requestSDORead" ObjectId="77333c3e-c1f9-4a18-a5a5-a3117328df60">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+                <inputVars>
+                  <variable name="force">
+                    <type>
+                      <BOOL />
+                    </type>
+                  </variable>
+                  <variable name="index">
+                    <type>
+                      <WORD />
+                    </type>
+                  </variable>
+                  <variable name="subindex">
+                    <type>
+                      <BYTE />
+                    </type>
+                  </variable>
+                  <variable name="length">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (force) THEN
+	cancelSDORead();
+END_IF
+
+IF (lSDORead.ENABLE) THEN
+	requestSDORead := FALSE;
+	RETURN;
+END_IF
+
+requestSDORead := TRUE;
+
+lSDORead.ENABLE := TRUE;
+
+lSDORead.INDEX := index;
+lSDORead.SUBINDEX := subindex;
+lSDODReadDataLength := length;
+
+lSDOReadSuccess := FALSE;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="requestSDOWrite" ObjectId="51917096-51a2-40a2-bdf2-260b61a68e33">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+                <inputVars>
+                  <variable name="force">
+                    <type>
+                      <BOOL />
+                    </type>
+                  </variable>
+                  <variable name="index">
+                    <type>
+                      <WORD />
+                    </type>
+                  </variable>
+                  <variable name="subindex">
+                    <type>
+                      <BYTE />
+                    </type>
+                  </variable>
+                  <variable name="data">
+                    <type>
+                      <DWORD />
+                    </type>
+                  </variable>
+                  <variable name="length">
+                    <type>
+                      <UDINT />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (force) THEN
+	cancelSDOWrite();
+END_IF
+
+IF (lSDOWrite.ENABLE) THEN
+	requestSDOWrite := FALSE;
+	RETURN;
+END_IF
+
+requestSDOWrite := FALSE;
+
+lSDOWrite.ENABLE := TRUE;
+
+lSDOWrite.INDEX := index;
+lSDOWrite.SUBINDEX := subindex;
+lSDOWrite.DATALENGTH := length;
+
+lSDOWriteData := data;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="003e6300-af97-4899-9a68-bc0096edc744">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="sdoReadHandler" ObjectId="12d9a79f-8465-4bc8-937f-374eebc86de7">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="003f5a12-4200-4ad8-b5a8-b1f801f6b910">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lNMTTimer.operator();
+IF (lNMTTimer.Expired) THEN
+	lMaster.TransmitNMT.startNode(lControllerId);
+	lNMTStartCounter := lNMTStartCounter + 1;
+	lNMTTimer.reset();
+END_IF
+
+(*lNMT.STATE := CIA405.TRANSITION_STATE.START_REMOTE_NODE;
+IF (lNMTStartFailedCounter&gt;5) THEN
+	lNMT.STATE := CIA405.TRANSITION_STATE.STOP_REMOTE_NODE;
+END_IF
+IF (lNMTStartFailedCounter&gt;10) THEN
+	lNMT.STATE := CIA405.TRANSITION_STATE.RESET_NODE;
+END_IF
+IF (lNMTStartFailedCounter&gt;15) THEN
+	lNMT.STATE := CIA405.TRANSITION_STATE.RESET_COMMUNICATION;
+END_IF
+IF (lNMTStartFailedCounter&gt;20) THEN
+	lMaster.restart();
+END_IF
+
+lNMT.DEVICE := lControllerId;
+lNMT.ENABLE := lNMTEnableStart;
+lNMT();
+IF ((lNMT.CONFIRM) OR (lNMT.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+	lNMT.ENABLE := FALSE;
+	IF (lNMT.CONFIRM) THEN
+		lNMTStartCounter := lNMTStartCounter + 1;
+		lNMTStartFailedCounter := 0;
+	ELSE
+		lNMTStartFailedCounter := lNMTStartFailedCounter + 1;
+	END_IF
+	lNMT();
+END_IF
+*)
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="startHandler" ObjectId="8711172a-7af9-45a1-b845-a716a633ef7c">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lStartHandlerCounter := lStartHandlerCounter + 1;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="startResetHandler" ObjectId="a0ecc77d-d931-40e7-b9b6-6d000a21df89">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="emergencyRegisterAdd" ObjectId="98202f8b-e3cb-4c6f-8ca4-a41c8dcd775a">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+                <inputVars>
+                  <variable name="info">
+                    <type>
+                      <derived name="t_canopen_emcy" />
+                    </type>
+                  </variable>
+                </inputVars>
+                <localVars>
+                  <variable name="i">
+                    <type>
+                      <USINT />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">emergencyRegisterAdd := FALSE;
+
+IF (info.EMCY_ERROR_CODE=0) THEN
+	RETURN;
+END_IF
+
+FOR i:=1 TO lEmergencyCount DO
+	IF (lEmergencyRegister[i].EMCY_ERROR_CODE=info.EMCY_ERROR_CODE) THEN
+		RETURN;
+	END_IF
+END_FOR
+
+IF (lEmergencyCount&gt;=cEmergencyRegisterMax) THEN
+	gConfigErrorHandler(pMessage:=CONCAT('overflow in emergency register in',lIdentity));
+	RETURN;
+END_IF
+
+lEmergencyCount := lEmergencyCount + 1;
+lEmergencyRegister[lEmergencyCount] := info;
+emergencyRegisterAdd := TRUE;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="describe" ObjectId="dfd3b589-5f82-4a61-8222-215dc549471a">
+              <interface>
+                <inputVars>
+                  <variable name="executeContext">
+                    <type>
+                      <pointer>
+                        <baseType>
+                          <derived name="ExecuteContext" />
+                        </baseType>
+                      </pointer>
+                    </type>
+                  </variable>
+                </inputVars>
+                <localVars>
+                  <variable name="i">
+                    <type>
+                      <UINT />
+                    </type>
+                  </variable>
+                  <variable name="str">
+                    <type>
+                      <derived name="t_stream_string" />
+                    </type>
+                  </variable>
+                </localVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.describe(executeContext);
+
+executeContext^.appendPair('node',BYTE_TO_STRING(lControllerId),FALSE,TRUE);
+
+IF (executeContext^.matchOption(cExecuteOptionVerbose)) THEN
+	executeContext^.append('"current_emcy": ');
+	executeContext^.recordInitiator();
+		
+	executeContext^.appendPair('code',WORD_TO_STRING(lEmergencyRegister[i].EMCY_ERROR_CODE),FALSE,FALSE);
+	executeContext^.appendPair('register',BYTE_TO_STRING(lEmergencyRegister[i].ERROR_REGISTER),FALSE,TRUE);
+	executeContext^.appendPair('field_1',BYTE_TO_STRING(lEmergencyRegister[i].ERROR_FIELD[1]),FALSE,TRUE);
+	executeContext^.appendPair('field_2',BYTE_TO_STRING(lEmergencyRegister[i].ERROR_FIELD[2]),FALSE,TRUE);
+	executeContext^.appendPair('field_3',BYTE_TO_STRING(lEmergencyRegister[i].ERROR_FIELD[3]),FALSE,TRUE);
+	executeContext^.appendPair('field_4',BYTE_TO_STRING(lEmergencyRegister[i].ERROR_FIELD[4]),FALSE,TRUE);
+	executeContext^.appendPair('field_5',BYTE_TO_STRING(lEmergencyRegister[i].ERROR_FIELD[5]),FALSE,TRUE);
+
+	executeContext^.recordTerminator();
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="emergencyRegisterClear" ObjectId="6f1532cf-acc5-481d-8ebf-0c8b774410da">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lEmergencyCount := 0;
+lEmergencyClearCount := lEmergencyClearCount + 1;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="notOperational" ObjectId="61fdd126-cac0-49b7-9db1-fa2c69c37e0a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Connected" ObjectId="999ba748-67b5-44e6-a926-415b12a148ec">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Connected := lConnected;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="ControllerId" ObjectId="f9b9e687-fcc8-4041-902d-d646032e61be">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">ControllerId := lControllerId;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="EmergencyCode" ObjectId="87429c0a-710f-4177-8e4c-82ccc4831cb8">
+              <interface>
+                <returnType>
+                  <WORD />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">EmergencyCode := lEmergencyCode;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="EmergencyCounter" ObjectId="224db3bc-6652-40ce-8ae2-47b8a8595322">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">EmergencyCounter := lEmergencyCounter.Count;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="EmergencyInfo" ObjectId="2bc72803-7e2f-4105-9a38-56ee36038eb4">
+              <interface>
+                <returnType>
+                  <derived name="t_canopen_emcy" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">EmergencyInfo := lEmergencyInfo;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Enabled" ObjectId="cc9b770c-9e1b-4f2e-a3e1-3170e5472477">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Enabled := lEnabled;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lEnabled := Enabled;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="HealthSystemStateScope" ObjectId="e0b865eb-e789-4812-92c7-84105a2231fa">
+              <interface>
+                <returnType>
+                  <derived name="t_system_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">HealthSystemStateScope := lModulationSystemStateScope;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lModulationSystemStateScope := HealthSystemStateScope;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="HeartbeatCounter" ObjectId="44236a78-810d-487a-9b0f-a6af997d29f8">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">HeartbeatCounter := lHeartbeatCounter.Count;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NetworkId" ObjectId="c91a2414-1265-449d-b5e9-5d7a4d965c28">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">NetworkId := lNetworkId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lNetworkId := NetworkId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NodeState" ObjectId="78bce764-dce5-46d9-9a9a-b8e8b9a3366e">
+              <interface>
+                <returnType>
+                  <derived name="t_node_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">NodeState := lNodeState;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NodeState=t_node_state.OPERATIONAL) THEN
+	lNodeStateTimer.reset();
+	lNodeState := NodeState;
+	RETURN;
+END_IF
+
+lNodeStateTimer.operator();
+
+IF ((lNodeState=t_node_state.OPERATIONAL) AND
+	(NOT(lNodeStateTimer.Expired))) THEN
+	RETURN;
+END_IF
+
+lNodeState := NodeState;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="OK" ObjectId="f6b4e107-7677-49a6-94b9-a3276c3454bb">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">OK := ((NodeState=t_node_state.OPERATIONAL) OR
+	(gSystemServices.SystemState.State&lt;lOperationalSystemStateScopeLower) OR
+	(gSystemServices.SystemState.State&gt;lOperationalSystemStateScopeUpper));
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Operational" ObjectId="1913d370-a0fa-4833-875b-fa3193695af2">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Operational := (NodeState=t_node_state.OPERATIONAL);</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="OperationalSystemStateScopeLower" ObjectId="5c636746-5438-458e-8932-ef8bdc7439d9">
+              <interface>
+                <returnType>
+                  <derived name="t_system_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">OperationalSystemStateScopeLower := lOperationalSystemStateScopeLower;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lOperationalSystemStateScopeLower := OperationalSystemStateScopeLower;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="OverflowCounter" ObjectId="827b40e4-b88e-4379-89a3-125a84f7e093">
+              <interface>
+                <returnType>
+                  <USINT />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">OverflowCounter := lOverflowCounter;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="a818a499-bc61-4c90-a8b2-76eb24a8de03">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'CANSlave';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="OperationalSystemStateScopeUpper" ObjectId="9dfdd95d-fccc-44f6-a9ca-9a2c3594419e">
+              <interface>
+                <returnType>
+                  <derived name="t_system_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">OperationalSystemStateScopeUpper := lOperationalSystemStateScopeUpper;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lOperationalSystemStateScopeUpper := OperationalSystemStateScopeUpper;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>ced16909-6441-4f69-9f28-c912d02d27ec</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SDOReadCANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lSDORead">
+              <type>
+                <derived name="CIA405.SDO_READ_DATA" />
+              </type>
+            </variable>
+            <variable name="lSDOReadData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDODReadDataLength">
+              <type>
+                <UDINT />
+              </type>
+            </variable>
+            <variable name="lSDOReadAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+              <documentation>
+                <xhtml xmlns="http://www.w3.org/1999/xhtml"> lSDOLastSuccessfulReadData: DWORD;</xhtml>
+              </documentation>
+            </variable>
+            <variable name="lSDOReadSuccessCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnFail">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="cancelSDORead" ObjectId="4b6031bb-2705-4243-99af-8b2595b549c1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDORead.ENABLE := FALSE;
+lSDORead(DATALENGTH:=lSDODReadDataLength);
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="e07ab735-8e27-44dd-93eb-e2de2f2d94d4">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lSDOReadAttemptCounter := 0;
+lSDOReadSuccessCounter := 0;
+
+lSDORead.CHANNEL := 0;
+lSDORead.ENABLE := FALSE;
+lSDORead.TIMEOUT := 500;
+lSDORead.MODE := CIA405.SDO_MODE.AUTO;
+lSDORead.DATA := ADR(lSDOReadData);</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="6aa994f5-fba8-4bc3-b0f1-8881ef55640a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (lSDORead.ENABLE) THEN
+	lSDORead(DATALENGTH:=lSDODReadDataLength);
+	IF ((lSDORead.CONFIRM) OR (lSDORead.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+		lSDORead.ENABLE := FALSE;
+		lSDOReadAttemptCounter := lSDOReadAttemptCounter + 1;
+		IF (lSDORead.CONFIRM) THEN
+			lSuccess := TRUE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			sdoReadHandler();
+			lSDOReadSuccessCounter := lSDOReadSuccessCounter + 1;
+			
+			finish();
+			RETURN;
+		END_IF
+		IF (lSDORead.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR) THEN
+			lSuccess := FALSE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			finish();
+			RETURN;
+		END_IF
+	END_IF	
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="404993f3-d8f6-4a67-9928-1299a7b07c7a">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="sdoReadHandler" ObjectId="42e15ceb-5e54-4995-862d-d233eda0a206">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="5004f561-a399-4755-aab8-52c35bb0e427">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">cancelSDORead();
+lSDORead.ENABLE := TRUE;
+
+SUPER^.start();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="ControllerId" ObjectId="90407413-a1f0-40ec-a8a2-fd1d7a3c8556">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">ControllerId := lSDORead.DEVICE;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDORead.DEVICE := ControllerId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NetworkId" ObjectId="933957a6-c14d-41e2-afb9-c1149a115766">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">NetworkId := lSDORead.NETWORK;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDORead.NETWORK := NetworkId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>538f1d31-5c6c-40b3-bf3d-d312c4e7ce14</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SDOWriteCANMessage" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="lSDOWrite">
+              <type>
+                <derived name="CIA405.SDO_WRITE_DATA" />
+              </type>
+            </variable>
+            <variable name="lSDOWriteData">
+              <type>
+                <DWORD />
+              </type>
+            </variable>
+            <variable name="lSDOWriteAttemptCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lSDOWriteSuccessCounter">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnFail">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lProceedOnOverflow">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANMessage</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="cancelSDOWrite" ObjectId="db700fc4-d1a8-4ea8-a9f8-0bfa16027707">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDOWrite.ENABLE := FALSE;
+lSDOWrite();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="5d73b100-384a-4760-a5e2-7bb0c7f3e162">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lSDOWriteAttemptCounter := 0;
+lSDOWriteSuccessCounter := 0;
+
+lSDOWrite.CHANNEL := 0;
+lSDOWrite.ENABLE := FALSE;
+lSDOWrite.TIMEOUT := 500;
+lSDOWrite.MODE := CIA405.SDO_MODE.AUTO;
+lSDOWrite.DATA := ADR(lSDOWriteData);</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="e0c953bc-923d-4ca7-a571-ec844bd59804">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (lSDOWrite.ENABLE) THEN
+	lSDOWrite();
+	IF ((lSDOWrite.CONFIRM) OR (lSDOWrite.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR)) THEN
+		lSDOWrite.ENABLE := FALSE;
+		lSDOWriteAttemptCounter := lSDOWriteAttemptCounter + 1;
+		IF (lSDOWrite.CONFIRM) THEN
+			lSuccess := TRUE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			lSDOWriteSuccessCounter := lSDOWriteSuccessCounter + 1;
+			
+			finish();
+			RETURN;
+		END_IF
+		IF (lSDOWrite.ERROR&lt;&gt;CIA405.CANOPEN_KERNEL_ERROR.CANOPEN_KERNEL_NO_ERROR) THEN
+			lSuccess := FALSE;
+			lFinished := TRUE;
+			lProceed := TRUE;
+			
+			finish();
+			RETURN;
+		END_IF
+	END_IF	
+END_IF
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="reset" ObjectId="090149df-f71c-475c-9ccd-994d785925c1">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.reset();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="start" ObjectId="f9144dcf-0b85-46f3-a809-87d8aafba8f6">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">cancelSDOWrite();
+lSDOWrite.ENABLE := TRUE;
+
+SUPER^.start();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="ControllerId" ObjectId="73580faa-5b70-4444-a079-cfc3bc3a5fc1">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">ControllerId := lSDOWrite.DEVICE;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDOWrite.DEVICE := ControllerId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NetworkId" ObjectId="74cf2d6d-c29d-43d3-93d6-5f0d81da5686">
+              <interface>
+                <returnType>
+                  <BYTE />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">NetworkId := lSDOWrite.NETWORK;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lSDOWrite.NETWORK := NetworkId;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>72ccc614-3ce4-4e92-999e-aaeb31a2059d</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="MimicCANOpenSlave" pouType="functionBlock">
+        <interface>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANOpenSlave</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="d28d43de-0d7a-451d-858a-b1dbb03be19d">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lNodeStateTimer.Period := T#2S;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="35375e3e-6db0-4984-a53c-ba87997e27db">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'MimicCANSlave';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>4f7983bc-f663-4049-9cf2-b22c2933078f</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="ControllerSecondaryPowerSupply" pouType="functionBlock">
+        <interface>
+          <localVars constant="true">
+            <variable name="cAvailabilityTemperatureWarning">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+              <initialValue>
+                <simpleValue value="0.5" />
+              </initialValue>
+            </variable>
+            <variable name="cAvailabilityTemperatureFault">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+              <initialValue>
+                <simpleValue value="0.25" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <globalVars>
+            <variable name="sControllerSecondaryPowerSupply">
+              <type>
+                <derived name="t_medium_string" />
+              </type>
+              <initialValue>
+                <simpleValue value="'cSecondary'" />
+              </initialValue>
+            </variable>
+          </globalVars>
+          <localVars>
+            <variable name="lRequestedRunState">
+              <type>
+                <derived name="ValueObjectEnumTypeOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lTargetVoltage">
+              <type>
+                <derived name="ValueObjectRealScaledOffsetOutputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lVoltage">
+              <type>
+                <derived name="ValueObjectRealScaledOffsetInputReferenceUINTSwitched" />
+              </type>
+            </variable>
+            <variable name="lCurrent">
+              <type>
+                <derived name="ValueObjectRealScaledOffsetInputReferenceUINTSwitched" />
+              </type>
+            </variable>
+            <variable name="lTemperature">
+              <type>
+                <derived name="ValueObjectRealScaledOffsetInputReferenceUSINT" />
+              </type>
+            </variable>
+            <variable name="lDiagnosticState">
+              <type>
+                <derived name="ValueObjectUINTInputReferenceUINT" />
+              </type>
+            </variable>
+            <variable name="lStatusInitialization">
+              <type>
+                <derived name="ValueObjectBoolInputReferenceUINT" />
+              </type>
+            </variable>
+            <variable name="lStatusWorking">
+              <type>
+                <derived name="ValueObjectBoolInputReferenceUINT" />
+              </type>
+            </variable>
+            <variable name="lAlarmSecondaryTemperature">
+              <type>
+                <derived name="ReportableSignedModulation" />
+              </type>
+            </variable>
+            <variable name="lCurrentRunState">
+              <type>
+                <derived name="ValueObjectEnumType" />
+              </type>
+            </variable>
+            <variable name="lSecondaryPowerSupply">
+              <type>
+                <derived name="REFERENCE TO SecondaryPowerSupply" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>MimicCANOpenSlave</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="594137fd-20f2-4538-bc88-ff78428094b6">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(__ISVALIDREF(lSecondaryPowerSupply))) THEN
+	gCodeErrorHandler(pMessage:=CONCAT('null reference in ',lIdentity));
+END_IF
+
+lRequestedRunState.MergeOutput := FALSE;
+lRequestedRunState.EnumType := cEnumTypeRunState;
+lRequestedRunState.initializeValueObjectOp(OpSelf,'ReqRunStt','Requested run state','',cValueStyleConfigurable);
+
+lTargetVoltage.Scaling := 10.0;
+lTargetVoltage.Offset := 0;
+lTargetVoltage.initializeValueObjectOp(OpSelf,'VoltageReq','Target voltage','',cValueStyleConfigurable);
+
+lVoltage.Scaling := 0.1;
+lVoltage.Offset := 0;
+lVoltage.initializeValueObjectOp(OpSelf,'VoltageCurr','Measured voltage','',cValueStyleConfigurable);
+
+lCurrent.Scaling := 0.1;
+lCurrent.Offset := 0.0;
+lCurrent.initializeValueObjectOp(OpSelf,'CurrentCurr','Measured current','',cValueStyleConfigurable);
+
+lTemperature.Scaling := 1.0;
+lTemperature.Offset := 0.0;
+lTemperature.initializeValueObjectOp(OpSelf,'Temp','Measured temperature','',cValueStyleConfigurable);
+
+lDiagnosticState.initializeValueObjectOp(OpSelf,'Diagnostic','Diagnostic state','',cValueStyleConfigurable);
+
+lStatusInitialization.Index := 0;
+lStatusInitialization.initializeValueObjectOp(OpSelf,'Status','If current status is initialized','',cValueStyleConfigurable);
+lStatusInitialization.InputReference REF= lDiagnosticState.ValueReference;
+
+lStatusWorking.Index := 1;
+lStatusWorking.initializeValueObjectOp(OpSelf,'Working','If current status is working','',cValueStyleConfigurable);
+lStatusWorking.InputReference REF= lDiagnosticState.ValueReference;
+
+(*//lFaultHardware.Index := 2; 16#4
+//lFaultFan.Index := 6;16#40
+//lFaultHVIL.Index := 7;16#80
+lAlarmSecondaryHardware.initializeStateOp(OpSelf,cACSecondaryHardware);
+lAlarmSecondaryHardware.Life := 10;
+lAlarmSecondaryHardware.Severity := cSeverityCritical;
+lAlarmSecondaryHardware.Mask := 16#C4;
+lAlarmSecondaryHardware.InputReference REF= lDiagnosticState.ValueReference;
+
+//lFaultCANBus.Index := 3;16#8
+lAlarmSecondaryCANBus.initializeStateOp(OpSelf,cACSecondaryCANBus);
+lAlarmSecondaryCANBus.Life := 10;
+lAlarmSecondaryCANBus.Severity := cSeverityCritical;
+lAlarmSecondaryCANBus.Mask := 16#8;
+lAlarmSecondaryCANBus.InputReference REF= lDiagnosticState.ValueReference;
+
+//lFaultShutdown.Index := 5;16#20
+lAlarmSecondaryShutdown.initializeStateOp(OpSelf,cACSecondaryShutdown);
+lAlarmSecondaryShutdown.Life := 10;
+lAlarmSecondaryShutdown.Severity := cSeverityCritical;
+lAlarmSecondaryShutdown.Mask := 16#20;
+lAlarmSecondaryShutdown.InputReference REF= lDiagnosticState.ValueReference;
+
+//lWarningTemperature.Index := 8;16#100
+//lFaultTemperature.Index := 9;16#200
+lAlarmSecondaryTemperature.initializeStateOp(OpSelf,cACSecondaryTemperature);
+lAlarmSecondaryTemperature.Life := 10;
+lAlarmSecondaryTemperature.Severity := cSeverityWarning;
+lAlarmSecondaryTemperature.Mask := 16#300;
+lAlarmSecondaryTemperature.InputReference REF= lDiagnosticState.ValueReference;
+
+//lFaultInputOverVoltage.Index := 10;// 16#400
+//lFaultInputUnderVoltage.Index := 11;16#800
+lAlarmSecondaryInputVoltage.initializeStateOp(OpSelf,cACSecondaryInputVoltage);
+lAlarmSecondaryInputVoltage.Life := 10;
+lAlarmSecondaryInputVoltage.Severity := cSeverityError;
+lAlarmSecondaryInputVoltage.Mask := 16#C00;
+lAlarmSecondaryInputVoltage.InputReference REF= lDiagnosticState.ValueReference;
+
+//lFaultOutputOverVoltage.Index := 12;16#1000
+//lFaultOutputUnderVoltage.Index := 13;16#2000
+lAlarmSecondaryOutputVoltage.initializeStateOp(OpSelf,cACSecondaryOutputVoltage);
+lAlarmSecondaryOutputVoltage.Life := 10;
+lAlarmSecondaryOutputVoltage.Severity := cSeverityError;
+lAlarmSecondaryOutputVoltage.Mask := 16#3000;
+lAlarmSecondaryOutputVoltage.InputReference REF= lDiagnosticState.ValueReference;
+
+//lFaultOverCurrent.Index := 14;16#4000
+lAlarmSecondaryOverCurrent.initializeStateOp(OpSelf,cACSecondaryOverCurrent);
+lAlarmSecondaryOverCurrent.Life := 10;
+lAlarmSecondaryOverCurrent.Severity := cSeverityError;
+lAlarmSecondaryOverCurrent.Mask := 16#4000;
+foobar lAlarmSecondaryOverCurrent.InputReference REF= lDiagnosticState.ValueReference;*)
+
+lAlarmSecondaryTemperature.initializeState(NopSelf,'',cACSecondaryTemperature);
+lAlarmSecondaryTemperature.registerServer(lSecondaryPowerSupply.Modulation);
+
+lCurrentRunState.EnumType := cEnumTypeRunState;
+lCurrentRunState.initializeValueObject(NopSelf,'CurrRunStt','Current run state','',cValueStyleConfigurable);
+
+SUPER^.initialize();
+SubSystem := cSubsystemSecondary;
+
+lAlarmCANOpenSlaveNotOperational.InitialSeverity := cSeverityNone;
+lAlarmCANOpenSlaveNotOperational.SeverityWarningTimeout := T#250MS;
+lAlarmCANOpenSlaveNotOperational.SeverityErrorTimeout := T#1S;
+lAlarmCANOpenSlaveNotOperational.SeverityCriticalTimeout := T#5S;
+
+lAlarmCANOpenSlaveAllowableUp.AllowableSystemState := cSystemStatePreparing;
+lAlarmCANOpenSlaveAllowableUp.UpperSystemStateScope := cSystemStatePreparing;
+lAlarmCANOpenSlaveAllowableUp.LowerSystemStateScope := cSystemStatePreparing;
+
+lStartSystemStateScope := t_system_state.cSystemStatePreparing;
+lOperationalSystemStateScopeLower := t_system_state.cSystemStateCharging;
+lModulationSystemStateScope := t_system_state.cSystemStateCharging;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="6b14db8c-48e5-4876-9c13-6805676a4de7">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+IF (NOT(lEnabled)) THEN
+	lCurrentRunState.Override := TRUE;
+	lCurrentRunState.OverrideValue := cRunStateStart;
+	
+	RETURN;
+END_IF
+
+IF ((lStatusInitialization.Value) AND
+	(lStatusWorking.Value)) THEN
+	lCurrentRunState.Value := cRunStateStart;
+ELSE	
+	lCurrentRunState.Value := cRunStateStop;
+END_IF
+
+IF (WORD_TO_BOOL(UINT_TO_WORD(lDiagnosticState.Value) AND 16#7FEC)) THEN
+	lAlarmCANOpenSlaveNotify.triggerWithContext(UINT_TO_WORD(lDiagnosticState.Value));
+END_IF
+
+IF (WORD_TO_BOOL(UINT_TO_WORD(lDiagnosticState.Value) AND 16#100)) THEN
+	lAlarmSecondaryTemperature.ThresholdPositive := cAvailabilityTemperatureWarning;
+	lAlarmSecondaryTemperature.trigger(FALSE);
+END_IF
+IF (WORD_TO_BOOL(UINT_TO_WORD(lDiagnosticState.Value) AND 16#200)) THEN
+	lAlarmSecondaryTemperature.ThresholdPositive := cAvailabilityTemperatureFault;
+	lAlarmSecondaryTemperature.trigger(FALSE);
+END_IF
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeSecondary" ObjectId="5375986c-4e16-4ac3-99cc-72973235706f">
+              <interface>
+                <inputVars>
+                  <variable name="secondary">
+                    <type>
+                      <derived name="REFERENCE TO SecondaryPowerSupply" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lSecondaryPowerSupply ref= secondary;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initializeSecondaryIO" ObjectId="92d35e1f-5a66-4158-b8aa-d0f467a501bd">
+              <interface>
+                <inputVars>
+                  <variable name="voltage">
+                    <type>
+                      <derived name="REFERENCE TO UINT" />
+                    </type>
+                  </variable>
+                  <variable name="current">
+                    <type>
+                      <derived name="REFERENCE TO UINT" />
+                    </type>
+                  </variable>
+                  <variable name="temperature">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="state">
+                    <type>
+                      <derived name="REFERENCE TO UINT" />
+                    </type>
+                  </variable>
+                  <variable name="control">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                  <variable name="targetVoltage">
+                    <type>
+                      <derived name="REFERENCE TO USINT" />
+                    </type>
+                  </variable>
+                </inputVars>
+              </interface>
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lVoltage.InputReference REF= voltage;
+lCurrent.InputReference REF= current;
+lTemperature.InputReference REF= temperature;
+
+lDiagnosticState.InputReference REF= state;
+
+lRequestedRunState.OutputReference REF= control;
+lTargetVoltage.OutputReference REF= targetVoltage;
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="notOperational" ObjectId="5f427418-c8aa-4845-b82c-5acfbeb49cc8">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Current" ObjectId="38c7aaff-6fbb-4814-905b-f6aa1094942d">
+              <interface>
+                <returnType>
+                  <REAL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Current := lCurrent.Value;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="CurrentRunState" ObjectId="32910700-d341-4158-b610-c93f924a2b51">
+              <interface>
+                <returnType>
+                  <derived name="t_run_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lCurrentRunState.operator();
+CurrentRunState := lCurrentRunState.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="RequestedRunState" ObjectId="6d591611-d79e-4a15-a747-2164e26f0c44">
+              <interface>
+                <returnType>
+                  <derived name="t_run_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">RequestedRunState := lRequestedRunState.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lRequestedRunState.Value := RequestedRunState;
+
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TargetVoltage" ObjectId="a5699dfa-d822-4d04-b201-daab550220bf">
+              <interface>
+                <returnType>
+                  <REAL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TargetVoltage := lTargetVoltage.Value;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lTargetVoltage.Value := TargetVoltage;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Temperature" ObjectId="9c3e332a-a999-488e-ab29-cda9127ed5b2">
+              <interface>
+                <returnType>
+                  <REAL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Temperature := lTemperature.Value;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Voltage" ObjectId="4683394e-cb3d-4c5b-b5d2-e6f4438a84cc">
+              <interface>
+                <returnType>
+                  <REAL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Voltage := lVoltage.Value;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>6b92b32e-2485-4cf6-a3c1-91f65016f3fb</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="ControllerSlavePLC" pouType="functionBlock">
+        <interface>
+          <localVars constant="true">
+            <variable name="cNMTDetectionPeriod">
+              <type>
+                <derived name="t_time" />
+              </type>
+              <initialValue>
+                <simpleValue value="TIME#2s500ms" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="lAlarmCANOpenSlaveNoValidTransmissions">
+              <type>
+                <derived name="ReportableAlarmAllowableUp" />
+              </type>
+            </variable>
+            <variable name="lVREnableDetectionTPDO">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lEnableDetectionTPDO">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lVREnableValidTransmissions">
+              <type>
+                <derived name="ValueReferenceBool" />
+              </type>
+            </variable>
+            <variable name="lEnableValidTransmissions">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lEnableNMTDetectionTPDO">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="lEnableNMTOverrideTPDO">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="TRUE" />
+              </initialValue>
+            </variable>
+            <variable name="lNMTDetectionTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+            <variable name="lTPDO1Stuffing">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="lTPDO1StuffingPrevious">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>CANOpenSlave</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="5be026e4-29e4-42ce-9ea9-714dd36df019">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lVREnableDetectionTPDO.initializeValueReference(lEnableDetectionTPDO,NopSelf,'EnblDtctTPDO','Use TPDO traffic to determine node state','',cValueStyleParameter);
+lVREnableValidTransmissions.initializeValueReference(lEnableValidTransmissions,NopSelf,'EnblVldTrnms','Check if TPDO traffic is valid','',cValueStyleParameter);
+	
+lAlarmCANOpenSlaveNoValidTransmissions.initializeState(NopSelf,'',cACCANOpenSlaveNoValidTransmissions);
+lAlarmCANOpenSlaveNoValidTransmissions.AllowableSystemState := cSystemStatePreparing;
+lAlarmCANOpenSlaveNoValidTransmissions.UpperSystemStateScope := cSystemStatePreparing;
+lAlarmCANOpenSlaveNoValidTransmissions.LowerSystemStateScope := cSystemStatePreparing;
+lAlarmCANOpenSlaveNoValidTransmissions.Life := 10;
+lAlarmCANOpenSlaveNoValidTransmissions.InitialSeverity := cSeverityNone;
+lAlarmCANOpenSlaveNoValidTransmissions.SeverityWarningTimeout := T#2S;
+lAlarmCANOpenSlaveNoValidTransmissions.SeverityErrorTimeout := T#4S;
+lAlarmCANOpenSlaveNoValidTransmissions.SeverityCriticalTimeout := T#10S;	
+
+SUPER^.initialize();
+
+lNMTDetectionTimer.initialize();
+lNMTDetectionTimer.Enable := TRUE;
+lNMTDetectionTimer.Period := cNMTDetectionPeriod;</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="7e1b7665-b5d7-4691-8cd4-3513ef63fdf2">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.operator();
+
+lTPDO1StuffingPrevious := lTPDO1Stuffing;
+lTPDO1Stuffing := Peripheral.TPDO1Stuffing;
+
+IF (NOT(ValidTransmissions)) THEN
+	lAlarmCANOpenSlaveNoValidTransmissions.test(FALSE);
+END_IF
+
+
+
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="NodeState" ObjectId="bfd087c7-85bb-4f89-932e-674ac06face2">
+              <interface>
+                <returnType>
+                  <derived name="t_node_state" />
+                </returnType>
+              </interface>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (lEnableDetectionTPDO) THEN
+
+	IF (lTPDO1StuffingPrevious&lt;&gt;lTPDO1Stuffing) THEN
+		lNMTDetectionTimer.reset();
+	END_IF
+	
+	lNMTDetectionTimer.operator();
+	IF (NOT(lNMTDetectionTimer.Expired)) THEN
+		lNodeState := NodeState;
+		
+		IF (lEnableNMTDetectionTPDO) THEN
+			lNodeState := t_node_state.OPERATIONAL;
+		END_IF
+
+		RETURN;
+	END_IF
+
+	IF (lEnableNMTOverrideTPDO) THEN
+		lNodeState := t_node_state.NOT_AVAIL;
+		RETURN;
+	END_IF	
+END_IF
+
+lNodeState := NodeState;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Peripheral" ObjectId="9073d31a-71fa-40cc-9afe-7ce1a2813feb">
+              <interface>
+                <returnType>
+                  <derived name="REFERENCE TO Peripheral" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="ValidTransmissions" ObjectId="d5511992-22b0-444a-a853-36e0f53dd0ee">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">IF (NOT(lEnableValidTransmissions)) THEN
+	ValidTransmissions := TRUE;
+	RETURN;
+END_IF
+
+ValidTransmissions := ((NodeState=t_node_state.OPERATIONAL) AND
+	(Peripheral.ValidTransmissions));
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>dbdc3dab-3359-4fe6-936c-6bdcbbe78358</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SecondaryPowerSupply" pouType="functionBlock">
+        <interface>
+          <localVars constant="true">
+            <variable name="cSecondaryTargetVoltage">
+              <type>
+                <REAL />
+              </type>
+              <initialValue>
+                <simpleValue value="13.0" />
+              </initialValue>
+            </variable>
+            <variable name="cStartDelayPeriod">
+              <type>
+                <derived name="t_time" />
+              </type>
+              <initialValue>
+                <simpleValue value="TIME#1s0ms" />
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="lAlarmSecondaryWaiting">
+              <type>
+                <derived name="ReportableAlarmAllowableUp" />
+              </type>
+            </variable>
+            <variable name="lAlarmSecondaryNotRunning">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lAlarmSecondaryNotRunningModulation">
+              <type>
+                <derived name="ReportableSignedModulation" />
+              </type>
+            </variable>
+            <variable name="lAlarmRunStateMismatch">
+              <type>
+                <derived name="ReportableAlarmEscalating" />
+              </type>
+            </variable>
+            <variable name="lModulation">
+              <type>
+                <derived name="ReportableContextSignedModulation" />
+              </type>
+            </variable>
+            <variable name="lAvailability">
+              <type>
+                <derived name="t_percentage" />
+              </type>
+            </variable>
+            <variable name="lModulationSeverity">
+              <type>
+                <derived name="t_severity" />
+              </type>
+            </variable>
+            <variable name="lRequestedState">
+              <type>
+                <derived name="t_run_state" />
+              </type>
+            </variable>
+            <variable name="lCurrentState">
+              <type>
+                <derived name="t_run_state" />
+              </type>
+            </variable>
+            <variable name="lTargetVoltage">
+              <type>
+                <REAL />
+              </type>
+            </variable>
+            <variable name="lControllerSecondaryPowerSupplyA">
+              <type>
+                <derived name="REFERENCE TO ControllerSecondaryPowerSupply" />
+              </type>
+            </variable>
+            <variable name="lControllerSecondaryPowerSupplyB">
+              <type>
+                <derived name="REFERENCE TO ControllerSecondaryPowerSupply" />
+              </type>
+            </variable>
+            <variable name="lStartDelayTimer">
+              <type>
+                <derived name="t_timer" />
+              </type>
+            </variable>
+          </localVars>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>NonOperationalParticleSet</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="10f21e91-42ef-43bc-98ce-06f7ad94fc58">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">IF ((NOT(__ISVALIDREF(lControllerSecondaryPowerSupplyA))) OR
+	(NOT(__ISVALIDREF(lControllerSecondaryPowerSupplyB)))) THEN
+	gCodeErrorHandler(pMessage:=CONCAT('null reference in ',lIdentity));
+END_IF
+
+lAlarmSecondaryNotRunning.initializeState(NopSelf,'',cACSecondaryNotRunning); // foobar escalates to pause
+lAlarmSecondaryNotRunning.Life := 10;
+lAlarmSecondaryNotRunning.InitialSeverity := cSeverityNone;
+lAlarmSecondaryNotRunning.SeverityWarningTimeout := T#1S;
+lAlarmSecondaryNotRunning.SeverityErrorTimeout := T#2S;
+lAlarmSecondaryNotRunning.SeverityCriticalTimeout := T#5S;
+
+lAlarmSecondaryNotRunningModulation.initializeState(NopSelf,'',cACSecondaryNotRunningModulation); // foobar life was zero
+lAlarmSecondaryNotRunningModulation.pause();
+lAlarmSecondaryNotRunningModulation.registerServer(ADR(lModulation));
+
+lAlarmSecondaryWaiting.initializeState(NopSelf,'',cACSecondaryWaiting);
+lAlarmSecondaryWaiting.AllowableSystemState := cSystemStatePreparing;
+lAlarmSecondaryWaiting.UpperSystemStateScope := cSystemStatePreparing;
+lAlarmSecondaryWaiting.LowerSystemStateScope := cSystemStatePreparing;
+lAlarmSecondaryWaiting.Life := 10;
+lAlarmSecondaryWaiting.InitialSeverity := cSeverityNone;
+lAlarmSecondaryWaiting.SeverityWarningTimeout := T#1S;
+lAlarmSecondaryWaiting.SeverityErrorTimeout := T#2S;
+lAlarmSecondaryWaiting.SeverityCriticalTimeout := T#5S;
+
+lAlarmRunStateMismatch.initializeState(NopSelf,'',cACSecondaryRunStateMismatch);
+lAlarmRunStateMismatch.InitialSeverity := cSeverityNone;
+lAlarmRunStateMismatch.SeverityWarningTimeout := T#2S;
+lAlarmRunStateMismatch.SeverityErrorTimeout := T#4S;
+lAlarmRunStateMismatch.SeverityCriticalTimeout := T#6S;
+
+lModulation.initializeEvent(NopSelf,'',cECSecondaryPowerModulation);
+
+SUPER^.initialize();
+SubSystem := cSubsystemSecondary;
+
+lModulationSeverity := cSeverityError;
+lTargetVoltage := cSecondaryTargetVoltage;
+
+lStartDelayTimer.Enable := TRUE;
+lStartDelayTimer.Period := cStartDelayPeriod;
+lStartDelayTimer.initialize();</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="operator" ObjectId="d8edef31-8752-4d5e-b3e3-a6bdca1eb56e">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">lCurrentState := cRunStateNone;
+
+IF ((lControllerSecondaryPowerSupplyA.CurrentRunState=cRunStateStop) OR
+	(lControllerSecondaryPowerSupplyB.CurrentRunState=cRunStateStop)) THEN
+	lCurrentState := cRunStateStop;
+END_IF
+
+IF ((lControllerSecondaryPowerSupplyA.CurrentRunState=cRunStateStart) AND
+	(lControllerSecondaryPowerSupplyB.CurrentRunState=cRunStateStart)) THEN
+	lCurrentState := cRunStateStart;
+END_IF
+	
+IF (lControllerSecondaryPowerSupplyA.CurrentRunState&lt;&gt;lControllerSecondaryPowerSupplyB.CurrentRunState) THEN
+	lAlarmRunStateMismatch.trigger(FALSE); // foobar any further action
+END_IF
+
+SUPER^.operator();
+
+lRequestedState := cRunStateStop;
+lAvailability := 0.0;
+
+IF (gSystemServices.SystemState.State&lt;cSystemStatePreparing) THEN
+	RETURN;
+END_IF
+
+IF (BMSConnected) THEN
+	lRequestedState := cRunStateStart;
+ELSE
+	lStartDelayTimer.reset();	
+END_IF
+lStartDelayTimer.operator();
+
+IF (lCurrentState&lt;&gt;cRunStateStart) THEN
+	lAlarmSecondaryNotRunning.trigger(FALSE);
+	
+	IF (lAlarmSecondaryNotRunning.Severity&gt;=lModulationSeverity) THEN
+		lAlarmSecondaryNotRunningModulation.trigger(FALSE);
+	END_IF
+
+	lAlarmSecondaryWaiting.test(FALSE);	
+END_IF
+
+lModulation.operator();
+lAvailability := MIN(lModulation.ScalingPositive,lModulation.ThresholdPositive);
+
+lControllerSecondaryPowerSupplyA.RequestedRunState := lRequestedState;
+IF ((lStartDelayTimer.Expired) AND (lRequestedState=cRunStateStart)) THEN
+	lControllerSecondaryPowerSupplyB.RequestedRunState := cRunStateStart;
+ELSE
+	lControllerSecondaryPowerSupplyB.RequestedRunState := cRunStateStop;	
+END_IF
+
+lControllerSecondaryPowerSupplyA.TargetVoltage := lTargetVoltage;
+lControllerSecondaryPowerSupplyB.TargetVoltage := lTargetVoltage;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Availability" ObjectId="8eb623f1-cb04-4e1d-9481-dc27d54230e3">
+              <interface>
+                <returnType>
+                  <derived name="t_percentage" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Availability := lAvailability;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="CurrentState" ObjectId="577baabb-b831-4461-a85a-f88f7dcf4332">
+              <interface>
+                <returnType>
+                  <derived name="t_run_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">CurrentState := lCurrentState;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Modulation" ObjectId="7197fe56-77be-451c-ac59-f3bcbc423fdc">
+              <interface>
+                <returnType>
+                  <pointer>
+                    <baseType>
+                      <derived name="ReportableContextSignedModulation" />
+                    </baseType>
+                  </pointer>
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Modulation := ADR(lModulation);
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="RequestedState" ObjectId="9ed18e88-a578-4c2d-bd19-932b93119978">
+              <interface>
+                <returnType>
+                  <derived name="t_run_state" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">RequestedState := lRequestedState;
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="Running" ObjectId="f5f9c1db-3fb0-4b63-84cb-3d419edf3909">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">Running := (lCurrentState=cRunStateStart);
+</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TargetVoltage" ObjectId="0b5cfa15-0c86-496f-984a-99c7f5c12f3e">
+              <interface>
+                <returnType>
+                  <REAL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TargetVoltage := lTargetVoltage;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <SetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">lTargetVoltage := TargetVoltage;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </SetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="TypeToken" ObjectId="06e37778-5d9d-479b-9263-535260b7b58c">
+              <interface>
+                <returnType>
+                  <derived name="t_medium_string" />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">TypeToken := 'Secondary';</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation">
+            <Property name="BMSConnected" ObjectId="aad78b97-b1ac-4344-8b15-0cf0e90a7e3d">
+              <interface>
+                <returnType>
+                  <BOOL />
+                </returnType>
+              </interface>
+              <GetAccessor>
+                <interface />
+                <body>
+                  <ST>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">BMSConnected := false;</xhtml>
+                  </ST>
+                </body>
+                <addData />
+              </GetAccessor>
+              <addData />
+            </Property>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>1e11e6b1-fc9b-40ea-a33a-8e1dafa5614a</ObjectId>
+          </data>
+        </addData>
+      </pou>
+      <pou name="SecondaryPowerSupplyPrimary" pouType="functionBlock">
+        <interface>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/pouinheritance" handleUnknown="implementation">
+              <Inheritance>
+                <Extends>SecondaryPowerSupply</Extends>
+              </Inheritance>
+            </data>
+          </addData>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">;</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/method" handleUnknown="implementation">
+            <Method name="initialize" ObjectId="028d8032-c6e1-4fab-b7d0-fde126fc37ff">
+              <interface />
+              <body>
+                <ST>
+                  <xhtml xmlns="http://www.w3.org/1999/xhtml">SUPER^.initialize();
+
+lControllerSecondaryPowerSupplyA REF= gSystem.lCANOpenMasterSystem.SecondaryPowerSupplyA;
+lControllerSecondaryPowerSupplyB REF= gSystem.lCANOpenMasterSystem.SecondaryPowerSupplyB;
+</xhtml>
+                </ST>
+              </body>
+              <addData />
+            </Method>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/property" handleUnknown="implementation" />
+          <data name="http://www.3s-software.com/plcopenxml/buildproperties" handleUnknown="implementation">
+            <BuildProperties>
+              <ExcludeFromBuild>true</ExcludeFromBuild>
+            </BuildProperties>
+          </data>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>40f1e571-98e7-4f22-b03d-cf0ff1fd4a08</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/globalvars" handleUnknown="implementation">
+      <globalVars name="GlobalVariablesCanplc">
+        <variable name="gCANPLCBoolA">
+          <type>
+            <BOOL />
+          </type>
+          <initialValue>
+            <simpleValue value="TRUE" />
+          </initialValue>
+        </variable>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>c9e5d506-f3e2-4fcb-a1b6-a0e0e78e0382</ObjectId>
+          </data>
+        </addData>
+      </globalVars>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/libraries" handleUnknown="implementation">
+      <Libraries>
+        <Library Name="Standard, * (System)" Namespace="Standard" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="CAA CiA 405, * (CAA Technical Workgroup)" Namespace="CIA405" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="3S CANopenStack, * (3S - Smart Software Solutions GmbH)" Namespace="_3SCOS" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="3S CANopenSlaveStack, * (3S - Smart Software Solutions GmbH)" Namespace="_3SCSS" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false">
+          <Parameters>
+            <Parameter Name="GC_UDIMAXODCALLBACKS" Value="3" />
+          </Parameters>
+        </Library>
+        <Library Name="device, * (Isoloader)" Namespace="device" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="common, * (Isoloader)" Namespace="common" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="MemoryUtils, * (3S - Smart Software Solutions GmbH)" Namespace="MEMUtils" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="SysSocket, * (System)" Namespace="SysSocket" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="CmpErrors, * (System)" Namespace="CmpErrors" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="SysTypes, * (System)" Namespace="SysTypes" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="services, * (Isoloader)" Namespace="services" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <Library Name="build, * (Isoloader)" Namespace="build" HideWhenReferencedAsDependency="false" PublishSymbolsInContainer="false" SystemLibrary="false" LinkAllContent="false" />
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>9c8abad4-e614-4742-8aa8-7dad00f7759a</ObjectId>
+          </data>
+        </addData>
+      </Libraries>
+    </data>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Folder Name="application">
+          <Folder Name="CAN">
+            <Object Name="CANOpenMaster" ObjectId="60b79ecb-07fe-467f-8cdc-e56b669a841e">
+              <Object Name="BusPower" ObjectId="f87621e4-a401-4ae3-a744-a7774806b777" />
+              <Object Name="ChannelState" ObjectId="74296846-2ef0-4801-86c5-8de1eb8d24c8" />
+              <Object Name="good" ObjectId="9c02b988-715b-4e05-a476-b4e576e37c5c" />
+              <Object Name="initialize" ObjectId="1e4ed8e3-0cca-46f9-8cca-0307c85793ee" />
+              <Object Name="initializeMaster" ObjectId="83be26a8-5492-482d-ba2a-1844f7a31ac4" />
+              <Object Name="MasterState" ObjectId="11576b06-e448-4116-8548-14a81938aca3" />
+              <Object Name="operator" ObjectId="46dcc46f-f16b-4f11-86a6-d00d91e46fde" />
+              <Object Name="overflow" ObjectId="bfbebfd0-62bd-4f85-b115-4e68229a1a84" />
+              <Object Name="reset" ObjectId="96e03908-394c-401f-ace5-875a704a9dba" />
+              <Object Name="restart" ObjectId="3ee297cc-8c79-4cef-ab38-73a738af0798" />
+              <Object Name="starting" ObjectId="79ffbd7a-b533-4de6-9b69-1bdb05aa92a5" />
+              <Object Name="TransmitMessage" ObjectId="25c1e711-d930-401c-9189-5d8ae81af098" />
+              <Object Name="TransmitNMT" ObjectId="5a1b6d9b-a6b6-4b98-8523-7a7487755784" />
+              <Object Name="TypeToken" ObjectId="206015d3-8efe-48d4-8cd4-1470b7419980" />
+              <Object Name="initializeMasterPower" ObjectId="ca1fb6ba-768d-4141-bf58-95770f59bb60" />
+            </Object>
+            <Object Name="CANOpenSlave" ObjectId="ced16909-6441-4f69-9f28-c912d02d27ec">
+              <Object Name="cancelSDORead" ObjectId="45eaedd0-8757-40f8-89df-9fc83c636b5a" />
+              <Object Name="cancelSDOWrite" ObjectId="c95730fd-8215-4222-9d64-dcf88aed15b2" />
+              <Object Name="Connected" ObjectId="999ba748-67b5-44e6-a926-415b12a148ec" />
+              <Object Name="ControllerId" ObjectId="f9b9e687-fcc8-4041-902d-d646032e61be" />
+              <Object Name="EmergencyCode" ObjectId="87429c0a-710f-4177-8e4c-82ccc4831cb8" />
+              <Object Name="EmergencyCounter" ObjectId="224db3bc-6652-40ce-8ae2-47b8a8595322" />
+              <Object Name="emergencyHandler" ObjectId="09dd2097-e1d0-404a-ba9b-e7d53db21598" />
+              <Object Name="EmergencyInfo" ObjectId="2bc72803-7e2f-4105-9a38-56ee36038eb4" />
+              <Object Name="Enabled" ObjectId="cc9b770c-9e1b-4f2e-a3e1-3170e5472477" />
+              <Object Name="HealthSystemStateScope" ObjectId="e0b865eb-e789-4812-92c7-84105a2231fa" />
+              <Object Name="HeartbeatCounter" ObjectId="44236a78-810d-487a-9b0f-a6af997d29f8" />
+              <Object Name="initialize" ObjectId="b1c0ec54-ce74-4372-af7a-77946097b042" />
+              <Object Name="initializeSlave" ObjectId="da2c5f63-3887-4f81-9bcf-36662c7e7caa" />
+              <Object Name="NetworkId" ObjectId="c91a2414-1265-449d-b5e9-5d7a4d965c28" />
+              <Object Name="NodeState" ObjectId="78bce764-dce5-46d9-9a9a-b8e8b9a3366e" />
+              <Object Name="OK" ObjectId="f6b4e107-7677-49a6-94b9-a3276c3454bb" />
+              <Object Name="Operational" ObjectId="1913d370-a0fa-4833-875b-fa3193695af2" />
+              <Object Name="OperationalSystemStateScopeLower" ObjectId="5c636746-5438-458e-8932-ef8bdc7439d9" />
+              <Object Name="operator" ObjectId="5daac541-72a0-40b5-9a9b-0b605b46f278" />
+              <Object Name="OverflowCounter" ObjectId="827b40e4-b88e-4379-89a3-125a84f7e093" />
+              <Object Name="requestSDORead" ObjectId="77333c3e-c1f9-4a18-a5a5-a3117328df60" />
+              <Object Name="requestSDOWrite" ObjectId="51917096-51a2-40a2-bdf2-260b61a68e33" />
+              <Object Name="reset" ObjectId="003e6300-af97-4899-9a68-bc0096edc744" />
+              <Object Name="sdoReadHandler" ObjectId="12d9a79f-8465-4bc8-937f-374eebc86de7" />
+              <Object Name="start" ObjectId="003f5a12-4200-4ad8-b5a8-b1f801f6b910" />
+              <Object Name="startHandler" ObjectId="8711172a-7af9-45a1-b845-a716a633ef7c" />
+              <Object Name="startResetHandler" ObjectId="a0ecc77d-d931-40e7-b9b6-6d000a21df89" />
+              <Object Name="TypeToken" ObjectId="a818a499-bc61-4c90-a8b2-76eb24a8de03" />
+              <Object Name="OperationalSystemStateScopeUpper" ObjectId="9dfdd95d-fccc-44f6-a9ca-9a2c3594419e" />
+              <Object Name="emergencyRegisterAdd" ObjectId="98202f8b-e3cb-4c6f-8ca4-a41c8dcd775a" />
+              <Object Name="describe" ObjectId="dfd3b589-5f82-4a61-8222-215dc549471a" />
+              <Object Name="emergencyRegisterClear" ObjectId="6f1532cf-acc5-481d-8ebf-0c8b774410da" />
+              <Object Name="notOperational" ObjectId="61fdd126-cac0-49b7-9db1-fa2c69c37e0a" />
+            </Object>
+            <Folder Name="messages">
+              <Object Name="SDOReadCANMessage" ObjectId="538f1d31-5c6c-40b3-bf3d-d312c4e7ce14">
+                <Object Name="cancelSDORead" ObjectId="4b6031bb-2705-4243-99af-8b2595b549c1" />
+                <Object Name="ControllerId" ObjectId="90407413-a1f0-40ec-a8a2-fd1d7a3c8556" />
+                <Object Name="initialize" ObjectId="e07ab735-8e27-44dd-93eb-e2de2f2d94d4" />
+                <Object Name="NetworkId" ObjectId="933957a6-c14d-41e2-afb9-c1149a115766" />
+                <Object Name="operator" ObjectId="6aa994f5-fba8-4bc3-b0f1-8881ef55640a" />
+                <Object Name="reset" ObjectId="404993f3-d8f6-4a67-9928-1299a7b07c7a" />
+                <Object Name="sdoReadHandler" ObjectId="42e15ceb-5e54-4995-862d-d233eda0a206" />
+                <Object Name="start" ObjectId="5004f561-a399-4755-aab8-52c35bb0e427" />
+              </Object>
+              <Object Name="SDOWriteCANMessage" ObjectId="72ccc614-3ce4-4e92-999e-aaeb31a2059d">
+                <Object Name="cancelSDOWrite" ObjectId="db700fc4-d1a8-4ea8-a9f8-0bfa16027707" />
+                <Object Name="ControllerId" ObjectId="73580faa-5b70-4444-a079-cfc3bc3a5fc1" />
+                <Object Name="initialize" ObjectId="5d73b100-384a-4760-a5e2-7bb0c7f3e162" />
+                <Object Name="NetworkId" ObjectId="74cf2d6d-c29d-43d3-93d6-5f0d81da5686" />
+                <Object Name="operator" ObjectId="e0c953bc-923d-4ca7-a571-ec844bd59804" />
+                <Object Name="reset" ObjectId="090149df-f71c-475c-9ccd-994d785925c1" />
+                <Object Name="start" ObjectId="f9144dcf-0b85-46f3-a809-87d8aafba8f6" />
+              </Object>
+            </Folder>
+            <Object Name="MimicCANOpenSlave" ObjectId="4f7983bc-f663-4049-9cf2-b22c2933078f">
+              <Object Name="TypeToken" ObjectId="35375e3e-6db0-4984-a53c-ba87997e27db" />
+              <Object Name="initialize" ObjectId="d28d43de-0d7a-451d-858a-b1dbb03be19d" />
+            </Object>
+            <Object Name="t_can_errorfield" ObjectId="1e15aed5-7382-4624-ad33-0c16ff80e9ac" />
+            <Object Name="t_can_heartbeaterrors" ObjectId="7686609a-8cc6-47cb-890d-2cd9a7e389e2" />
+            <Object Name="t_canopen_emcy" ObjectId="a57f0d55-7597-4ba1-aa46-2e9179940d85" />
+            <Object Name="t_node_state" ObjectId="0e0f43e2-c17d-40a6-8c7b-e4610904f13b" />
+            <Object Name="CANOpenLocalDevice" ObjectId="283aa33a-787b-425d-815b-bd0a3949d25a">
+              <Object Name="Operational" ObjectId="098d67b5-f37a-44be-b1f5-3e0a0878f5ed" />
+              <Object Name="EmergencyCounter" ObjectId="8379fca6-a7db-4887-975a-6be6fda7615f" />
+              <Object Name="OperationalSystemStateScope" ObjectId="e487e9d0-02e6-428e-b960-8141dc1ce025" />
+              <Object Name="EmergencyInfo" ObjectId="2f743926-9c89-42ea-94ce-52c8226ecab6" />
+              <Object Name="HeartbeatCounter" ObjectId="a6b5e29c-2de0-4ffa-b9b7-2932c17f0860" />
+              <Object Name="Connected" ObjectId="4162b154-22b1-42f2-b797-953ad040ca5e" />
+              <Object Name="OK" ObjectId="51e3cb8d-e35c-42a0-9c05-309496124810" />
+              <Object Name="NetworkId" ObjectId="673573c3-68ee-4d44-8b2a-69a81f1a4bf0" />
+              <Object Name="EmergencyCode" ObjectId="7a24d04d-0968-4554-b533-1c16b017f3bc" />
+              <Object Name="initialize" ObjectId="620895cd-ae25-46b2-a074-8ec7cb73113a" />
+              <Object Name="ControllerId" ObjectId="854acd31-f81e-447e-a97b-56258acfbe4f" />
+              <Object Name="Enabled" ObjectId="fb7f7b69-d48f-493f-8413-9395a59bfb9e" />
+              <Object Name="start" ObjectId="93c593db-1472-4799-b4e5-d9afb616ea20" />
+              <Object Name="resetTraces" ObjectId="a52620f2-48b7-48d5-9f49-9bacafaa4cc2" />
+              <Object Name="reset" ObjectId="b8835c09-b6bc-4604-b3e0-8ec41702084a" />
+              <Object Name="emergencyHandler" ObjectId="cf96fcd0-6ee0-4642-9ac4-21fdc6881d34" />
+              <Object Name="operator" ObjectId="d655a166-3c24-4c77-9ac9-db9ca3559ad9" />
+              <Object Name="NodeState" ObjectId="37bc0f36-d548-41ce-91da-4794218c9708" />
+              <Object Name="initializeLocal" ObjectId="9395e3d0-34f1-4750-8125-0f5bb9e7cc04" />
+              <Object Name="TypeToken" ObjectId="a1a1a069-596e-4566-8d30-2449ef9a1d61" />
+            </Object>
+          </Folder>
+          <Folder Name="controllers">
+            <Object Name="ControllerSecondaryPowerSupply" ObjectId="6b92b32e-2485-4cf6-a3c1-91f65016f3fb">
+              <Object Name="Current" ObjectId="38c7aaff-6fbb-4814-905b-f6aa1094942d" />
+              <Object Name="CurrentRunState" ObjectId="32910700-d341-4158-b610-c93f924a2b51" />
+              <Object Name="initialize" ObjectId="594137fd-20f2-4538-bc88-ff78428094b6" />
+              <Object Name="operator" ObjectId="6b14db8c-48e5-4876-9c13-6805676a4de7" />
+              <Object Name="RequestedRunState" ObjectId="6d591611-d79e-4a15-a747-2164e26f0c44" />
+              <Object Name="TargetVoltage" ObjectId="a5699dfa-d822-4d04-b201-daab550220bf" />
+              <Object Name="Temperature" ObjectId="9c3e332a-a999-488e-ab29-cda9127ed5b2" />
+              <Object Name="Voltage" ObjectId="4683394e-cb3d-4c5b-b5d2-e6f4438a84cc" />
+              <Object Name="initializeSecondary" ObjectId="5375986c-4e16-4ac3-99cc-72973235706f" />
+              <Object Name="initializeSecondaryIO" ObjectId="92d35e1f-5a66-4158-b8aa-d0f467a501bd" />
+              <Object Name="notOperational" ObjectId="5f427418-c8aa-4845-b82c-5acfbeb49cc8" />
+            </Object>
+            <Object Name="ControllerSlavePLC" ObjectId="dbdc3dab-3359-4fe6-936c-6bdcbbe78358">
+              <Object Name="initialize" ObjectId="5be026e4-29e4-42ce-9ea9-714dd36df019" />
+              <Object Name="NodeState" ObjectId="bfd087c7-85bb-4f89-932e-674ac06face2" />
+              <Object Name="operator" ObjectId="7e1b7665-b5d7-4691-8cd4-3513ef63fdf2" />
+              <Object Name="Peripheral" ObjectId="9073d31a-71fa-40cc-9afe-7ce1a2813feb" />
+              <Object Name="ValidTransmissions" ObjectId="d5511992-22b0-444a-a853-36e0f53dd0ee" />
+            </Object>
+          </Folder>
+          <Folder Name="secondary">
+            <Object Name="SecondaryPowerSupply" ObjectId="1e11e6b1-fc9b-40ea-a33a-8e1dafa5614a">
+              <Object Name="Availability" ObjectId="8eb623f1-cb04-4e1d-9481-dc27d54230e3" />
+              <Object Name="CurrentState" ObjectId="577baabb-b831-4461-a85a-f88f7dcf4332" />
+              <Object Name="initialize" ObjectId="10f21e91-42ef-43bc-98ce-06f7ad94fc58" />
+              <Object Name="Modulation" ObjectId="7197fe56-77be-451c-ac59-f3bcbc423fdc" />
+              <Object Name="operator" ObjectId="d8edef31-8752-4d5e-b3e3-a6bdca1eb56e" />
+              <Object Name="RequestedState" ObjectId="9ed18e88-a578-4c2d-bd19-932b93119978" />
+              <Object Name="Running" ObjectId="f5f9c1db-3fb0-4b63-84cb-3d419edf3909" />
+              <Object Name="TargetVoltage" ObjectId="0b5cfa15-0c86-496f-984a-99c7f5c12f3e" />
+              <Object Name="TypeToken" ObjectId="06e37778-5d9d-479b-9263-535260b7b58c" />
+              <Object Name="BMSConnected" ObjectId="aad78b97-b1ac-4344-8b15-0cf0e90a7e3d" />
+            </Object>
+            <Object Name="SecondaryPowerSupplyPrimary" ObjectId="40f1e571-98e7-4f22-b03d-cf0ff1fd4a08">
+              <Object Name="initialize" ObjectId="028d8032-c6e1-4fab-b7d0-fde126fc37ff" />
+              <Object Name="BMSConnected" ObjectId="3c3fcd0a-2c67-4ddc-8a4d-37daebe888e1" />
+            </Object>
+          </Folder>
+        </Folder>
+        <Folder Name="Global Variables">
+          <Object Name="GlobalVariablesCanplc" ObjectId="c9e5d506-f3e2-4fcb-a1b6-a0e0e78e0382" />
+        </Folder>
+        <Object Name="Library Manager" ObjectId="9c8abad4-e614-4742-8aa8-7dad00f7759a" />
+        <Object Name="Project Information" ObjectId="11c0fc3a-9bcf-4dd8-ac38-efb93363e521" />
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>

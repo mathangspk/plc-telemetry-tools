@@ -1,0 +1,20 @@
+{
+  "name": "TraceTravelThrottle",
+  "signals": [
+    {
+      "name": "travel_input",
+      "path": "System/Travel/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_brakeDisengage",
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_brakeDisengage",
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
+      "metric": "Metric250ms"
+    }
+  ]
+}

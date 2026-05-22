@@ -1,0 +1,14 @@
+﻿System/CANBusDrive/cSpreader/TelscpActive
+System/CANBusDrive/cSpreader/TelscpEnbl
+System/CANBusDrive/cSpreader/TelscpAuto
+System/CANBusDrive/cSpreader/TelscpEnbl
+System/CANBusDrive/cSpreader/TelscpAutoExt
+System/CANBusDrive/cSpreader/TelscpExtend
+System/CANBusDrive/cSpreader/TelscpAutoRet
+System/CANBusDrive/cSpreader/TelscpRetract
+System/CANBusDrive/cSpreader/TwstLock
+System/CANBusDrive/cSpreader/TwstUnlock
+System/CANBusDrive/cSpreader/BrakeDisengage
+System/CANBusDrive/cSpreader/BrakeDisengage
+System/CANBusDrive/cSpreader/HydPressure
+System/CANBusDrive/cSpreader/HydTemp

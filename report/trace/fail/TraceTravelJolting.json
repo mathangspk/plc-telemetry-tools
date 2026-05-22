@@ -1,0 +1,95 @@
+{
+  "name": "TraceTravelJolting",
+  "signals": [
+    {
+      "name": "travel_inputResolved",
+      "path": "System/Travel/InputResolved",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_adjustState",
+      "path": "System/Steer/AdjustState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_proposedThrottle",
+      "path": "System/CANBusDrive/cTransA/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_proposedThrottle",
+      "path": "System/CANBusDrive/cTransB/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_proposedThrottle",
+      "path": "System/CANBusDrive/cTransC/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_proposedThrottle",
+      "path": "System/CANBusDrive/cTransD/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_inputScaling",
+      "path": "System/Travel/InputScaling",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_freeWheel",
+      "path": "System/CANBusDrive/cTransA/FreeWheel",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_freeWheel",
+      "path": "System/CANBusDrive/cTransB/FreeWheel",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_freeWheel",
+      "path": "System/CANBusDrive/cTransC/FreeWheel",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_freeWheel",
+      "path": "System/CANBusDrive/cTransD/FreeWheel",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_enable",
+      "path": "System/CANBusDrive/cTransA/Enable",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_enable",
+      "path": "System/CANBusDrive/cTransB/Enable",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_enable",
+      "path": "System/CANBusDrive/cTransC/Enable",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_enable",
+      "path": "System/CANBusDrive/cTransD/Enable",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_initializeMotorHoldCounter",
+      "path": "System/CANBusDrive/cTransA/InitializeMotorHoldCounter",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_initializeMotorHoldCounter",
+      "path": "System/CANBusDrive/cTransB/InitializeMotorHoldCounter",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_targetVelocity",
+      "path": "System/CANBusDrive/cTransA/TargetVelocity",
+      "metric": "Metric250ms"
+    }
+  ]
+}

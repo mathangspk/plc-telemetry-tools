@@ -1,0 +1,105 @@
+{
+  "name": "TraceSecondary",
+  "signals": [
+    {
+      "name": "secondary_currentState",
+      "path": "System/Secondary/CurrentState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_requestedState",
+      "path": "System/Secondary/RequestedState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_availability",
+      "path": "System/Secondary/Availability",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_nodeState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_nodeState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_current",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_current",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_voltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_voltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_temperature",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/Temperature",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_temperature",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/Temperature",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_targetVoltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/TargetVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_targetVoltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/TargetVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_currentRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/CurrentRunState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_currentRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/CurrentRunState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_requestedRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/RequestedRunState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_requestedRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/RequestedRunState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_startDelayTimer_expired",
+      "path": "System/Secondary/StartDelayTimer/Expired",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_diagnosticState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/DiagnosticState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_diagnosticState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/DiagnosticState",
+      "metric": "Metric250ms"
+    }
+  ]
+}

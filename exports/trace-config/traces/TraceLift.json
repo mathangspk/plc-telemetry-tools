@@ -1,0 +1,50 @@
+{
+  "name": "TraceLift",
+  "signals": [
+    {
+      "name": "lift_input",
+      "path": "System/Lift/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchA/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchB/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchC/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchD/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleA_position",
+      "path": "System/CANBusDrive/cWinchAngleA/Position",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleB_position",
+      "path": "System/CANBusDrive/cWinchAngleB/Position",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleC_position",
+      "path": "System/CANBusDrive/cWinchAngleC/Position",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleD_position",
+      "path": "System/CANBusDrive/cWinchAngleD/Position",
+      "metric": "Metric250ms"
+    }
+  ]
+}

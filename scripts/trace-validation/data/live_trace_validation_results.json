@@ -1,0 +1,1178 @@
+{
+  "timestamp": "2026-05-21 14:48:11",
+  "target": "10.2.3.4",
+  "plc_reachable_ro": true,
+  "plc_reachable_rw": true,
+  "hierarchy_exploration": {
+    "CANBusDrive": "connection_failed",
+    "System": "connection_failed",
+    "Lift": "connection_failed",
+    "BMS": "connection_failed",
+    "Steering": "connection_failed",
+    "Travel": "connection_failed",
+    "TMS": "connection_failed",
+    "Charger": "connection_failed",
+    "SecondaryPowerSupply": "connection_failed",
+    "ProgrammedMovementControl": "connection_failed",
+    "SystemState": "connection_failed",
+    "Spreader": {
+      "total_children": 6,
+      "op_children": 6,
+      "nop_children": 0,
+      "sample_children": [
+        "PrimaryPLC.System.Spreader/AB",
+        "PrimaryPLC.System.Spreader/CD",
+        "PrimaryPLC.System.Spreader/TwstALow",
+        "PrimaryPLC.System.Spreader/TwstBLow",
+        "PrimaryPLC.System.Spreader/TwstCLow",
+        "PrimaryPLC.System.Spreader/TwstDLow"
+      ],
+      "identity": "PrimaryPLC.System.Spreader",
+      "type": "Spreader"
+    }
+  },
+  "results": {
+    "describe_success": [
+      {
+        "path": "CANBusDrive/cTransA/Current",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/MotorTemp",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":-40.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattVoltage",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/BattVoltage\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattCurrent",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/BattCurrent\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/CntrlTemp",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/CntrlTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/Velocity",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/Velocity\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/Torque",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/Torque\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/TargetSpeed",
+        "category": "CANOpenDrive-TransA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/TargetSpeed\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/Current",
+        "category": "CANOpenDrive-SteerA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/MotorTemp",
+        "category": "CANOpenDrive-SteerA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":-40.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/Velocity",
+        "category": "CANOpenDrive-SteerA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/Velocity\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/Torque",
+        "category": "CANOpenDrive-SteerA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/Torque\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/TargetSpeed",
+        "category": "CANOpenDrive-SteerA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/TargetSpeed\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleA/Angle",
+        "category": "CANOpenDrive-SteerA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerAngleA/Angle\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":-100.531, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/Current",
+        "category": "CANOpenDrive-WinchA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/MotorTemp",
+        "category": "CANOpenDrive-WinchA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":-40.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/Velocity",
+        "category": "CANOpenDrive-WinchA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/Velocity\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/Torque",
+        "category": "CANOpenDrive-WinchA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/Torque\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/TargetSpeed",
+        "category": "CANOpenDrive-WinchA",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/TargetSpeed\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "System/SystemState",
+        "category": "System-State",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.SystemState\", \"type\":\"SystemState\", \"subsystem\":\"Machine\"}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "Lift/Input",
+        "category": "Lift-Signals",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.Lift/Input\", \"type\":\"ValObjPercentage\", \"subsystem\":\"Machine\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "Travel/Input",
+        "category": "Travel-Signals",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.Travel/Input\", \"type\":\"ValObjPercentage\", \"subsystem\":\"Machine\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattVoltage",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/BattVoltage\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattCurrent",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/BattCurrent\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/CntrlTemp",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/CntrlTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/BattVoltage",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/BattVoltage\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/BattCurrent",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/BattCurrent\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/BattVoltage",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/BattVoltage\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cSteerA/BattCurrent",
+        "category": "Risky-Abbreviations",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/BattCurrent\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cWinchA/TargetSpeed",
+        "category": "Risky-Uncertain",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cWinchA/TargetSpeed\", \"type\":\"ValObjReal\", \"subsystem\":\"WinchA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      },
+      {
+        "path": "CANBusDrive/cTransA/TargetSpeed",
+        "category": "Risky-Uncertain",
+        "response_preview": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/TargetSpeed\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}\n$>\u0000",
+        "parsed": true
+      }
+    ],
+    "describe_failure": [
+      {
+        "path": "CANBusDrive/cTransA/ProposedThrottle",
+        "category": "CANOpenDrive-TransA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cTransA/BatteryPower",
+        "category": "CANOpenDrive-TransA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cTransA/NodeState",
+        "category": "CANOpenDrive-TransA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cTransA/HeartbeatCounter",
+        "category": "CANOpenDrive-TransA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSteerA/Diagnostic",
+        "category": "CANOpenDrive-SteerA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSteerA/Stalled",
+        "category": "CANOpenDrive-SteerA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cWinchA/ProposedThrottle",
+        "category": "CANOpenDrive-WinchA",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSpreader/TelescopingActive",
+        "category": "CANOpenDrive-Spreader",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSpreader/TwistlocksEnabled",
+        "category": "CANOpenDrive-Spreader",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSpreader/HydraulicPressure",
+        "category": "CANOpenDrive-Spreader",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSpreader/HydraulicTemperature",
+        "category": "CANOpenDrive-Spreader",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSpreader/BrakeDisengaged",
+        "category": "CANOpenDrive-Spreader",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSpreader/PumpMotorTemperature",
+        "category": "CANOpenDrive-Spreader",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "System/ChargingEnabled",
+        "category": "System-State",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "System/AllowDownTrace",
+        "category": "System-State",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "System/AllowUpTrace",
+        "category": "System-State",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/SOC",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/Current",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/VoltageA",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/VoltageB",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/Availability",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/CurrentState",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/RequestedState",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "BMS/RestartCount",
+        "category": "BMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Lift/ScalingA",
+        "category": "Lift-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Lift/Diagnostic",
+        "category": "Lift-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Lift/ThrottleValue",
+        "category": "Lift-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Steering/Input",
+        "category": "Steering-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Steering/TargetAngle",
+        "category": "Steering-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Steering/AdjustState",
+        "category": "Steering-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Steering/SteerModeDiagnostic",
+        "category": "Steering-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Travel/Diagnostic",
+        "category": "Travel-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Travel/ThrottleValue",
+        "category": "Travel-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Travel/ScalingA",
+        "category": "Travel-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "TMS/RequestedState",
+        "category": "TMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "TMS/CurrentState",
+        "category": "TMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "TMS/CoolantReservoir",
+        "category": "TMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "TMS/CurrentCoolantTemperature",
+        "category": "TMS-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Charger/ChargerDiagnostic",
+        "category": "Charger-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Charger/ChargingCurrentTarget",
+        "category": "Charger-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Charger/ChargingVoltageTarget",
+        "category": "Charger-Signals",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "SecondaryPowerSupply/CurrentState",
+        "category": "SecondaryPowerSupply",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "SecondaryPowerSupply/RequestedState",
+        "category": "SecondaryPowerSupply",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "SecondaryPowerSupply/Availability",
+        "category": "SecondaryPowerSupply",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "ProgrammedMovementControl/Movement/Code",
+        "category": "ProgrammedMovement",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "ProgrammedMovementControl/Movement/Active",
+        "category": "ProgrammedMovement",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "ProgrammedMovementControl/Movement/State",
+        "category": "ProgrammedMovement",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "ProgrammedMovementControl/Requested",
+        "category": "ProgrammedMovement",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Travel/MovementD/LDiagnostic",
+        "category": "Risky-Typo",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "Travel/MovementD/Diagnostic",
+        "category": "Risky-Typo",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cWinchA/ProposedThrottle",
+        "category": "Risky-Uncertain",
+        "response": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cTransA/ProposedThrottle",
+        "category": "Risky-Uncertain",
+        "response": "unknown_name\n$>\u0000"
+      }
+    ],
+    "metric_register_success": [],
+    "metric_register_failure": [
+      {
+        "path": "CANBusDrive/cTransA/MotorTemp",
+        "interval": "Metric5s",
+        "detail": "$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cTransA/Current",
+        "interval": "Metric250ms",
+        "detail": "$>\u0000"
+      },
+      {
+        "path": "CANBusDrive/cSteerA/MotorTemp",
+        "interval": "Metric5s",
+        "detail": "$>\u0000"
+      },
+      {
+        "path": "BMS/SOC",
+        "interval": "Metric1s",
+        "detail": "unknown_name\n$>\u0000"
+      },
+      {
+        "path": "TMS/CurrentCoolantTemperature",
+        "interval": "Metric1m",
+        "detail": "unkn_name_par\n$>\u0000"
+      }
+    ],
+    "emit_success": [
+      {
+        "port": 49890,
+        "data_preview": "\ntimestep <161713> state <preparing>\n{\"identity\":\"PrimaryPLC.System.Metric250ms\", \"type\":\"ParticleRepEvent\", \"subsystem\":\"Machine\", \"Override\":0, \"Suppress\":0, \"style\":\"event\", \n\"members\": [\n{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"ove"
+      }
+    ],
+    "emit_failure": [],
+    "inferred_from_pattern": [
+      {
+        "path": "CANBusDrive/cTransB/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransB/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransC/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cTransD/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerB/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerC/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerD/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchB/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchC/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchD/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleB/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleC/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cWinchAngleD/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleB/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleC/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/Current",
+        "based_on": "CANBusDrive/cTransA/Current",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/MotorTemp",
+        "based_on": "CANBusDrive/cTransA/MotorTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/BattVoltage",
+        "based_on": "CANBusDrive/cTransA/BattVoltage",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/BattCurrent",
+        "based_on": "CANBusDrive/cTransA/BattCurrent",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/CntrlTemp",
+        "based_on": "CANBusDrive/cTransA/CntrlTemp",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/Velocity",
+        "based_on": "CANBusDrive/cTransA/Velocity",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/Torque",
+        "based_on": "CANBusDrive/cTransA/Torque",
+        "confidence": "high"
+      },
+      {
+        "path": "CANBusDrive/cSteerAngleD/TargetSpeed",
+        "based_on": "CANBusDrive/cTransA/TargetSpeed",
+        "confidence": "high"
+      }
+    ],
+    "not_tested": [],
+    "naming_corrections": [
+      {
+        "path": "CANBusDrive/cTransA/BattVoltage",
+        "correction": "BattVoltage (not BatteryVoltage)"
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattCurrent",
+        "correction": "BattCurrent (not BatteryCurrent)"
+      },
+      {
+        "path": "CANBusDrive/cTransA/CntrlTemp",
+        "correction": "CntrlTemp (not ControllerTemperature)"
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattVoltage",
+        "correction": "BattVoltage (not BatteryVoltage)"
+      },
+      {
+        "path": "CANBusDrive/cTransA/BattCurrent",
+        "correction": "BattCurrent (not BatteryCurrent)"
+      },
+      {
+        "path": "CANBusDrive/cTransA/CntrlTemp",
+        "correction": "CntrlTemp (not ControllerTemperature)"
+      },
+      {
+        "path": "CANBusDrive/cWinchA/BattVoltage",
+        "correction": "BattVoltage (not BatteryVoltage)"
+      },
+      {
+        "path": "CANBusDrive/cWinchA/BattCurrent",
+        "correction": "BattCurrent (not BatteryCurrent)"
+      },
+      {
+        "path": "CANBusDrive/cSteerA/BattVoltage",
+        "correction": "BattVoltage (not BatteryVoltage)"
+      },
+      {
+        "path": "CANBusDrive/cSteerA/BattCurrent",
+        "correction": "BattCurrent (not BatteryCurrent)"
+      }
+    ],
+    "errors": []
+  },
+  "summary": {
+    "describe_success": 31,
+    "describe_failure": 52,
+    "metric_register_success": 0,
+    "metric_register_failure": 5,
+    "emit_success": 1,
+    "emit_failure": 0,
+    "inferred_from_pattern": 120,
+    "not_tested": 0,
+    "naming_corrections": 3
+  }
+}

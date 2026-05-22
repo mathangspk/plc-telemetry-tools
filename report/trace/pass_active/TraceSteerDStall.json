@@ -1,0 +1,30 @@
+{
+  "name": "TraceSteerDStall",
+  "signals": [
+    {
+      "name": "steer_input",
+      "path": "System/Steer/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngle",
+      "path": "System/Steer/TargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleD_angle",
+      "path": "System/CANBusDrive/cSteerAngleD/Angle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerD/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_motorTemp",
+      "path": "System/CANBusDrive/cSteerD/MotorTemp",
+      "metric": "Metric250ms"
+    }
+  ]
+}

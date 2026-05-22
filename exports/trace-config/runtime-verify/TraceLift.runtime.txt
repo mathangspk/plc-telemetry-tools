@@ -1,0 +1,9 @@
+﻿System/Lift/Input
+System/CANBusDrive/cWinchA/ProposedThrottle
+System/CANBusDrive/cWinchB/ProposedThrottle
+System/CANBusDrive/cWinchC/ProposedThrottle
+System/CANBusDrive/cWinchD/ProposedThrottle
+System/CANBusDrive/cWinchAngleA/Position
+System/CANBusDrive/cWinchAngleB/Position
+System/CANBusDrive/cWinchAngleC/Position
+System/CANBusDrive/cWinchAngleD/Position

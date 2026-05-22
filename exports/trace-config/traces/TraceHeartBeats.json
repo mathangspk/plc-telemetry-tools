@@ -1,0 +1,110 @@
+{
+  "name": "TraceHeartBeats",
+  "signals": [
+    {
+      "name": "spreader_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSpreader/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleA/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleB/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleC/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleD/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleA/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleB/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleC/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleD/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransA/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransB/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransC/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransD/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchA/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchB/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchC/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchD/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerA/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerB/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerC/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerD/HeartbeatCounter/",
+      "metric": "Metric250ms"
+    }
+  ]
+}

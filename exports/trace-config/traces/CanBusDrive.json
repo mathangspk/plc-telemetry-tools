@@ -1,0 +1,110 @@
+{
+  "name": "CanBusDrive",
+  "signals": [
+    {
+      "name": "transA_nodeState",
+      "path": "System/CANBusDrive/cTransA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_nodeState",
+      "path": "System/CANBusDrive/cTransB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_nodeState",
+      "path": "System/CANBusDrive/cTransC/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_nodeState",
+      "path": "System/CANBusDrive/cTransD/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_nodeState",
+      "path": "System/CANBusDrive/cSteerA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_nodeState",
+      "path": "System/CANBusDrive/cSteerB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_nodeState",
+      "path": "System/CANBusDrive/cSteerC/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_nodeState",
+      "path": "System/CANBusDrive/cSteerD/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_nodeState",
+      "path": "System/CANBusDrive/cWinchA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_nodeState",
+      "path": "System/CANBusDrive/cWinchB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_nodeState",
+      "path": "System/CANBusDrive/cWinchC/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_nodeState",
+      "path": "System/CANBusDrive/cWinchD/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleA_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleB_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleC_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleC/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleD_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleD/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleA_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleB_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleC_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleC/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleD_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleD/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_nodeState",
+      "path": "System/CANBusDrive/cSpreader/NodeState",
+      "metric": "Metric250ms"
+    }
+  ]
+}

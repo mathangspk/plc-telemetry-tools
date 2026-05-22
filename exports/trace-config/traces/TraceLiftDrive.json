@@ -1,0 +1,210 @@
+{
+  "name": "TraceLiftDrive",
+  "signals": [
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchA/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchB/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchC/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchD/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_current",
+      "path": "System/CANBusDrive/cWinchA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_current",
+      "path": "System/CANBusDrive/cWinchB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_current",
+      "path": "System/CANBusDrive/cWinchC/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_current",
+      "path": "System/CANBusDrive/cWinchD/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_velocity",
+      "path": "System/CANBusDrive/cWinchA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_velocity",
+      "path": "System/CANBusDrive/cWinchB/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_velocity",
+      "path": "System/CANBusDrive/cWinchC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_velocity",
+      "path": "System/CANBusDrive/cWinchD/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchA/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchB/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchC/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchD/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_motorTemp",
+      "path": "System/CANBusDrive/cWinchA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_motorTemp",
+      "path": "System/CANBusDrive/cWinchB/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_motorTemp",
+      "path": "System/CANBusDrive/cWinchC/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_motorTemp",
+      "path": "System/CANBusDrive/cWinchD/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_torque",
+      "path": "System/CANBusDrive/cWinchA/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_torque",
+      "path": "System/CANBusDrive/cWinchB/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_torque",
+      "path": "System/CANBusDrive/cWinchC/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_torque",
+      "path": "System/CANBusDrive/cWinchD/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_battCurrent",
+      "path": "System/CANBusDrive/cWinchA/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_battCurrent",
+      "path": "System/CANBusDrive/cWinchB/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_battCurrent",
+      "path": "System/CANBusDrive/cWinchC/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_battCurrent",
+      "path": "System/CANBusDrive/cWinchD/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_battVoltage",
+      "path": "System/CANBusDrive/cWinchA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_battVoltage",
+      "path": "System/CANBusDrive/cWinchB/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_battVoltage",
+      "path": "System/CANBusDrive/cWinchC/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_battVoltage",
+      "path": "System/CANBusDrive/cWinchD/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_battPower",
+      "path": "System/CANBusDrive/cWinchA/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_battPower",
+      "path": "System/CANBusDrive/cWinchB/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_battPower",
+      "path": "System/CANBusDrive/cWinchC/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_battPower",
+      "path": "System/CANBusDrive/cWinchD/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchA/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchB/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchC/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchD/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    }
+  ]
+}

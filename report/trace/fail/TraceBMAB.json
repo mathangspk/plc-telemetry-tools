@@ -1,0 +1,150 @@
+{
+  "name": "TraceBMAB",
+  "signals": [
+    {
+      "name": "bMSAB_sOCRecoveryTimer_expired",
+      "path": "System/BMSAB/SOCRecoveryTimer/Expired",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSA_nodeState",
+      "path": "System/CANBusSystem/BMSA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSB_nodeState",
+      "path": "System/CANBusSystem/BMSB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_requestedState",
+      "path": "System/BMSAB/RequestedState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentState",
+      "path": "System/BMSAB/CurrentState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_enableBMS",
+      "path": "System/BMSAB/EnableBMS",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_switchingStateTimer_expired",
+      "path": "System/BMSAB/SwitchingStateTimer/Expired",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSA_currentBMSState",
+      "path": "System/CANBusSystem/BMSA/CurrentBMSState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSA_requestedBMSState",
+      "path": "System/CANBusSystem/BMSA/RequestedBMSState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_targetStateA",
+      "path": "System/BMSAB/TargetStateA",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSB_currentBMSState",
+      "path": "System/CANBusSystem/BMSB/CurrentBMSState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSB_requestedBMSState",
+      "path": "System/CANBusSystem/BMSB/RequestedBMSState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_targetStateB",
+      "path": "System/BMSAB/TargetStateB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_sOCA",
+      "path": "System/BMSAB/SOCA",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_sOCB",
+      "path": "System/BMSAB/SOCB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_sOCInbalance",
+      "path": "System/BMSAB/SOCInbalance",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltageA",
+      "path": "System/BMSAB/VoltageA",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltageB",
+      "path": "System/BMSAB/VoltageB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltageInbalance",
+      "path": "System/BMSAB/VoltageInbalance",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_alarmBMSSOCMismatch_active",
+      "path": "System/BMSAB/AlarmBMSSOCMismatch/Active",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentA",
+      "path": "System/BMSAB/CurrentA",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentB",
+      "path": "System/BMSAB/CurrentB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentInbalance",
+      "path": "System/BMSAB/CurrentInbalance",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSA_packFaultCode",
+      "path": "System/CANBusSystem/BMSA/PackFaultCode",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSB_packFaultCode",
+      "path": "System/CANBusSystem/BMSB/PackFaultCode",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSA_packFaultNumber",
+      "path": "System/CANBusSystem/BMSA/PackFaultNumber",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSB_packFaultNumber",
+      "path": "System/CANBusSystem/BMSB/PackFaultNumber",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_controllerBMSA_requestDisconnect",
+      "path": "System/BMSAB/ControllerBMSA/RequestDisconnect",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_controllerBMSB_requestDisconnect",
+      "path": "System/BMSAB/ControllerBMSB/RequestDisconnect",
+      "metric": "Metric250ms"
+    }
+  ]
+}

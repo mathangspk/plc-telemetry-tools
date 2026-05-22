@@ -1,0 +1,15 @@
+{
+  "name": "TraceProgrammedMovement",
+  "signals": [
+    {
+      "name": "steer_targetAngle",
+      "path": "System/Steer/TargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_throttle",
+      "path": "System/Travel/Throttle",
+      "metric": "Metric250ms"
+    }
+  ]
+}

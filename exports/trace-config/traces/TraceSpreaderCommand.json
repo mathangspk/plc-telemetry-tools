@@ -1,0 +1,75 @@
+{
+  "name": "TraceSpreaderCommand",
+  "signals": [
+    {
+      "name": "spreader_telscpActive",
+      "path": "System/CANBusDrive/cSpreader/TelscpActive",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpEnbl",
+      "path": "System/CANBusDrive/cSpreader/TelscpEnbl",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpAuto",
+      "path": "System/CANBusDrive/cSpreader/TelscpAuto",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpEnbl",
+      "path": "System/CANBusDrive/cSpreader/TelscpEnbl",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpAutoExt",
+      "path": "System/CANBusDrive/cSpreader/TelscpAutoExt",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpExtend",
+      "path": "System/CANBusDrive/cSpreader/TelscpExtend",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpAutoRet",
+      "path": "System/CANBusDrive/cSpreader/TelscpAutoRet",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_telscpRetract",
+      "path": "System/CANBusDrive/cSpreader/TelscpRetract",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstLock",
+      "path": "System/CANBusDrive/cSpreader/TwstLock",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstUnlock",
+      "path": "System/CANBusDrive/cSpreader/TwstUnlock",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_brakeDisengage",
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_brakeDisengage",
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_hydPressure",
+      "path": "System/CANBusDrive/cSpreader/HydPressure",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_hydTemp",
+      "path": "System/CANBusDrive/cSpreader/HydTemp",
+      "metric": "Metric250ms"
+    }
+  ]
+}

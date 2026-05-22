@@ -1,0 +1,12 @@
+Signal Path,Time Sample (ms)
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksEnabled.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksActive.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockACurrentState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockBCurrentState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockCCurrentState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockDCurrentState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlocksCurrentState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockALoweredState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockBLoweredState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockCLoweredState.lValue,20
+gSystem.lCANOpenMasterDrive.lSpreader.lTwistlockDLoweredState.lValue,20

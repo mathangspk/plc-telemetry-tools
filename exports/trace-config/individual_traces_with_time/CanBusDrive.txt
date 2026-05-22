@@ -1,0 +1,22 @@
+Signal Path,Time Sample (ms)
+gSystem.lCANOpenMasterDrive.lTransA.lNodeState,20
+gSystem.lCANOpenMasterDrive.lTransB.lNodeState,20
+gSystem.lCANOpenMasterDrive.lTransC.lNodeState,20
+gSystem.lCANOpenMasterDrive.lTransD.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerA.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerB.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerC.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerD.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchA.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchB.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchC.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchD.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchAngleA.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchAngleB.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchAngleC.lNodeState,20
+gSystem.lCANOpenMasterDrive.lWinchAngleD.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerAngleA.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerAngleB.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerAngleC.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSteerAngleD.lNodeState,20
+gSystem.lCANOpenMasterDrive.lSpreader.lNodeState,20

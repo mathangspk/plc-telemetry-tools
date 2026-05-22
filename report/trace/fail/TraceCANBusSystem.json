@@ -1,0 +1,35 @@
+{
+  "name": "TraceCANBusSystem",
+  "signals": [
+    {
+      "name": "bMSA_nodeState",
+      "path": "System/CANBusSystem/BMSA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSB_nodeState",
+      "path": "System/CANBusSystem/BMSB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondaryPowerSupplyA_nodeState",
+      "path": "System/CANBusSystem/SecondaryPowerSupplyA/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "secondaryPowerSupplyB_nodeState",
+      "path": "System/CANBusSystem/SecondaryPowerSupplyB/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "uInterfaceCabin_nodeState",
+      "path": "System/CANBusSystem/UInterfaceCabin/NodeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_nodeState",
+      "path": "System/CANBusSystem/ChargerA/NodeState",
+      "metric": "Metric250ms"
+    }
+  ]
+}

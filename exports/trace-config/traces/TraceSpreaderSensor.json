@@ -1,0 +1,60 @@
+{
+  "name": "TraceSpreaderSensor",
+  "signals": [
+    {
+      "name": "spreader_twstEnbl",
+      "path": "System/CANBusDrive/cSpreader/TwstEnbl",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstActive",
+      "path": "System/CANBusDrive/cSpreader/TwstActive",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstAStt",
+      "path": "System/CANBusDrive/cSpreader/TwstAStt",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstBStt",
+      "path": "System/CANBusDrive/cSpreader/TwstBStt",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstCStt",
+      "path": "System/CANBusDrive/cSpreader/TwstCStt",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstDStt",
+      "path": "System/CANBusDrive/cSpreader/TwstDStt",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstStt",
+      "path": "System/CANBusDrive/cSpreader/TwstStt",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstALow",
+      "path": "System/CANBusDrive/cSpreader/TwstALow",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstBLow",
+      "path": "System/CANBusDrive/cSpreader/TwstBLow",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstCLow",
+      "path": "System/CANBusDrive/cSpreader/TwstCLow",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_twstDLow",
+      "path": "System/CANBusDrive/cSpreader/TwstDLow",
+      "metric": "Metric250ms"
+    }
+  ]
+}

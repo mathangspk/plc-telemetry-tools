@@ -1,0 +1,135 @@
+{
+  "name": "TraceProgrammedMovement",
+  "signals": [
+    {
+      "name": "progMovCntrl_movement_code",
+      "path": "System/ProgMovCntrl/Movement/Code",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_progMovDiagnostic",
+      "path": "System/ProgMovCntrl/Movement/ProgMovDiagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_requested",
+      "path": "System/ProgMovCntrl/Requested",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_enabled",
+      "path": "System/ProgMovCntrl/Movement/Enabled",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_diagnostic",
+      "path": "System/ProgMovCntrl/Movement/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_active",
+      "path": "System/ProgMovCntrl/Movement/Active",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_timeStep",
+      "path": "System/ProgMovCntrl/Movement/TimeStep",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_state",
+      "path": "System/ProgMovCntrl/Movement/State",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_input",
+      "path": "System/ProgMovCntrl/Movement/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_moving",
+      "path": "System/ProgMovCntrl/Movement/Moving",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_success",
+      "path": "System/ProgMovCntrl/Movement/Success",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "progMovCntrl_movement_throttleValue",
+      "path": "System/ProgMovCntrl/Movement/ThrottleValue",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelA_diagnostic",
+      "path": "System/Steer/WheelA/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_diagnostic",
+      "path": "System/Steer/WheelB/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelC_diagnostic",
+      "path": "System/Steer/WheelC/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelD_diagnostic",
+      "path": "System/Steer/WheelD/Diagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_enableInputSecondary",
+      "path": "System/Travel/EnableInputSecondary",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "travel_inputSecondary",
+      "path": "System/Travel/InputSecondary",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_modeChange",
+      "path": "System/Steer/ModeChange",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_adjustState",
+      "path": "System/Steer/AdjustState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngleIncrementDerived",
+      "path": "System/Steer/TargetAngleIncrementDerived",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngleIncrementDerivedPost",
+      "path": "System/Steer/TargetAngleIncrementDerivedPost",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelA_throttleValue",
+      "path": "System/Steer/WheelA/ThrottleValue",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelB_throttleValue",
+      "path": "System/Steer/WheelB/ThrottleValue",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelC_throttleValue",
+      "path": "System/Steer/WheelC/ThrottleValue",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_wheelD_throttleValue",
+      "path": "System/Steer/WheelD/ThrottleValue",
+      "metric": "Metric250ms"
+    }
+  ]
+}

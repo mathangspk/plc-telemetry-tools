@@ -1,0 +1,15 @@
+{
+  "name": "TraceSecondary",
+  "signals": [
+    {
+      "name": "systemState_state",
+      "path": "System/SystemState/State",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    }
+  ]
+}

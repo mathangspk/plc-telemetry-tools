@@ -1,0 +1,130 @@
+{
+  "name": "TraceCharging",
+  "signals": [
+    {
+      "name": "bMSAB_requestedState",
+      "path": "System/BMSAB/RequestedState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentState",
+      "path": "System/BMSAB/CurrentState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_targetStateA",
+      "path": "System/BMSAB/TargetStateA",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_targetStateB",
+      "path": "System/BMSAB/TargetStateB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_requestedBMSChargeState",
+      "path": "System/BMSAB/RequestedBMSChargeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_currentBMSChargeState",
+      "path": "System/BMSAB/CurrentBMSChargeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_chargerDiagnostic",
+      "path": "System/ChargerABC/ChargerDiagnostic",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_currentBMSChargeState",
+      "path": "System/ChargerABC/CurrentBMSChargeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_requestedBMSChargeState",
+      "path": "System/ChargerABC/RequestedBMSChargeState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_requestedOBCState",
+      "path": "System/ChargerABC/RequestedOBCState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_currentOBCState",
+      "path": "System/ChargerABC/CurrentOBCState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_chargingCurrentTarget",
+      "path": "System/ChargerABC/ChargingCurrentTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_chargingCurrentTarget",
+      "path": "System/BMSAB/ChargingCurrentTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_controllerBMSA_packChargingCurrentTarget",
+      "path": "System/BMSAB/ControllerBMSA/PackChargingCurrentTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_controllerBMSB_packChargingCurrentTarget",
+      "path": "System/BMSAB/ControllerBMSB/PackChargingCurrentTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerABC_chargingVoltageTarget",
+      "path": "System/ChargerABC/ChargingVoltageTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_controllerBMSA_packChargingVoltageTarget",
+      "path": "System/BMSAB/ControllerBMSA/PackChargingVoltageTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_controllerBMSB_packChargingVoltageTarget",
+      "path": "System/BMSAB/ControllerBMSB/PackChargingVoltageTarget",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_oBCStatus",
+      "path": "System/CANBusSystem/ChargerA/OBCStatus",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_oBCStatusDerived",
+      "path": "System/CANBusSystem/ChargerA/OBCStatusDerived",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_requestedOBCState",
+      "path": "System/CANBusSystem/ChargerA/RequestedOBCState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_statusCC",
+      "path": "System/CANBusSystem/ChargerA/StatusCC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_statusCP",
+      "path": "System/CANBusSystem/ChargerA/StatusCP",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_stopCharging",
+      "path": "System/CANBusSystem/ChargerA/StopCharging",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "chargerA_nodeState",
+      "path": "System/CANBusSystem/ChargerA/NodeState",
+      "metric": "Metric250ms"
+    }
+  ]
+}

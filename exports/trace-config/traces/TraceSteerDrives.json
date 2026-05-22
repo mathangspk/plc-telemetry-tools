@@ -1,0 +1,210 @@
+{
+  "name": "TraceSteerDrives",
+  "signals": [
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerA/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerB/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerC/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerD/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_current",
+      "path": "System/CANBusDrive/cSteerA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_current",
+      "path": "System/CANBusDrive/cSteerB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_current",
+      "path": "System/CANBusDrive/cSteerC/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_current",
+      "path": "System/CANBusDrive/cSteerD/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_velocity",
+      "path": "System/CANBusDrive/cSteerA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_velocity",
+      "path": "System/CANBusDrive/cSteerB/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_velocity",
+      "path": "System/CANBusDrive/cSteerC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_velocity",
+      "path": "System/CANBusDrive/cSteerD/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerA/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerB/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerC/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerD/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_motorTemp",
+      "path": "System/CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_motorTemp",
+      "path": "System/CANBusDrive/cSteerB/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_motorTemp",
+      "path": "System/CANBusDrive/cSteerC/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_motorTemp",
+      "path": "System/CANBusDrive/cSteerD/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_torque",
+      "path": "System/CANBusDrive/cSteerA/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_torque",
+      "path": "System/CANBusDrive/cSteerB/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_torque",
+      "path": "System/CANBusDrive/cSteerC/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_torque",
+      "path": "System/CANBusDrive/cSteerD/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_battCurrent",
+      "path": "System/CANBusDrive/cSteerA/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_battCurrent",
+      "path": "System/CANBusDrive/cSteerB/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_battCurrent",
+      "path": "System/CANBusDrive/cSteerC/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_battCurrent",
+      "path": "System/CANBusDrive/cSteerD/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_battVoltage",
+      "path": "System/CANBusDrive/cSteerA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_battVoltage",
+      "path": "System/CANBusDrive/cSteerB/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_battVoltage",
+      "path": "System/CANBusDrive/cSteerC/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_battVoltage",
+      "path": "System/CANBusDrive/cSteerD/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_battPower",
+      "path": "System/CANBusDrive/cSteerA/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_battPower",
+      "path": "System/CANBusDrive/cSteerB/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_battPower",
+      "path": "System/CANBusDrive/cSteerC/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_battPower",
+      "path": "System/CANBusDrive/cSteerD/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerA/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerB/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerC/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerD/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    }
+  ]
+}

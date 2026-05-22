@@ -1,0 +1,135 @@
+{
+  "name": "TraccDriveTemperatures",
+  "signals": [
+    {
+      "name": "transA_motorTemp",
+      "path": "System/CANBusDrive/cTransA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_motorTemp",
+      "path": "System/CANBusDrive/cTransB/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_motorTemp",
+      "path": "System/CANBusDrive/cTransC/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_motorTemp",
+      "path": "System/CANBusDrive/cTransD/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_cntrlTemp",
+      "path": "System/CANBusDrive/cTransA/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transB_cntrlTemp",
+      "path": "System/CANBusDrive/cTransB/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transC_cntrlTemp",
+      "path": "System/CANBusDrive/cTransC/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transD_cntrlTemp",
+      "path": "System/CANBusDrive/cTransD/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_motorTemp",
+      "path": "System/CANBusDrive/cWinchA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_motorTemp",
+      "path": "System/CANBusDrive/cWinchB/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_motorTemp",
+      "path": "System/CANBusDrive/cWinchC/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_motorTemp",
+      "path": "System/CANBusDrive/cWinchD/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchA/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchB_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchB/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchC_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchC/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchD_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchD/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_motorTemp",
+      "path": "System/CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_motorTemp",
+      "path": "System/CANBusDrive/cSteerB/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_motorTemp",
+      "path": "System/CANBusDrive/cSteerC/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_motorTemp",
+      "path": "System/CANBusDrive/cSteerD/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerA/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerB/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerC/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerD/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_pmpMotTemp",
+      "path": "System/CANBusDrive/cSpreader/PmpMotTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "spreader_pmpCntrlTemp",
+      "path": "System/CANBusDrive/cSpreader/PmpCntrlTemp",
+      "metric": "Metric250ms"
+    }
+  ]
+}

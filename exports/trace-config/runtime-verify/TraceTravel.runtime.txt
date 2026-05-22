@@ -1,0 +1,15 @@
+﻿System/Travel/Input
+System/Travel/EnableInputSecondary
+System/Travel/InputSecondary
+System/Travel/InputPresentSecondary
+System/Travel/InputResolved
+System/Steer/TargetAngle
+System/Travel/InputScaling
+System/CANBusDrive/cTransA/ProposedThrottle
+System/CANBusDrive/cTransB/ProposedThrottle
+System/CANBusDrive/cTransC/ProposedThrottle
+System/CANBusDrive/cTransD/ProposedThrottle
+System/Travel/mMovementA/Input
+System/Travel/mMovementB/Input
+System/Travel/mMovementC/Input
+System/Travel/mMovementD/Input

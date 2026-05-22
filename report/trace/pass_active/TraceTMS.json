@@ -1,0 +1,50 @@
+{
+  "name": "TraceTMS",
+  "signals": [
+    {
+      "name": "systemState_state",
+      "path": "System/SystemState/State",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_availability",
+      "path": "System/BMSAB/Availability",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_reqState",
+      "path": "System/TMS/ReqState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_currState",
+      "path": "System/TMS/CurrState",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntReservoir",
+      "path": "System/TMS/ClntReservoir",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntChilling",
+      "path": "System/TMS/ClntChilling",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntHeating",
+      "path": "System/TMS/ClntHeating",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_pump",
+      "path": "System/TMS/Pump",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntTemp",
+      "path": "System/TMS/ClntTemp",
+      "metric": "Metric250ms"
+    }
+  ]
+}

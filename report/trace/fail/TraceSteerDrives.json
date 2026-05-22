@@ -1,0 +1,45 @@
+{
+  "name": "TraceSteerDrives",
+  "signals": [
+    {
+      "name": "steerA_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerA/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerB/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerC/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerD/ProposedThrottle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerA_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerA/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerB_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerB/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerC/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerD_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerD/TargetSpeed/Output",
+      "metric": "Metric250ms"
+    }
+  ]
+}

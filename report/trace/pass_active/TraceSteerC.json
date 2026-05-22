@@ -1,0 +1,55 @@
+{
+  "name": "TraceSteerC",
+  "signals": [
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_current",
+      "path": "System/CANBusDrive/cSteerC/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_input",
+      "path": "System/Steer/Input",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steer_targetAngle",
+      "path": "System/Steer/TargetAngle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerAngleC_angle",
+      "path": "System/CANBusDrive/cSteerAngleC/Angle",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_targetSpeed",
+      "path": "System/CANBusDrive/cSteerC/TargetSpeed",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_velocity",
+      "path": "System/CANBusDrive/cSteerC/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_torque",
+      "path": "System/CANBusDrive/cSteerC/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_cntrlTemp",
+      "path": "System/CANBusDrive/cSteerC/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "steerC_motorTemp",
+      "path": "System/CANBusDrive/cSteerC/MotorTemp",
+      "metric": "Metric250ms"
+    }
+  ]
+}

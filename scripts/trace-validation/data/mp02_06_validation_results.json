@@ -1,0 +1,423 @@
+{
+  "timestamp": "2026-05-20 16:57:47",
+  "target": "10.2.3.4:49880",
+  "results": [
+    {
+      "path": "CANBusDrive/cTransA/Speed",
+      "label": "transA Speed",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "CANBusDrive/cTransA/RPM",
+      "label": "transA RPM",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "CANBusDrive/cTransA/Torque",
+      "label": "transA Torque",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/Torque\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransA/Torque",
+        "type": "ValObjReal",
+        "subsystem": "TravelA",
+        "override": 0,
+        "value": 0.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransA/Current",
+      "label": "transA Current",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransA/Current",
+        "type": "ValObjReal",
+        "subsystem": "TravelA",
+        "override": 0,
+        "value": 0.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransA/MotorTemp",
+      "label": "transA MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":38.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransA/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "TravelA",
+        "override": 0,
+        "value": 38.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "label": "transA BattVoltage",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/BattVoltage\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":130.56, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransA/BattVoltage",
+        "type": "ValObjReal",
+        "subsystem": "TravelA",
+        "override": 0,
+        "value": 130.56,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransA/BattCurrent",
+      "label": "transA BattCurrent",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/BattCurrent\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":0.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransA/BattCurrent",
+        "type": "ValObjReal",
+        "subsystem": "TravelA",
+        "override": 0,
+        "value": 0.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransA/CntrlTemp",
+      "label": "transA CntrlTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransA/CntrlTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelA\", \"override\":0, \"value\":36.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransA/CntrlTemp",
+        "type": "ValObjReal",
+        "subsystem": "TravelA",
+        "override": 0,
+        "value": 36.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "System/BMSAB/SOC",
+      "label": "BMSAB SOC",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.BMSAB/SOC\", \"type\":\"ValRefPercentage\", \"subsystem\":\"Machine\", \"value\":1.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.BMSAB/SOC",
+        "type": "ValRefPercentage",
+        "subsystem": "Machine",
+        "value": 1.0
+      }
+    },
+    {
+      "path": "System/BMSAB/PackSOH",
+      "label": "BMSAB PackSOH",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/BMSAB/PackTotalDischargeEnergy",
+      "label": "BMSAB PackTotalDischargeEnergy",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/BMSAB/PackTotalChargeEnergy",
+      "label": "BMSAB PackTotalChargeEnergy",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/BMSAB/PackMaxTemperature",
+      "label": "BMSAB PackMaxTemperature",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/BMSAB/PackMinTemperature",
+      "label": "BMSAB PackMinTemperature",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/BMSAB/PackFaultCode",
+      "label": "BMSAB PackFaultCode",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/BMSAB/Current",
+      "label": "BMSAB Current",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.BMSAB/Current\", \"type\":\"ValRefReal\", \"subsystem\":\"Machine\", \"value\":1.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.BMSAB/Current",
+        "type": "ValRefReal",
+        "subsystem": "Machine",
+        "value": 1.0
+      }
+    },
+    {
+      "path": "System/BMSAB/Voltage",
+      "label": "BMSAB Voltage",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.BMSAB/Voltage\", \"type\":\"ValRefReal\", \"subsystem\":\"Machine\", \"value\":1.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.BMSAB/Voltage",
+        "type": "ValRefReal",
+        "subsystem": "Machine",
+        "value": 1.0
+      }
+    },
+    {
+      "path": "System/Travel",
+      "label": "Travel parent",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.Travel\", \"type\":\"mTravelQuad\", \"subsystem\":\"Machine\"}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.Travel",
+        "type": "mTravelQuad",
+        "subsystem": "Machine"
+      }
+    },
+    {
+      "path": "System/Travel/Speed",
+      "label": "Travel Speed",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/Travel/Velocity",
+      "label": "Travel Velocity",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/Travel/Distance",
+      "label": "Travel Distance",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/Travel/Status",
+      "label": "Travel Status",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/Travel/State",
+      "label": "Travel State",
+      "success": false,
+      "response": "unknown_name",
+      "parsed": null
+    },
+    {
+      "path": "System/OperatingMode",
+      "label": "OperatingMode",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.OperatingMode\", \"type\":\"OperatingMode\", \"subsystem\":\"Machine\"}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.OperatingMode",
+        "type": "OperatingMode",
+        "subsystem": "Machine"
+      }
+    },
+    {
+      "path": "System/iSteerAPos",
+      "label": "SteerA Pos",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.iSteerAPos\", \"type\":\"iwScaled\", \"subsystem\":\"SteerA\"}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.iSteerAPos",
+        "type": "iwScaled",
+        "subsystem": "SteerA"
+      }
+    },
+    {
+      "path": "System/iSteerBPos",
+      "label": "SteerB Pos",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.iSteerBPos\", \"type\":\"iwScaled\", \"subsystem\":\"SteerB\"}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.iSteerBPos",
+        "type": "iwScaled",
+        "subsystem": "SteerB"
+      }
+    },
+    {
+      "path": "System/iSteerCPos",
+      "label": "SteerC Pos",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.iSteerCPos\", \"type\":\"iwScaled\", \"subsystem\":\"SteerC\"}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.iSteerCPos",
+        "type": "iwScaled",
+        "subsystem": "SteerC"
+      }
+    },
+    {
+      "path": "System/iSteerDPos",
+      "label": "SteerD Pos",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.iSteerDPos\", \"type\":\"iwScaled\", \"subsystem\":\"SteerD\"}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.iSteerDPos",
+        "type": "iwScaled",
+        "subsystem": "SteerD"
+      }
+    },
+    {
+      "path": "CANBusDrive/cSteerA/MotorTemp",
+      "label": "SteerA MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerA/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerA\", \"override\":0, \"value\":38.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cSteerA/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "SteerA",
+        "override": 0,
+        "value": 38.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cSteerB/MotorTemp",
+      "label": "SteerB MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerB/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerB\", \"override\":0, \"value\":38.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cSteerB/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "SteerB",
+        "override": 0,
+        "value": 38.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cSteerC/MotorTemp",
+      "label": "SteerC MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerC/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerC\", \"override\":0, \"value\":47.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cSteerC/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "SteerC",
+        "override": 0,
+        "value": 47.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cSteerD/MotorTemp",
+      "label": "SteerD MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cSteerD/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"SteerD\", \"override\":0, \"value\":39.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cSteerD/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "SteerD",
+        "override": 0,
+        "value": 39.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransB/Current",
+      "label": "TransB Current",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransB/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelB\", \"override\":0, \"value\":0.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransB/Current",
+        "type": "ValObjReal",
+        "subsystem": "TravelB",
+        "override": 0,
+        "value": 0.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransC/Current",
+      "label": "TransC Current",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransC/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelC\", \"override\":0, \"value\":0.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransC/Current",
+        "type": "ValObjReal",
+        "subsystem": "TravelC",
+        "override": 0,
+        "value": 0.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransD/Current",
+      "label": "TransD Current",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransD/Current\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelD\", \"override\":0, \"value\":0.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransD/Current",
+        "type": "ValObjReal",
+        "subsystem": "TravelD",
+        "override": 0,
+        "value": 0.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransB/MotorTemp",
+      "label": "TransB MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransB/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelB\", \"override\":0, \"value\":39.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransB/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "TravelB",
+        "override": 0,
+        "value": 39.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransC/MotorTemp",
+      "label": "TransC MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransC/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelC\", \"override\":0, \"value\":38.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransC/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "TravelC",
+        "override": 0,
+        "value": 38.0,
+        "override_value": 0.0
+      }
+    },
+    {
+      "path": "CANBusDrive/cTransD/MotorTemp",
+      "label": "TransD MotorTemp",
+      "success": true,
+      "response": "{\"identity\":\"PrimaryPLC.System.CANBusDrive/cTransD/MotorTemp\", \"type\":\"ValObjReal\", \"subsystem\":\"TravelD\", \"override\":0, \"value\":36.0, \"override_value\":0.0}",
+      "parsed": {
+        "identity": "PrimaryPLC.System.CANBusDrive/cTransD/MotorTemp",
+        "type": "ValObjReal",
+        "subsystem": "TravelD",
+        "override": 0,
+        "value": 36.0,
+        "override_value": 0.0
+      }
+    }
+  ]
+}

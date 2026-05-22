@@ -1,0 +1,15 @@
+﻿System/Travel/Input
+System/CANBusDrive/cTransA/ProposedThrottle
+System/CANBusDrive/cTransB/ProposedThrottle
+System/CANBusDrive/cTransC/ProposedThrottle
+System/CANBusDrive/cTransD/ProposedThrottle
+System/CANBusDrive/cSpreader/BrakeDisengage
+System/CANBusDrive/cSpreader/BrakeDisengage
+System/CANBusDrive/cTransA/Enable
+System/CANBusDrive/cTransB/Enable
+System/CANBusDrive/cTransC/Enable
+System/CANBusDrive/cTransD/Enable
+System/CANBusDrive/cTransA/FreeWheel
+System/CANBusDrive/cTransB/FreeWheel
+System/CANBusDrive/cTransC/FreeWheel
+System/CANBusDrive/cTransD/FreeWheel

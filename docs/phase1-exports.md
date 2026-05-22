@@ -56,7 +56,7 @@ Copy all exported `.xml` files into `exports/v<N>/xml/`.
 ### Step 4: Generate MANIFEST.json
 
 ```bash
-python scripts/generate_manifest.py exports/v<N> \
+python scripts/pipeline/generate_manifest.py exports/v<N> \
   --project-name "apollo-3cs-0.004bf - eolus- v5" \
   --project-version "1.0.0.0"
 ```
@@ -194,7 +194,7 @@ The indexer also updates:
 ### From the project root
 
 ```bash
-python scripts/index_xml.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
 ```
 
 ### Options
@@ -209,7 +209,7 @@ python scripts/index_xml.py exports/v1
 After creating a new export (e.g., `v2`), run:
 
 ```bash
-python scripts/index_xml.py exports/v2
+python scripts/pipeline/index_xml.py exports/v2
 ```
 
 This will generate `POU_INDEX.json` and `PROJECT_MAP.md` in the export directory and update the manifest/index files.
@@ -292,7 +292,7 @@ A new **Interface Variable Categories** summary table is added to the top-level 
 No changes to the command-line interface. Run as before:
 
 ```bash
-python scripts/index_xml.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
 ```
 
 ## v1 Interface Summary
@@ -390,7 +390,7 @@ The builder also updates:
 ### From the project root
 
 ```bash
-python scripts/build_xref.py exports/v1
+python scripts/pipeline/build_xref.py exports/v1
 ```
 
 ### Prerequisites
@@ -398,8 +398,8 @@ python scripts/build_xref.py exports/v1
 Phase 3 requires `POU_INDEX.json` to exist in the export directory. Run the Phase 2 indexer first:
 
 ```bash
-python scripts/index_xml.py exports/v1
-python scripts/build_xref.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
+python scripts/pipeline/build_xref.py exports/v1
 ```
 
 ### Options
@@ -546,7 +546,7 @@ The analyzer also updates:
 ### From the project root
 
 ```bash
-python scripts/analyze_graph.py exports/v1
+python scripts/pipeline/analyze_graph.py exports/v1
 ```
 
 ### Prerequisites
@@ -555,9 +555,9 @@ Phase 3.5 requires `XREF.json` to exist in the export directory. Run the full
 pipeline in order:
 
 ```bash
-python scripts/index_xml.py exports/v1
-python scripts/build_xref.py exports/v1
-python scripts/analyze_graph.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
+python scripts/pipeline/build_xref.py exports/v1
+python scripts/pipeline/analyze_graph.py exports/v1
 ```
 
 ### Options
@@ -756,7 +756,7 @@ The extractor also updates:
 ### From the project root
 
 ```bash
-python scripts/extract_impl_deps.py exports/v1
+python scripts/pipeline/extract_impl_deps.py exports/v1
 ```
 
 ### Prerequisites
@@ -766,10 +766,10 @@ benefits from `XREF.json` (to distinguish interface-only vs impl-only types).
 Run the full pipeline in order:
 
 ```bash
-python scripts/index_xml.py exports/v1
-python scripts/build_xref.py exports/v1
-python scripts/analyze_graph.py exports/v1
-python scripts/extract_impl_deps.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
+python scripts/pipeline/build_xref.py exports/v1
+python scripts/pipeline/analyze_graph.py exports/v1
+python scripts/pipeline/extract_impl_deps.py exports/v1
 ```
 
 ### Options
@@ -1016,7 +1016,7 @@ Every edge in the unified graph carries a `provenance` field:
 ### From the project root
 
 ```bash
-python scripts/unify_deps.py exports/v1
+python scripts/pipeline/unify_deps.py exports/v1
 ```
 
 ### Prerequisites
@@ -1026,10 +1026,10 @@ Phase 4.5 requires `XREF.json` (Phase 3), `IMPL_DEPS.json` (Phase 4), and
 pipeline in order:
 
 ```bash
-python scripts/index_xml.py exports/v1
-python scripts/build_xref.py exports/v1
-python scripts/extract_impl_deps.py exports/v1
-python scripts/unify_deps.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
+python scripts/pipeline/build_xref.py exports/v1
+python scripts/pipeline/extract_impl_deps.py exports/v1
+python scripts/pipeline/unify_deps.py exports/v1
 ```
 
 ### Options
@@ -1191,7 +1191,7 @@ The cleaner also updates:
 ### From the project root
 
 ```bash
-python scripts/clean_graph.py exports/v1
+python scripts/pipeline/clean_graph.py exports/v1
 ```
 
 ### Prerequisites
@@ -1200,11 +1200,11 @@ Phase 5 requires `UNIFIED_DEPS.json` (Phase 4.5) and `POU_INDEX.json` (Phase 2)
 to exist in the export directory. Run the full pipeline in order:
 
 ```bash
-python scripts/index_xml.py exports/v1
-python scripts/build_xref.py exports/v1
-python scripts/extract_impl_deps.py exports/v1
-python scripts/unify_deps.py exports/v1
-python scripts/clean_graph.py exports/v1
+python scripts/pipeline/index_xml.py exports/v1
+python scripts/pipeline/build_xref.py exports/v1
+python scripts/pipeline/extract_impl_deps.py exports/v1
+python scripts/pipeline/unify_deps.py exports/v1
+python scripts/pipeline/clean_graph.py exports/v1
 ```
 
 ### Options
