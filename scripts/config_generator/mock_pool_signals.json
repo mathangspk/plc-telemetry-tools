@@ -1,0 +1,27 @@
+{
+  "metrics": [
+    "Metric50ms", "Metric100ms", "Metric250ms", "Metric500ms"
+  ],
+  "signals": [
+    {
+      "name": "transA_current",
+      "path": "CANBusDrive/cTransA/Current"
+    },
+    {
+      "name": "transA_motorTemp",
+      "path": "CANBusDrive/cTransA/MotorTemp"
+    },
+    {
+      "name": "transB_current",
+      "path": "CANBusDrive/cTransB/Current"
+    },
+    {
+      "name": "batteryA_voltage",
+      "path": "System/BatteryA/Voltage"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current"
+    }
+  ]
+}

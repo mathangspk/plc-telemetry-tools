@@ -386,6 +386,12 @@ ReportableChannelManagerBuild (project)
      - Expand telemetry trace configs to include missing steer currents/temperatures and hoist currents/temperatures.
      - Move unmapped/N/A derived metrics (like cumulative energy integration and State of Health) to the edge data processor or Grafana dashboard instead of executing on the PLC.
 
+### Phase 15 — Desktop Config Generator UI (2026-05-24)
+120. ✅ **Desktop Application**: Created a PyQt6 desktop application (`scripts/config_generator/config_app.py`) to visually build trace JSON configs using a hierarchical tree structure (Trace -> Group -> Signal).
+121. ✅ **Dynamic Filtering**: Implemented `data_loader.py` to parse an aggregated `pool_signals.json` file and dynamically filter signal comboboxes based on the user's selected Group (e.g. `transA`).
+122. ✅ **JSON Export**: Implemented `exporter.py` to extract the tree UI state and generate perfectly formatted JSON configurations compliant with `report/trace/pass_active/` schema.
+123. ✅ **Validation**: Wrote `mock_pool_signals.json` to locally validate the PyQt6 application structure before actual integration with the final generated pool dataset.
+
 ---
 
 ## 8. Next Steps / TODO
