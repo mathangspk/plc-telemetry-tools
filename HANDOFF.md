@@ -915,3 +915,13 @@ report/trace/test_results/
 123. ✅ **Basecode Metrics Discovery**: Analyzed the CODESYS project XML and confirmed the exact 8 telemetry metrics declared and initialized in the PLC basecode: `Metric0ms`, `Metric250ms`, `Metric500ms`, `Metric1s`, `Metric5s`, `Metric1m`, `Metric1h`, and `Metric1d`.
 124. ✅ **Active Signals Consolidation**: Compiled all 188 unique verified active signals from trace files and measuring profiles into a single JSON file [active_signals.json](file:///c:/local/opencode/codesys/exports/pool_signals/active_signals.json) under `exports/pool_signals/`, matching the user's requested template structure.
 
+---
+
+### Phase 15 — CODESYS Basecode Battery Management System (BMS) Telemetry Signals Audit (2026-05-24)
+
+**Goal:** Conduct a comprehensive audit of the CODESYS basecode to discover, document, and map all available battery management telemetry signals for physical battery packs `BMSA` and `BMSB`, along with aggregate system alarms and metrics under `BMSAB`.
+
+1. **Basecode Audit**: Audited [POU.export](file:///c:/local/opencode/codesys/exported-src/POU.export) (lines 3656-3879 and 3892-4115) and extracted the exact 29 IEC 61131-3 parameters passed to `lBMSA.initializeBMS`, `lBMSB.initializeBMS`, and their corresponding `Peripheral` blocks.
+2. **Telemetry Mapping**: Mapped all individual pack parameters (Voltage, Current, State of Charge, State of Health, cell average/max/min temperatures, charging voltage/current targets, fault numbers/codes, gateway status registers) to their confirmed live telemetry paths under `System/CANBusSystem/cBMSA/` and `System/CANBusSystem/cBMSB/`.
+3. **Aggregate Layer Mapping**: Documented the virtual aggregator node `System/BMSAB/` and identified 33 separate telemetry signals, including voltage/current/SOC/temperature mismatch alarms (`BMSSOCMismatch`, `BMSVoltMismatch`, `BMSCurrMismatch`, `TMSMismatch`), communication safety trips, and current cutback indicators.
+4. **Permanent Documentation**: Compiled and saved the complete mapping registry as [BMS_Monitoring_Signals_Audit.md](file:///c:/local/opencode/codesys/docs/BMS_Monitoring_Signals_Audit.md) in the workspace `docs/` folder, complete with technical descriptions and recommended telemetry metrics.
