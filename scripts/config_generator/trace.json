@@ -1,0 +1,30 @@
+{
+  "name": "trace",
+  "signals": [
+    {
+      "name": "transA_battCurrent",
+      "path": "System/CANBusDrive/cTransA/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_battCurrent",
+      "path": "System/CANBusDrive/cTransA/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltageA",
+      "path": "System/BMSAB/VoltageA",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltageB",
+      "path": "System/BMSAB/VoltageB",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "motor_temp_steerA",
+      "path": "CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric1s"
+    }
+  ]
+}

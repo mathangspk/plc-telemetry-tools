@@ -948,3 +948,9 @@ report/trace/test_results/
 4. **Git Integration**:
    - Staged all changes, committed (`feat: Standardized JSON profiles, integrated BMSA/BMSB to MP-03, and compiled signal pool`), and successfully pushed to remote Git `master` branch.
 
+### Phase 17 — Global Project Rules Documentation (2026-05-24)
+
+**Goal:** Ensure the project rules regarding handoff file updates and git sync are documented as an agent instruction.
+
+1. ✅ **Project Rules Enforcement**: Created `agent.md` documenting the mandatory handoff and git sync project rules.
+2. ✅ **Git Integration**: Staged changes, updated `HANDOFF.md`, committed (`feat: Add agent.md to document global project rules`), and pushed to remote Git `master` branch.
