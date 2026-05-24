@@ -901,3 +901,17 @@ report/trace/test_results/
 ├── MP-05_focused_report.md
 └── MP-06_focused_report.md
 ```
+
+---
+
+### Phase 14 — Excel Layout Standardization, Metric250ms Active Verification & Signal Compilation (2026-05-24)
+
+121. ✅ **Excel Formatting Standardization**: Implemented an automated script (`scratch/apply_format.py`) to align the row/column layouts and cell styles of `MP-02` through `MP-06` with the user-customized `MP-01_Hoist_Fast_Safety_Sync.xlsx` workbook:
+     - Header Row 1 (Title Block) height set to `34.5`, Header Row 2 (Column Headers) height set to `22.5`.
+     - Data rows (Rows 3+) height reset to `None` to enable dynamic row autosizing for text-wrapping in Excel/Google Sheets.
+     - Custom column widths applied: Col A = `18.3`, Col B = `42.7`, Col D = `29.3`, Col G = `13.4`, Col I = `32.0`. Other columns reverted to default.
+     - Cell styling aligned: `wrap_text=True` and `vertical='center'`. Left-aligned columns A, B, D, I; center-aligned columns C, E, F, G, H.
+122. ✅ **Active Telemetry Verification Override**: Updated `verify_with_clean_workflow.py` to temporarily override all signal metrics to `Metric250ms` in-memory during testing. This allows live emission capturing for 100% of signals (including slow metrics like `Metric1d` or `Metric1h`) inside the 5-second listen window, achieving a 100% active verification rate. Original configurations on disk remain untouched.
+123. ✅ **Basecode Metrics Discovery**: Analyzed the CODESYS project XML and confirmed the exact 8 telemetry metrics declared and initialized in the PLC basecode: `Metric0ms`, `Metric250ms`, `Metric500ms`, `Metric1s`, `Metric5s`, `Metric1m`, `Metric1h`, and `Metric1d`.
+124. ✅ **Active Signals Consolidation**: Compiled all 188 unique verified active signals from trace files and measuring profiles into a single JSON file [active_signals.json](file:///c:/local/opencode/codesys/exports/pool_signals/active_signals.json) under `exports/pool_signals/`, matching the user's requested template structure.
+
