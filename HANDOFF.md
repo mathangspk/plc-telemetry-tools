@@ -391,6 +391,7 @@ ReportableChannelManagerBuild (project)
 121. ✅ **Dynamic Filtering**: Implemented `data_loader.py` to parse an aggregated `pool_signals.json` file and dynamically filter signal comboboxes based on the user's selected Group (e.g. `transA`).
 122. ✅ **JSON Export**: Implemented `exporter.py` to extract the tree UI state and generate perfectly formatted JSON configurations compliant with `report/trace/pass_active/` schema.
 123. ✅ **Validation**: Wrote `mock_pool_signals.json` to locally validate the PyQt6 application structure before actual integration with the final generated pool dataset.
+124. ✅ **Integration**: Updated `config_app.py` to use the official `active_signals.json` from `C:\local\opencode\codesys\exports\pool_signals\` as the default data source.
 
 ---
 

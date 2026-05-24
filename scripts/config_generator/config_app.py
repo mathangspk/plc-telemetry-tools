@@ -115,8 +115,8 @@ class ConfigApp(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     
-    # Load default data from mock file, user will replace it later
-    data_file = "pool_signals.json"
+    # Load data from the exported active_signals.json
+    data_file = r"C:\local\opencode\codesys\exports\pool_signals\active_signals.json"
     if not os.path.exists(data_file):
         data_file = "mock_pool_signals.json"
         
