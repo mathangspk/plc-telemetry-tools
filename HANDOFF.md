@@ -925,3 +925,24 @@ report/trace/test_results/
 2. **Telemetry Mapping**: Mapped all individual pack parameters (Voltage, Current, State of Charge, State of Health, cell average/max/min temperatures, charging voltage/current targets, fault numbers/codes, gateway status registers) to their confirmed live telemetry paths under `System/CANBusSystem/cBMSA/` and `System/CANBusSystem/cBMSB/`.
 3. **Aggregate Layer Mapping**: Documented the virtual aggregator node `System/BMSAB/` and identified 33 separate telemetry signals, including voltage/current/SOC/temperature mismatch alarms (`BMSSOCMismatch`, `BMSVoltMismatch`, `BMSCurrMismatch`, `TMSMismatch`), communication safety trips, and current cutback indicators.
 4. **Permanent Documentation**: Compiled and saved the complete mapping registry as [BMS_Monitoring_Signals_Audit.md](file:///c:/local/opencode/codesys/docs/BMS_Monitoring_Signals_Audit.md) in the workspace `docs/` folder, complete with technical descriptions and recommended telemetry metrics.
+
+---
+
+### Phase 16 — Measuring Profile JSON Standardization, BMS Telemetry Upgrades, and Consolidated Signal Pool Compilation (2026-05-24)
+
+**Goal:** Standardize all measuring profile JSON configurations into the compact trace JSON format, integrate newly audited BMSA and BMSB battery pack telemetry channels into the MP-03 profile, and compile a consolidated active telemetry signal pool by combining signals from all 29 trace configurations and 6 measuring profiles.
+
+1. **Excel Battery Profile Extension (`MP-03`)**:
+   - Modified `MP-03.xlsx` and `MP-03_Battery_Medium_Consumption.xlsx` in both directories.
+   - Updated existing rows (SOH, cumulative energy discharged/regen, maximum/minimum cell temperatures, and fault codes) to their verified basecode paths (`System/CANBusSystem/cBMSA/...`) and marked them as `present`.
+   - Inserted 8 new battery pack telemetry rows (`bmsa_voltage`, `bmsa_current`, `bmsa_soc`, `bmsa_temp_max` and corresponding `bmsb` parameters) right before the `ambient_temp` row. Cell styling, borders, alignments, and wrapping were copied perfectly using `openpyxl`.
+2. **JSON Format Standardization**:
+   - Overwrote all 6 measuring profile JSON files in `exports/measuring-profiles/` (`MP-NN-verified-signals.json`) and `report/measuring-profile/` (`MP-NN_Descriptive_Name.json`) to use the exact compact trace JSON format, removing redundant metadata fields (evidence, sample value, etc.) and keeping only `"name"` and `"signals"` containing `"name"`, `"path"`, and `"metric"`.
+   - Updated `MP-03` JSON files to include the 14 active, validated signals (SOH, energy totals, max/min temps, fault codes, plus the 8 new physical pack signals).
+3. **Consolidated Signal Pool Compilation**:
+   - Implemented a python compiler script `scratch/compile_signal_pool.py`.
+   - Scanned all 29 trace JSON files in `exports/trace-config/traces/` and all 6 measuring profile JSON files in `exports/measuring-profiles/`.
+   - Extracted, deduplicated, sorted, and saved a total of **554 unique active signals** inside the consolidated pool [active_signals.json](file:///c:/local/opencode/codesys/exports/pool_signals/active_signals.json).
+4. **Git Integration**:
+   - Staged all changes, committed (`feat: Standardized JSON profiles, integrated BMSA/BMSB to MP-03, and compiled signal pool`), and successfully pushed to remote Git `master` branch.
+

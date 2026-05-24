@@ -11,16 +11,80 @@
   ],
   "signals": [
     {
+      "name": "bMSAB_alarmBMSSOCMismatch_active",
+      "path": "System/BMSAB/AlarmBMSSOCMismatch/Active"
+    },
+    {
       "name": "bMSAB_availability",
       "path": "System/BMSAB/Availability"
+    },
+    {
+      "name": "bMSAB_chargingCurrentTarget",
+      "path": "System/BMSAB/ChargingCurrentTarget"
+    },
+    {
+      "name": "bMSAB_controllerBMSA_packChargingCurrentTarget",
+      "path": "System/BMSAB/ControllerBMSA/PackChargingCurrentTarget"
+    },
+    {
+      "name": "bMSAB_controllerBMSA_packChargingVoltageTarget",
+      "path": "System/BMSAB/ControllerBMSA/PackChargingVoltageTarget"
+    },
+    {
+      "name": "bMSAB_controllerBMSA_requestDisconnect",
+      "path": "System/BMSAB/ControllerBMSA/RequestDisconnect"
+    },
+    {
+      "name": "bMSAB_controllerBMSB_packChargingCurrentTarget",
+      "path": "System/BMSAB/ControllerBMSB/PackChargingCurrentTarget"
+    },
+    {
+      "name": "bMSAB_controllerBMSB_packChargingVoltageTarget",
+      "path": "System/BMSAB/ControllerBMSB/PackChargingVoltageTarget"
+    },
+    {
+      "name": "bMSAB_controllerBMSB_requestDisconnect",
+      "path": "System/BMSAB/ControllerBMSB/RequestDisconnect"
     },
     {
       "name": "bMSAB_current",
       "path": "System/BMSAB/Current"
     },
     {
+      "name": "bMSAB_currentA",
+      "path": "System/BMSAB/CurrentA"
+    },
+    {
+      "name": "bMSAB_currentB",
+      "path": "System/BMSAB/CurrentB"
+    },
+    {
+      "name": "bMSAB_currentBMSChargeState",
+      "path": "System/BMSAB/CurrentBMSChargeState"
+    },
+    {
+      "name": "bMSAB_currentInbalance",
+      "path": "System/BMSAB/CurrentInbalance"
+    },
+    {
       "name": "bMSAB_currentMismatch",
       "path": "System/BMSAB/CurrentMismatch"
+    },
+    {
+      "name": "bMSAB_currentState",
+      "path": "System/BMSAB/CurrentState"
+    },
+    {
+      "name": "bMSAB_enableBMS",
+      "path": "System/BMSAB/EnableBMS"
+    },
+    {
+      "name": "bMSAB_requestedBMSChargeState",
+      "path": "System/BMSAB/RequestedBMSChargeState"
+    },
+    {
+      "name": "bMSAB_requestedState",
+      "path": "System/BMSAB/RequestedState"
     },
     {
       "name": "bMSAB_restartCount",
@@ -31,12 +95,140 @@
       "path": "System/BMSAB/SOC"
     },
     {
+      "name": "bMSAB_sOCA",
+      "path": "System/BMSAB/SOCA"
+    },
+    {
+      "name": "bMSAB_sOCB",
+      "path": "System/BMSAB/SOCB"
+    },
+    {
+      "name": "bMSAB_sOCInbalance",
+      "path": "System/BMSAB/SOCInbalance"
+    },
+    {
       "name": "bMSAB_sOCMismatch",
       "path": "System/BMSAB/SOCMismatch"
     },
     {
+      "name": "bMSAB_sOCRecoveryTimer_expired",
+      "path": "System/BMSAB/SOCRecoveryTimer/Expired"
+    },
+    {
+      "name": "bMSAB_switchingStateTimer_expired",
+      "path": "System/BMSAB/SwitchingStateTimer/Expired"
+    },
+    {
+      "name": "bMSAB_targetStateA",
+      "path": "System/BMSAB/TargetStateA"
+    },
+    {
+      "name": "bMSAB_targetStateB",
+      "path": "System/BMSAB/TargetStateB"
+    },
+    {
+      "name": "bMSAB_voltageA",
+      "path": "System/BMSAB/VoltageA"
+    },
+    {
+      "name": "bMSAB_voltageB",
+      "path": "System/BMSAB/VoltageB"
+    },
+    {
+      "name": "bMSAB_voltageInbalance",
+      "path": "System/BMSAB/VoltageInbalance"
+    },
+    {
       "name": "bMSAB_voltageMismatch",
       "path": "System/BMSAB/VoltageMismatch"
+    },
+    {
+      "name": "bMSA_currentBMSState",
+      "path": "System/CANBusSystem/BMSA/CurrentBMSState"
+    },
+    {
+      "name": "bMSA_nodeState",
+      "path": "System/CANBusSystem/BMSA/NodeState"
+    },
+    {
+      "name": "bMSA_packAverageTemperature",
+      "path": "System/CANBusSystem/BMSA/PackAverageTemperature"
+    },
+    {
+      "name": "bMSA_packFaultCode",
+      "path": "System/CANBusSystem/BMSA/PackFaultCode"
+    },
+    {
+      "name": "bMSA_packFaultNumber",
+      "path": "System/CANBusSystem/BMSA/PackFaultNumber"
+    },
+    {
+      "name": "bMSA_packMaxTemperature",
+      "path": "System/CANBusSystem/BMSA/PackMaxTemperature"
+    },
+    {
+      "name": "bMSA_packMinTemperature",
+      "path": "System/CANBusSystem/BMSA/PackMinTemperature"
+    },
+    {
+      "name": "bMSA_requestedBMSState",
+      "path": "System/CANBusSystem/BMSA/RequestedBMSState"
+    },
+    {
+      "name": "bMSB_currentBMSState",
+      "path": "System/CANBusSystem/BMSB/CurrentBMSState"
+    },
+    {
+      "name": "bMSB_nodeState",
+      "path": "System/CANBusSystem/BMSB/NodeState"
+    },
+    {
+      "name": "bMSB_packAverageTemperature",
+      "path": "System/CANBusSystem/BMSB/PackAverageTemperature"
+    },
+    {
+      "name": "bMSB_packFaultCode",
+      "path": "System/CANBusSystem/BMSB/PackFaultCode"
+    },
+    {
+      "name": "bMSB_packFaultNumber",
+      "path": "System/CANBusSystem/BMSB/PackFaultNumber"
+    },
+    {
+      "name": "bMSB_packMaxTemperature",
+      "path": "System/CANBusSystem/BMSB/PackMaxTemperature"
+    },
+    {
+      "name": "bMSB_packMinTemperature",
+      "path": "System/CANBusSystem/BMSB/PackMinTemperature"
+    },
+    {
+      "name": "bMSB_requestedBMSState",
+      "path": "System/CANBusSystem/BMSB/RequestedBMSState"
+    },
+    {
+      "name": "bat_energy_discharged_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlDschrgEnergy"
+    },
+    {
+      "name": "bat_energy_regen_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlChrgEnergy"
+    },
+    {
+      "name": "bat_fault_code",
+      "path": "System/CANBusSystem/cBMSA/FaultCode"
+    },
+    {
+      "name": "bat_soh_pct",
+      "path": "System/CANBusSystem/cBMSA/SOH"
+    },
+    {
+      "name": "bat_temp_max",
+      "path": "System/CANBusSystem/cBMSA/MaxTemp"
+    },
+    {
+      "name": "bat_temp_min",
+      "path": "System/CANBusSystem/cBMSA/MinTemp"
     },
     {
       "name": "batt_voltage_travelA",
@@ -57,6 +249,94 @@
     {
       "name": "bms_voltage",
       "path": "System/BMSAB/Voltage"
+    },
+    {
+      "name": "bmsa_current",
+      "path": "System/CANBusSystem/cBMSA/Current"
+    },
+    {
+      "name": "bmsa_soc",
+      "path": "System/CANBusSystem/cBMSA/SOC"
+    },
+    {
+      "name": "bmsa_temp_max",
+      "path": "System/CANBusSystem/cBMSA/MaxTemp"
+    },
+    {
+      "name": "bmsa_voltage",
+      "path": "System/CANBusSystem/cBMSA/Voltage"
+    },
+    {
+      "name": "bmsb_current",
+      "path": "System/CANBusSystem/cBMSB/Current"
+    },
+    {
+      "name": "bmsb_soc",
+      "path": "System/CANBusSystem/cBMSB/SOC"
+    },
+    {
+      "name": "bmsb_temp_max",
+      "path": "System/CANBusSystem/cBMSB/MaxTemp"
+    },
+    {
+      "name": "bmsb_voltage",
+      "path": "System/CANBusSystem/cBMSB/Voltage"
+    },
+    {
+      "name": "chargerABC_chargerDiagnostic",
+      "path": "System/ChargerABC/ChargerDiagnostic"
+    },
+    {
+      "name": "chargerABC_chargingCurrentTarget",
+      "path": "System/ChargerABC/ChargingCurrentTarget"
+    },
+    {
+      "name": "chargerABC_chargingVoltageTarget",
+      "path": "System/ChargerABC/ChargingVoltageTarget"
+    },
+    {
+      "name": "chargerABC_currentBMSChargeState",
+      "path": "System/ChargerABC/CurrentBMSChargeState"
+    },
+    {
+      "name": "chargerABC_currentOBCState",
+      "path": "System/ChargerABC/CurrentOBCState"
+    },
+    {
+      "name": "chargerABC_requestedBMSChargeState",
+      "path": "System/ChargerABC/RequestedBMSChargeState"
+    },
+    {
+      "name": "chargerABC_requestedOBCState",
+      "path": "System/ChargerABC/RequestedOBCState"
+    },
+    {
+      "name": "chargerA_nodeState",
+      "path": "System/CANBusSystem/ChargerA/NodeState"
+    },
+    {
+      "name": "chargerA_oBCStatus",
+      "path": "System/CANBusSystem/ChargerA/OBCStatus"
+    },
+    {
+      "name": "chargerA_oBCStatusDerived",
+      "path": "System/CANBusSystem/ChargerA/OBCStatusDerived"
+    },
+    {
+      "name": "chargerA_requestedOBCState",
+      "path": "System/CANBusSystem/ChargerA/RequestedOBCState"
+    },
+    {
+      "name": "chargerA_statusCC",
+      "path": "System/CANBusSystem/ChargerA/StatusCC"
+    },
+    {
+      "name": "chargerA_statusCP",
+      "path": "System/CANBusSystem/ChargerA/StatusCP"
+    },
+    {
+      "name": "chargerA_stopCharging",
+      "path": "System/CANBusSystem/ChargerA/StopCharging"
     },
     {
       "name": "cntrl_temp_travelA",
@@ -171,272 +451,1160 @@
       "path": "System/iLiftDPos"
     },
     {
+      "name": "progMovCntrl_movement_active",
+      "path": "System/ProgMovCntrl/Movement/Active"
+    },
+    {
+      "name": "progMovCntrl_movement_code",
+      "path": "System/ProgMovCntrl/Movement/Code"
+    },
+    {
+      "name": "progMovCntrl_movement_diagnostic",
+      "path": "System/ProgMovCntrl/Movement/Diagnostic"
+    },
+    {
+      "name": "progMovCntrl_movement_enabled",
+      "path": "System/ProgMovCntrl/Movement/Enabled"
+    },
+    {
+      "name": "progMovCntrl_movement_input",
+      "path": "System/ProgMovCntrl/Movement/Input"
+    },
+    {
+      "name": "progMovCntrl_movement_moving",
+      "path": "System/ProgMovCntrl/Movement/Moving"
+    },
+    {
+      "name": "progMovCntrl_movement_progMovDiagnostic",
+      "path": "System/ProgMovCntrl/Movement/ProgMovDiagnostic"
+    },
+    {
+      "name": "progMovCntrl_movement_state",
+      "path": "System/ProgMovCntrl/Movement/State"
+    },
+    {
+      "name": "progMovCntrl_movement_success",
+      "path": "System/ProgMovCntrl/Movement/Success"
+    },
+    {
+      "name": "progMovCntrl_movement_throttleValue",
+      "path": "System/ProgMovCntrl/Movement/ThrottleValue"
+    },
+    {
+      "name": "progMovCntrl_movement_timeStep",
+      "path": "System/ProgMovCntrl/Movement/TimeStep"
+    },
+    {
+      "name": "progMovCntrl_requested",
+      "path": "System/ProgMovCntrl/Requested"
+    },
+    {
+      "name": "secondaryPowerSupplyA_nodeState",
+      "path": "System/CANBusSystem/SecondaryPowerSupplyA/NodeState"
+    },
+    {
+      "name": "secondaryPowerSupplyB_nodeState",
+      "path": "System/CANBusSystem/SecondaryPowerSupplyB/NodeState"
+    },
+    {
+      "name": "secondary_availability",
+      "path": "System/Secondary/Availability"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_current",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/Current"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_currentRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/CurrentRunState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_diagnosticState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/DiagnosticState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_nodeState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/NodeState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_requestedRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/RequestedRunState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_targetVoltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/TargetVoltage"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_temperature",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/Temperature"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyA_voltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyA/Voltage"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_current",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/Current"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_currentRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/CurrentRunState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_diagnosticState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/DiagnosticState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_nodeState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/NodeState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_requestedRunState",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/RequestedRunState"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_targetVoltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/TargetVoltage"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_temperature",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/Temperature"
+    },
+    {
+      "name": "secondary_controllerSecondaryPowerSupplyB_voltage",
+      "path": "System/Secondary/ControllerSecondaryPowerSupplyB/Voltage"
+    },
+    {
+      "name": "secondary_currentState",
+      "path": "System/Secondary/CurrentState"
+    },
+    {
+      "name": "secondary_requestedState",
+      "path": "System/Secondary/RequestedState"
+    },
+    {
+      "name": "secondary_startDelayTimer_expired",
+      "path": "System/Secondary/StartDelayTimer/Expired"
+    },
+    {
       "name": "spreader_brakeDisengage",
-      "path": "CANBusDrive/cSpreader/BrakeDisengage"
+      "path": "System/CANBusDrive/cSpreader/BrakeDisengage"
+    },
+    {
+      "name": "spreader_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSpreader/HeartbeatCounter/"
     },
     {
       "name": "spreader_hydPressure",
-      "path": "CANBusDrive/cSpreader/HydPressure"
+      "path": "System/CANBusDrive/cSpreader/HydPressure"
     },
     {
       "name": "spreader_hydTemp",
-      "path": "CANBusDrive/cSpreader/HydTemp"
+      "path": "System/CANBusDrive/cSpreader/HydTemp"
+    },
+    {
+      "name": "spreader_nodeState",
+      "path": "System/CANBusDrive/cSpreader/NodeState"
     },
     {
       "name": "spreader_pmpCntrlTemp",
-      "path": "CANBusDrive/cSpreader/PmpCntrlTemp"
+      "path": "System/CANBusDrive/cSpreader/PmpCntrlTemp"
     },
     {
       "name": "spreader_pmpMotTemp",
-      "path": "CANBusDrive/cSpreader/PmpMotTemp"
+      "path": "System/CANBusDrive/cSpreader/PmpMotTemp"
     },
     {
       "name": "spreader_telscpActive",
-      "path": "CANBusDrive/cSpreader/TelscpActive"
+      "path": "System/CANBusDrive/cSpreader/TelscpActive"
     },
     {
       "name": "spreader_telscpAuto",
-      "path": "CANBusDrive/cSpreader/TelscpAuto"
+      "path": "System/CANBusDrive/cSpreader/TelscpAuto"
     },
     {
       "name": "spreader_telscpAutoExt",
-      "path": "CANBusDrive/cSpreader/TelscpAutoExt"
+      "path": "System/CANBusDrive/cSpreader/TelscpAutoExt"
     },
     {
       "name": "spreader_telscpAutoRet",
-      "path": "CANBusDrive/cSpreader/TelscpAutoRet"
+      "path": "System/CANBusDrive/cSpreader/TelscpAutoRet"
     },
     {
       "name": "spreader_telscpEnbl",
-      "path": "CANBusDrive/cSpreader/TelscpEnbl"
+      "path": "System/CANBusDrive/cSpreader/TelscpEnbl"
     },
     {
       "name": "spreader_telscpExtend",
-      "path": "CANBusDrive/cSpreader/TelscpExtend"
+      "path": "System/CANBusDrive/cSpreader/TelscpExtend"
     },
     {
       "name": "spreader_telscpRetract",
-      "path": "CANBusDrive/cSpreader/TelscpRetract"
+      "path": "System/CANBusDrive/cSpreader/TelscpRetract"
     },
     {
       "name": "spreader_twstALow",
-      "path": "CANBusDrive/cSpreader/TwstALow"
+      "path": "System/CANBusDrive/cSpreader/TwstALow"
     },
     {
       "name": "spreader_twstAStt",
-      "path": "CANBusDrive/cSpreader/TwstAStt"
+      "path": "System/CANBusDrive/cSpreader/TwstAStt"
     },
     {
       "name": "spreader_twstActive",
-      "path": "CANBusDrive/cSpreader/TwstActive"
+      "path": "System/CANBusDrive/cSpreader/TwstActive"
     },
     {
       "name": "spreader_twstBLow",
-      "path": "CANBusDrive/cSpreader/TwstBLow"
+      "path": "System/CANBusDrive/cSpreader/TwstBLow"
     },
     {
       "name": "spreader_twstBStt",
-      "path": "CANBusDrive/cSpreader/TwstBStt"
+      "path": "System/CANBusDrive/cSpreader/TwstBStt"
     },
     {
       "name": "spreader_twstCLow",
-      "path": "CANBusDrive/cSpreader/TwstCLow"
+      "path": "System/CANBusDrive/cSpreader/TwstCLow"
     },
     {
       "name": "spreader_twstCStt",
-      "path": "CANBusDrive/cSpreader/TwstCStt"
+      "path": "System/CANBusDrive/cSpreader/TwstCStt"
     },
     {
       "name": "spreader_twstDLow",
-      "path": "CANBusDrive/cSpreader/TwstDLow"
+      "path": "System/CANBusDrive/cSpreader/TwstDLow"
     },
     {
       "name": "spreader_twstDStt",
-      "path": "CANBusDrive/cSpreader/TwstDStt"
+      "path": "System/CANBusDrive/cSpreader/TwstDStt"
     },
     {
       "name": "spreader_twstEnbl",
-      "path": "CANBusDrive/cSpreader/TwstEnbl"
+      "path": "System/CANBusDrive/cSpreader/TwstEnbl"
     },
     {
       "name": "spreader_twstLock",
-      "path": "CANBusDrive/cSpreader/TwstLock"
+      "path": "System/CANBusDrive/cSpreader/TwstLock"
     },
     {
       "name": "spreader_twstStt",
-      "path": "CANBusDrive/cSpreader/TwstStt"
+      "path": "System/CANBusDrive/cSpreader/TwstStt"
     },
     {
       "name": "spreader_twstUnlock",
-      "path": "CANBusDrive/cSpreader/TwstUnlock"
+      "path": "System/CANBusDrive/cSpreader/TwstUnlock"
     },
     {
       "name": "steerA_battCurrent",
-      "path": "CANBusDrive/cSteerA/BattCurrent"
+      "path": "System/CANBusDrive/cSteerA/BattCurrent"
     },
     {
       "name": "steerA_battPower",
-      "path": "CANBusDrive/cSteerA/BattPower"
+      "path": "System/CANBusDrive/cSteerA/BattPower"
     },
     {
       "name": "steerA_battVoltage",
-      "path": "CANBusDrive/cSteerA/BattVoltage"
+      "path": "System/CANBusDrive/cSteerA/BattVoltage"
     },
     {
       "name": "steerA_cntrlTemp",
-      "path": "CANBusDrive/cSteerA/CntrlTemp"
+      "path": "System/CANBusDrive/cSteerA/CntrlTemp"
     },
     {
       "name": "steerA_current",
-      "path": "CANBusDrive/cSteerA/Current"
+      "path": "System/CANBusDrive/cSteerA/Current"
+    },
+    {
+      "name": "steerA_diagnostic",
+      "path": "System/CANBusDrive/cSteerA/Diagnostic"
+    },
+    {
+      "name": "steerA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerA/HeartbeatCounter/"
     },
     {
       "name": "steerA_motorTemp",
-      "path": "CANBusDrive/cSteerA/MotorTemp"
+      "path": "System/CANBusDrive/cSteerA/MotorTemp"
+    },
+    {
+      "name": "steerA_nodeState",
+      "path": "System/CANBusDrive/cSteerA/NodeState"
+    },
+    {
+      "name": "steerA_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerA/ProposedThrottle"
     },
     {
       "name": "steerA_targetSpeed",
-      "path": "CANBusDrive/cSteerA/TargetSpeed"
+      "path": "System/CANBusDrive/cSteerA/TargetSpeed"
+    },
+    {
+      "name": "steerA_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerA/TargetSpeed/Output"
+    },
+    {
+      "name": "steerA_targetVelocity",
+      "path": "System/CANBusDrive/cSteerA/TargetVelocity"
     },
     {
       "name": "steerA_torque",
-      "path": "CANBusDrive/cSteerA/Torque"
+      "path": "System/CANBusDrive/cSteerA/Torque"
     },
     {
       "name": "steerA_velocity",
-      "path": "CANBusDrive/cSteerA/Velocity"
+      "path": "System/CANBusDrive/cSteerA/Velocity"
     },
     {
       "name": "steerAngleA_angle",
-      "path": "CANBusDrive/cSteerAngleA/Angle"
+      "path": "System/CANBusDrive/cSteerAngleA/Angle"
+    },
+    {
+      "name": "steerAngleA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleA/HeartbeatCounter/"
+    },
+    {
+      "name": "steerAngleA_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleA/NodeState"
     },
     {
       "name": "steerAngleB_angle",
-      "path": "CANBusDrive/cSteerAngleB/Angle"
+      "path": "System/CANBusDrive/cSteerAngleB/Angle"
+    },
+    {
+      "name": "steerAngleB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleB/HeartbeatCounter/"
+    },
+    {
+      "name": "steerAngleB_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleB/NodeState"
     },
     {
       "name": "steerAngleC_angle",
-      "path": "CANBusDrive/cSteerAngleC/Angle"
+      "path": "System/CANBusDrive/cSteerAngleC/Angle"
+    },
+    {
+      "name": "steerAngleC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleC/HeartbeatCounter/"
+    },
+    {
+      "name": "steerAngleC_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleC/NodeState"
     },
     {
       "name": "steerAngleD_angle",
-      "path": "CANBusDrive/cSteerAngleD/Angle"
+      "path": "System/CANBusDrive/cSteerAngleD/Angle"
+    },
+    {
+      "name": "steerAngleD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerAngleD/HeartbeatCounter/"
+    },
+    {
+      "name": "steerAngleD_nodeState",
+      "path": "System/CANBusDrive/cSteerAngleD/NodeState"
     },
     {
       "name": "steerB_battCurrent",
-      "path": "CANBusDrive/cSteerB/BattCurrent"
+      "path": "System/CANBusDrive/cSteerB/BattCurrent"
     },
     {
       "name": "steerB_battPower",
-      "path": "CANBusDrive/cSteerB/BattPower"
+      "path": "System/CANBusDrive/cSteerB/BattPower"
     },
     {
       "name": "steerB_battVoltage",
-      "path": "CANBusDrive/cSteerB/BattVoltage"
+      "path": "System/CANBusDrive/cSteerB/BattVoltage"
     },
     {
       "name": "steerB_cntrlTemp",
-      "path": "CANBusDrive/cSteerB/CntrlTemp"
+      "path": "System/CANBusDrive/cSteerB/CntrlTemp"
     },
     {
       "name": "steerB_current",
-      "path": "CANBusDrive/cSteerB/Current"
+      "path": "System/CANBusDrive/cSteerB/Current"
+    },
+    {
+      "name": "steerB_diagnostic",
+      "path": "System/CANBusDrive/cSteerB/Diagnostic"
+    },
+    {
+      "name": "steerB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerB/HeartbeatCounter/"
     },
     {
       "name": "steerB_motorTemp",
-      "path": "CANBusDrive/cSteerB/MotorTemp"
+      "path": "System/CANBusDrive/cSteerB/MotorTemp"
+    },
+    {
+      "name": "steerB_nodeState",
+      "path": "System/CANBusDrive/cSteerB/NodeState"
+    },
+    {
+      "name": "steerB_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerB/ProposedThrottle"
     },
     {
       "name": "steerB_targetSpeed",
-      "path": "CANBusDrive/cSteerB/TargetSpeed"
+      "path": "System/CANBusDrive/cSteerB/TargetSpeed"
+    },
+    {
+      "name": "steerB_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerB/TargetSpeed/Output"
+    },
+    {
+      "name": "steerB_targetVelocity",
+      "path": "System/CANBusDrive/cSteerB/TargetVelocity"
     },
     {
       "name": "steerB_torque",
-      "path": "CANBusDrive/cSteerB/Torque"
+      "path": "System/CANBusDrive/cSteerB/Torque"
     },
     {
       "name": "steerB_velocity",
-      "path": "CANBusDrive/cSteerB/Velocity"
+      "path": "System/CANBusDrive/cSteerB/Velocity"
     },
     {
       "name": "steerC_battCurrent",
-      "path": "CANBusDrive/cSteerC/BattCurrent"
+      "path": "System/CANBusDrive/cSteerC/BattCurrent"
     },
     {
       "name": "steerC_battPower",
-      "path": "CANBusDrive/cSteerC/BattPower"
+      "path": "System/CANBusDrive/cSteerC/BattPower"
     },
     {
       "name": "steerC_battVoltage",
-      "path": "CANBusDrive/cSteerC/BattVoltage"
+      "path": "System/CANBusDrive/cSteerC/BattVoltage"
     },
     {
       "name": "steerC_cntrlTemp",
-      "path": "CANBusDrive/cSteerC/CntrlTemp"
+      "path": "System/CANBusDrive/cSteerC/CntrlTemp"
     },
     {
       "name": "steerC_current",
-      "path": "CANBusDrive/cSteerC/Current"
+      "path": "System/CANBusDrive/cSteerC/Current"
+    },
+    {
+      "name": "steerC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerC/HeartbeatCounter/"
     },
     {
       "name": "steerC_motorTemp",
-      "path": "CANBusDrive/cSteerC/MotorTemp"
+      "path": "System/CANBusDrive/cSteerC/MotorTemp"
+    },
+    {
+      "name": "steerC_nodeState",
+      "path": "System/CANBusDrive/cSteerC/NodeState"
+    },
+    {
+      "name": "steerC_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerC/ProposedThrottle"
     },
     {
       "name": "steerC_targetSpeed",
-      "path": "CANBusDrive/cSteerC/TargetSpeed"
+      "path": "System/CANBusDrive/cSteerC/TargetSpeed"
+    },
+    {
+      "name": "steerC_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerC/TargetSpeed/Output"
+    },
+    {
+      "name": "steerC_targetVelocity",
+      "path": "System/CANBusDrive/cSteerC/TargetVelocity"
     },
     {
       "name": "steerC_torque",
-      "path": "CANBusDrive/cSteerC/Torque"
+      "path": "System/CANBusDrive/cSteerC/Torque"
     },
     {
       "name": "steerC_velocity",
-      "path": "CANBusDrive/cSteerC/Velocity"
+      "path": "System/CANBusDrive/cSteerC/Velocity"
     },
     {
       "name": "steerD_battCurrent",
-      "path": "CANBusDrive/cSteerD/BattCurrent"
+      "path": "System/CANBusDrive/cSteerD/BattCurrent"
     },
     {
       "name": "steerD_battPower",
-      "path": "CANBusDrive/cSteerD/BattPower"
+      "path": "System/CANBusDrive/cSteerD/BattPower"
     },
     {
       "name": "steerD_battVoltage",
-      "path": "CANBusDrive/cSteerD/BattVoltage"
+      "path": "System/CANBusDrive/cSteerD/BattVoltage"
     },
     {
       "name": "steerD_cntrlTemp",
-      "path": "CANBusDrive/cSteerD/CntrlTemp"
+      "path": "System/CANBusDrive/cSteerD/CntrlTemp"
     },
     {
       "name": "steerD_current",
-      "path": "CANBusDrive/cSteerD/Current"
+      "path": "System/CANBusDrive/cSteerD/Current"
+    },
+    {
+      "name": "steerD_diagnostic",
+      "path": "System/CANBusDrive/cSteerD/Diagnostic"
+    },
+    {
+      "name": "steerD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cSteerD/HeartbeatCounter/"
+    },
+    {
+      "name": "steerD_measuredThrottle",
+      "path": "System/CANBusDrive/cSteerD/MeasuredThrottle"
     },
     {
       "name": "steerD_motorTemp",
-      "path": "CANBusDrive/cSteerD/MotorTemp"
+      "path": "System/CANBusDrive/cSteerD/MotorTemp"
+    },
+    {
+      "name": "steerD_nodeState",
+      "path": "System/CANBusDrive/cSteerD/NodeState"
+    },
+    {
+      "name": "steerD_proposedThrottle",
+      "path": "System/CANBusDrive/cSteerD/ProposedThrottle"
+    },
+    {
+      "name": "steerD_stallIndicator",
+      "path": "System/CANBusDrive/cSteerD/StallIndicator"
+    },
+    {
+      "name": "steerD_stallInput",
+      "path": "System/CANBusDrive/cSteerD/StallInput"
+    },
+    {
+      "name": "steerD_stallState",
+      "path": "System/CANBusDrive/cSteerD/StallState"
+    },
+    {
+      "name": "steerD_stallTimer_expired",
+      "path": "System/CANBusDrive/cSteerD/StallTimer/Expired"
+    },
+    {
+      "name": "steerD_stalled",
+      "path": "System/CANBusDrive/cSteerD/Stalled"
+    },
+    {
+      "name": "steerD_stalledCount",
+      "path": "System/CANBusDrive/cSteerD/StalledCount"
+    },
+    {
+      "name": "steerD_stalledIndicator",
+      "path": "System/CANBusDrive/cSteerD/StalledIndicator"
+    },
+    {
+      "name": "steerD_stationary",
+      "path": "System/CANBusDrive/cSteerD/Stationary"
     },
     {
       "name": "steerD_targetSpeed",
-      "path": "CANBusDrive/cSteerD/TargetSpeed"
+      "path": "System/CANBusDrive/cSteerD/TargetSpeed"
+    },
+    {
+      "name": "steerD_targetSpeed_output",
+      "path": "System/CANBusDrive/cSteerD/TargetSpeed/Output"
+    },
+    {
+      "name": "steerD_targetVelocity",
+      "path": "System/CANBusDrive/cSteerD/TargetVelocity"
     },
     {
       "name": "steerD_torque",
-      "path": "CANBusDrive/cSteerD/Torque"
+      "path": "System/CANBusDrive/cSteerD/Torque"
     },
     {
       "name": "steerD_velocity",
-      "path": "CANBusDrive/cSteerD/Velocity"
+      "path": "System/CANBusDrive/cSteerD/Velocity"
+    },
+    {
+      "name": "steerD_zeroCurrentVelocityIndicator",
+      "path": "System/CANBusDrive/cSteerD/ZeroCurrentVelocityIndicator"
+    },
+    {
+      "name": "steerD_zeroTargetSpeedIndicator",
+      "path": "System/CANBusDrive/cSteerD/ZeroTargetSpeedIndicator"
+    },
+    {
+      "name": "steer_adjustState",
+      "path": "System/Steer/AdjustState"
+    },
+    {
+      "name": "steer_currentAbsDelta",
+      "path": "System/Steer/CurrentAbsDelta"
     },
     {
       "name": "steer_input",
       "path": "System/Steer/Input"
     },
     {
+      "name": "steer_inputPresentAny",
+      "path": "System/Steer/InputPresentAny"
+    },
+    {
+      "name": "steer_inputProcessed",
+      "path": "System/Steer/InputProcessed"
+    },
+    {
+      "name": "steer_modeChange",
+      "path": "System/Steer/ModeChange"
+    },
+    {
+      "name": "steer_mode_mode",
+      "path": "System/Steer/Mode/Mode"
+    },
+    {
+      "name": "steer_requestedAbsoluteTargetAngle",
+      "path": "System/Steer/RequestedAbsoluteTargetAngle"
+    },
+    {
+      "name": "steer_steerModeDiagnostic",
+      "path": "System/Steer/SteerModeDiagnostic"
+    },
+    {
       "name": "steer_targetAngle",
       "path": "System/Steer/TargetAngle"
+    },
+    {
+      "name": "steer_targetAngleIncrement",
+      "path": "System/Steer/TargetAngleIncrement"
+    },
+    {
+      "name": "steer_targetAngleIncrementDerived",
+      "path": "System/Steer/TargetAngleIncrementDerived"
+    },
+    {
+      "name": "steer_targetAngleIncrementDerivedPost",
+      "path": "System/Steer/TargetAngleIncrementDerivedPost"
+    },
+    {
+      "name": "steer_targetAngleShift",
+      "path": "System/Steer/TargetAngleShift"
+    },
+    {
+      "name": "steer_targetAngleUpdateTimer_expired",
+      "path": "System/Steer/TargetAngleUpdateTimer/Expired"
+    },
+    {
+      "name": "steer_wheelA_currentVelocity",
+      "path": "System/Steer/WheelA/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelA_delta",
+      "path": "System/Steer/WheelA/Delta"
+    },
+    {
+      "name": "steer_wheelA_deltaConverging",
+      "path": "System/Steer/WheelA/DeltaConverging"
+    },
+    {
+      "name": "steer_wheelA_diagnostic",
+      "path": "System/Steer/WheelA/Diagnostic"
+    },
+    {
+      "name": "steer_wheelA_filteredDelta",
+      "path": "System/Steer/WheelA/FilteredDelta"
+    },
+    {
+      "name": "steer_wheelA_input",
+      "path": "System/Steer/WheelA/Input"
+    },
+    {
+      "name": "steer_wheelA_modeChange",
+      "path": "System/Steer/WheelA/ModeChange"
+    },
+    {
+      "name": "steer_wheelA_modeChangeDisableControl",
+      "path": "System/Steer/WheelA/ModeChangeDisableControl"
+    },
+    {
+      "name": "steer_wheelA_movementEventCount",
+      "path": "System/Steer/WheelA/MovementEventCount"
+    },
+    {
+      "name": "steer_wheelA_moving",
+      "path": "System/Steer/WheelA/Moving"
+    },
+    {
+      "name": "steer_wheelA_overshoot",
+      "path": "System/Steer/WheelA/Overshoot"
+    },
+    {
+      "name": "steer_wheelA_overshootTimer_expired",
+      "path": "System/Steer/WheelA/OvershootTimer/Expired"
+    },
+    {
+      "name": "steer_wheelA_predictedTargetAngle",
+      "path": "System/Steer/WheelA/PredictedTargetAngle"
+    },
+    {
+      "name": "steer_wheelA_previousTargetAngle",
+      "path": "System/Steer/WheelA/PreviousTargetAngle"
+    },
+    {
+      "name": "steer_wheelA_requested",
+      "path": "System/Steer/WheelA/Requested"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve",
+      "path": "System/Steer/WheelA/RequestedCurve"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve_delta",
+      "path": "System/Steer/WheelA/RequestedCurve/Delta"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve_deltaPrevious",
+      "path": "System/Steer/WheelA/RequestedCurve/DeltaPrevious"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve_inflexions",
+      "path": "System/Steer/WheelA/RequestedCurve/Inflexions"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve_nonZero",
+      "path": "System/Steer/WheelA/RequestedCurve/NonZero"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve_nonZeroPrevious",
+      "path": "System/Steer/WheelA/RequestedCurve/NonZeroPrevious"
+    },
+    {
+      "name": "steer_wheelA_requestedCurve_previous",
+      "path": "System/Steer/WheelA/RequestedCurve/Previous"
+    },
+    {
+      "name": "steer_wheelA_state",
+      "path": "System/Steer/WheelA/State"
+    },
+    {
+      "name": "steer_wheelA_targetAngle",
+      "path": "System/Steer/WheelA/TargetAngle"
+    },
+    {
+      "name": "steer_wheelA_targetAngleAdjusted",
+      "path": "System/Steer/WheelA/TargetAngleAdjusted"
+    },
+    {
+      "name": "steer_wheelA_targetAngleAdjustment",
+      "path": "System/Steer/WheelA/TargetAngleAdjustment"
+    },
+    {
+      "name": "steer_wheelA_targetPredictionOffset",
+      "path": "System/Steer/WheelA/TargetPredictionOffset"
+    },
+    {
+      "name": "steer_wheelA_throttle",
+      "path": "System/Steer/WheelA/Throttle"
+    },
+    {
+      "name": "steer_wheelA_throttleValue",
+      "path": "System/Steer/WheelA/ThrottleValue"
+    },
+    {
+      "name": "steer_wheelA_throttle_currentVelocity",
+      "path": "System/Steer/WheelA/Throttle/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelA_throttle_stalled",
+      "path": "System/Steer/WheelA/Throttle/Stalled"
+    },
+    {
+      "name": "steer_wheelA_throttle_stationary",
+      "path": "System/Steer/WheelA/Throttle/Stationary"
+    },
+    {
+      "name": "steer_wheelB_currentVelocity",
+      "path": "System/Steer/WheelB/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelB_delta",
+      "path": "System/Steer/WheelB/Delta"
+    },
+    {
+      "name": "steer_wheelB_deltaConverging",
+      "path": "System/Steer/WheelB/DeltaConverging"
+    },
+    {
+      "name": "steer_wheelB_diagnostic",
+      "path": "System/Steer/WheelB/Diagnostic"
+    },
+    {
+      "name": "steer_wheelB_filteredDelta",
+      "path": "System/Steer/WheelB/FilteredDelta"
+    },
+    {
+      "name": "steer_wheelB_input",
+      "path": "System/Steer/WheelB/Input"
+    },
+    {
+      "name": "steer_wheelB_modeChange",
+      "path": "System/Steer/WheelB/ModeChange"
+    },
+    {
+      "name": "steer_wheelB_modeChangeDisableControl",
+      "path": "System/Steer/WheelB/ModeChangeDisableControl"
+    },
+    {
+      "name": "steer_wheelB_movementEventCount",
+      "path": "System/Steer/WheelB/MovementEventCount"
+    },
+    {
+      "name": "steer_wheelB_moving",
+      "path": "System/Steer/WheelB/Moving"
+    },
+    {
+      "name": "steer_wheelB_overshoot",
+      "path": "System/Steer/WheelB/Overshoot"
+    },
+    {
+      "name": "steer_wheelB_overshootTimer_expired",
+      "path": "System/Steer/WheelB/OvershootTimer/Expired"
+    },
+    {
+      "name": "steer_wheelB_predictedTargetAngle",
+      "path": "System/Steer/WheelB/PredictedTargetAngle"
+    },
+    {
+      "name": "steer_wheelB_previousTargetAngle",
+      "path": "System/Steer/WheelB/PreviousTargetAngle"
+    },
+    {
+      "name": "steer_wheelB_requested",
+      "path": "System/Steer/WheelB/Requested"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve",
+      "path": "System/Steer/WheelB/RequestedCurve"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_delta",
+      "path": "System/Steer/WheelB/RequestedCurve/Delta"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_deltaPrevious",
+      "path": "System/Steer/WheelB/RequestedCurve/DeltaPrevious"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_inflexions",
+      "path": "System/Steer/WheelB/RequestedCurve/Inflexions"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_inputAsPercentage",
+      "path": "System/Steer/WheelB/RequestedCurve/InputAsPercentage"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_nonZero",
+      "path": "System/Steer/WheelB/RequestedCurve/NonZero"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_nonZeroPrevious",
+      "path": "System/Steer/WheelB/RequestedCurve/NonZeroPrevious"
+    },
+    {
+      "name": "steer_wheelB_requestedCurve_previous",
+      "path": "System/Steer/WheelB/RequestedCurve/Previous"
+    },
+    {
+      "name": "steer_wheelB_state",
+      "path": "System/Steer/WheelB/State"
+    },
+    {
+      "name": "steer_wheelB_targetAngle",
+      "path": "System/Steer/WheelB/TargetAngle"
+    },
+    {
+      "name": "steer_wheelB_targetAngleAdjusted",
+      "path": "System/Steer/WheelB/TargetAngleAdjusted"
+    },
+    {
+      "name": "steer_wheelB_targetAngleAdjustment",
+      "path": "System/Steer/WheelB/TargetAngleAdjustment"
+    },
+    {
+      "name": "steer_wheelB_targetPredictionOffset",
+      "path": "System/Steer/WheelB/TargetPredictionOffset"
+    },
+    {
+      "name": "steer_wheelB_throttle",
+      "path": "System/Steer/WheelB/Throttle"
+    },
+    {
+      "name": "steer_wheelB_throttleValue",
+      "path": "System/Steer/WheelB/ThrottleValue"
+    },
+    {
+      "name": "steer_wheelB_throttle_currentVelocity",
+      "path": "System/Steer/WheelB/Throttle/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelB_throttle_stalled",
+      "path": "System/Steer/WheelB/Throttle/Stalled"
+    },
+    {
+      "name": "steer_wheelB_throttle_stationary",
+      "path": "System/Steer/WheelB/Throttle/Stationary"
+    },
+    {
+      "name": "steer_wheelC_currentVelocity",
+      "path": "System/Steer/WheelC/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelC_delta",
+      "path": "System/Steer/WheelC/Delta"
+    },
+    {
+      "name": "steer_wheelC_deltaConverging",
+      "path": "System/Steer/WheelC/DeltaConverging"
+    },
+    {
+      "name": "steer_wheelC_diagnostic",
+      "path": "System/Steer/WheelC/Diagnostic"
+    },
+    {
+      "name": "steer_wheelC_filteredDelta",
+      "path": "System/Steer/WheelC/FilteredDelta"
+    },
+    {
+      "name": "steer_wheelC_input",
+      "path": "System/Steer/WheelC/Input"
+    },
+    {
+      "name": "steer_wheelC_modeChange",
+      "path": "System/Steer/WheelC/ModeChange"
+    },
+    {
+      "name": "steer_wheelC_modeChangeDisableControl",
+      "path": "System/Steer/WheelC/ModeChangeDisableControl"
+    },
+    {
+      "name": "steer_wheelC_movementEventCount",
+      "path": "System/Steer/WheelC/MovementEventCount"
+    },
+    {
+      "name": "steer_wheelC_moving",
+      "path": "System/Steer/WheelC/Moving"
+    },
+    {
+      "name": "steer_wheelC_overshoot",
+      "path": "System/Steer/WheelC/Overshoot"
+    },
+    {
+      "name": "steer_wheelC_overshootTimer_expired",
+      "path": "System/Steer/WheelC/OvershootTimer/Expired"
+    },
+    {
+      "name": "steer_wheelC_predictedTargetAngle",
+      "path": "System/Steer/WheelC/PredictedTargetAngle"
+    },
+    {
+      "name": "steer_wheelC_previousTargetAngle",
+      "path": "System/Steer/WheelC/PreviousTargetAngle"
+    },
+    {
+      "name": "steer_wheelC_requested",
+      "path": "System/Steer/WheelC/Requested"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve",
+      "path": "System/Steer/WheelC/RequestedCurve"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve_delta",
+      "path": "System/Steer/WheelC/RequestedCurve/Delta"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve_deltaPrevious",
+      "path": "System/Steer/WheelC/RequestedCurve/DeltaPrevious"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve_inflexions",
+      "path": "System/Steer/WheelC/RequestedCurve/Inflexions"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve_nonZero",
+      "path": "System/Steer/WheelC/RequestedCurve/NonZero"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve_nonZeroPrevious",
+      "path": "System/Steer/WheelC/RequestedCurve/NonZeroPrevious"
+    },
+    {
+      "name": "steer_wheelC_requestedCurve_previous",
+      "path": "System/Steer/WheelC/RequestedCurve/Previous"
+    },
+    {
+      "name": "steer_wheelC_state",
+      "path": "System/Steer/WheelC/State"
+    },
+    {
+      "name": "steer_wheelC_targetAngle",
+      "path": "System/Steer/WheelC/TargetAngle"
+    },
+    {
+      "name": "steer_wheelC_targetAngleAdjusted",
+      "path": "System/Steer/WheelC/TargetAngleAdjusted"
+    },
+    {
+      "name": "steer_wheelC_targetAngleAdjustment",
+      "path": "System/Steer/WheelC/TargetAngleAdjustment"
+    },
+    {
+      "name": "steer_wheelC_targetPredictionOffset",
+      "path": "System/Steer/WheelC/TargetPredictionOffset"
+    },
+    {
+      "name": "steer_wheelC_throttle",
+      "path": "System/Steer/WheelC/Throttle"
+    },
+    {
+      "name": "steer_wheelC_throttleValue",
+      "path": "System/Steer/WheelC/ThrottleValue"
+    },
+    {
+      "name": "steer_wheelC_throttle_currentVelocity",
+      "path": "System/Steer/WheelC/Throttle/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelC_throttle_stalled",
+      "path": "System/Steer/WheelC/Throttle/Stalled"
+    },
+    {
+      "name": "steer_wheelC_throttle_stationary",
+      "path": "System/Steer/WheelC/Throttle/Stationary"
+    },
+    {
+      "name": "steer_wheelD_currentVelocity",
+      "path": "System/Steer/WheelD/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelD_delta",
+      "path": "System/Steer/WheelD/Delta"
+    },
+    {
+      "name": "steer_wheelD_deltaConverging",
+      "path": "System/Steer/WheelD/DeltaConverging"
+    },
+    {
+      "name": "steer_wheelD_diagnostic",
+      "path": "System/Steer/WheelD/Diagnostic"
+    },
+    {
+      "name": "steer_wheelD_filteredDelta",
+      "path": "System/Steer/WheelD/FilteredDelta"
+    },
+    {
+      "name": "steer_wheelD_input",
+      "path": "System/Steer/WheelD/Input"
+    },
+    {
+      "name": "steer_wheelD_modeChange",
+      "path": "System/Steer/WheelD/ModeChange"
+    },
+    {
+      "name": "steer_wheelD_modeChangeDisableControl",
+      "path": "System/Steer/WheelD/ModeChangeDisableControl"
+    },
+    {
+      "name": "steer_wheelD_movementCount",
+      "path": "System/Steer/WheelD/MovementCount"
+    },
+    {
+      "name": "steer_wheelD_movementEventCount",
+      "path": "System/Steer/WheelD/MovementEventCount"
+    },
+    {
+      "name": "steer_wheelD_moving",
+      "path": "System/Steer/WheelD/Moving"
+    },
+    {
+      "name": "steer_wheelD_overshoot",
+      "path": "System/Steer/WheelD/Overshoot"
+    },
+    {
+      "name": "steer_wheelD_overshootTimer_expired",
+      "path": "System/Steer/WheelD/OvershootTimer/Expired"
+    },
+    {
+      "name": "steer_wheelD_predictedTargetAngle",
+      "path": "System/Steer/WheelD/PredictedTargetAngle"
+    },
+    {
+      "name": "steer_wheelD_previousTargetAngle",
+      "path": "System/Steer/WheelD/PreviousTargetAngle"
+    },
+    {
+      "name": "steer_wheelD_requested",
+      "path": "System/Steer/WheelD/Requested"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve",
+      "path": "System/Steer/WheelD/RequestedCurve"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve_delta",
+      "path": "System/Steer/WheelD/RequestedCurve/Delta"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve_deltaPrevious",
+      "path": "System/Steer/WheelD/RequestedCurve/DeltaPrevious"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve_inflexions",
+      "path": "System/Steer/WheelD/RequestedCurve/Inflexions"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve_nonZero",
+      "path": "System/Steer/WheelD/RequestedCurve/NonZero"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve_nonZeroPrevious",
+      "path": "System/Steer/WheelD/RequestedCurve/NonZeroPrevious"
+    },
+    {
+      "name": "steer_wheelD_requestedCurve_previous",
+      "path": "System/Steer/WheelD/RequestedCurve/Previous"
+    },
+    {
+      "name": "steer_wheelD_state",
+      "path": "System/Steer/WheelD/State"
+    },
+    {
+      "name": "steer_wheelD_targetAngle",
+      "path": "System/Steer/WheelD/TargetAngle"
+    },
+    {
+      "name": "steer_wheelD_targetAngleAdjusted",
+      "path": "System/Steer/WheelD/TargetAngleAdjusted"
+    },
+    {
+      "name": "steer_wheelD_targetAngleAdjustment",
+      "path": "System/Steer/WheelD/TargetAngleAdjustment"
+    },
+    {
+      "name": "steer_wheelD_targetPredictionOffset",
+      "path": "System/Steer/WheelD/TargetPredictionOffset"
+    },
+    {
+      "name": "steer_wheelD_throttle",
+      "path": "System/Steer/WheelD/Throttle"
+    },
+    {
+      "name": "steer_wheelD_throttleValue",
+      "path": "System/Steer/WheelD/ThrottleValue"
+    },
+    {
+      "name": "steer_wheelD_throttle_currentVelocity",
+      "path": "System/Steer/WheelD/Throttle/CurrentVelocity"
+    },
+    {
+      "name": "steer_wheelD_throttle_stalled",
+      "path": "System/Steer/WheelD/Throttle/Stalled"
+    },
+    {
+      "name": "steer_wheelD_throttle_stationary",
+      "path": "System/Steer/WheelD/Throttle/Stationary"
+    },
+    {
+      "name": "steer_zeroTargetAngleSwitch",
+      "path": "System/Steer/ZeroTargetAngleSwitch"
     },
     {
       "name": "sync_error_AB",
@@ -488,279 +1656,575 @@
     },
     {
       "name": "transA_battCurrent",
-      "path": "CANBusDrive/cTransA/BattCurrent"
+      "path": "System/CANBusDrive/cTransA/BattCurrent"
     },
     {
       "name": "transA_battPower",
-      "path": "CANBusDrive/cTransA/BattPower"
+      "path": "System/CANBusDrive/cTransA/BattPower"
     },
     {
       "name": "transA_battVoltage",
-      "path": "CANBusDrive/cTransA/BattVoltage"
+      "path": "System/CANBusDrive/cTransA/BattVoltage"
     },
     {
       "name": "transA_cntrlTemp",
-      "path": "CANBusDrive/cTransA/CntrlTemp"
+      "path": "System/CANBusDrive/cTransA/CntrlTemp"
     },
     {
       "name": "transA_current",
-      "path": "CANBusDrive/cTransA/Current"
+      "path": "System/CANBusDrive/cTransA/Current"
+    },
+    {
+      "name": "transA_diagnostic",
+      "path": "System/CANBusDrive/cTransA/Diagnostic"
+    },
+    {
+      "name": "transA_enable",
+      "path": "System/CANBusDrive/cTransA/Enable"
     },
     {
       "name": "transA_forward",
-      "path": "CANBusDrive/cTransA/Forward"
+      "path": "System/CANBusDrive/cTransA/Forward"
+    },
+    {
+      "name": "transA_freeWheel",
+      "path": "System/CANBusDrive/cTransA/FreeWheel"
+    },
+    {
+      "name": "transA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransA/HeartbeatCounter/"
+    },
+    {
+      "name": "transA_initializeMotorHoldCounter",
+      "path": "System/CANBusDrive/cTransA/InitializeMotorHoldCounter"
     },
     {
       "name": "transA_motorTemp",
-      "path": "CANBusDrive/cTransA/MotorTemp"
+      "path": "System/CANBusDrive/cTransA/MotorTemp"
+    },
+    {
+      "name": "transA_nodeState",
+      "path": "System/CANBusDrive/cTransA/NodeState"
+    },
+    {
+      "name": "transA_proposedThrottle",
+      "path": "System/CANBusDrive/cTransA/ProposedThrottle"
     },
     {
       "name": "transA_reverse",
-      "path": "CANBusDrive/cTransA/Reverse"
+      "path": "System/CANBusDrive/cTransA/Reverse"
     },
     {
       "name": "transA_targetSpeed",
-      "path": "CANBusDrive/cTransA/TargetSpeed"
+      "path": "System/CANBusDrive/cTransA/TargetSpeed"
+    },
+    {
+      "name": "transA_targetVelocity",
+      "path": "System/CANBusDrive/cTransA/TargetVelocity"
     },
     {
       "name": "transA_velocity",
-      "path": "CANBusDrive/cTransA/Velocity"
+      "path": "System/CANBusDrive/cTransA/Velocity"
     },
     {
       "name": "transB_battCurrent",
-      "path": "CANBusDrive/cTransB/BattCurrent"
+      "path": "System/CANBusDrive/cTransB/BattCurrent"
     },
     {
       "name": "transB_battPower",
-      "path": "CANBusDrive/cTransB/BattPower"
+      "path": "System/CANBusDrive/cTransB/BattPower"
     },
     {
       "name": "transB_battVoltage",
-      "path": "CANBusDrive/cTransB/BattVoltage"
+      "path": "System/CANBusDrive/cTransB/BattVoltage"
     },
     {
       "name": "transB_cntrlTemp",
-      "path": "CANBusDrive/cTransB/CntrlTemp"
+      "path": "System/CANBusDrive/cTransB/CntrlTemp"
     },
     {
       "name": "transB_current",
-      "path": "CANBusDrive/cTransB/Current"
+      "path": "System/CANBusDrive/cTransB/Current"
+    },
+    {
+      "name": "transB_enable",
+      "path": "System/CANBusDrive/cTransB/Enable"
+    },
+    {
+      "name": "transB_freeWheel",
+      "path": "System/CANBusDrive/cTransB/FreeWheel"
+    },
+    {
+      "name": "transB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransB/HeartbeatCounter/"
+    },
+    {
+      "name": "transB_initializeMotorHoldCounter",
+      "path": "System/CANBusDrive/cTransB/InitializeMotorHoldCounter"
     },
     {
       "name": "transB_motorTemp",
-      "path": "CANBusDrive/cTransB/MotorTemp"
+      "path": "System/CANBusDrive/cTransB/MotorTemp"
+    },
+    {
+      "name": "transB_nodeState",
+      "path": "System/CANBusDrive/cTransB/NodeState"
+    },
+    {
+      "name": "transB_proposedThrottle",
+      "path": "System/CANBusDrive/cTransB/ProposedThrottle"
     },
     {
       "name": "transB_velocity",
-      "path": "CANBusDrive/cTransB/Velocity"
+      "path": "System/CANBusDrive/cTransB/Velocity"
     },
     {
       "name": "transC_battCurrent",
-      "path": "CANBusDrive/cTransC/BattCurrent"
+      "path": "System/CANBusDrive/cTransC/BattCurrent"
     },
     {
       "name": "transC_battPower",
-      "path": "CANBusDrive/cTransC/BattPower"
+      "path": "System/CANBusDrive/cTransC/BattPower"
     },
     {
       "name": "transC_battVoltage",
-      "path": "CANBusDrive/cTransC/BattVoltage"
+      "path": "System/CANBusDrive/cTransC/BattVoltage"
     },
     {
       "name": "transC_cntrlTemp",
-      "path": "CANBusDrive/cTransC/CntrlTemp"
+      "path": "System/CANBusDrive/cTransC/CntrlTemp"
     },
     {
       "name": "transC_current",
-      "path": "CANBusDrive/cTransC/Current"
+      "path": "System/CANBusDrive/cTransC/Current"
+    },
+    {
+      "name": "transC_enable",
+      "path": "System/CANBusDrive/cTransC/Enable"
+    },
+    {
+      "name": "transC_freeWheel",
+      "path": "System/CANBusDrive/cTransC/FreeWheel"
+    },
+    {
+      "name": "transC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransC/HeartbeatCounter/"
     },
     {
       "name": "transC_motorTemp",
-      "path": "CANBusDrive/cTransC/MotorTemp"
+      "path": "System/CANBusDrive/cTransC/MotorTemp"
+    },
+    {
+      "name": "transC_nodeState",
+      "path": "System/CANBusDrive/cTransC/NodeState"
+    },
+    {
+      "name": "transC_proposedThrottle",
+      "path": "System/CANBusDrive/cTransC/ProposedThrottle"
     },
     {
       "name": "transC_velocity",
-      "path": "CANBusDrive/cTransC/Velocity"
+      "path": "System/CANBusDrive/cTransC/Velocity"
     },
     {
       "name": "transD_battCurrent",
-      "path": "CANBusDrive/cTransD/BattCurrent"
+      "path": "System/CANBusDrive/cTransD/BattCurrent"
     },
     {
       "name": "transD_battPower",
-      "path": "CANBusDrive/cTransD/BattPower"
+      "path": "System/CANBusDrive/cTransD/BattPower"
     },
     {
       "name": "transD_battVoltage",
-      "path": "CANBusDrive/cTransD/BattVoltage"
+      "path": "System/CANBusDrive/cTransD/BattVoltage"
     },
     {
       "name": "transD_cntrlTemp",
-      "path": "CANBusDrive/cTransD/CntrlTemp"
+      "path": "System/CANBusDrive/cTransD/CntrlTemp"
     },
     {
       "name": "transD_current",
-      "path": "CANBusDrive/cTransD/Current"
+      "path": "System/CANBusDrive/cTransD/Current"
+    },
+    {
+      "name": "transD_enable",
+      "path": "System/CANBusDrive/cTransD/Enable"
+    },
+    {
+      "name": "transD_freeWheel",
+      "path": "System/CANBusDrive/cTransD/FreeWheel"
+    },
+    {
+      "name": "transD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cTransD/HeartbeatCounter/"
     },
     {
       "name": "transD_motorTemp",
-      "path": "CANBusDrive/cTransD/MotorTemp"
+      "path": "System/CANBusDrive/cTransD/MotorTemp"
+    },
+    {
+      "name": "transD_nodeState",
+      "path": "System/CANBusDrive/cTransD/NodeState"
+    },
+    {
+      "name": "transD_proposedThrottle",
+      "path": "System/CANBusDrive/cTransD/ProposedThrottle"
     },
     {
       "name": "transD_velocity",
-      "path": "CANBusDrive/cTransD/Velocity"
+      "path": "System/CANBusDrive/cTransD/Velocity"
+    },
+    {
+      "name": "travel_enableInputSecondary",
+      "path": "System/Travel/EnableInputSecondary"
     },
     {
       "name": "travel_input",
       "path": "System/Travel/Input"
     },
     {
+      "name": "travel_inputPresentSecondary",
+      "path": "System/Travel/InputPresentSecondary"
+    },
+    {
+      "name": "travel_inputResolved",
+      "path": "System/Travel/InputResolved"
+    },
+    {
+      "name": "travel_inputScaling",
+      "path": "System/Travel/InputScaling"
+    },
+    {
+      "name": "travel_inputSecondary",
+      "path": "System/Travel/InputSecondary"
+    },
+    {
+      "name": "travel_mMovementA_input",
+      "path": "System/Travel/mMovementA/Input"
+    },
+    {
+      "name": "travel_mMovementB_input",
+      "path": "System/Travel/mMovementB/Input"
+    },
+    {
+      "name": "travel_mMovementC_input",
+      "path": "System/Travel/mMovementC/Input"
+    },
+    {
+      "name": "travel_mMovementD_input",
+      "path": "System/Travel/mMovementD/Input"
+    },
+    {
       "name": "travel_throttle",
       "path": "System/Travel/Throttle"
     },
     {
+      "name": "uInterfaceCabin_nodeState",
+      "path": "System/CANBusSystem/UInterfaceCabin/NodeState"
+    },
+    {
+      "name": "winchA_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchA_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdDischarge"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdDischarge"
+    },
+    {
       "name": "winchA_battCurrent",
-      "path": "CANBusDrive/cWinchA/BattCurrent"
+      "path": "System/CANBusDrive/cWinchA/BattCurrent"
     },
     {
       "name": "winchA_battPower",
-      "path": "CANBusDrive/cWinchA/BattPower"
+      "path": "System/CANBusDrive/cWinchA/BattPower"
     },
     {
       "name": "winchA_battVoltage",
-      "path": "CANBusDrive/cWinchA/BattVoltage"
+      "path": "System/CANBusDrive/cWinchA/BattVoltage"
     },
     {
       "name": "winchA_cntrlTemp",
-      "path": "CANBusDrive/cWinchA/CntrlTemp"
+      "path": "System/CANBusDrive/cWinchA/CntrlTemp"
     },
     {
       "name": "winchA_current",
-      "path": "CANBusDrive/cWinchA/Current"
+      "path": "System/CANBusDrive/cWinchA/Current"
+    },
+    {
+      "name": "winchA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchA/HeartbeatCounter/"
     },
     {
       "name": "winchA_motorTemp",
-      "path": "CANBusDrive/cWinchA/MotorTemp"
+      "path": "System/CANBusDrive/cWinchA/MotorTemp"
+    },
+    {
+      "name": "winchA_nodeState",
+      "path": "System/CANBusDrive/cWinchA/NodeState"
+    },
+    {
+      "name": "winchA_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchA/ProposedThrottle"
+    },
+    {
+      "name": "winchA_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchA/TargetSpeed/Output"
     },
     {
       "name": "winchA_torque",
-      "path": "CANBusDrive/cWinchA/Torque"
+      "path": "System/CANBusDrive/cWinchA/Torque"
     },
     {
       "name": "winchA_velocity",
-      "path": "CANBusDrive/cWinchA/Velocity"
+      "path": "System/CANBusDrive/cWinchA/Velocity"
+    },
+    {
+      "name": "winchAngleA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleA/HeartbeatCounter/"
+    },
+    {
+      "name": "winchAngleA_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleA/NodeState"
     },
     {
       "name": "winchAngleA_position",
-      "path": "CANBusDrive/cWinchAngleA/Position"
+      "path": "System/CANBusDrive/cWinchAngleA/Position"
+    },
+    {
+      "name": "winchAngleB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleB/HeartbeatCounter/"
+    },
+    {
+      "name": "winchAngleB_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleB/NodeState"
     },
     {
       "name": "winchAngleB_position",
-      "path": "CANBusDrive/cWinchAngleB/Position"
+      "path": "System/CANBusDrive/cWinchAngleB/Position"
+    },
+    {
+      "name": "winchAngleC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleC/HeartbeatCounter/"
+    },
+    {
+      "name": "winchAngleC_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleC/NodeState"
     },
     {
       "name": "winchAngleC_position",
-      "path": "CANBusDrive/cWinchAngleC/Position"
+      "path": "System/CANBusDrive/cWinchAngleC/Position"
+    },
+    {
+      "name": "winchAngleD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleD/HeartbeatCounter/"
+    },
+    {
+      "name": "winchAngleD_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleD/NodeState"
     },
     {
       "name": "winchAngleD_position",
-      "path": "CANBusDrive/cWinchAngleD/Position"
+      "path": "System/CANBusDrive/cWinchAngleD/Position"
+    },
+    {
+      "name": "winchB_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchB_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdDischarge"
+    },
+    {
+      "name": "winchB_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchB_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdDischarge"
     },
     {
       "name": "winchB_battCurrent",
-      "path": "CANBusDrive/cWinchB/BattCurrent"
+      "path": "System/CANBusDrive/cWinchB/BattCurrent"
     },
     {
       "name": "winchB_battPower",
-      "path": "CANBusDrive/cWinchB/BattPower"
+      "path": "System/CANBusDrive/cWinchB/BattPower"
     },
     {
       "name": "winchB_battVoltage",
-      "path": "CANBusDrive/cWinchB/BattVoltage"
+      "path": "System/CANBusDrive/cWinchB/BattVoltage"
     },
     {
       "name": "winchB_cntrlTemp",
-      "path": "CANBusDrive/cWinchB/CntrlTemp"
+      "path": "System/CANBusDrive/cWinchB/CntrlTemp"
     },
     {
       "name": "winchB_current",
-      "path": "CANBusDrive/cWinchB/Current"
+      "path": "System/CANBusDrive/cWinchB/Current"
+    },
+    {
+      "name": "winchB_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchB/HeartbeatCounter/"
     },
     {
       "name": "winchB_motorTemp",
-      "path": "CANBusDrive/cWinchB/MotorTemp"
+      "path": "System/CANBusDrive/cWinchB/MotorTemp"
+    },
+    {
+      "name": "winchB_nodeState",
+      "path": "System/CANBusDrive/cWinchB/NodeState"
+    },
+    {
+      "name": "winchB_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchB/ProposedThrottle"
+    },
+    {
+      "name": "winchB_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchB/TargetSpeed/Output"
     },
     {
       "name": "winchB_torque",
-      "path": "CANBusDrive/cWinchB/Torque"
+      "path": "System/CANBusDrive/cWinchB/Torque"
     },
     {
       "name": "winchB_velocity",
-      "path": "CANBusDrive/cWinchB/Velocity"
+      "path": "System/CANBusDrive/cWinchB/Velocity"
+    },
+    {
+      "name": "winchC_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchC_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdDischarge"
+    },
+    {
+      "name": "winchC_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchC_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdDischarge"
     },
     {
       "name": "winchC_battCurrent",
-      "path": "CANBusDrive/cWinchC/BattCurrent"
+      "path": "System/CANBusDrive/cWinchC/BattCurrent"
     },
     {
       "name": "winchC_battPower",
-      "path": "CANBusDrive/cWinchC/BattPower"
+      "path": "System/CANBusDrive/cWinchC/BattPower"
     },
     {
       "name": "winchC_battVoltage",
-      "path": "CANBusDrive/cWinchC/BattVoltage"
+      "path": "System/CANBusDrive/cWinchC/BattVoltage"
     },
     {
       "name": "winchC_cntrlTemp",
-      "path": "CANBusDrive/cWinchC/CntrlTemp"
+      "path": "System/CANBusDrive/cWinchC/CntrlTemp"
     },
     {
       "name": "winchC_current",
-      "path": "CANBusDrive/cWinchC/Current"
+      "path": "System/CANBusDrive/cWinchC/Current"
+    },
+    {
+      "name": "winchC_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchC/HeartbeatCounter/"
     },
     {
       "name": "winchC_motorTemp",
-      "path": "CANBusDrive/cWinchC/MotorTemp"
+      "path": "System/CANBusDrive/cWinchC/MotorTemp"
+    },
+    {
+      "name": "winchC_nodeState",
+      "path": "System/CANBusDrive/cWinchC/NodeState"
+    },
+    {
+      "name": "winchC_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchC/ProposedThrottle"
+    },
+    {
+      "name": "winchC_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchC/TargetSpeed/Output"
     },
     {
       "name": "winchC_torque",
-      "path": "CANBusDrive/cWinchC/Torque"
+      "path": "System/CANBusDrive/cWinchC/Torque"
     },
     {
       "name": "winchC_velocity",
-      "path": "CANBusDrive/cWinchC/Velocity"
+      "path": "System/CANBusDrive/cWinchC/Velocity"
+    },
+    {
+      "name": "winchD_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchD_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdDischarge"
+    },
+    {
+      "name": "winchD_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdCharge"
+    },
+    {
+      "name": "winchD_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdDischarge"
     },
     {
       "name": "winchD_battCurrent",
-      "path": "CANBusDrive/cWinchD/BattCurrent"
+      "path": "System/CANBusDrive/cWinchD/BattCurrent"
     },
     {
       "name": "winchD_battPower",
-      "path": "CANBusDrive/cWinchD/BattPower"
+      "path": "System/CANBusDrive/cWinchD/BattPower"
     },
     {
       "name": "winchD_battVoltage",
-      "path": "CANBusDrive/cWinchD/BattVoltage"
+      "path": "System/CANBusDrive/cWinchD/BattVoltage"
     },
     {
       "name": "winchD_cntrlTemp",
-      "path": "CANBusDrive/cWinchD/CntrlTemp"
+      "path": "System/CANBusDrive/cWinchD/CntrlTemp"
     },
     {
       "name": "winchD_current",
-      "path": "CANBusDrive/cWinchD/Current"
+      "path": "System/CANBusDrive/cWinchD/Current"
+    },
+    {
+      "name": "winchD_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchD/HeartbeatCounter/"
     },
     {
       "name": "winchD_motorTemp",
-      "path": "CANBusDrive/cWinchD/MotorTemp"
+      "path": "System/CANBusDrive/cWinchD/MotorTemp"
+    },
+    {
+      "name": "winchD_nodeState",
+      "path": "System/CANBusDrive/cWinchD/NodeState"
+    },
+    {
+      "name": "winchD_proposedThrottle",
+      "path": "System/CANBusDrive/cWinchD/ProposedThrottle"
+    },
+    {
+      "name": "winchD_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchD/TargetSpeed/Output"
     },
     {
       "name": "winchD_torque",
-      "path": "CANBusDrive/cWinchD/Torque"
+      "path": "System/CANBusDrive/cWinchD/Torque"
     },
     {
       "name": "winchD_velocity",
-      "path": "CANBusDrive/cWinchD/Velocity"
+      "path": "System/CANBusDrive/cWinchD/Velocity"
     }
   ]
 }

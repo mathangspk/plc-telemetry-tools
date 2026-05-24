@@ -1,39 +1,90 @@
 {
-  "_note": "This file is the reusable baseline for MP-03 live-verified signals. Signals listed here do not need re-verification unless the PLC project or export changes. Any signal NOT in this file was either not present, had wrong semantics, was speculative, or was only statically inferred.",
-  "profile": "MP-03",
-  "verified_at": "2026-05-20",
-  "source_endpoint": {
-    "rw": "10.2.3.4:49870",
-    "ro": "10.2.3.4:49880"
-  },
-  "verification_policy": "live-confirmed only",
+  "name": "MP-03",
   "signals": [
     {
-      "template_signal": "bms_voltage",
-      "signal_name": "bms_voltage",
-      "runtime_path": "System/BMSAB/Voltage",
-      "identity": "PrimaryPLC.System.BMSAB/Voltage",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Voltage"
+      "name": "bat_energy_discharged_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlDschrgEnergy",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "bms_current",
-      "signal_name": "bms_current",
-      "runtime_path": "System/BMSAB/Current",
-      "identity": "PrimaryPLC.System.BMSAB/Current",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Current"
+      "name": "bat_energy_regen_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlChrgEnergy",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "bms_soc",
-      "signal_name": "bms_soc",
-      "runtime_path": "System/BMSAB/SOC",
-      "identity": "PrimaryPLC.System.BMSAB/SOC",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/SOC"
+      "name": "bat_fault_code",
+      "path": "System/CANBusSystem/cBMSA/FaultCode",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_soh_pct",
+      "path": "System/CANBusSystem/cBMSA/SOH",
+      "metric": "Metric1d"
+    },
+    {
+      "name": "bat_temp_max",
+      "path": "System/CANBusSystem/cBMSA/MaxTemp",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bat_temp_min",
+      "path": "System/CANBusSystem/cBMSA/MinTemp",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bms_soc",
+      "path": "System/BMSAB/SOC",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bmsa_current",
+      "path": "System/CANBusSystem/cBMSA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsa_soc",
+      "path": "System/CANBusSystem/cBMSA/SOC",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bmsa_temp_max",
+      "path": "System/CANBusSystem/cBMSA/MaxTemp",
+      "metric": "Metric5s"
+    },
+    {
+      "name": "bmsa_voltage",
+      "path": "System/CANBusSystem/cBMSA/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsb_current",
+      "path": "System/CANBusSystem/cBMSB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsb_soc",
+      "path": "System/CANBusSystem/cBMSB/SOC",
+      "metric": "Metric1s"
+    },
+    {
+      "name": "bmsb_temp_max",
+      "path": "System/CANBusSystem/cBMSB/MaxTemp",
+      "metric": "Metric5s"
+    },
+    {
+      "name": "bmsb_voltage",
+      "path": "System/CANBusSystem/cBMSB/Voltage",
+      "metric": "Metric250ms"
     }
   ]
 }

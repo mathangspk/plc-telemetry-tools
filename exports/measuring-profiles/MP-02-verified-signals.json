@@ -1,129 +1,70 @@
 {
-  "_note": "This file is the reusable baseline for MP-02 live-verified signals. Signals listed here do not need re-verification unless the PLC project or export changes. Any signal NOT in this file was either not present, had wrong semantics, was speculative, or was only statically inferred.",
-  "profile": "MP-02",
-  "verified_at": "2026-05-20",
-  "source_endpoint": {
-    "rw": "10.2.3.4:49870",
-    "ro": "10.2.3.4:49880"
-  },
-  "verification_policy": "live-confirmed only",
+  "name": "MP-02",
   "signals": [
     {
-      "template_signal": "current_travelA",
-      "signal_name": "current_travelA",
-      "runtime_path": "CANBusDrive/cTransA/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransA/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransA/Current"
+      "name": "batt_voltage_travelA",
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "current_travelB",
-      "signal_name": "current_travelB",
-      "runtime_path": "CANBusDrive/cTransB/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransB/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransB/Current"
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "current_travelC",
-      "signal_name": "current_travelC",
-      "runtime_path": "CANBusDrive/cTransC/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransC/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransC/Current"
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "current_travelD",
-      "signal_name": "current_travelD",
-      "runtime_path": "CANBusDrive/cTransD/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransD/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransD/Current"
+      "name": "current_travelA",
+      "path": "CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "batt_voltage_travelA",
-      "signal_name": "batt_voltage_travelA",
-      "runtime_path": "CANBusDrive/cTransA/BattVoltage",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransA/BattVoltage",
-      "sample_value": 130.56,
-      "status": "present",
-      "evidence": "Live-read returned 130.56; identity resolved to PrimaryPLC.System.CANBusDrive/cTransA/BattVoltage"
+      "name": "current_travelB",
+      "path": "CANBusDrive/cTransB/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "torque_travelA",
-      "signal_name": "torque_travelA",
-      "runtime_path": "CANBusDrive/cTransA/Torque",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransA/Torque",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransA/Torque"
+      "name": "current_travelC",
+      "path": "CANBusDrive/cTransC/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "position_steerA",
-      "signal_name": "position_steerA",
-      "runtime_path": "System/iSteerAPos",
-      "identity": "PrimaryPLC.System.iSteerAPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iSteerAPos"
+      "name": "current_travelD",
+      "path": "CANBusDrive/cTransD/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "position_steerB",
-      "signal_name": "position_steerB",
-      "runtime_path": "System/iSteerBPos",
-      "identity": "PrimaryPLC.System.iSteerBPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iSteerBPos"
+      "name": "motor_temp_steerA",
+      "path": "CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "position_steerC",
-      "signal_name": "position_steerC",
-      "runtime_path": "System/iSteerCPos",
-      "identity": "PrimaryPLC.System.iSteerCPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iSteerCPos"
+      "name": "position_steerA",
+      "path": "System/iSteerAPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "position_steerD",
-      "signal_name": "position_steerD",
-      "runtime_path": "System/iSteerDPos",
-      "identity": "PrimaryPLC.System.iSteerDPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iSteerDPos"
+      "name": "position_steerB",
+      "path": "System/iSteerBPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "motor_temp_steerA",
-      "signal_name": "motor_temp_steerA",
-      "runtime_path": "CANBusDrive/cSteerA/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cSteerA/MotorTemp",
-      "sample_value": 38.0,
-      "status": "present",
-      "evidence": "Live-read returned 38.0; identity resolved to PrimaryPLC.System.CANBusDrive/cSteerA/MotorTemp"
+      "name": "position_steerC",
+      "path": "System/iSteerCPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "bms_current",
-      "signal_name": "bms_current",
-      "runtime_path": "System/BMSAB/Current",
-      "identity": "PrimaryPLC.System.BMSAB/Current",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Current"
+      "name": "position_steerD",
+      "path": "System/iSteerDPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "bms_voltage",
-      "signal_name": "bms_voltage",
-      "runtime_path": "System/BMSAB/Voltage",
-      "identity": "PrimaryPLC.System.BMSAB/Voltage",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Voltage"
+      "name": "torque_travelA",
+      "path": "CANBusDrive/cTransA/Torque",
+      "metric": "Metric250ms"
     }
   ]
 }

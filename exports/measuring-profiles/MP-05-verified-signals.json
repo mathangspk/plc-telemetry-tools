@@ -1,11 +1,4 @@
 {
-  "_note": "This file is the reusable baseline for MP-05 live-verified signals. No live-confirmed template-specific signals were available for MP-05 (Endurance). All candidate signals were either not present, not validated, or manual-only. This registry is intentionally empty and should be re-evaluated when additional PLC endpoints become available.",
-  "profile": "MP-05",
-  "verified_at": "2026-05-20",
-  "source_endpoint": {
-    "rw": "10.2.3.4:49870",
-    "ro": "10.2.3.4:49880"
-  },
-  "verification_policy": "live-confirmed only",
+  "name": "MP-05",
   "signals": []
 }

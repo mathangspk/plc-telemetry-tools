@@ -1,174 +1,95 @@
 {
-  "_note": "This file is the reusable baseline for MP-01 live-verified signals. Signals listed here do not need re-verification unless the PLC project or export changes. Any signal NOT in this file was either not present, had wrong semantics, was speculative, or was only statically inferred.",
-  "profile": "MP-01",
-  "verified_at": "2026-05-20",
-  "source_endpoint": {
-    "rw": "10.2.3.4:49870",
-    "ro": "10.2.3.4:49880"
-  },
-  "verification_policy": "live-confirmed only",
+  "name": "MP-01",
   "signals": [
     {
-      "template_signal": "hoist_sync_error_W1W2",
-      "signal_name": "sync_error_AB",
-      "runtime_path": "System/iLiftABSync",
-      "identity": "PrimaryPLC.System.iLiftABSync",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iLiftABSync"
+      "name": "batt_voltage_winchA",
+      "path": "CANBusDrive/cWinchA/BattVoltage",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_sync_error_W3W4",
-      "signal_name": "sync_error_CD",
-      "runtime_path": "System/iLiftCDSync",
-      "identity": "PrimaryPLC.System.iLiftCDSync",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iLiftCDSync"
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_position_W1",
-      "signal_name": "position_winchA",
-      "runtime_path": "System/iLiftAPos",
-      "identity": "PrimaryPLC.System.iLiftAPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iLiftAPos"
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_position_W2",
-      "signal_name": "position_winchB",
-      "runtime_path": "System/iLiftBPos",
-      "identity": "PrimaryPLC.System.iLiftBPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iLiftBPos"
+      "name": "current_winchA",
+      "path": "CANBusDrive/cWinchA/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_position_W3",
-      "signal_name": "position_winchC",
-      "runtime_path": "System/iLiftCPos",
-      "identity": "PrimaryPLC.System.iLiftCPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iLiftCPos"
+      "name": "current_winchB",
+      "path": "CANBusDrive/cWinchB/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_position_W4",
-      "signal_name": "position_winchD",
-      "runtime_path": "System/iLiftDPos",
-      "identity": "PrimaryPLC.System.iLiftDPos",
-      "sample_value": null,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.iLiftDPos"
+      "name": "current_winchC",
+      "path": "CANBusDrive/cWinchC/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_dc_current_W1",
-      "signal_name": "current_winchA",
-      "runtime_path": "CANBusDrive/cWinchA/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchA/Current"
+      "name": "current_winchD",
+      "path": "CANBusDrive/cWinchD/Current",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_dc_current_W2",
-      "signal_name": "current_winchB",
-      "runtime_path": "CANBusDrive/cWinchB/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchB/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchB/Current"
+      "name": "motor_temp_winchA",
+      "path": "CANBusDrive/cWinchA/MotorTemp",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "hoist_dc_current_W3",
-      "signal_name": "current_winchC",
-      "runtime_path": "CANBusDrive/cWinchC/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchC/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchC/Current"
+      "name": "motor_temp_winchB",
+      "path": "CANBusDrive/cWinchB/MotorTemp",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "hoist_dc_current_W4",
-      "signal_name": "current_winchD",
-      "runtime_path": "CANBusDrive/cWinchD/Current",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchD/Current",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchD/Current"
+      "name": "motor_temp_winchC",
+      "path": "CANBusDrive/cWinchC/MotorTemp",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "hoist_dc_voltage_W1",
-      "signal_name": "batt_voltage_winchA",
-      "runtime_path": "CANBusDrive/cWinchA/BattVoltage",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/BattVoltage",
-      "sample_value": 129.48,
-      "status": "present",
-      "evidence": "Live-read returned 129.48; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchA/BattVoltage"
+      "name": "motor_temp_winchD",
+      "path": "CANBusDrive/cWinchD/MotorTemp",
+      "metric": "Metric1s"
     },
     {
-      "template_signal": "hoist_torque_W1",
-      "signal_name": "torque_winchA",
-      "runtime_path": "CANBusDrive/cWinchA/Torque",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Torque",
-      "sample_value": 0.0,
-      "status": "present",
-      "evidence": "Live-read returned 0.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchA/Torque"
+      "name": "position_winchA",
+      "path": "System/iLiftAPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_temp_motor_W1",
-      "signal_name": "motor_temp_winchA",
-      "runtime_path": "CANBusDrive/cWinchA/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp",
-      "sample_value": 45.0,
-      "status": "present",
-      "evidence": "Live-read returned 45.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp"
+      "name": "position_winchB",
+      "path": "System/iLiftBPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_temp_motor_W2",
-      "signal_name": "motor_temp_winchB",
-      "runtime_path": "CANBusDrive/cWinchB/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchB/MotorTemp",
-      "sample_value": 169.0,
-      "status": "present",
-      "evidence": "Live-read returned 169.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchB/MotorTemp"
+      "name": "position_winchC",
+      "path": "System/iLiftCPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_temp_motor_W3",
-      "signal_name": "motor_temp_winchC",
-      "runtime_path": "CANBusDrive/cWinchC/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchC/MotorTemp",
-      "sample_value": 45.0,
-      "status": "present",
-      "evidence": "Live-read returned 45.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchC/MotorTemp"
+      "name": "position_winchD",
+      "path": "System/iLiftDPos",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "hoist_temp_motor_W4",
-      "signal_name": "motor_temp_winchD",
-      "runtime_path": "CANBusDrive/cWinchD/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchD/MotorTemp",
-      "sample_value": 42.0,
-      "status": "present",
-      "evidence": "Live-read returned 42.0; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchD/MotorTemp"
+      "name": "sync_error_AB",
+      "path": "System/iLiftABSync",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "bat_pack_current_signed",
-      "signal_name": "bms_current",
-      "runtime_path": "System/BMSAB/Current",
-      "identity": "PrimaryPLC.System.BMSAB/Current",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Current"
+      "name": "sync_error_CD",
+      "path": "System/iLiftCDSync",
+      "metric": "Metric250ms"
     },
     {
-      "template_signal": "bat_pack_voltage",
-      "signal_name": "bms_voltage",
-      "runtime_path": "System/BMSAB/Voltage",
-      "identity": "PrimaryPLC.System.BMSAB/Voltage",
-      "sample_value": 1.0,
-      "status": "present",
-      "evidence": "Live-read returned 1.0; identity resolved to PrimaryPLC.System.BMSAB/Voltage"
+      "name": "torque_winchA",
+      "path": "CANBusDrive/cWinchA/Torque",
+      "metric": "Metric250ms"
     }
   ]
 }

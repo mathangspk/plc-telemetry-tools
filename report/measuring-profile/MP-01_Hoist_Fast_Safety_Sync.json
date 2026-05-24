@@ -1,45 +1,19 @@
 {
   "name": "MP-01_Hoist_Fast_Safety_Sync",
-  "title": "MP-01 Hoist Fast - Safety & Sync Critical",
-  "description": "High-speed monitoring of hoist winch positions, currents, temperatures, and synchronization to detect mechanical errors during heavy lift tests.",
-  "target_tests": [
-    "LOAD-002",
-    "LOAD-003",
-    "LOAD-006",
-    "LOAD-009",
-    "LOAD-012",
-    "LOAD-015",
-    "PERF-001"
-  ],
   "signals": [
     {
-      "name": "sync_error_AB",
-      "path": "System/iLiftABSync",
+      "name": "batt_voltage_winchA",
+      "path": "CANBusDrive/cWinchA/BattVoltage",
       "metric": "Metric250ms"
     },
     {
-      "name": "sync_error_CD",
-      "path": "System/iLiftCDSync",
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
       "metric": "Metric250ms"
     },
     {
-      "name": "position_winchA",
-      "path": "System/iLiftAPos",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "position_winchB",
-      "path": "System/iLiftBPos",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "position_winchC",
-      "path": "System/iLiftCPos",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "position_winchD",
-      "path": "System/iLiftDPos",
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
       "metric": "Metric250ms"
     },
     {
@@ -63,16 +37,6 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "batt_voltage_winchA",
-      "path": "CANBusDrive/cWinchA/BattVoltage",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "torque_winchA",
-      "path": "CANBusDrive/cWinchA/Torque",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "motor_temp_winchA",
       "path": "CANBusDrive/cWinchA/MotorTemp",
       "metric": "Metric1s"
@@ -93,13 +57,38 @@
       "metric": "Metric1s"
     },
     {
-      "name": "bms_current",
-      "path": "System/BMSAB/Current",
+      "name": "position_winchA",
+      "path": "System/iLiftAPos",
       "metric": "Metric250ms"
     },
     {
-      "name": "bms_voltage",
-      "path": "System/BMSAB/Voltage",
+      "name": "position_winchB",
+      "path": "System/iLiftBPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "position_winchC",
+      "path": "System/iLiftCPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "position_winchD",
+      "path": "System/iLiftDPos",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "sync_error_AB",
+      "path": "System/iLiftABSync",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "sync_error_CD",
+      "path": "System/iLiftCDSync",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "torque_winchA",
+      "path": "CANBusDrive/cWinchA/Torque",
       "metric": "Metric250ms"
     }
   ]

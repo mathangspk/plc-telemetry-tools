@@ -1,93 +1,50 @@
 {
-  "_note": "This file is the reusable baseline for MP-04 live-verified signals. Signals listed here do not need re-verification unless the PLC project or export changes. Any signal NOT in this file was either not present, had wrong semantics, was speculative, or was only statically inferred.",
-  "profile": "MP-04",
-  "verified_at": "2026-05-20",
-  "source_endpoint": {
-    "rw": "10.2.3.4:49870",
-    "ro": "10.2.3.4:49880"
-  },
-  "verification_policy": "live-confirmed only",
+  "name": "MP-04",
   "signals": [
     {
-      "template_signal": "motor_temp_travelA",
-      "signal_name": "motor_temp_travelA",
-      "runtime_path": "CANBusDrive/cTransA/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransA/MotorTemp",
-      "sample_value": 38.0,
-      "status": "present",
-      "evidence": "Live-read returned 38.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransA/MotorTemp"
+      "name": "cntrl_temp_travelA",
+      "path": "CANBusDrive/cTransA/CntrlTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_travelB",
-      "signal_name": "motor_temp_travelB",
-      "runtime_path": "CANBusDrive/cTransB/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransB/MotorTemp",
-      "sample_value": 39.0,
-      "status": "present",
-      "evidence": "Live-read returned 39.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransB/MotorTemp"
+      "name": "motor_temp_travelA",
+      "path": "CANBusDrive/cTransA/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_travelC",
-      "signal_name": "motor_temp_travelC",
-      "runtime_path": "CANBusDrive/cTransC/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransC/MotorTemp",
-      "sample_value": 38.0,
-      "status": "present",
-      "evidence": "Live-read returned 38.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransC/MotorTemp"
+      "name": "motor_temp_travelB",
+      "path": "CANBusDrive/cTransB/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_travelD",
-      "signal_name": "motor_temp_travelD",
-      "runtime_path": "CANBusDrive/cTransD/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransD/MotorTemp",
-      "sample_value": 36.0,
-      "status": "present",
-      "evidence": "Live-read returned 36.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransD/MotorTemp"
+      "name": "motor_temp_travelC",
+      "path": "CANBusDrive/cTransC/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "cntrl_temp_travelA",
-      "signal_name": "cntrl_temp_travelA",
-      "runtime_path": "CANBusDrive/cTransA/CntrlTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cTransA/CntrlTemp",
-      "sample_value": 36.0,
-      "status": "present",
-      "evidence": "Live-read returned 36.0; identity resolved to PrimaryPLC.System.CANBusDrive/cTransA/CntrlTemp"
+      "name": "motor_temp_travelD",
+      "path": "CANBusDrive/cTransD/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_winchA",
-      "signal_name": "motor_temp_winchA",
-      "runtime_path": "CANBusDrive/cWinchA/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp",
-      "sample_value": 45.0,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp (carried from MP-01 baseline)"
+      "name": "motor_temp_winchA",
+      "path": "CANBusDrive/cWinchA/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_winchB",
-      "signal_name": "motor_temp_winchB",
-      "runtime_path": "CANBusDrive/cWinchB/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchB/MotorTemp",
-      "sample_value": 169.0,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchB/MotorTemp (carried from MP-01 baseline)"
+      "name": "motor_temp_winchB",
+      "path": "CANBusDrive/cWinchB/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_winchC",
-      "signal_name": "motor_temp_winchC",
-      "runtime_path": "CANBusDrive/cWinchC/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchC/MotorTemp",
-      "sample_value": 45.0,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchC/MotorTemp (carried from MP-01 baseline)"
+      "name": "motor_temp_winchC",
+      "path": "CANBusDrive/cWinchC/MotorTemp",
+      "metric": "Metric5s"
     },
     {
-      "template_signal": "motor_temp_winchD",
-      "signal_name": "motor_temp_winchD",
-      "runtime_path": "CANBusDrive/cWinchD/MotorTemp",
-      "identity": "PrimaryPLC.System.CANBusDrive/cWinchD/MotorTemp",
-      "sample_value": 42.0,
-      "status": "present",
-      "evidence": "Live-read confirmed; identity resolved to PrimaryPLC.System.CANBusDrive/cWinchD/MotorTemp (carried from MP-01 baseline)"
+      "name": "motor_temp_winchD",
+      "path": "CANBusDrive/cWinchD/MotorTemp",
+      "metric": "Metric5s"
     }
   ]
 }

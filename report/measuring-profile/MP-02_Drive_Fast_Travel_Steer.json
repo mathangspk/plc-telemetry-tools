@@ -1,17 +1,21 @@
 {
   "name": "MP-02_Drive_Fast_Travel_Steer",
-  "title": "MP-02 Drive Fast - Travel & Steer Performance",
-  "description": "High-speed tracking of travel motor currents, steering positions, steering throttle command inputs, and BMS battery limits during dynamic driving maneuvers.",
-  "target_tests": [
-    "LOAD-004",
-    "LOAD-005",
-    "LOAD-013",
-    "PERF-003",
-    "PERF-005",
-    "PERF-006",
-    "PERF-007"
-  ],
   "signals": [
+    {
+      "name": "batt_voltage_travelA",
+      "path": "CANBusDrive/cTransA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bms_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bms_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric250ms"
+    },
     {
       "name": "current_travelA",
       "path": "CANBusDrive/cTransA/Current",
@@ -33,34 +37,9 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "batt_voltage_travelA",
-      "path": "CANBusDrive/cTransA/BattVoltage",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "travel_rpm_M1",
-      "path": "System/CANBusDrive/cTransA/Velocity",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "travel_rpm_M2",
-      "path": "System/CANBusDrive/cTransB/Velocity",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "travel_rpm_M3",
-      "path": "System/CANBusDrive/cTransC/Velocity",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "travel_rpm_M4",
-      "path": "System/CANBusDrive/cTransD/Velocity",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "torque_travelA",
-      "path": "CANBusDrive/cTransA/Torque",
-      "metric": "Metric250ms"
+      "name": "motor_temp_steerA",
+      "path": "CANBusDrive/cSteerA/MotorTemp",
+      "metric": "Metric1s"
     },
     {
       "name": "position_steerA",
@@ -83,33 +62,8 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "motor_temp_steerA",
-      "path": "CANBusDrive/cSteerA/MotorTemp",
-      "metric": "Metric1s"
-    },
-    {
-      "name": "joystick_cmd_x",
-      "path": "System/Steer/Throttle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "joystick_cmd_y",
-      "path": "System/Travel/Throttle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "bms_current",
-      "path": "System/BMSAB/Current",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "bms_voltage",
-      "path": "System/BMSAB/Voltage",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "operating_mode",
-      "path": "System/OperatingMode",
+      "name": "torque_travelA",
+      "path": "CANBusDrive/cTransA/Torque",
       "metric": "Metric250ms"
     }
   ]

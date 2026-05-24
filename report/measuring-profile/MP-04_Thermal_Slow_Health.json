@@ -1,17 +1,11 @@
 {
   "name": "MP-04_Thermal_Slow_Health",
-  "title": "MP-04 Thermal Slow - Motor & Drivetrain Health",
-  "description": "Slow-frequency temperature tracking for travel motors, hoist winches, controllers, and hydraulics to monitor thermal health over long operation periods.",
-  "target_tests": [
-    "LOAD-002",
-    "LOAD-004",
-    "LOAD-009",
-    "LOAD-011",
-    "LOAD-014",
-    "END-002",
-    "END-003"
-  ],
   "signals": [
+    {
+      "name": "cntrl_temp_travelA",
+      "path": "CANBusDrive/cTransA/CntrlTemp",
+      "metric": "Metric5s"
+    },
     {
       "name": "motor_temp_travelA",
       "path": "CANBusDrive/cTransA/MotorTemp",
@@ -33,26 +27,6 @@
       "metric": "Metric5s"
     },
     {
-      "name": "cntrl_temp_travelA",
-      "path": "CANBusDrive/cTransA/CntrlTemp",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "cntrl_temp_travelB",
-      "path": "CANBusDrive/cTransB",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "cntrl_temp_travelC",
-      "path": "CANBusDrive/cTransC",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "cntrl_temp_travelD",
-      "path": "CANBusDrive/cTransD",
-      "metric": "Metric5s"
-    },
-    {
       "name": "motor_temp_winchA",
       "path": "CANBusDrive/cWinchA/MotorTemp",
       "metric": "Metric5s"
@@ -70,21 +44,6 @@
     {
       "name": "motor_temp_winchD",
       "path": "CANBusDrive/cWinchD/MotorTemp",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "steer_temp_motor_max",
-      "path": "CANBusDrive/cSteerA",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "hydraulic_oil_temp",
-      "path": "CANBusDrive/cSpreader/HydTemp",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "hydraulic_pressure",
-      "path": "CANBusDrive/cSpreader/HydPressure",
       "metric": "Metric5s"
     }
   ]
