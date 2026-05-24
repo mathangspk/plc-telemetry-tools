@@ -259,6 +259,10 @@
       "path": "System/CANBusSystem/cBMSA/SOC"
     },
     {
+      "name": "bmsa_soh",
+      "path": "System/CANBusSystem/cBMSA/SOH"
+    },
+    {
       "name": "bmsa_temp_max",
       "path": "System/CANBusSystem/cBMSA/MaxTemp"
     },
@@ -273,6 +277,10 @@
     {
       "name": "bmsb_soc",
       "path": "System/CANBusSystem/cBMSB/SOC"
+    },
+    {
+      "name": "bmsb_soh",
+      "path": "System/CANBusSystem/cBMSB/SOH"
     },
     {
       "name": "bmsb_temp_max",

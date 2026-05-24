@@ -57,6 +57,11 @@
       "metric": "Metric1s"
     },
     {
+      "name": "bmsa_soh",
+      "path": "System/CANBusSystem/cBMSA/SOH",
+      "metric": "Metric1d"
+    },
+    {
       "name": "bmsa_temp_max",
       "path": "System/CANBusSystem/cBMSA/MaxTemp",
       "metric": "Metric5s"
@@ -75,6 +80,11 @@
       "name": "bmsb_soc",
       "path": "System/CANBusSystem/cBMSB/SOC",
       "metric": "Metric1s"
+    },
+    {
+      "name": "bmsb_soh",
+      "path": "System/CANBusSystem/cBMSB/SOH",
+      "metric": "Metric1d"
     },
     {
       "name": "bmsb_temp_max",

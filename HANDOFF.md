@@ -935,14 +935,15 @@ report/trace/test_results/
 1. **Excel Battery Profile Extension (`MP-03`)**:
    - Modified `MP-03.xlsx` and `MP-03_Battery_Medium_Consumption.xlsx` in both directories.
    - Updated existing rows (SOH, cumulative energy discharged/regen, maximum/minimum cell temperatures, and fault codes) to their verified basecode paths (`System/CANBusSystem/cBMSA/...`) and marked them as `present`.
-   - Inserted 8 new battery pack telemetry rows (`bmsa_voltage`, `bmsa_current`, `bmsa_soc`, `bmsa_temp_max` and corresponding `bmsb` parameters) right before the `ambient_temp` row. Cell styling, borders, alignments, and wrapping were copied perfectly using `openpyxl`.
+   - Inserted 10 new battery pack telemetry rows (`bmsa_voltage`, `bmsa_current`, `bmsa_soc`, `bmsa_temp_max`, `bmsa_soh` and corresponding `bmsb` parameters) right before the `ambient_temp` row. Cell styling, borders, alignments, and wrapping were copied perfectly using `openpyxl`.
 2. **JSON Format Standardization**:
    - Overwrote all 6 measuring profile JSON files in `exports/measuring-profiles/` (`MP-NN-verified-signals.json`) and `report/measuring-profile/` (`MP-NN_Descriptive_Name.json`) to use the exact compact trace JSON format, removing redundant metadata fields (evidence, sample value, etc.) and keeping only `"name"` and `"signals"` containing `"name"`, `"path"`, and `"metric"`.
-   - Updated `MP-03` JSON files to include the 14 active, validated signals (SOH, energy totals, max/min temps, fault codes, plus the 8 new physical pack signals).
+   - Updated `MP-03` JSON files to include the 19 active, validated signals (SOH, energy totals, max/min temps, fault codes, plus the 10 new physical pack signals).
 3. **Consolidated Signal Pool Compilation**:
    - Implemented a python compiler script `scratch/compile_signal_pool.py`.
    - Scanned all 29 trace JSON files in `exports/trace-config/traces/` and all 6 measuring profile JSON files in `exports/measuring-profiles/`.
-   - Extracted, deduplicated, sorted, and saved a total of **554 unique active signals** inside the consolidated pool [active_signals.json](file:///c:/local/opencode/codesys/exports/pool_signals/active_signals.json).
+   - Extracted, deduplicated, sorted, and saved a total of **556 unique active signals** inside the consolidated pool [active_signals.json](file:///c:/local/opencode/codesys/exports/pool_signals/active_signals.json).
+
 4. **Git Integration**:
    - Staged all changes, committed (`feat: Standardized JSON profiles, integrated BMSA/BMSB to MP-03, and compiled signal pool`), and successfully pushed to remote Git `master` branch.
 
