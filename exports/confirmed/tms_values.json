@@ -1,0 +1,25 @@
+{
+  "name": "TMS",
+  "signals": [
+    {
+      "name": "tMS_clntReserv",
+      "path": "System/TMS/ClntReserv"
+    },
+    {
+      "name": "tMS_clntTempHot",
+      "path": "System/TMS/ClntTempHot"
+    },
+    {
+      "name": "tMS_clntTempCold",
+      "path": "System/TMS/ClntTempCold"
+    },
+    {
+      "name": "tMS_clntReservoir",
+      "path": "System/TMS/ClntReservoir"
+    },
+    {
+      "name": "tMS_clntTemp",
+      "path": "System/TMS/ClntTemp"
+    }
+  ]
+}

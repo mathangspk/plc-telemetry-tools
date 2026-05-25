@@ -1,0 +1,101 @@
+{
+  "name": "Charger_CANBus",
+  "signals": [
+    {
+      "name": "chargerA_TargVoltage",
+      "path": "System/CANBusSystem/cChargerA/TargVoltage"
+    },
+    {
+      "name": "chargerA_TargCurrent",
+      "path": "System/CANBusSystem/cChargerA/TargCurrent"
+    },
+    {
+      "name": "chargerA_Voltage",
+      "path": "System/CANBusSystem/cChargerA/Voltage"
+    },
+    {
+      "name": "chargerA_Current",
+      "path": "System/CANBusSystem/cChargerA/Current"
+    },
+    {
+      "name": "chargerA_Power",
+      "path": "System/CANBusSystem/cChargerA/Power"
+    },
+    {
+      "name": "chargerA_Diagnostic",
+      "path": "System/CANBusSystem/cChargerA/Diagnostic"
+    },
+    {
+      "name": "chargerA_CC",
+      "path": "System/CANBusSystem/cChargerA/CC"
+    },
+    {
+      "name": "chargerA_CP",
+      "path": "System/CANBusSystem/cChargerA/CP"
+    },
+    {
+      "name": "chargerB_TargVoltage",
+      "path": "System/CANBusSystem/cChargerB/TargVoltage"
+    },
+    {
+      "name": "chargerB_TargCurrent",
+      "path": "System/CANBusSystem/cChargerB/TargCurrent"
+    },
+    {
+      "name": "chargerB_Voltage",
+      "path": "System/CANBusSystem/cChargerB/Voltage"
+    },
+    {
+      "name": "chargerB_Current",
+      "path": "System/CANBusSystem/cChargerB/Current"
+    },
+    {
+      "name": "chargerB_Power",
+      "path": "System/CANBusSystem/cChargerB/Power"
+    },
+    {
+      "name": "chargerB_Diagnostic",
+      "path": "System/CANBusSystem/cChargerB/Diagnostic"
+    },
+    {
+      "name": "chargerB_CC",
+      "path": "System/CANBusSystem/cChargerB/CC"
+    },
+    {
+      "name": "chargerB_CP",
+      "path": "System/CANBusSystem/cChargerB/CP"
+    },
+    {
+      "name": "chargerC_TargVoltage",
+      "path": "System/CANBusSystem/cChargerC/TargVoltage"
+    },
+    {
+      "name": "chargerC_TargCurrent",
+      "path": "System/CANBusSystem/cChargerC/TargCurrent"
+    },
+    {
+      "name": "chargerC_Voltage",
+      "path": "System/CANBusSystem/cChargerC/Voltage"
+    },
+    {
+      "name": "chargerC_Current",
+      "path": "System/CANBusSystem/cChargerC/Current"
+    },
+    {
+      "name": "chargerC_Power",
+      "path": "System/CANBusSystem/cChargerC/Power"
+    },
+    {
+      "name": "chargerC_Diagnostic",
+      "path": "System/CANBusSystem/cChargerC/Diagnostic"
+    },
+    {
+      "name": "chargerC_CC",
+      "path": "System/CANBusSystem/cChargerC/CC"
+    },
+    {
+      "name": "chargerC_CP",
+      "path": "System/CANBusSystem/cChargerC/CP"
+    }
+  ]
+}

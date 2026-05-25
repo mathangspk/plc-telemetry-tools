@@ -1,0 +1,65 @@
+{
+  "name": "Secondary_CANBus",
+  "signals": [
+    {
+      "name": "secondary_secPwrNotRun",
+      "path": "System/Secondary/SecPwrNotRun"
+    },
+    {
+      "name": "secondary_secPwrWait",
+      "path": "System/Secondary/SecPwrWait"
+    },
+    {
+      "name": "secondary_secPwrMismatch",
+      "path": "System/Secondary/SecPwrMismatch"
+    },
+    {
+      "name": "secondaryA_SecPwrTemp",
+      "path": "System/CANBusSystem/cSecondaryA/SecPwrTemp"
+    },
+    {
+      "name": "secondaryA_VoltageReq",
+      "path": "System/CANBusSystem/cSecondaryA/VoltageReq"
+    },
+    {
+      "name": "secondaryA_VoltageCurr",
+      "path": "System/CANBusSystem/cSecondaryA/VoltageCurr"
+    },
+    {
+      "name": "secondaryA_CurrentCurr",
+      "path": "System/CANBusSystem/cSecondaryA/CurrentCurr"
+    },
+    {
+      "name": "secondaryA_Temp",
+      "path": "System/CANBusSystem/cSecondaryA/Temp"
+    },
+    {
+      "name": "secondaryA_Diagnostic",
+      "path": "System/CANBusSystem/cSecondaryA/Diagnostic"
+    },
+    {
+      "name": "secondaryB_SecPwrTemp",
+      "path": "System/CANBusSystem/cSecondaryB/SecPwrTemp"
+    },
+    {
+      "name": "secondaryB_VoltageReq",
+      "path": "System/CANBusSystem/cSecondaryB/VoltageReq"
+    },
+    {
+      "name": "secondaryB_VoltageCurr",
+      "path": "System/CANBusSystem/cSecondaryB/VoltageCurr"
+    },
+    {
+      "name": "secondaryB_CurrentCurr",
+      "path": "System/CANBusSystem/cSecondaryB/CurrentCurr"
+    },
+    {
+      "name": "secondaryB_Temp",
+      "path": "System/CANBusSystem/cSecondaryB/Temp"
+    },
+    {
+      "name": "secondaryB_Diagnostic",
+      "path": "System/CANBusSystem/cSecondaryB/Diagnostic"
+    }
+  ]
+}
