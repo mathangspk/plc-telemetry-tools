@@ -1,6 +1,6 @@
 # Live Telemetry Value Report: BMSAB & TMS
 
-- **Captured At:** 2026-05-25 12:17:06
+- **Captured At:** 2026-05-25 12:24:38
 - **PLC Host:** 10.2.3.4
 
 ## 🔋 BMSAB Subsystem (31 Signals)
@@ -38,6 +38,20 @@
 | `bMSAB_tMSMismatch` | `System/BMSAB/TMSMismatch` | **N/A** | `EscAlarm` |
 | `bMSAB_voltage` | `System/BMSAB/Voltage` | **0.0** | `ValRefReal` |
 | `bMSAB_voltageMismatch` | `System/BMSAB/VoltageMismatch` | **0.5** | `ValRefPersReal` |
+| `bat_energy_discharged_kwh` | `System/CANBusSystem/cBMSA/TtlDschrgEnergy` | **0.0** | `ValObjReal` |
+| `bat_energy_regen_kwh` | `System/CANBusSystem/cBMSA/TtlChrgEnergy` | **0.0** | `ValObjReal` |
+| `bat_fault_code` | `System/CANBusSystem/cBMSA/FaultCode` | **0** | `ValObjUSINT` |
+| `bat_soh_pct` | `System/CANBusSystem/cBMSA/SOH` | **0.996** | `ValObjPercentage` |
+| `bat_temp_max` | `System/CANBusSystem/cBMSA/MaxTemp` | **32.0** | `ValObjReal` |
+| `bat_temp_min` | `System/CANBusSystem/cBMSA/MinTemp` | **29.0** | `ValObjReal` |
+| `bmsa_current` | `System/CANBusSystem/cBMSA/Current` | **0.0** | `ValObjReal` |
+| `bmsa_soc` | `System/CANBusSystem/cBMSA/SOC` | **0.848** | `ValObjPercentage` |
+| `bmsa_voltage` | `System/CANBusSystem/cBMSA/Voltage` | **129.7** | `ValObjReal` |
+| `bmsb_current` | `System/CANBusSystem/cBMSB/Current` | **0.0** | `ValObjReal` |
+| `bmsb_soc` | `System/CANBusSystem/cBMSB/SOC` | **0.844** | `ValObjPercentage` |
+| `bmsb_soh` | `System/CANBusSystem/cBMSB/SOH` | **1.0** | `ValObjPercentage` |
+| `bmsb_temp_max` | `System/CANBusSystem/cBMSB/MaxTemp` | **32.0** | `ValObjReal` |
+| `bmsb_voltage` | `System/CANBusSystem/cBMSB/Voltage` | **129.7** | `ValObjReal` |
 
 ## 🌡️ TMS Subsystem (22 Signals)
 
@@ -53,7 +67,7 @@
 | `tMS_clntReservoir` | `System/TMS/ClntReservoir` | **1** | `ValObjBool` |
 | `tMS_clntSecFailHC` | `System/TMS/ClntSecFailHC` | **N/A** | `EscAlarm` |
 | `tMS_clntSecFailPmp` | `System/TMS/ClntSecFailPmp` | **N/A** | `EscAlarm` |
-| `tMS_clntTemp` | `System/TMS/ClntTemp` | **60.53099** | `ValObjReal` |
+| `tMS_clntTemp` | `System/TMS/ClntTemp` | **61.944** | `ValObjReal` |
 | `tMS_clntTempCold` | `System/TMS/ClntTempCold` | **0** | `ValObjBool` |
 | `tMS_clntTempColdCutb` | `System/TMS/ClntTempColdCutb` | **N/A** | `ChargeMod` |
 | `tMS_clntTempHot` | `System/TMS/ClntTempHot` | **1** | `ValObjBool` |

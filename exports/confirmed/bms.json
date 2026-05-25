@@ -1,93 +1,93 @@
 {
-  "name": "BMSAB",
+  "name": "BMS",
   "signals": [
-    {
-      "name": "bMSAB_voltageMismatch",
-      "path": "System/BMSAB/VoltageMismatch"
-    },
-    {
-      "name": "bMSAB_sOCMismatch",
-      "path": "System/BMSAB/SOCMismatch"
-    },
-    {
-      "name": "bMSAB_currentMismatch",
-      "path": "System/BMSAB/CurrentMismatch"
-    },
-    {
-      "name": "bMSAB_dsblVoltMisMgmt",
-      "path": "System/BMSAB/DsblVoltMisMgmt"
-    },
     {
       "name": "bMSAB_availFactor",
       "path": "System/BMSAB/AvailFactor"
-    },
-    {
-      "name": "bMSAB_tMSMismatch",
-      "path": "System/BMSAB/TMSMismatch"
-    },
-    {
-      "name": "bMSAB_bMSChrgMismatch",
-      "path": "System/BMSAB/BMSChrgMismatch"
-    },
-    {
-      "name": "bMSAB_bMSVoltMismatch",
-      "path": "System/BMSAB/BMSVoltMismatch"
-    },
-    {
-      "name": "bMSAB_bMSSOCMismatch",
-      "path": "System/BMSAB/BMSSOCMismatch"
-    },
-    {
-      "name": "bMSAB_bMSCurrMismatch",
-      "path": "System/BMSAB/BMSCurrMismatch"
-    },
-    {
-      "name": "bMSAB_current",
-      "path": "System/BMSAB/Current"
-    },
-    {
-      "name": "bMSAB_sOC",
-      "path": "System/BMSAB/SOC"
-    },
-    {
-      "name": "bMSAB_voltage",
-      "path": "System/BMSAB/Voltage"
     },
     {
       "name": "bMSAB_availability",
       "path": "System/BMSAB/Availability"
     },
     {
-      "name": "bMSAB_enblSOCRecovery",
-      "path": "System/BMSAB/EnblSOCRecovery"
+      "name": "bMSAB_bMSAvailInsuff",
+      "path": "System/BMSAB/BMSAvailInsuff"
     },
     {
-      "name": "bMSAB_sOCRecTimRst",
-      "path": "System/BMSAB/SOCRecTimRst"
+      "name": "bMSAB_bMSAvailLmtd",
+      "path": "System/BMSAB/BMSAvailLmtd"
     },
     {
-      "name": "bMSAB_enblRestart",
-      "path": "System/BMSAB/EnblRestart"
+      "name": "bMSAB_bMSChrgCutb",
+      "path": "System/BMSAB/BMSChrgCutb"
     },
     {
-      "name": "bMSAB_restartCount",
-      "path": "System/BMSAB/RestartCount"
+      "name": "bMSAB_bMSChrgMismatch",
+      "path": "System/BMSAB/BMSChrgMismatch"
+    },
+    {
+      "name": "bMSAB_bMSCurrMismatch",
+      "path": "System/BMSAB/BMSCurrMismatch"
+    },
+    {
+      "name": "bMSAB_bMSDischCutb",
+      "path": "System/BMSAB/BMSDischCutb"
+    },
+    {
+      "name": "bMSAB_bMSNotConnect",
+      "path": "System/BMSAB/BMSNotConnect"
+    },
+    {
+      "name": "bMSAB_bMSSOCMismatch",
+      "path": "System/BMSAB/BMSSOCMismatch"
+    },
+    {
+      "name": "bMSAB_bMSVoltMismatch",
+      "path": "System/BMSAB/BMSVoltMismatch"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current"
+    },
+    {
+      "name": "bMSAB_currentMismatch",
+      "path": "System/BMSAB/CurrentMismatch"
+    },
+    {
+      "name": "bMSAB_cycleOutput",
+      "path": "System/BMSAB/CycleOutput"
     },
     {
       "name": "bMSAB_dsblConnect",
       "path": "System/BMSAB/DsblConnect"
     },
     {
-      "name": "bMSAB_sOCRecCurrMin",
-      "path": "System/BMSAB/SOCRecCurrMin"
+      "name": "bMSAB_dsblVoltMisMgmt",
+      "path": "System/BMSAB/DsblVoltMisMgmt"
     },
     {
       "name": "bMSAB_enblBMS",
       "path": "System/BMSAB/EnblBMS"
     },
     {
-      "name": "bMSAB_bMSAvailInsuff",
-      "path": "System/BMSAB/BMSAvailInsuff"
+      "name": "bMSAB_enblRestart",
+      "path": "System/BMSAB/EnblRestart"
+    },
+    {
+      "name": "bMSAB_enblSOCRecovery",
+      "path": "System/BMSAB/EnblSOCRecovery"
+    },
+    {
+      "name": "bMSAB_output",
+      "path": "System/BMSAB/Output"
+    },
+    {
+      "name": "bMSAB_restartCount",
+      "path": "System/BMSAB/RestartCount"
+    },
+    {
+      "name": "bMSAB_sOC",
+      "path": "System/BMSAB/SOC"
     },
     {
       "name": "bMSAB_sOCLowOpMin",
@@ -98,32 +98,88 @@
       "path": "System/BMSAB/SOCLowStdbyMin"
     },
     {
-      "name": "bMSAB_bMSNotConnect",
-      "path": "System/BMSAB/BMSNotConnect"
+      "name": "bMSAB_sOCMismatch",
+      "path": "System/BMSAB/SOCMismatch"
     },
     {
-      "name": "bMSAB_bMSChrgCutb",
-      "path": "System/BMSAB/BMSChrgCutb"
+      "name": "bMSAB_sOCRecCurrMin",
+      "path": "System/BMSAB/SOCRecCurrMin"
     },
     {
-      "name": "bMSAB_bMSDischCutb",
-      "path": "System/BMSAB/BMSDischCutb"
+      "name": "bMSAB_sOCRecTimRst",
+      "path": "System/BMSAB/SOCRecTimRst"
     },
     {
       "name": "bMSAB_sOCWarnLow",
       "path": "System/BMSAB/SOCWarnLow"
     },
     {
-      "name": "bMSAB_bMSAvailLmtd",
-      "path": "System/BMSAB/BMSAvailLmtd"
+      "name": "bMSAB_tMSMismatch",
+      "path": "System/BMSAB/TMSMismatch"
     },
     {
-      "name": "bMSAB_cycleOutput",
-      "path": "System/BMSAB/CycleOutput"
+      "name": "bMSAB_voltage",
+      "path": "System/BMSAB/Voltage"
     },
     {
-      "name": "bMSAB_output",
-      "path": "System/BMSAB/Output"
+      "name": "bMSAB_voltageMismatch",
+      "path": "System/BMSAB/VoltageMismatch"
+    },
+    {
+      "name": "bmsa_current",
+      "path": "System/CANBusSystem/cBMSA/Current"
+    },
+    {
+      "name": "bmsa_soc",
+      "path": "System/CANBusSystem/cBMSA/SOC"
+    },
+    {
+      "name": "bmsa_voltage",
+      "path": "System/CANBusSystem/cBMSA/Voltage"
+    },
+    {
+      "name": "bmsb_current",
+      "path": "System/CANBusSystem/cBMSB/Current"
+    },
+    {
+      "name": "bmsb_soc",
+      "path": "System/CANBusSystem/cBMSB/SOC"
+    },
+    {
+      "name": "bmsb_soh",
+      "path": "System/CANBusSystem/cBMSB/SOH"
+    },
+    {
+      "name": "bmsb_temp_max",
+      "path": "System/CANBusSystem/cBMSB/MaxTemp"
+    },
+    {
+      "name": "bmsb_voltage",
+      "path": "System/CANBusSystem/cBMSB/Voltage"
+    },
+    {
+      "name": "bat_energy_discharged_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlDschrgEnergy"
+    },
+    {
+      "name": "bat_energy_regen_kwh",
+      "path": "System/CANBusSystem/cBMSA/TtlChrgEnergy"
+    },
+    {
+      "name": "bat_fault_code",
+      "path": "System/CANBusSystem/cBMSA/FaultCode"
+    },
+    {
+      "name": "bat_soh_pct",
+      "path": "System/CANBusSystem/cBMSA/SOH"
+    },
+    {
+      "name": "bat_temp_max",
+      "path": "System/CANBusSystem/cBMSA/MaxTemp"
+    },
+    {
+      "name": "bat_temp_min",
+      "path": "System/CANBusSystem/cBMSA/MinTemp"
     }
   ]
 }

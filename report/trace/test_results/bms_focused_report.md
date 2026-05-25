@@ -1,6 +1,6 @@
 # Telemetry Focused Report: bms
 
-- **Tested At:** 2026-05-25 12:11:00
+- **Tested At:** 2026-05-25 12:23:22
 - **PLC Host:** 10.2.3.4
 - **Configured Metrics in Files:** Metric250ms
 - **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
@@ -9,10 +9,10 @@
 
 | Status | Count | Percentage |
 | --- | ---: | ---: |
-| **Active (PASS_ACTIVE)** | 31 | 100.0% |
+| **Active (PASS_ACTIVE)** | 45 | 100.0% |
 | **Silent (SILENT)** | 0 | 0.0% |
 | **Failed (FAIL)** | 0 | 0.0% |
-| **Total Expected** | 31 | 100.0% |
+| **Total Expected** | 45 | 100.0% |
 
 ## 🟢 Verified Active Signals (PASS_ACTIVE)
 
@@ -49,6 +49,20 @@
 | `bMSAB_tMSMismatch` | `System/BMSAB/TMSMismatch` | OK | YES | YES |
 | `bMSAB_voltage` | `System/BMSAB/Voltage` | OK | YES | YES |
 | `bMSAB_voltageMismatch` | `System/BMSAB/VoltageMismatch` | OK | YES | YES |
+| `bat_energy_discharged_kwh` | `System/CANBusSystem/cBMSA/TtlDschrgEnergy` | OK | YES | YES |
+| `bat_energy_regen_kwh` | `System/CANBusSystem/cBMSA/TtlChrgEnergy` | OK | YES | YES |
+| `bat_fault_code` | `System/CANBusSystem/cBMSA/FaultCode` | OK | YES | YES |
+| `bat_soh_pct` | `System/CANBusSystem/cBMSA/SOH` | OK | YES | YES |
+| `bat_temp_max` | `System/CANBusSystem/cBMSA/MaxTemp` | OK | YES | YES |
+| `bat_temp_min` | `System/CANBusSystem/cBMSA/MinTemp` | OK | YES | YES |
+| `bmsa_current` | `System/CANBusSystem/cBMSA/Current` | OK | YES | YES |
+| `bmsa_soc` | `System/CANBusSystem/cBMSA/SOC` | OK | YES | YES |
+| `bmsa_voltage` | `System/CANBusSystem/cBMSA/Voltage` | OK | YES | YES |
+| `bmsb_current` | `System/CANBusSystem/cBMSB/Current` | OK | YES | YES |
+| `bmsb_soc` | `System/CANBusSystem/cBMSB/SOC` | OK | YES | YES |
+| `bmsb_soh` | `System/CANBusSystem/cBMSB/SOH` | OK | YES | YES |
+| `bmsb_temp_max` | `System/CANBusSystem/cBMSB/MaxTemp` | OK | YES | YES |
+| `bmsb_voltage` | `System/CANBusSystem/cBMSB/Voltage` | OK | YES | YES |
 
 ## 🔴 Failed / Inactive Signals (FAIL)
 
