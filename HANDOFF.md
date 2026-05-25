@@ -9,8 +9,9 @@
   - **ChargerABC**: Validated 7 active signals (100% PASS_ACTIVE).
 - **Secondary CANBus Expansion**: Added deep real-time telemetry probing for CANBus hardware instances `cSecondaryA` and `cSecondaryB`. Successfully validated 38 new active telemetry signals (19 per unit), including precise current, voltage, and temperature references.
 - **Charger CANBus Expansion**: Mapped and probed live telemetry for CANBus modules `cChargerA`, `cChargerB`, and `cChargerC`. Captured 66 real-time signals (22 per unit).
+- **BMS Live Verification**: Ran an independent chunked validation sweep on the confirmed `bms.json` trace configuration. Tested 45 expected BMS telemetry signals across 3 chunks. All 45 signals registered and emitted perfectly (100% PASS_ACTIVE, 0 Failed).
 - **PLC Hard-Limit Bypass**: Discovered that the PLC firmware enforces a hard limit of < 50 members per telemetry Metric. Attempting to register more causes the Metric to crash or truncate the JSON stream. Upgraded `verify_with_clean_workflow.py` to automatically batch verifications into chunks of 20 signals to bypass this constraint safely.
-- Captured live telemetry values for all verified signals and generated final `sec_chg_focused_report.md`, `secondary_canbus_focused_report.md`, and `charger_canbus_focused_report.md`.
+- Captured live telemetry values for all verified signals and generated final `sec_chg_focused_report.md`, `secondary_canbus_focused_report.md`, `charger_canbus_focused_report.md`, and `bms_focused_report.md`.
 - Consolidated all active JSON trace configurations (bms, tms, secondary, charger, secondary_canbus, charger_canbus) strictly using verified paths.
 
 ## Current System State
@@ -21,6 +22,7 @@
 ## Verification & Testing
 - Validation sweep on `secondary_canbus` (38 signals) returned 100% active state across the TCP stream.
 - Validation sweep on `charger_canbus` (66 signals, tested in 4 chunks) returned 100% active state.
+- Validation sweep on `bms.json` (45 signals, tested in 3 chunks) returned 100% active state.
 - Results show 0 failed/silent signals.
 - Live values accurately probed over TCP RO Emit and Describe ports.
 

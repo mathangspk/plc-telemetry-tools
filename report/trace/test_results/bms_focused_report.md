@@ -1,6 +1,6 @@
 # Telemetry Focused Report: bms
 
-- **Tested At:** 2026-05-25 12:23:22
+- **Tested At:** 2026-05-25 14:22:50
 - **PLC Host:** 10.2.3.4
 - **Configured Metrics in Files:** Metric250ms
 - **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
