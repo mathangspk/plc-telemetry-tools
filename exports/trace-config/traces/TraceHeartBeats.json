@@ -3,107 +3,107 @@
   "signals": [
     {
       "name": "spreader_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSpreader/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSpreader/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchAngleA_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleA/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchAngleA/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchAngleB_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleB/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchAngleB/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchAngleC_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleC/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchAngleC/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchAngleD_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleD/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchAngleD/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerAngleA_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerAngleA/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerAngleA/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerAngleB_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerAngleB/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerAngleB/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerAngleC_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerAngleC/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerAngleC/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerAngleD_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerAngleD/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerAngleD/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "transA_heartbeatCounter_",
-      "path": "System/CANBusDrive/cTransA/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cTransA/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "transB_heartbeatCounter_",
-      "path": "System/CANBusDrive/cTransB/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cTransB/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "transC_heartbeatCounter_",
-      "path": "System/CANBusDrive/cTransC/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cTransC/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "transD_heartbeatCounter_",
-      "path": "System/CANBusDrive/cTransD/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cTransD/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchA_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchA/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchA/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchB_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchB/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchB/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchC_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchC/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchC/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "winchD_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchD/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cWinchD/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerA_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerA/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerA/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerB_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerB/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerB/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerC_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerC/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerC/SlaveNotify",
       "metric": "Metric250ms"
     },
     {
       "name": "steerD_heartbeatCounter_",
-      "path": "System/CANBusDrive/cSteerD/HeartbeatCounter/",
+      "path": "System/CANBusDrive/cSteerD/SlaveNotify",
       "metric": "Metric250ms"
     }
   ]

@@ -13,82 +13,82 @@
     },
     {
       "name": "winchA_alarmControllerTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/CntTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchA_alarmControllerTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchA/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/CntTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchB_alarmControllerTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchB/CntTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchB_alarmControllerTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchB/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchB/CntTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchC_alarmControllerTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchC/CntTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchC_alarmControllerTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchC/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchC/CntTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchD_alarmControllerTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchD/CntTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchD_alarmControllerTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchD/AlarmControllerTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchD/CntTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchA_alarmMotorTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/MotTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchA_alarmMotorTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchA/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/MotTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchB_alarmMotorTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchB/MotTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchB_alarmMotorTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchB/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchB/MotTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchC_alarmMotorTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchC/MotTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchC_alarmMotorTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchC/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchC/MotTempCutb/Override",
       "metric": "Metric250ms"
     },
     {
       "name": "winchD_alarmMotorTemperatureCutback_thresholdCharge",
-      "path": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdCharge",
+      "path": "System/CANBusDrive/cWinchD/MotTempCutb/Life",
       "metric": "Metric250ms"
     },
     {
       "name": "winchD_alarmMotorTemperatureCutback_thresholdDischarge",
-      "path": "System/CANBusDrive/cWinchD/AlarmMotorTemperatureCutback/ThresholdDischarge",
+      "path": "System/CANBusDrive/cWinchD/MotTempCutb/Override",
       "metric": "Metric250ms"
     }
   ]

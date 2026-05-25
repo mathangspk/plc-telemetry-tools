@@ -7,26 +7,6 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "winchA_proposedThrottle",
-      "path": "System/CANBusDrive/cWinchA/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchB_proposedThrottle",
-      "path": "System/CANBusDrive/cWinchB/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchC_proposedThrottle",
-      "path": "System/CANBusDrive/cWinchC/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchD_proposedThrottle",
-      "path": "System/CANBusDrive/cWinchD/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "winchAngleA_position",
       "path": "System/CANBusDrive/cWinchAngleA/Position",
       "metric": "Metric250ms"

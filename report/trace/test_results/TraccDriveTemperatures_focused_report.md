@@ -1,16 +1,17 @@
 # Telemetry Focused Report: TraccDriveTemperatures
 
-- **Tested At:** 2026-05-22 12:19:15
+- **Tested At:** 2026-05-25 11:13:54
 - **PLC Host:** 10.2.3.4
-- **Metric Containers:** Metric250ms
+- **Configured Metrics in Files:** Metric250ms
+- **Verification Metric (Overridden):** Metric250ms (for active telemetry validation)
 
 ## Summary Statistics
 
 | Status | Count | Percentage |
 | --- | ---: | ---: |
-| **Active (PASS_ACTIVE)** | 26 | 100.0% |
+| **Active (PASS_ACTIVE)** | 24 | 92.3% |
 | **Silent (SILENT)** | 0 | 0.0% |
-| **Failed (FAIL)** | 0 | 0.0% |
+| **Failed (FAIL)** | 2 | 7.7% |
 | **Total Expected** | 26 | 100.0% |
 
 ## 🟢 Verified Active Signals (PASS_ACTIVE)
@@ -18,14 +19,12 @@
 | Signal Name | PLC Path | Registered | Described | Emitted |
 | --- | --- | :---: | :---: | :---: |
 | `spreader_pmpCntrlTemp` | `System/CANBusDrive/cSpreader/PmpCntrlTemp` | OK | YES | YES |
-| `spreader_pmpMotTemp` | `System/CANBusDrive/cSpreader/PmpMotTemp` | OK | YES | YES |
 | `steerA_cntrlTemp` | `System/CANBusDrive/cSteerA/CntrlTemp` | OK | YES | YES |
 | `steerA_motorTemp` | `System/CANBusDrive/cSteerA/MotorTemp` | OK | YES | YES |
 | `steerB_cntrlTemp` | `System/CANBusDrive/cSteerB/CntrlTemp` | OK | YES | YES |
 | `steerB_motorTemp` | `System/CANBusDrive/cSteerB/MotorTemp` | OK | YES | YES |
 | `steerC_cntrlTemp` | `System/CANBusDrive/cSteerC/CntrlTemp` | OK | YES | YES |
 | `steerC_motorTemp` | `System/CANBusDrive/cSteerC/MotorTemp` | OK | YES | YES |
-| `steerD_cntrlTemp` | `System/CANBusDrive/cSteerD/CntrlTemp` | OK | YES | YES |
 | `steerD_motorTemp` | `System/CANBusDrive/cSteerD/MotorTemp` | OK | YES | YES |
 | `transA_cntrlTemp` | `System/CANBusDrive/cTransA/CntrlTemp` | OK | YES | YES |
 | `transA_motorTemp` | `System/CANBusDrive/cTransA/MotorTemp` | OK | YES | YES |
@@ -46,4 +45,8 @@
 
 ## 🔴 Failed / Inactive Signals (FAIL)
 
-*No failed signals.*
+| Signal Name | PLC Path | Registered | Described | Emitted |
+| --- | --- | :---: | :---: | :---: |
+| `spreader_pmpMotTemp` | `System/CANBusDrive/cSpreader/PmpMotTemp` | OK | NO | NO |
+| `steerD_cntrlTemp` | `System/CANBusDrive/cSteerD/CntrlTemp` | OK | NO | NO |
+

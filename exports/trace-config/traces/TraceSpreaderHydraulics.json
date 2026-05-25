@@ -7,26 +7,6 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "transA_proposedThrottle",
-      "path": "System/CANBusDrive/cTransA/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transB_proposedThrottle",
-      "path": "System/CANBusDrive/cTransB/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transC_proposedThrottle",
-      "path": "System/CANBusDrive/cTransC/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transD_proposedThrottle",
-      "path": "System/CANBusDrive/cTransD/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "transA_current",
       "path": "System/CANBusDrive/cTransA/Current",
       "metric": "Metric250ms"

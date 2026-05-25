@@ -8,22 +8,7 @@
     },
     {
       "name": "steer_zeroTargetAngleSwitch",
-      "path": "System/Steer/ZeroTargetAngleSwitch",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_requestedAbsoluteTargetAngle",
-      "path": "System/Steer/RequestedAbsoluteTargetAngle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_targetAngleShift",
-      "path": "System/Steer/TargetAngleShift",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_targetAngleUpdateTimer_expired",
-      "path": "System/Steer/TargetAngleUpdateTimer/Expired",
+      "path": "System/Steer/ZeroTarget",
       "metric": "Metric250ms"
     },
     {
@@ -32,48 +17,13 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "steer_targetAngleIncrement",
-      "path": "System/Steer/TargetAngleIncrement",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "steer_targetAngleIncrementDerived",
-      "path": "System/Steer/TargetAngleIncrementDerived",
+      "path": "System/Steer/TargetAngle",
       "metric": "Metric250ms"
     },
     {
       "name": "steer_targetAngleIncrementDerivedPost",
-      "path": "System/Steer/TargetAngleIncrementDerivedPost",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_adjustState",
-      "path": "System/Steer/AdjustState",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_currentAbsDelta",
-      "path": "System/Steer/CurrentAbsDelta",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelA_filteredDelta",
-      "path": "System/Steer/WheelA/FilteredDelta",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelB_filteredDelta",
-      "path": "System/Steer/WheelB/FilteredDelta",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelC_filteredDelta",
-      "path": "System/Steer/WheelC/FilteredDelta",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_filteredDelta",
-      "path": "System/Steer/WheelD/FilteredDelta",
+      "path": "System/Steer/TargetAngle",
       "metric": "Metric250ms"
     },
     {
@@ -94,51 +44,6 @@
     {
       "name": "steerAngleD_angle",
       "path": "System/CANBusDrive/cSteerAngleD/Angle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelA_state",
-      "path": "System/Steer/WheelA/State",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelB_state",
-      "path": "System/Steer/WheelB/State",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelC_state",
-      "path": "System/Steer/WheelC/State",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_state",
-      "path": "System/Steer/WheelD/State",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_steerModeDiagnostic",
-      "path": "System/Steer/SteerModeDiagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelA_diagnostic",
-      "path": "System/Steer/WheelA/Diagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelB_diagnostic",
-      "path": "System/Steer/WheelB/Diagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelC_diagnostic",
-      "path": "System/Steer/WheelC/Diagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_diagnostic",
-      "path": "System/Steer/WheelD/Diagnostic",
       "metric": "Metric250ms"
     }
   ]

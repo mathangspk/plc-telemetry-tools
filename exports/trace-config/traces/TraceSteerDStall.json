@@ -12,93 +12,8 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "steer_wheelD_filteredDelta",
-      "path": "System/Steer/WheelD/FilteredDelta",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "steerAngleD_angle",
       "path": "System/CANBusDrive/cSteerAngleD/Angle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_diagnostic",
-      "path": "System/Steer/WheelD/Diagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_steerModeDiagnostic",
-      "path": "System/Steer/SteerModeDiagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_state",
-      "path": "System/Steer/WheelD/State",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_adjustState",
-      "path": "System/Steer/AdjustState",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_delta",
-      "path": "System/Steer/WheelD/Delta",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_input",
-      "path": "System/Steer/WheelD/Input",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_moving",
-      "path": "System/Steer/WheelD/Moving",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_movementCount",
-      "path": "System/Steer/WheelD/MovementCount",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_movementEventCount",
-      "path": "System/Steer/WheelD/MovementEventCount",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_throttleValue",
-      "path": "System/Steer/WheelD/ThrottleValue",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_throttle_stalled",
-      "path": "System/Steer/WheelD/Throttle/Stalled",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_throttle_stationary",
-      "path": "System/Steer/WheelD/Throttle/Stationary",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_throttle_currentVelocity",
-      "path": "System/Steer/WheelD/Throttle/CurrentVelocity",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steer_wheelD_throttle",
-      "path": "System/Steer/WheelD/Throttle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_diagnostic",
-      "path": "System/CANBusDrive/cSteerD/Diagnostic",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stalled",
-      "path": "System/CANBusDrive/cSteerD/Stalled",
       "metric": "Metric250ms"
     },
     {
@@ -109,61 +24,6 @@
     {
       "name": "steerD_motorTemp",
       "path": "System/CANBusDrive/cSteerD/MotorTemp",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_measuredThrottle",
-      "path": "System/CANBusDrive/cSteerD/MeasuredThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_proposedThrottle",
-      "path": "System/CANBusDrive/cSteerD/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_zeroCurrentVelocityIndicator",
-      "path": "System/CANBusDrive/cSteerD/ZeroCurrentVelocityIndicator",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_zeroTargetSpeedIndicator",
-      "path": "System/CANBusDrive/cSteerD/ZeroTargetSpeedIndicator",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stalledCount",
-      "path": "System/CANBusDrive/cSteerD/StalledCount",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stalledIndicator",
-      "path": "System/CANBusDrive/cSteerD/StalledIndicator",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stallIndicator",
-      "path": "System/CANBusDrive/cSteerD/StallIndicator",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stallInput",
-      "path": "System/CANBusDrive/cSteerD/StallInput",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stallState",
-      "path": "System/CANBusDrive/cSteerD/StallState",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stallTimer_expired",
-      "path": "System/CANBusDrive/cSteerD/StallTimer/Expired",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "steerD_stationary",
-      "path": "System/CANBusDrive/cSteerD/Stationary",
       "metric": "Metric250ms"
     }
   ]

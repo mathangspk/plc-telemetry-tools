@@ -7,26 +7,6 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "transA_proposedThrottle",
-      "path": "System/CANBusDrive/cTransA/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transB_proposedThrottle",
-      "path": "System/CANBusDrive/cTransB/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transC_proposedThrottle",
-      "path": "System/CANBusDrive/cTransC/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transD_proposedThrottle",
-      "path": "System/CANBusDrive/cTransD/ProposedThrottle",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "spreader_brakeDisengage",
       "path": "System/CANBusDrive/cSpreader/BrakeDisengage",
       "metric": "Metric250ms"
@@ -38,42 +18,22 @@
     },
     {
       "name": "transA_enable",
-      "path": "System/CANBusDrive/cTransA/Enable",
+      "path": "System/CANBusDrive/cTransA/EnableMotor",
       "metric": "Metric250ms"
     },
     {
       "name": "transB_enable",
-      "path": "System/CANBusDrive/cTransB/Enable",
+      "path": "System/CANBusDrive/cTransB/EnableMotor",
       "metric": "Metric250ms"
     },
     {
       "name": "transC_enable",
-      "path": "System/CANBusDrive/cTransC/Enable",
+      "path": "System/CANBusDrive/cTransC/EnableMotor",
       "metric": "Metric250ms"
     },
     {
       "name": "transD_enable",
-      "path": "System/CANBusDrive/cTransD/Enable",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transA_freeWheel",
-      "path": "System/CANBusDrive/cTransA/FreeWheel",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transB_freeWheel",
-      "path": "System/CANBusDrive/cTransB/FreeWheel",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transC_freeWheel",
-      "path": "System/CANBusDrive/cTransC/FreeWheel",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "transD_freeWheel",
-      "path": "System/CANBusDrive/cTransD/FreeWheel",
+      "path": "System/CANBusDrive/cTransD/EnableMotor",
       "metric": "Metric250ms"
     }
   ]
