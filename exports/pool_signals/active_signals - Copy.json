@@ -1,0 +1,13 @@
+{
+    "metrics": [
+        "Metric0ms",
+        "Metric250ms",
+        "Metric500ms",
+        "Metric1s",
+        "Metric5s",
+        "Metric1m",
+        "Metric1h",
+        "Metric1d"
+    ],
+    "signals": []
+}

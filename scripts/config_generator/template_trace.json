@@ -1,0 +1,20 @@
+{
+  "name": "Template_Trace_Config",
+  "signals": [
+    {
+      "name": "sampleA_Voltage",
+      "path": "System/CANBusSystem/cSampleA/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "sampleA_Current",
+      "path": "System/CANBusSystem/cSampleA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "sampleB_Temperature",
+      "path": "System/CANBusSystem/cSampleB/Temp",
+      "metric": "Metric1s"
+    }
+  ]
+}

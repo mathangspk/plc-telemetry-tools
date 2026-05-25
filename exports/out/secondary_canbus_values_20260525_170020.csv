@@ -1,0 +1,6 @@
+PrimaryPLC.System.BMSAB/BMSAvailLmtd,PrimaryPLC.System.BMSAB/BMSSOCMismatch,PrimaryPLC.System.BMSAB/BMSVoltMismatch,PrimaryPLC.System.CANBusSystem/cBMSA/SlaveAllowUp,PrimaryPLC.System.CANBusSystem/cBMSA/SlaveNoVldTrnms
+,,,1,
+,,,,1
+,1,,,
+,,1,,
+1,,,,

@@ -1,6 +1,0 @@
-﻿System/CANBusSystem/BMSA/NodeState
-System/CANBusSystem/BMSB/NodeState
-System/CANBusSystem/SecondaryPowerSupplyA/NodeState
-System/CANBusSystem/SecondaryPowerSupplyB/NodeState
-System/CANBusSystem/UInterfaceCabin/NodeState
-System/CANBusSystem/ChargerA/NodeState

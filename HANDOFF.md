@@ -1,7 +1,8 @@
 # Project Handoff
 
 ## Summary of Changes (Current Iteration)
-- **Filter Values-Only Signals**: Created `exports/confirmed/bms_values.json` by filtering out state/alarm signals from `bms.json`. The new file strictly isolates the 32 signals that actively emit a data payload (`value`), discarding the 13 purely state-based signals.
+- **Append Values-Only Signals**: Appended the 76 filtered values-only signals from the `exports/confirmed/use/` directory (`bms_values.json`, `charger_canbus_values.json`, `secondary_canbus_values.json`, `tms_values.json`) into the master `active_signals.json` pool, preserving the root `metrics` configuration.
+- **Filter Values-Only Signals**: Created `exports/confirmed/bms_values.json`, `charger_canbus_values.json`, `secondary_canbus_values.json`, and `tms_values.json` by filtering out state/alarm signals from their respective JSON configurations. The new files strictly isolate the signals that actively emit data payloads (`value`), discarding purely state-based signals.
 - **Add Metrics to Active Signals**: Fixed the missing `metrics` configuration array inside `active_signals.json` (used by `config_generator.py`) by adding all the valid metrics (Metric0ms to Metric1d) at the root level of the JSON payload.
 - **Merge Active Signals**: Successfully synthesized and aggregated all confirmed signal files (`bms.json`, `charger_canbus.json`, `secondary_canbus.json`, `tms.json`) from `exports/confirmed/` into a single, unified `active_signals.json` master file in the `exports/pool_signals/` directory.
 - **Fix JSON Syntax**: Resolved a missing comma on line 23 of `exports/confirmed/secondary_canbus.json` that was causing parsing errors.

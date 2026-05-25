@@ -1,7 +1,0 @@
-Signal Path,Time Sample (ms)
-gSystem.lSystemState.lState.lValue,20
-gSystem.lSystemState.lAllowDownTrace.lContext.lCount,20
-gSystem.lSystemState.lAllowUpTrace.lContext.lCount,20
-gSystem.lSystemState.lNextStateTrace.lContext.lCount,20
-gSystem.lSystemState.lSystemControlTrace.lContext.lCount,20
-gSystem.lSystemState.lForceMaxTrace.lContext.lCount,20
