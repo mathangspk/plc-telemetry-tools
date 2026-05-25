@@ -10,6 +10,7 @@ This handoff documents the achievements of the current iteration, system state, 
 - **Consolidated Telemetry Pool Signals**: Rewrote `exports/pool_signals/active_signals.json` to keep exclusively the **179 successfully verified active signals** (153 from trace files + 26 from pool sweep), purging all 352 confirmed dead/obsolete signals.
 - **Created Verified BMSAB Configuration**: Exported all 31 live-confirmed BMSAB telemetry signals to `exports/confirmed/bms.json`, correcting previous naming/translation discrepancies for mismatch alarms and control switches.
 - **Executed Live BMSAB Validation Sweep**: Successfully ran the automated validation sweep against the live PLC for the 31 BMSAB signals in `bms.json`, achieving **100% active success (PASS_ACTIVE)**.
+- **Created Verified TMS Configuration**: Exported all 22 live-confirmed TMS telemetry signals to `exports/confirmed/tms.json`, correcting previous naming omissions and expanding coolant alarm and pump diagnostics telemetry capabilities.
 
 ---
 
@@ -18,6 +19,7 @@ This handoff documents the achievements of the current iteration, system state, 
 - **100% Traces Validated on Live PLC (29/29)**: All 29 traces were successfully swept and achieved **100.0% active success (PASS_ACTIVE)**! Not a single failure or silent signal was logged.
 - **Pool Signals Clean & Audited**: Overwrote `active_signals.json` to contain exclusively the 179 validated active signals, optimizing scanning performance and removing all dead telemetry variables.
 - **BMSAB Configuration Ready & Validated**: Created a dedicated `bms.json` with 31 live-confirmed paths under the `System/BMSAB` node, correcting previous syntax/name remapping issues. Fully verified on the hardware with 100% PASS_ACTIVE.
+- **TMS Configuration Ready**: Created a dedicated `tms.json` with 22 live-confirmed paths under the `System/TMS` node, unlocking coolant alarm, pump diagnostics, and cooling/heating control telemetry.
 - **Detailed Test Results**: All test reports (including the new `pool_signals_focused_report.md` and `bms_focused_report.md`) are successfully saved in `report/trace/test_results/`.
 
 ---
@@ -28,6 +30,7 @@ This handoff documents the achievements of the current iteration, system state, 
   - Newly verified active signals include: `torque_travelA`, `position_steerA-D`, `position_winchA-D`, and core `bat_` energy/voltage metrics.
 - Probed and confirmed 31 valid children live on the PLC under `System/BMSAB/`.
 - Executed the sequential validation workflow for `bms.json`, verifying that **all 31 BMSAB signals** are fully active and emitting data (**100% PASS_ACTIVE**).
+- Probed and confirmed 22 valid children live on the PLC under `System/TMS/`.
 - Detailed test outputs are stored at `report/trace/test_results/<trace>_focused_report.md`, `report/trace/test_results/pool_signals_focused_report.md`, and `report/trace/test_results/bms_focused_report.md`.
 
 ---

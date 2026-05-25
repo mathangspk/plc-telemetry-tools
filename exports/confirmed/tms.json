@@ -1,0 +1,93 @@
+{
+  "name": "TMS",
+  "signals": [
+    {
+      "name": "tMS_clntReserv",
+      "path": "System/TMS/ClntReserv"
+    },
+    {
+      "name": "tMS_clntSecFailHC",
+      "path": "System/TMS/ClntSecFailHC"
+    },
+    {
+      "name": "tMS_clntSecFailPmp",
+      "path": "System/TMS/ClntSecFailPmp"
+    },
+    {
+      "name": "tMS_tMSCooling",
+      "path": "System/TMS/TMSCooling"
+    },
+    {
+      "name": "tMS_tMSHeating",
+      "path": "System/TMS/TMSHeating"
+    },
+    {
+      "name": "tMS_bMSTMSCooling",
+      "path": "System/TMS/BMSTMSCooling"
+    },
+    {
+      "name": "tMS_bMSTMSHeating",
+      "path": "System/TMS/BMSTMSHeating"
+    },
+    {
+      "name": "tMS_bMSTMSNoCirc",
+      "path": "System/TMS/BMSTMSNoCirc"
+    },
+    {
+      "name": "tMS_clntHeating",
+      "path": "System/TMS/ClntHeating"
+    },
+    {
+      "name": "tMS_clntChilling",
+      "path": "System/TMS/ClntChilling"
+    },
+    {
+      "name": "tMS_clntTempHotCutb",
+      "path": "System/TMS/ClntTempHotCutb"
+    },
+    {
+      "name": "tMS_clntTempColdCutb",
+      "path": "System/TMS/ClntTempColdCutb"
+    },
+    {
+      "name": "tMS_ovrdControl",
+      "path": "System/TMS/OvrdControl"
+    },
+    {
+      "name": "tMS_reqState",
+      "path": "System/TMS/ReqState"
+    },
+    {
+      "name": "tMS_clntTempHot",
+      "path": "System/TMS/ClntTempHot"
+    },
+    {
+      "name": "tMS_clntTempCold",
+      "path": "System/TMS/ClntTempCold"
+    },
+    {
+      "name": "tMS_currState",
+      "path": "System/TMS/CurrState"
+    },
+    {
+      "name": "tMS_clntReservoir",
+      "path": "System/TMS/ClntReservoir"
+    },
+    {
+      "name": "tMS_clntTemp",
+      "path": "System/TMS/ClntTemp"
+    },
+    {
+      "name": "tMS_pump",
+      "path": "System/TMS/Pump"
+    },
+    {
+      "name": "tMS_heating",
+      "path": "System/TMS/Heating"
+    },
+    {
+      "name": "tMS_chilling",
+      "path": "System/TMS/Chilling"
+    }
+  ]
+}
