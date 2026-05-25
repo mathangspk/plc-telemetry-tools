@@ -140,6 +140,11 @@ def _extract_json_objects(text):
     if not text:
         return objects
 
+    # Sanitize invalid PLC JSON fields (e.g., ": ," or ": }" or ": ]") by replacing empty values with null
+    import re
+    text = re.sub(r':\s*,', ': null,', text)
+    text = re.sub(r':\s*([\]}])', ': null\\1', text)
+
     try:
         parsed = json.loads(text)
         objects.append(parsed)

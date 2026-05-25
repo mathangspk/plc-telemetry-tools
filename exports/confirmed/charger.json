@@ -1,0 +1,33 @@
+{
+  "name": "Charger",
+  "signals": [
+    {
+      "name": "charger_enblManualChrg",
+      "path": "System/ChargerABC/EnblManualChrg"
+    },
+    {
+      "name": "charger_manualChrgCurr",
+      "path": "System/ChargerABC/ManualChrgCurr"
+    },
+    {
+      "name": "charger_manualChrgVolt",
+      "path": "System/ChargerABC/ManualChrgVolt"
+    },
+    {
+      "name": "charger_chrgOBCErr",
+      "path": "System/ChargerABC/ChrgOBCErr"
+    },
+    {
+      "name": "charger_chrgStdby",
+      "path": "System/ChargerABC/ChrgStdby"
+    },
+    {
+      "name": "charger_chrgConn",
+      "path": "System/ChargerABC/ChrgConn"
+    },
+    {
+      "name": "charger_chrgDiscon",
+      "path": "System/ChargerABC/ChrgDiscon"
+    }
+  ]
+}

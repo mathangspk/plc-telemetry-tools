@@ -1,0 +1,25 @@
+{
+  "name": "Secondary",
+  "signals": [
+    {
+      "name": "secondary_secPwrNotRun",
+      "path": "System/Secondary/SecPwrNotRun"
+    },
+    {
+      "name": "secondary_secPwrNotRunMod",
+      "path": "System/Secondary/SecPwrNotRunMod"
+    },
+    {
+      "name": "secondary_secPwrWait",
+      "path": "System/Secondary/SecPwrWait"
+    },
+    {
+      "name": "secondary_secPwrMismatch",
+      "path": "System/Secondary/SecPwrMismatch"
+    },
+    {
+      "name": "secondary_cntxtSgnMod",
+      "path": "System/Secondary/CntxtSgnMod"
+    }
+  ]
+}
