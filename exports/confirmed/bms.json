@@ -1,0 +1,129 @@
+{
+  "name": "BMSAB",
+  "signals": [
+    {
+      "name": "bMSAB_voltageMismatch",
+      "path": "System/BMSAB/VoltageMismatch"
+    },
+    {
+      "name": "bMSAB_sOCMismatch",
+      "path": "System/BMSAB/SOCMismatch"
+    },
+    {
+      "name": "bMSAB_currentMismatch",
+      "path": "System/BMSAB/CurrentMismatch"
+    },
+    {
+      "name": "bMSAB_dsblVoltMisMgmt",
+      "path": "System/BMSAB/DsblVoltMisMgmt"
+    },
+    {
+      "name": "bMSAB_availFactor",
+      "path": "System/BMSAB/AvailFactor"
+    },
+    {
+      "name": "bMSAB_tMSMismatch",
+      "path": "System/BMSAB/TMSMismatch"
+    },
+    {
+      "name": "bMSAB_bMSChrgMismatch",
+      "path": "System/BMSAB/BMSChrgMismatch"
+    },
+    {
+      "name": "bMSAB_bMSVoltMismatch",
+      "path": "System/BMSAB/BMSVoltMismatch"
+    },
+    {
+      "name": "bMSAB_bMSSOCMismatch",
+      "path": "System/BMSAB/BMSSOCMismatch"
+    },
+    {
+      "name": "bMSAB_bMSCurrMismatch",
+      "path": "System/BMSAB/BMSCurrMismatch"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current"
+    },
+    {
+      "name": "bMSAB_sOC",
+      "path": "System/BMSAB/SOC"
+    },
+    {
+      "name": "bMSAB_voltage",
+      "path": "System/BMSAB/Voltage"
+    },
+    {
+      "name": "bMSAB_availability",
+      "path": "System/BMSAB/Availability"
+    },
+    {
+      "name": "bMSAB_enblSOCRecovery",
+      "path": "System/BMSAB/EnblSOCRecovery"
+    },
+    {
+      "name": "bMSAB_sOCRecTimRst",
+      "path": "System/BMSAB/SOCRecTimRst"
+    },
+    {
+      "name": "bMSAB_enblRestart",
+      "path": "System/BMSAB/EnblRestart"
+    },
+    {
+      "name": "bMSAB_restartCount",
+      "path": "System/BMSAB/RestartCount"
+    },
+    {
+      "name": "bMSAB_dsblConnect",
+      "path": "System/BMSAB/DsblConnect"
+    },
+    {
+      "name": "bMSAB_sOCRecCurrMin",
+      "path": "System/BMSAB/SOCRecCurrMin"
+    },
+    {
+      "name": "bMSAB_enblBMS",
+      "path": "System/BMSAB/EnblBMS"
+    },
+    {
+      "name": "bMSAB_bMSAvailInsuff",
+      "path": "System/BMSAB/BMSAvailInsuff"
+    },
+    {
+      "name": "bMSAB_sOCLowOpMin",
+      "path": "System/BMSAB/SOCLowOpMin"
+    },
+    {
+      "name": "bMSAB_sOCLowStdbyMin",
+      "path": "System/BMSAB/SOCLowStdbyMin"
+    },
+    {
+      "name": "bMSAB_bMSNotConnect",
+      "path": "System/BMSAB/BMSNotConnect"
+    },
+    {
+      "name": "bMSAB_bMSChrgCutb",
+      "path": "System/BMSAB/BMSChrgCutb"
+    },
+    {
+      "name": "bMSAB_bMSDischCutb",
+      "path": "System/BMSAB/BMSDischCutb"
+    },
+    {
+      "name": "bMSAB_sOCWarnLow",
+      "path": "System/BMSAB/SOCWarnLow"
+    },
+    {
+      "name": "bMSAB_bMSAvailLmtd",
+      "path": "System/BMSAB/BMSAvailLmtd"
+    },
+    {
+      "name": "bMSAB_cycleOutput",
+      "path": "System/BMSAB/CycleOutput"
+    },
+    {
+      "name": "bMSAB_output",
+      "path": "System/BMSAB/Output"
+    }
+  ]
+}
