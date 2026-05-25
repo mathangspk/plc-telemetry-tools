@@ -379,134 +379,140 @@ def run_focused_test(host, trace_file, listen_duration=EMIT_LISTEN_DURATION):
     print(f"  Listen Duration: {listen_duration}s")
     print("=" * 80)
     
-    # 1. Pre-Check & Clear
-    if not enforce_silence_workflow(host, metrics_in_trace):
-        print("[ABORT] PLC state could not be set to silent. Aborting test.")
-        return None
-        
-    # Store expected paths
-    expected_signals = []
-    for sig in signals:
-        expected_signals.append({
-            "name": sig["name"],
-            "original_path": sig["path"],
-            "normalized_path": normalize_path(sig["path"])
-        })
-        
-    # 2. Step 1: REGISTER
-    print(f"\nSTEP 1: Registering {len(signals)} signals on RW port {PORT_RW}...")
-    registered_paths = set()
-    rw_sock = connect_socket(host, PORT_RW, "Register")
-    if rw_sock:
-        wait_for_greeting(rw_sock)
-        for i, sig in enumerate(signals, 1):
-            path = sig["path"]
-            # Preserve full path (including System/ prefix if present) to ensure direct leaves register correctly
-            reg_path = path
-            sig_metric = sig.get("metric", default_metric)
-            cmd = f"{sig_metric} register object={reg_path}"
-            try:
-                send_command(rw_sock, cmd, timeout=CMD_TIMEOUT)
-                registered_paths.add(normalize_path(path))
-            except Exception as e:
-                print(f"    [FAIL] Register {sig['name']}: {e}")
-        graceful_close(rw_sock)
-        print("  Registration phase complete.")
-    else:
-        print("  [FATAL] Unable to connect for registration.")
-        return None
-        
-    time.sleep(0.5)
+    chunk_size = 20
+    chunks = [signals[i:i + chunk_size] for i in range(0, len(signals), chunk_size)]
     
-    # 3. Step 2: DESCRIBE
-    print(f"\nSTEP 2: Querying describe on RO port {PORT_RO_DESCRIBE} to confirm membership...")
-    confirmed_paths = set()
-    for m in metrics_in_trace:
-        ro_sock = connect_socket(host, PORT_RO_DESCRIBE, f"Describe {m}")
-        if ro_sock:
-            wait_for_greeting(ro_sock)
-            cmd = f"{m} describe"
-            try:
-                raw_resp, resp_text = send_command(ro_sock, cmd, timeout=5.0)
-                raw_str = raw_resp.decode("utf-8", errors="replace")
-                json_objects = _extract_json_objects(raw_str)
-                for obj in json_objects:
-                    _extract_identities_from_obj(obj, confirmed_paths)
-            except Exception as e:
-                print(f"    [FAIL] Describe command failed for {m}: {e}")
-            graceful_close(ro_sock)
+    all_expected_signals = []
+    all_registered_paths = set()
+    all_confirmed_paths = set()
+    all_emitted_paths = set()
+    
+    for chunk_idx, chunk_signals in enumerate(chunks, 1):
+        print(f"\n--- Processing Chunk {chunk_idx}/{len(chunks)} ({len(chunk_signals)} signals) ---")
+        
+        # 1. Pre-Check & Clear
+        if not enforce_silence_workflow(host, metrics_in_trace):
+            print("[ABORT] PLC state could not be set to silent. Aborting test.")
+            return None
+            
+        # Store expected paths
+        for sig in chunk_signals:
+            all_expected_signals.append({
+                "name": sig["name"],
+                "original_path": sig["path"],
+                "normalized_path": normalize_path(sig["path"])
+            })
+            
+        # 2. Step 1: REGISTER
+        print(f"\nSTEP 1: Registering {len(chunk_signals)} signals on RW port {PORT_RW}...")
+        rw_sock = connect_socket(host, PORT_RW, "Register")
+        if rw_sock:
+            wait_for_greeting(rw_sock)
+            for i, sig in enumerate(chunk_signals, 1):
+                path = sig["path"]
+                reg_path = path
+                sig_metric = sig.get("metric", default_metric)
+                cmd = f"{sig_metric} register object={reg_path}"
+                try:
+                    send_command(rw_sock, cmd, timeout=CMD_TIMEOUT)
+                    all_registered_paths.add(normalize_path(path))
+                except Exception as e:
+                    print(f"    [FAIL] Register {sig['name']}: {e}")
+            graceful_close(rw_sock)
+            print("  Registration phase complete.")
         else:
-            print(f"  [WARN] Unable to connect for describe verification of {m}.")
+            print("  [FATAL] Unable to connect for registration.")
+            return None
             
-    print(f"  Describe verification finished. Confirmed {len(confirmed_paths)} active signals.")
-    time.sleep(0.5)
-    
-    # 4. Step 3: EMIT
-    print(f"\nSTEP 3: Listening on Emit stream port {PORT_RO_EMIT} ({listen_duration}s)...")
-    emitted_paths = set()
-    emit_sock = connect_socket(host, PORT_RO_EMIT, "Emit Stream")
-    if emit_sock:
-        emit_sock.settimeout(1.0)
-        try:
-            emit_sock.recv(4096)
-        except socket.timeout:
-            pass
-            
-        all_data = bytearray()
-        start_time = time.monotonic()
-        emit_sock.settimeout(2.0)
-        while time.monotonic() - start_time < listen_duration:
+        time.sleep(0.5)
+        
+        # 3. Step 2: DESCRIBE
+        print(f"\nSTEP 2: Querying describe on RO port {PORT_RO_DESCRIBE} to confirm membership...")
+        for m in metrics_in_trace:
+            ro_sock = connect_socket(host, PORT_RO_DESCRIBE, f"Describe {m}")
+            if ro_sock:
+                wait_for_greeting(ro_sock)
+                cmd = f"{m} describe"
+                try:
+                    raw_resp, resp_text = send_command(ro_sock, cmd, timeout=5.0)
+                    raw_str = raw_resp.decode("utf-8", errors="replace")
+                    json_objects = _extract_json_objects(raw_str)
+                    for obj in json_objects:
+                        _extract_identities_from_obj(obj, all_confirmed_paths)
+                except Exception as e:
+                    print(f"    [FAIL] Describe command failed for {m}: {e}")
+                graceful_close(ro_sock)
+            else:
+                print(f"  [WARN] Unable to connect for describe verification of {m}.")
+                
+        print(f"  Describe verification finished for chunk.")
+        time.sleep(0.5)
+        
+        # 4. Step 3: EMIT
+        print(f"\nSTEP 3: Listening on Emit stream port {PORT_RO_EMIT} ({listen_duration}s)...")
+        emit_sock = connect_socket(host, PORT_RO_EMIT, "Emit Stream")
+        if emit_sock:
+            emit_sock.settimeout(1.0)
             try:
-                data = emit_sock.recv(4096)
-                if not data:
-                    break
-                all_data.extend(data)
+                emit_sock.recv(4096)
             except socket.timeout:
-                continue
-            except Exception as e:
-                print(f"    [ERROR] Recv error during emission: {e}")
-                break
-        emit_sock.close()
+                pass
+                
+            all_data = bytearray()
+            start_time = time.monotonic()
+            emit_sock.settimeout(2.0)
+            while time.monotonic() - start_time < listen_duration:
+                try:
+                    data = emit_sock.recv(4096)
+                    if not data:
+                        break
+                    all_data.extend(data)
+                except socket.timeout:
+                    continue
+                except Exception as e:
+                    print(f"    [ERROR] Recv error during emission: {e}")
+                    break
+            emit_sock.close()
+            
+            # Parse identities
+            all_text = all_data.decode("utf-8", errors="replace")
+            json_objects = _extract_json_objects(all_text)
+            for data in json_objects:
+                if isinstance(data, dict):
+                    members = data.get("members", [])
+                    if isinstance(members, list):
+                        for m in members:
+                            identity = m.get("identity", "")
+                            if identity:
+                                all_emitted_paths.add(normalize_path(identity))
+            print(f"  Emit stream finished for chunk.")
+        else:
+            print("  [WARN] Unable to connect for emit listening (treating as silent).")
+            
+        time.sleep(0.5)
         
-        # Parse identities
-        all_text = all_data.decode("utf-8", errors="replace")
-        json_objects = _extract_json_objects(all_text)
-        for data in json_objects:
-            if isinstance(data, dict):
-                members = data.get("members", [])
-                if isinstance(members, list):
-                    for m in members:
-                        identity = m.get("identity", "")
-                        if identity:
-                            emitted_paths.add(normalize_path(identity))
-        print(f"  Emit stream finished. Captured {len(emitted_paths)} unique active emission paths.")
-    else:
-        print("  [WARN] Unable to connect for emit listening (treating as silent).")
+        # 5. Step 4: STOP/CLEAR
+        print(f"\nSTEP 4: Sending stop/clear command to RW port {PORT_RW}...")
+        for m in metrics_in_trace:
+            execute_metric_clear(host, m)
         
-    time.sleep(0.5)
-    
-    # 5. Step 4: STOP/CLEAR
-    print(f"\nSTEP 4: Sending stop/clear command to RW port {PORT_RW}...")
-    for m in metrics_in_trace:
-        execute_metric_clear(host, m)
-    
-    # 6. Post-Check & Enforce Silence
-    print("\nSTEP 5: Post-Test state verification (verifying silent PLC)...")
-    if not enforce_silence_workflow(host, metrics_in_trace):
-        print("  [WARN] Post-test cleanup did not result in absolute silence! Check PLC status.")
-    else:
-        print("  [OK] Post-test cleanup verified. PLC is completely silent.")
-        
+        # 6. Post-Check & Enforce Silence
+        print("\nSTEP 5: Post-Test state verification (verifying silent PLC)...")
+        if not enforce_silence_workflow(host, metrics_in_trace):
+            print("  [WARN] Post-test cleanup did not result in absolute silence! Check PLC status.")
+        else:
+            print("  [OK] Post-test cleanup verified. PLC is completely silent.")
+            
     # Compile Results
     active_signals = []
     silent_signals = []
     failed_signals = []
     
-    for info in expected_signals:
+    for info in all_expected_signals:
         norm_path = info["normalized_path"]
-        is_registered = norm_path in registered_paths
-        is_described = norm_path in confirmed_paths
-        is_emitted = norm_path in emitted_paths
+        is_registered = norm_path in all_registered_paths
+        is_described = norm_path in all_confirmed_paths
+        is_emitted = norm_path in all_emitted_paths
         
         status_rec = {
             "name": info["name"],

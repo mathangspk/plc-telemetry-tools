@@ -1,0 +1,269 @@
+{
+  "name": "Charger_CANBus",
+  "signals": [
+    {
+      "name": "chargerA_CrrOBCStt",
+      "path": "System/CANBusSystem/cChargerA/CrrOBCStt"
+    },
+    {
+      "name": "chargerA_ReqOBCStt",
+      "path": "System/CANBusSystem/cChargerA/ReqOBCStt"
+    },
+    {
+      "name": "chargerA_SlaveNotOp",
+      "path": "System/CANBusSystem/cChargerA/SlaveNotOp"
+    },
+    {
+      "name": "chargerA_SlaveMod",
+      "path": "System/CANBusSystem/cChargerA/SlaveMod"
+    },
+    {
+      "name": "chargerA_SlaveAllowUp",
+      "path": "System/CANBusSystem/cChargerA/SlaveAllowUp"
+    },
+    {
+      "name": "chargerA_Enabled",
+      "path": "System/CANBusSystem/cChargerA/Enabled"
+    },
+    {
+      "name": "chargerA_TriggerStart",
+      "path": "System/CANBusSystem/cChargerA/TriggerStart"
+    },
+    {
+      "name": "chargerA_OvrdConnected",
+      "path": "System/CANBusSystem/cChargerA/OvrdConnected"
+    },
+    {
+      "name": "chargerA_SlaveNotify",
+      "path": "System/CANBusSystem/cChargerA/SlaveNotify"
+    },
+    {
+      "name": "chargerA_SlaveBlock",
+      "path": "System/CANBusSystem/cChargerA/SlaveBlock"
+    },
+    {
+      "name": "chargerA_SlaveStop",
+      "path": "System/CANBusSystem/cChargerA/SlaveStop"
+    },
+    {
+      "name": "chargerA_TargVoltage",
+      "path": "System/CANBusSystem/cChargerA/TargVoltage"
+    },
+    {
+      "name": "chargerA_TargCurrent",
+      "path": "System/CANBusSystem/cChargerA/TargCurrent"
+    },
+    {
+      "name": "chargerA_Heating",
+      "path": "System/CANBusSystem/cChargerA/Heating"
+    },
+    {
+      "name": "chargerA_Stop",
+      "path": "System/CANBusSystem/cChargerA/Stop"
+    },
+    {
+      "name": "chargerA_Voltage",
+      "path": "System/CANBusSystem/cChargerA/Voltage"
+    },
+    {
+      "name": "chargerA_Current",
+      "path": "System/CANBusSystem/cChargerA/Current"
+    },
+    {
+      "name": "chargerA_Power",
+      "path": "System/CANBusSystem/cChargerA/Power"
+    },
+    {
+      "name": "chargerA_Diagnostic",
+      "path": "System/CANBusSystem/cChargerA/Diagnostic"
+    },
+    {
+      "name": "chargerA_CC",
+      "path": "System/CANBusSystem/cChargerA/CC"
+    },
+    {
+      "name": "chargerA_CP",
+      "path": "System/CANBusSystem/cChargerA/CP"
+    },
+    {
+      "name": "chargerA_OBCStatus",
+      "path": "System/CANBusSystem/cChargerA/OBCStatus"
+    },
+    {
+      "name": "chargerB_CrrOBCStt",
+      "path": "System/CANBusSystem/cChargerB/CrrOBCStt"
+    },
+    {
+      "name": "chargerB_ReqOBCStt",
+      "path": "System/CANBusSystem/cChargerB/ReqOBCStt"
+    },
+    {
+      "name": "chargerB_SlaveNotOp",
+      "path": "System/CANBusSystem/cChargerB/SlaveNotOp"
+    },
+    {
+      "name": "chargerB_SlaveMod",
+      "path": "System/CANBusSystem/cChargerB/SlaveMod"
+    },
+    {
+      "name": "chargerB_SlaveAllowUp",
+      "path": "System/CANBusSystem/cChargerB/SlaveAllowUp"
+    },
+    {
+      "name": "chargerB_Enabled",
+      "path": "System/CANBusSystem/cChargerB/Enabled"
+    },
+    {
+      "name": "chargerB_TriggerStart",
+      "path": "System/CANBusSystem/cChargerB/TriggerStart"
+    },
+    {
+      "name": "chargerB_OvrdConnected",
+      "path": "System/CANBusSystem/cChargerB/OvrdConnected"
+    },
+    {
+      "name": "chargerB_SlaveNotify",
+      "path": "System/CANBusSystem/cChargerB/SlaveNotify"
+    },
+    {
+      "name": "chargerB_SlaveBlock",
+      "path": "System/CANBusSystem/cChargerB/SlaveBlock"
+    },
+    {
+      "name": "chargerB_SlaveStop",
+      "path": "System/CANBusSystem/cChargerB/SlaveStop"
+    },
+    {
+      "name": "chargerB_TargVoltage",
+      "path": "System/CANBusSystem/cChargerB/TargVoltage"
+    },
+    {
+      "name": "chargerB_TargCurrent",
+      "path": "System/CANBusSystem/cChargerB/TargCurrent"
+    },
+    {
+      "name": "chargerB_Heating",
+      "path": "System/CANBusSystem/cChargerB/Heating"
+    },
+    {
+      "name": "chargerB_Stop",
+      "path": "System/CANBusSystem/cChargerB/Stop"
+    },
+    {
+      "name": "chargerB_Voltage",
+      "path": "System/CANBusSystem/cChargerB/Voltage"
+    },
+    {
+      "name": "chargerB_Current",
+      "path": "System/CANBusSystem/cChargerB/Current"
+    },
+    {
+      "name": "chargerB_Power",
+      "path": "System/CANBusSystem/cChargerB/Power"
+    },
+    {
+      "name": "chargerB_Diagnostic",
+      "path": "System/CANBusSystem/cChargerB/Diagnostic"
+    },
+    {
+      "name": "chargerB_CC",
+      "path": "System/CANBusSystem/cChargerB/CC"
+    },
+    {
+      "name": "chargerB_CP",
+      "path": "System/CANBusSystem/cChargerB/CP"
+    },
+    {
+      "name": "chargerB_OBCStatus",
+      "path": "System/CANBusSystem/cChargerB/OBCStatus"
+    },
+    {
+      "name": "chargerC_CrrOBCStt",
+      "path": "System/CANBusSystem/cChargerC/CrrOBCStt"
+    },
+    {
+      "name": "chargerC_ReqOBCStt",
+      "path": "System/CANBusSystem/cChargerC/ReqOBCStt"
+    },
+    {
+      "name": "chargerC_SlaveNotOp",
+      "path": "System/CANBusSystem/cChargerC/SlaveNotOp"
+    },
+    {
+      "name": "chargerC_SlaveMod",
+      "path": "System/CANBusSystem/cChargerC/SlaveMod"
+    },
+    {
+      "name": "chargerC_SlaveAllowUp",
+      "path": "System/CANBusSystem/cChargerC/SlaveAllowUp"
+    },
+    {
+      "name": "chargerC_Enabled",
+      "path": "System/CANBusSystem/cChargerC/Enabled"
+    },
+    {
+      "name": "chargerC_TriggerStart",
+      "path": "System/CANBusSystem/cChargerC/TriggerStart"
+    },
+    {
+      "name": "chargerC_OvrdConnected",
+      "path": "System/CANBusSystem/cChargerC/OvrdConnected"
+    },
+    {
+      "name": "chargerC_SlaveNotify",
+      "path": "System/CANBusSystem/cChargerC/SlaveNotify"
+    },
+    {
+      "name": "chargerC_SlaveBlock",
+      "path": "System/CANBusSystem/cChargerC/SlaveBlock"
+    },
+    {
+      "name": "chargerC_SlaveStop",
+      "path": "System/CANBusSystem/cChargerC/SlaveStop"
+    },
+    {
+      "name": "chargerC_TargVoltage",
+      "path": "System/CANBusSystem/cChargerC/TargVoltage"
+    },
+    {
+      "name": "chargerC_TargCurrent",
+      "path": "System/CANBusSystem/cChargerC/TargCurrent"
+    },
+    {
+      "name": "chargerC_Heating",
+      "path": "System/CANBusSystem/cChargerC/Heating"
+    },
+    {
+      "name": "chargerC_Stop",
+      "path": "System/CANBusSystem/cChargerC/Stop"
+    },
+    {
+      "name": "chargerC_Voltage",
+      "path": "System/CANBusSystem/cChargerC/Voltage"
+    },
+    {
+      "name": "chargerC_Current",
+      "path": "System/CANBusSystem/cChargerC/Current"
+    },
+    {
+      "name": "chargerC_Power",
+      "path": "System/CANBusSystem/cChargerC/Power"
+    },
+    {
+      "name": "chargerC_Diagnostic",
+      "path": "System/CANBusSystem/cChargerC/Diagnostic"
+    },
+    {
+      "name": "chargerC_CC",
+      "path": "System/CANBusSystem/cChargerC/CC"
+    },
+    {
+      "name": "chargerC_CP",
+      "path": "System/CANBusSystem/cChargerC/CP"
+    },
+    {
+      "name": "chargerC_OBCStatus",
+      "path": "System/CANBusSystem/cChargerC/OBCStatus"
+    }
+  ]
+}
