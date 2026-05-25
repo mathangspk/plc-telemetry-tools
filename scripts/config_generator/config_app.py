@@ -111,6 +111,23 @@ class ConfigApp(QMainWindow):
                 self.file_label.setText(f"Current Pool File: {file_path}")
                 self.tree.clear()
         
+    def remove_group(self, group_item: QTreeWidgetItem) -> None:
+        """Removes a group after confirming if it contains signal rows."""
+        if group_item.childCount() > 0:
+            reply = QMessageBox.question(
+                self, 'Confirm Removal', 
+                f"Group '{group_item.text(1)}' contains {group_item.childCount()} signals.\nAre you sure you want to remove it and release these signals?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
+                QMessageBox.StandardButton.No
+            )
+            if reply != QMessageBox.StandardButton.Yes:
+                return
+        
+        index = self.tree.indexOfTopLevelItem(group_item)
+        if index >= 0:
+            self.tree.takeTopLevelItem(index)
+            logger.info(f"Removed group: {group_item.text(1)}")
+
     def add_group(self) -> None:
         """Prompts the user for a group name and adds it to the tree."""
         group_name, ok = QInputDialog.getText(self, "Add Group", "Group Name (e.g. transA):")
@@ -121,10 +138,20 @@ class ConfigApp(QMainWindow):
             group_item.setText(0, "Group")
             group_item.setText(1, group_name)
             
+            actions_widget = QWidget()
+            actions_layout = QHBoxLayout(actions_widget)
+            actions_layout.setContentsMargins(0, 0, 0, 0)
+            
             add_signal_btn = QPushButton("Add Signal Row")
             add_signal_btn.clicked.connect(lambda: self.add_signal_row(group_item, group_name))
             
-            self.tree.setItemWidget(group_item, 2, add_signal_btn)
+            remove_group_btn = QPushButton("Remove")
+            remove_group_btn.clicked.connect(lambda: self.remove_group(group_item))
+            
+            actions_layout.addWidget(add_signal_btn)
+            actions_layout.addWidget(remove_group_btn)
+            
+            self.tree.setItemWidget(group_item, 2, actions_widget)
             group_item.setExpanded(True)
             logger.info(f"Added new group: {group_name}")
 

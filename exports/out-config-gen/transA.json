@@ -1,0 +1,70 @@
+{
+  "name": "transA",
+  "signals": [
+    {
+      "name": "transA_velocity",
+      "path": "System/CANBusDrive/cTransA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_current",
+      "path": "System/CANBusDrive/cTransA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_motorTemp",
+      "path": "System/CANBusDrive/cTransA/MotorTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_battCurrent",
+      "path": "System/CANBusDrive/cTransA/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_nodeState",
+      "path": "System/CANBusDrive/cTransA/SlaveMod",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_forward",
+      "path": "System/CANBusDrive/cTransA/Forward",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_reverse",
+      "path": "System/CANBusDrive/cTransA/Reverse",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_targetSpeed",
+      "path": "System/CANBusDrive/cTransA/TargetSpeed",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "transA_cntrlTemp",
+      "path": "System/CANBusDrive/cTransA/CntrlTemp",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_sOC",
+      "path": "System/BMSAB/SOC",
+      "metric": "Metric1m"
+    },
+    {
+      "name": "bmsa_current",
+      "path": "System/CANBusSystem/cBMSA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsb_current",
+      "path": "System/CANBusSystem/cBMSB/Current",
+      "metric": "Metric250ms"
+    }
+  ]
+}
