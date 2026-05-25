@@ -1,922 +1,746 @@
 {
-    "signals":  [
-                    {
-                        "name":  "bMSAB_availFactor",
-                        "path":  "System/BMSAB/AvailFactor",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_availability",
-                        "path":  "System/BMSAB/Availability",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSAvailInsuff",
-                        "path":  "System/BMSAB/BMSAvailInsuff",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSAvailLmtd",
-                        "path":  "System/BMSAB/BMSAvailLmtd",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSChrgCutb",
-                        "path":  "System/BMSAB/BMSChrgCutb",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSChrgMismatch",
-                        "path":  "System/BMSAB/BMSChrgMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSCurrMismatch",
-                        "path":  "System/BMSAB/BMSCurrMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSDischCutb",
-                        "path":  "System/BMSAB/BMSDischCutb",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSNotConnect",
-                        "path":  "System/BMSAB/BMSNotConnect",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSSOCMismatch",
-                        "path":  "System/BMSAB/BMSSOCMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_bMSVoltMismatch",
-                        "path":  "System/BMSAB/BMSVoltMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_current",
-                        "path":  "System/BMSAB/Current",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_currentMismatch",
-                        "path":  "System/BMSAB/CurrentMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_cycleOutput",
-                        "path":  "System/BMSAB/CycleOutput",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_dsblConnect",
-                        "path":  "System/BMSAB/DsblConnect",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_dsblVoltMisMgmt",
-                        "path":  "System/BMSAB/DsblVoltMisMgmt",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_enblBMS",
-                        "path":  "System/BMSAB/EnblBMS",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_enblRestart",
-                        "path":  "System/BMSAB/EnblRestart",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_enblSOCRecovery",
-                        "path":  "System/BMSAB/EnblSOCRecovery",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_output",
-                        "path":  "System/BMSAB/Output",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_restartCount",
-                        "path":  "System/BMSAB/RestartCount",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOC",
-                        "path":  "System/BMSAB/SOC",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOCLowOpMin",
-                        "path":  "System/BMSAB/SOCLowOpMin",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOCLowStdbyMin",
-                        "path":  "System/BMSAB/SOCLowStdbyMin",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOCMismatch",
-                        "path":  "System/BMSAB/SOCMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOCRecCurrMin",
-                        "path":  "System/BMSAB/SOCRecCurrMin",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOCRecTimRst",
-                        "path":  "System/BMSAB/SOCRecTimRst",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_sOCWarnLow",
-                        "path":  "System/BMSAB/SOCWarnLow",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_tMSMismatch",
-                        "path":  "System/BMSAB/TMSMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_voltage",
-                        "path":  "System/BMSAB/Voltage",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bMSAB_voltageMismatch",
-                        "path":  "System/BMSAB/VoltageMismatch",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsa_current",
-                        "path":  "System/CANBusSystem/cBMSA/Current",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsa_soc",
-                        "path":  "System/CANBusSystem/cBMSA/SOC",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsa_voltage",
-                        "path":  "System/CANBusSystem/cBMSA/Voltage",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsb_current",
-                        "path":  "System/CANBusSystem/cBMSB/Current",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsb_soc",
-                        "path":  "System/CANBusSystem/cBMSB/SOC",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsb_soh",
-                        "path":  "System/CANBusSystem/cBMSB/SOH",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsb_temp_max",
-                        "path":  "System/CANBusSystem/cBMSB/MaxTemp",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bmsb_voltage",
-                        "path":  "System/CANBusSystem/cBMSB/Voltage",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bat_energy_discharged_kwh",
-                        "path":  "System/CANBusSystem/cBMSA/TtlDschrgEnergy",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bat_energy_regen_kwh",
-                        "path":  "System/CANBusSystem/cBMSA/TtlChrgEnergy",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bat_fault_code",
-                        "path":  "System/CANBusSystem/cBMSA/FaultCode",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bat_soh_pct",
-                        "path":  "System/CANBusSystem/cBMSA/SOH",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bat_temp_max",
-                        "path":  "System/CANBusSystem/cBMSA/MaxTemp",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "bat_temp_min",
-                        "path":  "System/CANBusSystem/cBMSA/MinTemp",
-                        "metric":  "BMS"
-                    },
-                    {
-                        "name":  "charger_enblManualChrg",
-                        "path":  "System/ChargerABC/EnblManualChrg",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "charger_manualChrgCurr",
-                        "path":  "System/ChargerABC/ManualChrgCurr",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "charger_manualChrgVolt",
-                        "path":  "System/ChargerABC/ManualChrgVolt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "charger_chrgOBCErr",
-                        "path":  "System/ChargerABC/ChrgOBCErr",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "charger_chrgStdby",
-                        "path":  "System/ChargerABC/ChrgStdby",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "charger_chrgConn",
-                        "path":  "System/ChargerABC/ChrgConn",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "charger_chrgDiscon",
-                        "path":  "System/ChargerABC/ChrgDiscon",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_CrrOBCStt",
-                        "path":  "System/CANBusSystem/cChargerA/CrrOBCStt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_ReqOBCStt",
-                        "path":  "System/CANBusSystem/cChargerA/ReqOBCStt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_SlaveNotOp",
-                        "path":  "System/CANBusSystem/cChargerA/SlaveNotOp",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_SlaveMod",
-                        "path":  "System/CANBusSystem/cChargerA/SlaveMod",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_SlaveAllowUp",
-                        "path":  "System/CANBusSystem/cChargerA/SlaveAllowUp",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Enabled",
-                        "path":  "System/CANBusSystem/cChargerA/Enabled",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_TriggerStart",
-                        "path":  "System/CANBusSystem/cChargerA/TriggerStart",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_OvrdConnected",
-                        "path":  "System/CANBusSystem/cChargerA/OvrdConnected",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_SlaveNotify",
-                        "path":  "System/CANBusSystem/cChargerA/SlaveNotify",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_SlaveBlock",
-                        "path":  "System/CANBusSystem/cChargerA/SlaveBlock",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_SlaveStop",
-                        "path":  "System/CANBusSystem/cChargerA/SlaveStop",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_TargVoltage",
-                        "path":  "System/CANBusSystem/cChargerA/TargVoltage",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_TargCurrent",
-                        "path":  "System/CANBusSystem/cChargerA/TargCurrent",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Heating",
-                        "path":  "System/CANBusSystem/cChargerA/Heating",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Stop",
-                        "path":  "System/CANBusSystem/cChargerA/Stop",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Voltage",
-                        "path":  "System/CANBusSystem/cChargerA/Voltage",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Current",
-                        "path":  "System/CANBusSystem/cChargerA/Current",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Power",
-                        "path":  "System/CANBusSystem/cChargerA/Power",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_Diagnostic",
-                        "path":  "System/CANBusSystem/cChargerA/Diagnostic",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_CC",
-                        "path":  "System/CANBusSystem/cChargerA/CC",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_CP",
-                        "path":  "System/CANBusSystem/cChargerA/CP",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerA_OBCStatus",
-                        "path":  "System/CANBusSystem/cChargerA/OBCStatus",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_CrrOBCStt",
-                        "path":  "System/CANBusSystem/cChargerB/CrrOBCStt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_ReqOBCStt",
-                        "path":  "System/CANBusSystem/cChargerB/ReqOBCStt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_SlaveNotOp",
-                        "path":  "System/CANBusSystem/cChargerB/SlaveNotOp",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_SlaveMod",
-                        "path":  "System/CANBusSystem/cChargerB/SlaveMod",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_SlaveAllowUp",
-                        "path":  "System/CANBusSystem/cChargerB/SlaveAllowUp",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Enabled",
-                        "path":  "System/CANBusSystem/cChargerB/Enabled",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_TriggerStart",
-                        "path":  "System/CANBusSystem/cChargerB/TriggerStart",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_OvrdConnected",
-                        "path":  "System/CANBusSystem/cChargerB/OvrdConnected",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_SlaveNotify",
-                        "path":  "System/CANBusSystem/cChargerB/SlaveNotify",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_SlaveBlock",
-                        "path":  "System/CANBusSystem/cChargerB/SlaveBlock",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_SlaveStop",
-                        "path":  "System/CANBusSystem/cChargerB/SlaveStop",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_TargVoltage",
-                        "path":  "System/CANBusSystem/cChargerB/TargVoltage",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_TargCurrent",
-                        "path":  "System/CANBusSystem/cChargerB/TargCurrent",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Heating",
-                        "path":  "System/CANBusSystem/cChargerB/Heating",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Stop",
-                        "path":  "System/CANBusSystem/cChargerB/Stop",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Voltage",
-                        "path":  "System/CANBusSystem/cChargerB/Voltage",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Current",
-                        "path":  "System/CANBusSystem/cChargerB/Current",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Power",
-                        "path":  "System/CANBusSystem/cChargerB/Power",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_Diagnostic",
-                        "path":  "System/CANBusSystem/cChargerB/Diagnostic",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_CC",
-                        "path":  "System/CANBusSystem/cChargerB/CC",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_CP",
-                        "path":  "System/CANBusSystem/cChargerB/CP",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerB_OBCStatus",
-                        "path":  "System/CANBusSystem/cChargerB/OBCStatus",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_CrrOBCStt",
-                        "path":  "System/CANBusSystem/cChargerC/CrrOBCStt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_ReqOBCStt",
-                        "path":  "System/CANBusSystem/cChargerC/ReqOBCStt",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_SlaveNotOp",
-                        "path":  "System/CANBusSystem/cChargerC/SlaveNotOp",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_SlaveMod",
-                        "path":  "System/CANBusSystem/cChargerC/SlaveMod",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_SlaveAllowUp",
-                        "path":  "System/CANBusSystem/cChargerC/SlaveAllowUp",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Enabled",
-                        "path":  "System/CANBusSystem/cChargerC/Enabled",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_TriggerStart",
-                        "path":  "System/CANBusSystem/cChargerC/TriggerStart",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_OvrdConnected",
-                        "path":  "System/CANBusSystem/cChargerC/OvrdConnected",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_SlaveNotify",
-                        "path":  "System/CANBusSystem/cChargerC/SlaveNotify",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_SlaveBlock",
-                        "path":  "System/CANBusSystem/cChargerC/SlaveBlock",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_SlaveStop",
-                        "path":  "System/CANBusSystem/cChargerC/SlaveStop",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_TargVoltage",
-                        "path":  "System/CANBusSystem/cChargerC/TargVoltage",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_TargCurrent",
-                        "path":  "System/CANBusSystem/cChargerC/TargCurrent",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Heating",
-                        "path":  "System/CANBusSystem/cChargerC/Heating",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Stop",
-                        "path":  "System/CANBusSystem/cChargerC/Stop",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Voltage",
-                        "path":  "System/CANBusSystem/cChargerC/Voltage",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Current",
-                        "path":  "System/CANBusSystem/cChargerC/Current",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Power",
-                        "path":  "System/CANBusSystem/cChargerC/Power",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_Diagnostic",
-                        "path":  "System/CANBusSystem/cChargerC/Diagnostic",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_CC",
-                        "path":  "System/CANBusSystem/cChargerC/CC",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_CP",
-                        "path":  "System/CANBusSystem/cChargerC/CP",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "chargerC_OBCStatus",
-                        "path":  "System/CANBusSystem/cChargerC/OBCStatus",
-                        "metric":  "Charger_CANBus"
-                    },
-                    {
-                        "name":  "secondary_secPwrNotRun",
-                        "path":  "System/Secondary/SecPwrNotRun",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondary_secPwrNotRunMod",
-                        "path":  "System/Secondary/SecPwrNotRunMod",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondary_secPwrWait",
-                        "path":  "System/Secondary/SecPwrWait",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondary_secPwrMismatch",
-                        "path":  "System/Secondary/SecPwrMismatch",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondary_cntxtSgnMod",
-                        "path":  "System/Secondary/CntxtSgnMod",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SecPwrTemp",
-                        "path":  "System/CANBusSystem/cSecondaryA/SecPwrTemp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_CurrRunStt",
-                        "path":  "System/CANBusSystem/cSecondaryA/CurrRunStt",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SlaveNotOp",
-                        "path":  "System/CANBusSystem/cSecondaryA/SlaveNotOp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SlaveMod",
-                        "path":  "System/CANBusSystem/cSecondaryA/SlaveMod",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SlaveAllowUp",
-                        "path":  "System/CANBusSystem/cSecondaryA/SlaveAllowUp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_Enabled",
-                        "path":  "System/CANBusSystem/cSecondaryA/Enabled",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_TriggerStart",
-                        "path":  "System/CANBusSystem/cSecondaryA/TriggerStart",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_OvrdConnected",
-                        "path":  "System/CANBusSystem/cSecondaryA/OvrdConnected",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SlaveNotify",
-                        "path":  "System/CANBusSystem/cSecondaryA/SlaveNotify",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SlaveBlock",
-                        "path":  "System/CANBusSystem/cSecondaryA/SlaveBlock",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_SlaveStop",
-                        "path":  "System/CANBusSystem/cSecondaryA/SlaveStop",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_ReqRunStt",
-                        "path":  "System/CANBusSystem/cSecondaryA/ReqRunStt",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_VoltageReq",
-                        "path":  "System/CANBusSystem/cSecondaryA/VoltageReq",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_VoltageCurr",
-                        "path":  "System/CANBusSystem/cSecondaryA/VoltageCurr",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_CurrentCurr",
-                        "path":  "System/CANBusSystem/cSecondaryA/CurrentCurr",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_Temp",
-                        "path":  "System/CANBusSystem/cSecondaryA/Temp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_Diagnostic",
-                        "path":  "System/CANBusSystem/cSecondaryA/Diagnostic",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_Status",
-                        "path":  "System/CANBusSystem/cSecondaryA/Status",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryA_Working",
-                        "path":  "System/CANBusSystem/cSecondaryA/Working",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SecPwrTemp",
-                        "path":  "System/CANBusSystem/cSecondaryB/SecPwrTemp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_CurrRunStt",
-                        "path":  "System/CANBusSystem/cSecondaryB/CurrRunStt",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SlaveNotOp",
-                        "path":  "System/CANBusSystem/cSecondaryB/SlaveNotOp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SlaveMod",
-                        "path":  "System/CANBusSystem/cSecondaryB/SlaveMod",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SlaveAllowUp",
-                        "path":  "System/CANBusSystem/cSecondaryB/SlaveAllowUp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_Enabled",
-                        "path":  "System/CANBusSystem/cSecondaryB/Enabled",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_TriggerStart",
-                        "path":  "System/CANBusSystem/cSecondaryB/TriggerStart",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_OvrdConnected",
-                        "path":  "System/CANBusSystem/cSecondaryB/OvrdConnected",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SlaveNotify",
-                        "path":  "System/CANBusSystem/cSecondaryB/SlaveNotify",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SlaveBlock",
-                        "path":  "System/CANBusSystem/cSecondaryB/SlaveBlock",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_SlaveStop",
-                        "path":  "System/CANBusSystem/cSecondaryB/SlaveStop",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_ReqRunStt",
-                        "path":  "System/CANBusSystem/cSecondaryB/ReqRunStt",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_VoltageReq",
-                        "path":  "System/CANBusSystem/cSecondaryB/VoltageReq",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_VoltageCurr",
-                        "path":  "System/CANBusSystem/cSecondaryB/VoltageCurr",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_CurrentCurr",
-                        "path":  "System/CANBusSystem/cSecondaryB/CurrentCurr",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_Temp",
-                        "path":  "System/CANBusSystem/cSecondaryB/Temp",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_Diagnostic",
-                        "path":  "System/CANBusSystem/cSecondaryB/Diagnostic",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_Status",
-                        "path":  "System/CANBusSystem/cSecondaryB/Status",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "secondaryB_Working",
-                        "path":  "System/CANBusSystem/cSecondaryB/Working",
-                        "metric":  "Secondary_CANBus"
-                    },
-                    {
-                        "name":  "tMS_clntReserv",
-                        "path":  "System/TMS/ClntReserv",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntSecFailHC",
-                        "path":  "System/TMS/ClntSecFailHC",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntSecFailPmp",
-                        "path":  "System/TMS/ClntSecFailPmp",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_tMSCooling",
-                        "path":  "System/TMS/TMSCooling",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_tMSHeating",
-                        "path":  "System/TMS/TMSHeating",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_bMSTMSCooling",
-                        "path":  "System/TMS/BMSTMSCooling",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_bMSTMSHeating",
-                        "path":  "System/TMS/BMSTMSHeating",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_bMSTMSNoCirc",
-                        "path":  "System/TMS/BMSTMSNoCirc",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntHeating",
-                        "path":  "System/TMS/ClntHeating",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntChilling",
-                        "path":  "System/TMS/ClntChilling",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntTempHotCutb",
-                        "path":  "System/TMS/ClntTempHotCutb",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntTempColdCutb",
-                        "path":  "System/TMS/ClntTempColdCutb",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_ovrdControl",
-                        "path":  "System/TMS/OvrdControl",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_reqState",
-                        "path":  "System/TMS/ReqState",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntTempHot",
-                        "path":  "System/TMS/ClntTempHot",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntTempCold",
-                        "path":  "System/TMS/ClntTempCold",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_currState",
-                        "path":  "System/TMS/CurrState",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntReservoir",
-                        "path":  "System/TMS/ClntReservoir",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_clntTemp",
-                        "path":  "System/TMS/ClntTemp",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_pump",
-                        "path":  "System/TMS/Pump",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_heating",
-                        "path":  "System/TMS/Heating",
-                        "metric":  "TMS"
-                    },
-                    {
-                        "name":  "tMS_chilling",
-                        "path":  "System/TMS/Chilling",
-                        "metric":  "TMS"
-                    }
-                ],
-    "metrics":  [
-                    "PrimaryPLC"
-                ]
+    "metrics": [
+        "Metric0ms",
+        "Metric250ms",
+        "Metric500ms",
+        "Metric1s",
+        "Metric5s",
+        "Metric1m",
+        "Metric1h",
+        "Metric1d"
+    ],
+    "signals": [
+        {
+            "name": "bMSAB_availFactor",
+            "path": "System/BMSAB/AvailFactor"
+        },
+        {
+            "name": "bMSAB_availability",
+            "path": "System/BMSAB/Availability"
+        },
+        {
+            "name": "bMSAB_bMSAvailInsuff",
+            "path": "System/BMSAB/BMSAvailInsuff"
+        },
+        {
+            "name": "bMSAB_bMSAvailLmtd",
+            "path": "System/BMSAB/BMSAvailLmtd"
+        },
+        {
+            "name": "bMSAB_bMSChrgCutb",
+            "path": "System/BMSAB/BMSChrgCutb"
+        },
+        {
+            "name": "bMSAB_bMSChrgMismatch",
+            "path": "System/BMSAB/BMSChrgMismatch"
+        },
+        {
+            "name": "bMSAB_bMSCurrMismatch",
+            "path": "System/BMSAB/BMSCurrMismatch"
+        },
+        {
+            "name": "bMSAB_bMSDischCutb",
+            "path": "System/BMSAB/BMSDischCutb"
+        },
+        {
+            "name": "bMSAB_bMSNotConnect",
+            "path": "System/BMSAB/BMSNotConnect"
+        },
+        {
+            "name": "bMSAB_bMSSOCMismatch",
+            "path": "System/BMSAB/BMSSOCMismatch"
+        },
+        {
+            "name": "bMSAB_bMSVoltMismatch",
+            "path": "System/BMSAB/BMSVoltMismatch"
+        },
+        {
+            "name": "bMSAB_current",
+            "path": "System/BMSAB/Current"
+        },
+        {
+            "name": "bMSAB_currentMismatch",
+            "path": "System/BMSAB/CurrentMismatch"
+        },
+        {
+            "name": "bMSAB_cycleOutput",
+            "path": "System/BMSAB/CycleOutput"
+        },
+        {
+            "name": "bMSAB_dsblConnect",
+            "path": "System/BMSAB/DsblConnect"
+        },
+        {
+            "name": "bMSAB_dsblVoltMisMgmt",
+            "path": "System/BMSAB/DsblVoltMisMgmt"
+        },
+        {
+            "name": "bMSAB_enblBMS",
+            "path": "System/BMSAB/EnblBMS"
+        },
+        {
+            "name": "bMSAB_enblRestart",
+            "path": "System/BMSAB/EnblRestart"
+        },
+        {
+            "name": "bMSAB_enblSOCRecovery",
+            "path": "System/BMSAB/EnblSOCRecovery"
+        },
+        {
+            "name": "bMSAB_output",
+            "path": "System/BMSAB/Output"
+        },
+        {
+            "name": "bMSAB_restartCount",
+            "path": "System/BMSAB/RestartCount"
+        },
+        {
+            "name": "bMSAB_sOC",
+            "path": "System/BMSAB/SOC"
+        },
+        {
+            "name": "bMSAB_sOCLowOpMin",
+            "path": "System/BMSAB/SOCLowOpMin"
+        },
+        {
+            "name": "bMSAB_sOCLowStdbyMin",
+            "path": "System/BMSAB/SOCLowStdbyMin"
+        },
+        {
+            "name": "bMSAB_sOCMismatch",
+            "path": "System/BMSAB/SOCMismatch"
+        },
+        {
+            "name": "bMSAB_sOCRecCurrMin",
+            "path": "System/BMSAB/SOCRecCurrMin"
+        },
+        {
+            "name": "bMSAB_sOCRecTimRst",
+            "path": "System/BMSAB/SOCRecTimRst"
+        },
+        {
+            "name": "bMSAB_sOCWarnLow",
+            "path": "System/BMSAB/SOCWarnLow"
+        },
+        {
+            "name": "bMSAB_tMSMismatch",
+            "path": "System/BMSAB/TMSMismatch"
+        },
+        {
+            "name": "bMSAB_voltage",
+            "path": "System/BMSAB/Voltage"
+        },
+        {
+            "name": "bMSAB_voltageMismatch",
+            "path": "System/BMSAB/VoltageMismatch"
+        },
+        {
+            "name": "bmsa_current",
+            "path": "System/CANBusSystem/cBMSA/Current"
+        },
+        {
+            "name": "bmsa_soc",
+            "path": "System/CANBusSystem/cBMSA/SOC"
+        },
+        {
+            "name": "bmsa_voltage",
+            "path": "System/CANBusSystem/cBMSA/Voltage"
+        },
+        {
+            "name": "bmsb_current",
+            "path": "System/CANBusSystem/cBMSB/Current"
+        },
+        {
+            "name": "bmsb_soc",
+            "path": "System/CANBusSystem/cBMSB/SOC"
+        },
+        {
+            "name": "bmsb_soh",
+            "path": "System/CANBusSystem/cBMSB/SOH"
+        },
+        {
+            "name": "bmsb_temp_max",
+            "path": "System/CANBusSystem/cBMSB/MaxTemp"
+        },
+        {
+            "name": "bmsb_voltage",
+            "path": "System/CANBusSystem/cBMSB/Voltage"
+        },
+        {
+            "name": "bat_energy_discharged_kwh",
+            "path": "System/CANBusSystem/cBMSA/TtlDschrgEnergy"
+        },
+        {
+            "name": "bat_energy_regen_kwh",
+            "path": "System/CANBusSystem/cBMSA/TtlChrgEnergy"
+        },
+        {
+            "name": "bat_fault_code",
+            "path": "System/CANBusSystem/cBMSA/FaultCode"
+        },
+        {
+            "name": "bat_soh_pct",
+            "path": "System/CANBusSystem/cBMSA/SOH"
+        },
+        {
+            "name": "bat_temp_max",
+            "path": "System/CANBusSystem/cBMSA/MaxTemp"
+        },
+        {
+            "name": "bat_temp_min",
+            "path": "System/CANBusSystem/cBMSA/MinTemp"
+        },
+        {
+            "name": "charger_enblManualChrg",
+            "path": "System/ChargerABC/EnblManualChrg"
+        },
+        {
+            "name": "charger_manualChrgCurr",
+            "path": "System/ChargerABC/ManualChrgCurr"
+        },
+        {
+            "name": "charger_manualChrgVolt",
+            "path": "System/ChargerABC/ManualChrgVolt"
+        },
+        {
+            "name": "charger_chrgOBCErr",
+            "path": "System/ChargerABC/ChrgOBCErr"
+        },
+        {
+            "name": "charger_chrgStdby",
+            "path": "System/ChargerABC/ChrgStdby"
+        },
+        {
+            "name": "charger_chrgConn",
+            "path": "System/ChargerABC/ChrgConn"
+        },
+        {
+            "name": "charger_chrgDiscon",
+            "path": "System/ChargerABC/ChrgDiscon"
+        },
+        {
+            "name": "chargerA_CrrOBCStt",
+            "path": "System/CANBusSystem/cChargerA/CrrOBCStt"
+        },
+        {
+            "name": "chargerA_ReqOBCStt",
+            "path": "System/CANBusSystem/cChargerA/ReqOBCStt"
+        },
+        {
+            "name": "chargerA_SlaveNotOp",
+            "path": "System/CANBusSystem/cChargerA/SlaveNotOp"
+        },
+        {
+            "name": "chargerA_SlaveMod",
+            "path": "System/CANBusSystem/cChargerA/SlaveMod"
+        },
+        {
+            "name": "chargerA_SlaveAllowUp",
+            "path": "System/CANBusSystem/cChargerA/SlaveAllowUp"
+        },
+        {
+            "name": "chargerA_Enabled",
+            "path": "System/CANBusSystem/cChargerA/Enabled"
+        },
+        {
+            "name": "chargerA_TriggerStart",
+            "path": "System/CANBusSystem/cChargerA/TriggerStart"
+        },
+        {
+            "name": "chargerA_OvrdConnected",
+            "path": "System/CANBusSystem/cChargerA/OvrdConnected"
+        },
+        {
+            "name": "chargerA_SlaveNotify",
+            "path": "System/CANBusSystem/cChargerA/SlaveNotify"
+        },
+        {
+            "name": "chargerA_SlaveBlock",
+            "path": "System/CANBusSystem/cChargerA/SlaveBlock"
+        },
+        {
+            "name": "chargerA_SlaveStop",
+            "path": "System/CANBusSystem/cChargerA/SlaveStop"
+        },
+        {
+            "name": "chargerA_TargVoltage",
+            "path": "System/CANBusSystem/cChargerA/TargVoltage"
+        },
+        {
+            "name": "chargerA_TargCurrent",
+            "path": "System/CANBusSystem/cChargerA/TargCurrent"
+        },
+        {
+            "name": "chargerA_Heating",
+            "path": "System/CANBusSystem/cChargerA/Heating"
+        },
+        {
+            "name": "chargerA_Stop",
+            "path": "System/CANBusSystem/cChargerA/Stop"
+        },
+        {
+            "name": "chargerA_Voltage",
+            "path": "System/CANBusSystem/cChargerA/Voltage"
+        },
+        {
+            "name": "chargerA_Current",
+            "path": "System/CANBusSystem/cChargerA/Current"
+        },
+        {
+            "name": "chargerA_Power",
+            "path": "System/CANBusSystem/cChargerA/Power"
+        },
+        {
+            "name": "chargerA_Diagnostic",
+            "path": "System/CANBusSystem/cChargerA/Diagnostic"
+        },
+        {
+            "name": "chargerA_CC",
+            "path": "System/CANBusSystem/cChargerA/CC"
+        },
+        {
+            "name": "chargerA_CP",
+            "path": "System/CANBusSystem/cChargerA/CP"
+        },
+        {
+            "name": "chargerA_OBCStatus",
+            "path": "System/CANBusSystem/cChargerA/OBCStatus"
+        },
+        {
+            "name": "chargerB_CrrOBCStt",
+            "path": "System/CANBusSystem/cChargerB/CrrOBCStt"
+        },
+        {
+            "name": "chargerB_ReqOBCStt",
+            "path": "System/CANBusSystem/cChargerB/ReqOBCStt"
+        },
+        {
+            "name": "chargerB_SlaveNotOp",
+            "path": "System/CANBusSystem/cChargerB/SlaveNotOp"
+        },
+        {
+            "name": "chargerB_SlaveMod",
+            "path": "System/CANBusSystem/cChargerB/SlaveMod"
+        },
+        {
+            "name": "chargerB_SlaveAllowUp",
+            "path": "System/CANBusSystem/cChargerB/SlaveAllowUp"
+        },
+        {
+            "name": "chargerB_Enabled",
+            "path": "System/CANBusSystem/cChargerB/Enabled"
+        },
+        {
+            "name": "chargerB_TriggerStart",
+            "path": "System/CANBusSystem/cChargerB/TriggerStart"
+        },
+        {
+            "name": "chargerB_OvrdConnected",
+            "path": "System/CANBusSystem/cChargerB/OvrdConnected"
+        },
+        {
+            "name": "chargerB_SlaveNotify",
+            "path": "System/CANBusSystem/cChargerB/SlaveNotify"
+        },
+        {
+            "name": "chargerB_SlaveBlock",
+            "path": "System/CANBusSystem/cChargerB/SlaveBlock"
+        },
+        {
+            "name": "chargerB_SlaveStop",
+            "path": "System/CANBusSystem/cChargerB/SlaveStop"
+        },
+        {
+            "name": "chargerB_TargVoltage",
+            "path": "System/CANBusSystem/cChargerB/TargVoltage"
+        },
+        {
+            "name": "chargerB_TargCurrent",
+            "path": "System/CANBusSystem/cChargerB/TargCurrent"
+        },
+        {
+            "name": "chargerB_Heating",
+            "path": "System/CANBusSystem/cChargerB/Heating"
+        },
+        {
+            "name": "chargerB_Stop",
+            "path": "System/CANBusSystem/cChargerB/Stop"
+        },
+        {
+            "name": "chargerB_Voltage",
+            "path": "System/CANBusSystem/cChargerB/Voltage"
+        },
+        {
+            "name": "chargerB_Current",
+            "path": "System/CANBusSystem/cChargerB/Current"
+        },
+        {
+            "name": "chargerB_Power",
+            "path": "System/CANBusSystem/cChargerB/Power"
+        },
+        {
+            "name": "chargerB_Diagnostic",
+            "path": "System/CANBusSystem/cChargerB/Diagnostic"
+        },
+        {
+            "name": "chargerB_CC",
+            "path": "System/CANBusSystem/cChargerB/CC"
+        },
+        {
+            "name": "chargerB_CP",
+            "path": "System/CANBusSystem/cChargerB/CP"
+        },
+        {
+            "name": "chargerB_OBCStatus",
+            "path": "System/CANBusSystem/cChargerB/OBCStatus"
+        },
+        {
+            "name": "chargerC_CrrOBCStt",
+            "path": "System/CANBusSystem/cChargerC/CrrOBCStt"
+        },
+        {
+            "name": "chargerC_ReqOBCStt",
+            "path": "System/CANBusSystem/cChargerC/ReqOBCStt"
+        },
+        {
+            "name": "chargerC_SlaveNotOp",
+            "path": "System/CANBusSystem/cChargerC/SlaveNotOp"
+        },
+        {
+            "name": "chargerC_SlaveMod",
+            "path": "System/CANBusSystem/cChargerC/SlaveMod"
+        },
+        {
+            "name": "chargerC_SlaveAllowUp",
+            "path": "System/CANBusSystem/cChargerC/SlaveAllowUp"
+        },
+        {
+            "name": "chargerC_Enabled",
+            "path": "System/CANBusSystem/cChargerC/Enabled"
+        },
+        {
+            "name": "chargerC_TriggerStart",
+            "path": "System/CANBusSystem/cChargerC/TriggerStart"
+        },
+        {
+            "name": "chargerC_OvrdConnected",
+            "path": "System/CANBusSystem/cChargerC/OvrdConnected"
+        },
+        {
+            "name": "chargerC_SlaveNotify",
+            "path": "System/CANBusSystem/cChargerC/SlaveNotify"
+        },
+        {
+            "name": "chargerC_SlaveBlock",
+            "path": "System/CANBusSystem/cChargerC/SlaveBlock"
+        },
+        {
+            "name": "chargerC_SlaveStop",
+            "path": "System/CANBusSystem/cChargerC/SlaveStop"
+        },
+        {
+            "name": "chargerC_TargVoltage",
+            "path": "System/CANBusSystem/cChargerC/TargVoltage"
+        },
+        {
+            "name": "chargerC_TargCurrent",
+            "path": "System/CANBusSystem/cChargerC/TargCurrent"
+        },
+        {
+            "name": "chargerC_Heating",
+            "path": "System/CANBusSystem/cChargerC/Heating"
+        },
+        {
+            "name": "chargerC_Stop",
+            "path": "System/CANBusSystem/cChargerC/Stop"
+        },
+        {
+            "name": "chargerC_Voltage",
+            "path": "System/CANBusSystem/cChargerC/Voltage"
+        },
+        {
+            "name": "chargerC_Current",
+            "path": "System/CANBusSystem/cChargerC/Current"
+        },
+        {
+            "name": "chargerC_Power",
+            "path": "System/CANBusSystem/cChargerC/Power"
+        },
+        {
+            "name": "chargerC_Diagnostic",
+            "path": "System/CANBusSystem/cChargerC/Diagnostic"
+        },
+        {
+            "name": "chargerC_CC",
+            "path": "System/CANBusSystem/cChargerC/CC"
+        },
+        {
+            "name": "chargerC_CP",
+            "path": "System/CANBusSystem/cChargerC/CP"
+        },
+        {
+            "name": "chargerC_OBCStatus",
+            "path": "System/CANBusSystem/cChargerC/OBCStatus"
+        },
+        {
+            "name": "secondary_secPwrNotRun",
+            "path": "System/Secondary/SecPwrNotRun"
+        },
+        {
+            "name": "secondary_secPwrNotRunMod",
+            "path": "System/Secondary/SecPwrNotRunMod"
+        },
+        {
+            "name": "secondary_secPwrWait",
+            "path": "System/Secondary/SecPwrWait"
+        },
+        {
+            "name": "secondary_secPwrMismatch",
+            "path": "System/Secondary/SecPwrMismatch"
+        },
+        {
+            "name": "secondary_cntxtSgnMod",
+            "path": "System/Secondary/CntxtSgnMod"
+        },
+        {
+            "name": "secondaryA_SecPwrTemp",
+            "path": "System/CANBusSystem/cSecondaryA/SecPwrTemp"
+        },
+        {
+            "name": "secondaryA_CurrRunStt",
+            "path": "System/CANBusSystem/cSecondaryA/CurrRunStt"
+        },
+        {
+            "name": "secondaryA_SlaveNotOp",
+            "path": "System/CANBusSystem/cSecondaryA/SlaveNotOp"
+        },
+        {
+            "name": "secondaryA_SlaveMod",
+            "path": "System/CANBusSystem/cSecondaryA/SlaveMod"
+        },
+        {
+            "name": "secondaryA_SlaveAllowUp",
+            "path": "System/CANBusSystem/cSecondaryA/SlaveAllowUp"
+        },
+        {
+            "name": "secondaryA_Enabled",
+            "path": "System/CANBusSystem/cSecondaryA/Enabled"
+        },
+        {
+            "name": "secondaryA_TriggerStart",
+            "path": "System/CANBusSystem/cSecondaryA/TriggerStart"
+        },
+        {
+            "name": "secondaryA_OvrdConnected",
+            "path": "System/CANBusSystem/cSecondaryA/OvrdConnected"
+        },
+        {
+            "name": "secondaryA_SlaveNotify",
+            "path": "System/CANBusSystem/cSecondaryA/SlaveNotify"
+        },
+        {
+            "name": "secondaryA_SlaveBlock",
+            "path": "System/CANBusSystem/cSecondaryA/SlaveBlock"
+        },
+        {
+            "name": "secondaryA_SlaveStop",
+            "path": "System/CANBusSystem/cSecondaryA/SlaveStop"
+        },
+        {
+            "name": "secondaryA_ReqRunStt",
+            "path": "System/CANBusSystem/cSecondaryA/ReqRunStt"
+        },
+        {
+            "name": "secondaryA_VoltageReq",
+            "path": "System/CANBusSystem/cSecondaryA/VoltageReq"
+        },
+        {
+            "name": "secondaryA_VoltageCurr",
+            "path": "System/CANBusSystem/cSecondaryA/VoltageCurr"
+        },
+        {
+            "name": "secondaryA_CurrentCurr",
+            "path": "System/CANBusSystem/cSecondaryA/CurrentCurr"
+        },
+        {
+            "name": "secondaryA_Temp",
+            "path": "System/CANBusSystem/cSecondaryA/Temp"
+        },
+        {
+            "name": "secondaryA_Diagnostic",
+            "path": "System/CANBusSystem/cSecondaryA/Diagnostic"
+        },
+        {
+            "name": "secondaryA_Status",
+            "path": "System/CANBusSystem/cSecondaryA/Status"
+        },
+        {
+            "name": "secondaryA_Working",
+            "path": "System/CANBusSystem/cSecondaryA/Working"
+        },
+        {
+            "name": "secondaryB_SecPwrTemp",
+            "path": "System/CANBusSystem/cSecondaryB/SecPwrTemp"
+        },
+        {
+            "name": "secondaryB_CurrRunStt",
+            "path": "System/CANBusSystem/cSecondaryB/CurrRunStt"
+        },
+        {
+            "name": "secondaryB_SlaveNotOp",
+            "path": "System/CANBusSystem/cSecondaryB/SlaveNotOp"
+        },
+        {
+            "name": "secondaryB_SlaveMod",
+            "path": "System/CANBusSystem/cSecondaryB/SlaveMod"
+        },
+        {
+            "name": "secondaryB_SlaveAllowUp",
+            "path": "System/CANBusSystem/cSecondaryB/SlaveAllowUp"
+        },
+        {
+            "name": "secondaryB_Enabled",
+            "path": "System/CANBusSystem/cSecondaryB/Enabled"
+        },
+        {
+            "name": "secondaryB_TriggerStart",
+            "path": "System/CANBusSystem/cSecondaryB/TriggerStart"
+        },
+        {
+            "name": "secondaryB_OvrdConnected",
+            "path": "System/CANBusSystem/cSecondaryB/OvrdConnected"
+        },
+        {
+            "name": "secondaryB_SlaveNotify",
+            "path": "System/CANBusSystem/cSecondaryB/SlaveNotify"
+        },
+        {
+            "name": "secondaryB_SlaveBlock",
+            "path": "System/CANBusSystem/cSecondaryB/SlaveBlock"
+        },
+        {
+            "name": "secondaryB_SlaveStop",
+            "path": "System/CANBusSystem/cSecondaryB/SlaveStop"
+        },
+        {
+            "name": "secondaryB_ReqRunStt",
+            "path": "System/CANBusSystem/cSecondaryB/ReqRunStt"
+        },
+        {
+            "name": "secondaryB_VoltageReq",
+            "path": "System/CANBusSystem/cSecondaryB/VoltageReq"
+        },
+        {
+            "name": "secondaryB_VoltageCurr",
+            "path": "System/CANBusSystem/cSecondaryB/VoltageCurr"
+        },
+        {
+            "name": "secondaryB_CurrentCurr",
+            "path": "System/CANBusSystem/cSecondaryB/CurrentCurr"
+        },
+        {
+            "name": "secondaryB_Temp",
+            "path": "System/CANBusSystem/cSecondaryB/Temp"
+        },
+        {
+            "name": "secondaryB_Diagnostic",
+            "path": "System/CANBusSystem/cSecondaryB/Diagnostic"
+        },
+        {
+            "name": "secondaryB_Status",
+            "path": "System/CANBusSystem/cSecondaryB/Status"
+        },
+        {
+            "name": "secondaryB_Working",
+            "path": "System/CANBusSystem/cSecondaryB/Working"
+        },
+        {
+            "name": "tMS_clntReserv",
+            "path": "System/TMS/ClntReserv"
+        },
+        {
+            "name": "tMS_clntSecFailHC",
+            "path": "System/TMS/ClntSecFailHC"
+        },
+        {
+            "name": "tMS_clntSecFailPmp",
+            "path": "System/TMS/ClntSecFailPmp"
+        },
+        {
+            "name": "tMS_tMSCooling",
+            "path": "System/TMS/TMSCooling"
+        },
+        {
+            "name": "tMS_tMSHeating",
+            "path": "System/TMS/TMSHeating"
+        },
+        {
+            "name": "tMS_bMSTMSCooling",
+            "path": "System/TMS/BMSTMSCooling"
+        },
+        {
+            "name": "tMS_bMSTMSHeating",
+            "path": "System/TMS/BMSTMSHeating"
+        },
+        {
+            "name": "tMS_bMSTMSNoCirc",
+            "path": "System/TMS/BMSTMSNoCirc"
+        },
+        {
+            "name": "tMS_clntHeating",
+            "path": "System/TMS/ClntHeating"
+        },
+        {
+            "name": "tMS_clntChilling",
+            "path": "System/TMS/ClntChilling"
+        },
+        {
+            "name": "tMS_clntTempHotCutb",
+            "path": "System/TMS/ClntTempHotCutb"
+        },
+        {
+            "name": "tMS_clntTempColdCutb",
+            "path": "System/TMS/ClntTempColdCutb"
+        },
+        {
+            "name": "tMS_ovrdControl",
+            "path": "System/TMS/OvrdControl"
+        },
+        {
+            "name": "tMS_reqState",
+            "path": "System/TMS/ReqState"
+        },
+        {
+            "name": "tMS_clntTempHot",
+            "path": "System/TMS/ClntTempHot"
+        },
+        {
+            "name": "tMS_clntTempCold",
+            "path": "System/TMS/ClntTempCold"
+        },
+        {
+            "name": "tMS_currState",
+            "path": "System/TMS/CurrState"
+        },
+        {
+            "name": "tMS_clntReservoir",
+            "path": "System/TMS/ClntReservoir"
+        },
+        {
+            "name": "tMS_clntTemp",
+            "path": "System/TMS/ClntTemp"
+        },
+        {
+            "name": "tMS_pump",
+            "path": "System/TMS/Pump"
+        },
+        {
+            "name": "tMS_heating",
+            "path": "System/TMS/Heating"
+        },
+        {
+            "name": "tMS_chilling",
+            "path": "System/TMS/Chilling"
+        }
+    ]
 }

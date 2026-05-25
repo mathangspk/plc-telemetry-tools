@@ -1,8 +1,8 @@
 # Project Handoff
 
 ## Summary of Changes (Current Iteration)
-- **Add Metrics to Active Signals**: Updated `exports/pool_signals/active_signals.json` to include the `"metrics": ["PrimaryPLC"]` root field, aligning the format with the requirements of the `config_generator` script.
 - **Filter Values-Only Signals**: Created `exports/confirmed/bms_values.json` by filtering out state/alarm signals from `bms.json`. The new file strictly isolates the 32 signals that actively emit a data payload (`value`), discarding the 13 purely state-based signals.
+- **Add Metrics to Active Signals**: Fixed the missing `metrics` configuration array inside `active_signals.json` (used by `config_generator.py`) by adding all the valid metrics (Metric0ms to Metric1d) at the root level of the JSON payload.
 - **Merge Active Signals**: Successfully synthesized and aggregated all confirmed signal files (`bms.json`, `charger_canbus.json`, `secondary_canbus.json`, `tms.json`) from `exports/confirmed/` into a single, unified `active_signals.json` master file in the `exports/pool_signals/` directory.
 - **Fix JSON Syntax**: Resolved a missing comma on line 23 of `exports/confirmed/secondary_canbus.json` that was causing parsing errors.
 - **Built Desktop App for Telemetry Collection**: Developed `trace_desktop_app.py` in `scripts/trace_desktop_app/` utilizing `tkinter`. The app automates triggering the PLC start/stop scripts, managing the Edge Device recording via REST endpoints, and securely transferring the final `.jsonl` trace payload over `scp`.
