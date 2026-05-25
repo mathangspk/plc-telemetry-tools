@@ -313,6 +313,850 @@
         {
             "name": "tMS_clntTemp",
             "path": "System/TMS/ClntTemp"
+        },
+        {
+            "name": "transA_nodeState",
+            "path": "System/CANBusDrive/cTransA/SlaveMod"
+        },
+        {
+            "name": "transB_nodeState",
+            "path": "System/CANBusDrive/cTransB/SlaveMod"
+        },
+        {
+            "name": "transC_nodeState",
+            "path": "System/CANBusDrive/cTransC/SlaveMod"
+        },
+        {
+            "name": "transD_nodeState",
+            "path": "System/CANBusDrive/cTransD/SlaveMod"
+        },
+        {
+            "name": "steerA_nodeState",
+            "path": "System/CANBusDrive/cSteerA/SlaveMod"
+        },
+        {
+            "name": "steerB_nodeState",
+            "path": "System/CANBusDrive/cSteerB/SlaveMod"
+        },
+        {
+            "name": "steerC_nodeState",
+            "path": "System/CANBusDrive/cSteerC/SlaveMod"
+        },
+        {
+            "name": "steerD_nodeState",
+            "path": "System/CANBusDrive/cSteerD/SlaveMod"
+        },
+        {
+            "name": "winchA_nodeState",
+            "path": "System/CANBusDrive/cWinchA/SlaveMod"
+        },
+        {
+            "name": "winchB_nodeState",
+            "path": "System/CANBusDrive/cWinchB/SlaveMod"
+        },
+        {
+            "name": "winchC_nodeState",
+            "path": "System/CANBusDrive/cWinchC/SlaveMod"
+        },
+        {
+            "name": "winchD_nodeState",
+            "path": "System/CANBusDrive/cWinchD/SlaveMod"
+        },
+        {
+            "name": "winchAngleA_nodeState",
+            "path": "System/CANBusDrive/cWinchAngleA/SlaveMod"
+        },
+        {
+            "name": "winchAngleB_nodeState",
+            "path": "System/CANBusDrive/cWinchAngleB/SlaveMod"
+        },
+        {
+            "name": "winchAngleC_nodeState",
+            "path": "System/CANBusDrive/cWinchAngleC/SlaveMod"
+        },
+        {
+            "name": "winchAngleD_nodeState",
+            "path": "System/CANBusDrive/cWinchAngleD/SlaveMod"
+        },
+        {
+            "name": "steerAngleA_nodeState",
+            "path": "System/CANBusDrive/cSteerAngleA/SlaveMod"
+        },
+        {
+            "name": "steerAngleB_nodeState",
+            "path": "System/CANBusDrive/cSteerAngleB/SlaveMod"
+        },
+        {
+            "name": "steerAngleC_nodeState",
+            "path": "System/CANBusDrive/cSteerAngleC/SlaveMod"
+        },
+        {
+            "name": "steerAngleD_nodeState",
+            "path": "System/CANBusDrive/cSteerAngleD/SlaveMod"
+        },
+        {
+            "name": "spreader_nodeState",
+            "path": "System/CANBusDrive/cSpreader/SlaveMod"
+        },
+        {
+            "name": "transA_velocity",
+            "path": "System/CANBusDrive/cTransA/Velocity"
+        },
+        {
+            "name": "transA_current",
+            "path": "System/CANBusDrive/cTransA/Current"
+        },
+        {
+            "name": "transA_motorTemp",
+            "path": "System/CANBusDrive/cTransA/MotorTemp"
+        },
+        {
+            "name": "transB_velocity",
+            "path": "System/CANBusDrive/cTransB/Velocity"
+        },
+        {
+            "name": "transB_current",
+            "path": "System/CANBusDrive/cTransB/Current"
+        },
+        {
+            "name": "transB_motorTemp",
+            "path": "System/CANBusDrive/cTransB/MotorTemp"
+        },
+        {
+            "name": "transC_velocity",
+            "path": "System/CANBusDrive/cTransC/Velocity"
+        },
+        {
+            "name": "transC_current",
+            "path": "System/CANBusDrive/cTransC/Current"
+        },
+        {
+            "name": "transC_motorTemp",
+            "path": "System/CANBusDrive/cTransC/MotorTemp"
+        },
+        {
+            "name": "transD_velocity",
+            "path": "System/CANBusDrive/cTransD/Velocity"
+        },
+        {
+            "name": "transD_current",
+            "path": "System/CANBusDrive/cTransD/Current"
+        },
+        {
+            "name": "transD_motorTemp",
+            "path": "System/CANBusDrive/cTransD/MotorTemp"
+        },
+        {
+            "name": "transA_cntrlTemp",
+            "path": "System/CANBusDrive/cTransA/CntrlTemp"
+        },
+        {
+            "name": "transB_cntrlTemp",
+            "path": "System/CANBusDrive/cTransB/CntrlTemp"
+        },
+        {
+            "name": "transC_cntrlTemp",
+            "path": "System/CANBusDrive/cTransC/CntrlTemp"
+        },
+        {
+            "name": "transD_cntrlTemp",
+            "path": "System/CANBusDrive/cTransD/CntrlTemp"
+        },
+        {
+            "name": "winchA_motorTemp",
+            "path": "System/CANBusDrive/cWinchA/MotorTemp"
+        },
+        {
+            "name": "winchB_motorTemp",
+            "path": "System/CANBusDrive/cWinchB/MotorTemp"
+        },
+        {
+            "name": "winchC_motorTemp",
+            "path": "System/CANBusDrive/cWinchC/MotorTemp"
+        },
+        {
+            "name": "winchD_motorTemp",
+            "path": "System/CANBusDrive/cWinchD/MotorTemp"
+        },
+        {
+            "name": "winchA_cntrlTemp",
+            "path": "System/CANBusDrive/cWinchA/CntrlTemp"
+        },
+        {
+            "name": "winchB_cntrlTemp",
+            "path": "System/CANBusDrive/cWinchB/CntrlTemp"
+        },
+        {
+            "name": "winchC_cntrlTemp",
+            "path": "System/CANBusDrive/cWinchC/CntrlTemp"
+        },
+        {
+            "name": "winchD_cntrlTemp",
+            "path": "System/CANBusDrive/cWinchD/CntrlTemp"
+        },
+        {
+            "name": "steerA_motorTemp",
+            "path": "System/CANBusDrive/cSteerA/MotorTemp"
+        },
+        {
+            "name": "steerB_motorTemp",
+            "path": "System/CANBusDrive/cSteerB/MotorTemp"
+        },
+        {
+            "name": "steerC_motorTemp",
+            "path": "System/CANBusDrive/cSteerC/MotorTemp"
+        },
+        {
+            "name": "steerD_motorTemp",
+            "path": "System/CANBusDrive/cSteerD/MotorTemp"
+        },
+        {
+            "name": "steerA_cntrlTemp",
+            "path": "System/CANBusDrive/cSteerA/CntrlTemp"
+        },
+        {
+            "name": "steerB_cntrlTemp",
+            "path": "System/CANBusDrive/cSteerB/CntrlTemp"
+        },
+        {
+            "name": "steerC_cntrlTemp",
+            "path": "System/CANBusDrive/cSteerC/CntrlTemp"
+        },
+        {
+            "name": "steerD_cntrlTemp",
+            "path": "System/CANBusDrive/cSteerD/CntrlTemp"
+        },
+        {
+            "name": "spreader_pmpMotTemp",
+            "path": "System/CANBusDrive/cSpreader/PmpMotTemp"
+        },
+        {
+            "name": "spreader_pmpCntrlTemp",
+            "path": "System/CANBusDrive/cSpreader/PmpCntrlTemp"
+        },
+        {
+            "name": "systemState_state",
+            "path": "System/SystemState/State"
+        },
+        {
+            "name": "spreader_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSpreader/SlaveNotify"
+        },
+        {
+            "name": "winchAngleA_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchAngleA/SlaveNotify"
+        },
+        {
+            "name": "winchAngleB_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchAngleB/SlaveNotify"
+        },
+        {
+            "name": "winchAngleC_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchAngleC/SlaveNotify"
+        },
+        {
+            "name": "winchAngleD_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchAngleD/SlaveNotify"
+        },
+        {
+            "name": "steerAngleA_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerAngleA/SlaveNotify"
+        },
+        {
+            "name": "steerAngleB_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerAngleB/SlaveNotify"
+        },
+        {
+            "name": "steerAngleC_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerAngleC/SlaveNotify"
+        },
+        {
+            "name": "steerAngleD_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerAngleD/SlaveNotify"
+        },
+        {
+            "name": "transA_heartbeatCounter_",
+            "path": "System/CANBusDrive/cTransA/SlaveNotify"
+        },
+        {
+            "name": "transB_heartbeatCounter_",
+            "path": "System/CANBusDrive/cTransB/SlaveNotify"
+        },
+        {
+            "name": "transC_heartbeatCounter_",
+            "path": "System/CANBusDrive/cTransC/SlaveNotify"
+        },
+        {
+            "name": "transD_heartbeatCounter_",
+            "path": "System/CANBusDrive/cTransD/SlaveNotify"
+        },
+        {
+            "name": "winchA_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchA/SlaveNotify"
+        },
+        {
+            "name": "winchB_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchB/SlaveNotify"
+        },
+        {
+            "name": "winchC_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchC/SlaveNotify"
+        },
+        {
+            "name": "winchD_heartbeatCounter_",
+            "path": "System/CANBusDrive/cWinchD/SlaveNotify"
+        },
+        {
+            "name": "steerA_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerA/SlaveNotify"
+        },
+        {
+            "name": "steerB_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerB/SlaveNotify"
+        },
+        {
+            "name": "steerC_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerC/SlaveNotify"
+        },
+        {
+            "name": "steerD_heartbeatCounter_",
+            "path": "System/CANBusDrive/cSteerD/SlaveNotify"
+        },
+        {
+            "name": "lift_input",
+            "path": "System/Lift/Input"
+        },
+        {
+            "name": "winchAngleA_position",
+            "path": "System/CANBusDrive/cWinchAngleA/Position"
+        },
+        {
+            "name": "winchAngleB_position",
+            "path": "System/CANBusDrive/cWinchAngleB/Position"
+        },
+        {
+            "name": "winchAngleC_position",
+            "path": "System/CANBusDrive/cWinchAngleC/Position"
+        },
+        {
+            "name": "winchAngleD_position",
+            "path": "System/CANBusDrive/cWinchAngleD/Position"
+        },
+        {
+            "name": "winchA_current",
+            "path": "System/CANBusDrive/cWinchA/Current"
+        },
+        {
+            "name": "winchB_current",
+            "path": "System/CANBusDrive/cWinchB/Current"
+        },
+        {
+            "name": "winchC_current",
+            "path": "System/CANBusDrive/cWinchC/Current"
+        },
+        {
+            "name": "winchD_current",
+            "path": "System/CANBusDrive/cWinchD/Current"
+        },
+        {
+            "name": "winchA_velocity",
+            "path": "System/CANBusDrive/cWinchA/Velocity"
+        },
+        {
+            "name": "winchB_velocity",
+            "path": "System/CANBusDrive/cWinchB/Velocity"
+        },
+        {
+            "name": "winchC_velocity",
+            "path": "System/CANBusDrive/cWinchC/Velocity"
+        },
+        {
+            "name": "winchD_velocity",
+            "path": "System/CANBusDrive/cWinchD/Velocity"
+        },
+        {
+            "name": "winchA_torque",
+            "path": "System/CANBusDrive/cWinchA/Torque"
+        },
+        {
+            "name": "winchB_torque",
+            "path": "System/CANBusDrive/cWinchB/Torque"
+        },
+        {
+            "name": "winchC_torque",
+            "path": "System/CANBusDrive/cWinchC/Torque"
+        },
+        {
+            "name": "winchD_torque",
+            "path": "System/CANBusDrive/cWinchD/Torque"
+        },
+        {
+            "name": "winchA_battCurrent",
+            "path": "System/CANBusDrive/cWinchA/BattCurrent"
+        },
+        {
+            "name": "winchB_battCurrent",
+            "path": "System/CANBusDrive/cWinchB/BattCurrent"
+        },
+        {
+            "name": "winchC_battCurrent",
+            "path": "System/CANBusDrive/cWinchC/BattCurrent"
+        },
+        {
+            "name": "winchD_battCurrent",
+            "path": "System/CANBusDrive/cWinchD/BattCurrent"
+        },
+        {
+            "name": "winchA_battVoltage",
+            "path": "System/CANBusDrive/cWinchA/BattVoltage"
+        },
+        {
+            "name": "winchB_battVoltage",
+            "path": "System/CANBusDrive/cWinchB/BattVoltage"
+        },
+        {
+            "name": "winchC_battVoltage",
+            "path": "System/CANBusDrive/cWinchC/BattVoltage"
+        },
+        {
+            "name": "winchD_battVoltage",
+            "path": "System/CANBusDrive/cWinchD/BattVoltage"
+        },
+        {
+            "name": "winchA_battPower",
+            "path": "System/CANBusDrive/cWinchA/BattPower"
+        },
+        {
+            "name": "winchB_battPower",
+            "path": "System/CANBusDrive/cWinchB/BattPower"
+        },
+        {
+            "name": "winchC_battPower",
+            "path": "System/CANBusDrive/cWinchC/BattPower"
+        },
+        {
+            "name": "winchD_battPower",
+            "path": "System/CANBusDrive/cWinchD/BattPower"
+        },
+        {
+            "name": "winchA_targetSpeed_output",
+            "path": "System/CANBusDrive/cWinchA/TargetSpeed"
+        },
+        {
+            "name": "winchB_targetSpeed_output",
+            "path": "System/CANBusDrive/cWinchB/TargetSpeed"
+        },
+        {
+            "name": "winchC_targetSpeed_output",
+            "path": "System/CANBusDrive/cWinchC/TargetSpeed"
+        },
+        {
+            "name": "winchD_targetSpeed_output",
+            "path": "System/CANBusDrive/cWinchD/TargetSpeed"
+        },
+        {
+            "name": "lift_throttle",
+            "path": "System/Lift/Throttle"
+        },
+        {
+            "name": "winchA_alarmControllerTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchA/CntTempCutb/Life"
+        },
+        {
+            "name": "winchA_alarmControllerTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchA/CntTempCutb/Override"
+        },
+        {
+            "name": "winchB_alarmControllerTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchB/CntTempCutb/Life"
+        },
+        {
+            "name": "winchB_alarmControllerTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchB/CntTempCutb/Override"
+        },
+        {
+            "name": "winchC_alarmControllerTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchC/CntTempCutb/Life"
+        },
+        {
+            "name": "winchC_alarmControllerTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchC/CntTempCutb/Override"
+        },
+        {
+            "name": "winchD_alarmControllerTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchD/CntTempCutb/Life"
+        },
+        {
+            "name": "winchD_alarmControllerTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchD/CntTempCutb/Override"
+        },
+        {
+            "name": "winchA_alarmMotorTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchA/MotTempCutb/Life"
+        },
+        {
+            "name": "winchA_alarmMotorTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchA/MotTempCutb/Override"
+        },
+        {
+            "name": "winchB_alarmMotorTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchB/MotTempCutb/Life"
+        },
+        {
+            "name": "winchB_alarmMotorTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchB/MotTempCutb/Override"
+        },
+        {
+            "name": "winchC_alarmMotorTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchC/MotTempCutb/Life"
+        },
+        {
+            "name": "winchC_alarmMotorTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchC/MotTempCutb/Override"
+        },
+        {
+            "name": "winchD_alarmMotorTemperatureCutback_thresholdCharge",
+            "path": "System/CANBusDrive/cWinchD/MotTempCutb/Life"
+        },
+        {
+            "name": "winchD_alarmMotorTemperatureCutback_thresholdDischarge",
+            "path": "System/CANBusDrive/cWinchD/MotTempCutb/Override"
+        },
+        {
+            "name": "steer_targetAngle",
+            "path": "System/Steer/TargetAngle"
+        },
+        {
+            "name": "travel_throttle",
+            "path": "System/Travel/Throttle"
+        },
+        {
+            "name": "spreader_telscpActive",
+            "path": "System/CANBusDrive/cSpreader/TelscpActive"
+        },
+        {
+            "name": "spreader_telscpEnbl",
+            "path": "System/CANBusDrive/cSpreader/TelscpEnbl"
+        },
+        {
+            "name": "spreader_telscpAuto",
+            "path": "System/CANBusDrive/cSpreader/TelscpAuto"
+        },
+        {
+            "name": "spreader_telscpAutoExt",
+            "path": "System/CANBusDrive/cSpreader/TelscpAutoExt"
+        },
+        {
+            "name": "spreader_telscpExtend",
+            "path": "System/CANBusDrive/cSpreader/TelscpExtend"
+        },
+        {
+            "name": "spreader_telscpAutoRet",
+            "path": "System/CANBusDrive/cSpreader/TelscpAutoRet"
+        },
+        {
+            "name": "spreader_telscpRetract",
+            "path": "System/CANBusDrive/cSpreader/TelscpRetract"
+        },
+        {
+            "name": "spreader_twstLock",
+            "path": "System/CANBusDrive/cSpreader/TwstLock"
+        },
+        {
+            "name": "spreader_twstUnlock",
+            "path": "System/CANBusDrive/cSpreader/TwstUnlock"
+        },
+        {
+            "name": "spreader_brakeDisengage",
+            "path": "System/CANBusDrive/cSpreader/BrakeDisengage"
+        },
+        {
+            "name": "spreader_hydPressure",
+            "path": "System/CANBusDrive/cSpreader/HydPressure"
+        },
+        {
+            "name": "spreader_hydTemp",
+            "path": "System/CANBusDrive/cSpreader/HydTemp"
+        },
+        {
+            "name": "transA_battCurrent",
+            "path": "System/CANBusDrive/cTransA/BattCurrent"
+        },
+        {
+            "name": "transB_battCurrent",
+            "path": "System/CANBusDrive/cTransB/BattCurrent"
+        },
+        {
+            "name": "transC_battCurrent",
+            "path": "System/CANBusDrive/cTransC/BattCurrent"
+        },
+        {
+            "name": "transD_battCurrent",
+            "path": "System/CANBusDrive/cTransD/BattCurrent"
+        },
+        {
+            "name": "transA_battVoltage",
+            "path": "System/CANBusDrive/cTransA/BattVoltage"
+        },
+        {
+            "name": "transB_battVoltage",
+            "path": "System/CANBusDrive/cTransB/BattVoltage"
+        },
+        {
+            "name": "transC_battVoltage",
+            "path": "System/CANBusDrive/cTransC/BattVoltage"
+        },
+        {
+            "name": "transD_battVoltage",
+            "path": "System/CANBusDrive/cTransD/BattVoltage"
+        },
+        {
+            "name": "transA_battPower",
+            "path": "System/CANBusDrive/cTransA/BattPower"
+        },
+        {
+            "name": "transB_battPower",
+            "path": "System/CANBusDrive/cTransB/BattPower"
+        },
+        {
+            "name": "transC_battPower",
+            "path": "System/CANBusDrive/cTransC/BattPower"
+        },
+        {
+            "name": "transD_battPower",
+            "path": "System/CANBusDrive/cTransD/BattPower"
+        },
+        {
+            "name": "spreader_twstEnbl",
+            "path": "System/CANBusDrive/cSpreader/TwstEnbl"
+        },
+        {
+            "name": "spreader_twstActive",
+            "path": "System/CANBusDrive/cSpreader/TwstActive"
+        },
+        {
+            "name": "spreader_twstAStt",
+            "path": "System/CANBusDrive/cSpreader/TwstAStt"
+        },
+        {
+            "name": "spreader_twstBStt",
+            "path": "System/CANBusDrive/cSpreader/TwstBStt"
+        },
+        {
+            "name": "spreader_twstCStt",
+            "path": "System/CANBusDrive/cSpreader/TwstCStt"
+        },
+        {
+            "name": "spreader_twstDStt",
+            "path": "System/CANBusDrive/cSpreader/TwstDStt"
+        },
+        {
+            "name": "spreader_twstStt",
+            "path": "System/CANBusDrive/cSpreader/TwstStt"
+        },
+        {
+            "name": "spreader_twstALow",
+            "path": "System/CANBusDrive/cSpreader/TwstALow"
+        },
+        {
+            "name": "spreader_twstBLow",
+            "path": "System/CANBusDrive/cSpreader/TwstBLow"
+        },
+        {
+            "name": "spreader_twstCLow",
+            "path": "System/CANBusDrive/cSpreader/TwstCLow"
+        },
+        {
+            "name": "spreader_twstDLow",
+            "path": "System/CANBusDrive/cSpreader/TwstDLow"
+        },
+        {
+            "name": "steer_input",
+            "path": "System/Steer/Input"
+        },
+        {
+            "name": "steer_zeroTargetAngleSwitch",
+            "path": "System/Steer/ZeroTarget"
+        },
+        {
+            "name": "steerAngleA_angle",
+            "path": "System/CANBusDrive/cSteerAngleA/Angle"
+        },
+        {
+            "name": "steerAngleB_angle",
+            "path": "System/CANBusDrive/cSteerAngleB/Angle"
+        },
+        {
+            "name": "steerAngleC_angle",
+            "path": "System/CANBusDrive/cSteerAngleC/Angle"
+        },
+        {
+            "name": "steerAngleD_angle",
+            "path": "System/CANBusDrive/cSteerAngleD/Angle"
+        },
+        {
+            "name": "steerA_current",
+            "path": "System/CANBusDrive/cSteerA/Current"
+        },
+        {
+            "name": "steerA_targetSpeed",
+            "path": "System/CANBusDrive/cSteerA/TargetSpeed"
+        },
+        {
+            "name": "steerA_velocity",
+            "path": "System/CANBusDrive/cSteerA/Velocity"
+        },
+        {
+            "name": "steerA_torque",
+            "path": "System/CANBusDrive/cSteerA/Torque"
+        },
+        {
+            "name": "steerB_current",
+            "path": "System/CANBusDrive/cSteerB/Current"
+        },
+        {
+            "name": "travel_input",
+            "path": "System/Travel/Input"
+        },
+        {
+            "name": "steerB_targetSpeed",
+            "path": "System/CANBusDrive/cSteerB/TargetSpeed"
+        },
+        {
+            "name": "steerB_velocity",
+            "path": "System/CANBusDrive/cSteerB/Velocity"
+        },
+        {
+            "name": "steerB_torque",
+            "path": "System/CANBusDrive/cSteerB/Torque"
+        },
+        {
+            "name": "steerC_current",
+            "path": "System/CANBusDrive/cSteerC/Current"
+        },
+        {
+            "name": "steerC_targetSpeed",
+            "path": "System/CANBusDrive/cSteerC/TargetSpeed"
+        },
+        {
+            "name": "steerC_velocity",
+            "path": "System/CANBusDrive/cSteerC/Velocity"
+        },
+        {
+            "name": "steerC_torque",
+            "path": "System/CANBusDrive/cSteerC/Torque"
+        },
+        {
+            "name": "steerD_current",
+            "path": "System/CANBusDrive/cSteerD/Current"
+        },
+        {
+            "name": "steerD_targetSpeed",
+            "path": "System/CANBusDrive/cSteerD/TargetSpeed"
+        },
+        {
+            "name": "steerD_velocity",
+            "path": "System/CANBusDrive/cSteerD/Velocity"
+        },
+        {
+            "name": "steerD_torque",
+            "path": "System/CANBusDrive/cSteerD/Torque"
+        },
+        {
+            "name": "steerA_battCurrent",
+            "path": "System/CANBusDrive/cSteerA/BattCurrent"
+        },
+        {
+            "name": "steerB_battCurrent",
+            "path": "System/CANBusDrive/cSteerB/BattCurrent"
+        },
+        {
+            "name": "steerC_battCurrent",
+            "path": "System/CANBusDrive/cSteerC/BattCurrent"
+        },
+        {
+            "name": "steerD_battCurrent",
+            "path": "System/CANBusDrive/cSteerD/BattCurrent"
+        },
+        {
+            "name": "steerA_battVoltage",
+            "path": "System/CANBusDrive/cSteerA/BattVoltage"
+        },
+        {
+            "name": "steerB_battVoltage",
+            "path": "System/CANBusDrive/cSteerB/BattVoltage"
+        },
+        {
+            "name": "steerC_battVoltage",
+            "path": "System/CANBusDrive/cSteerC/BattVoltage"
+        },
+        {
+            "name": "steerD_battVoltage",
+            "path": "System/CANBusDrive/cSteerD/BattVoltage"
+        },
+        {
+            "name": "steerA_battPower",
+            "path": "System/CANBusDrive/cSteerA/BattPower"
+        },
+        {
+            "name": "steerB_battPower",
+            "path": "System/CANBusDrive/cSteerB/BattPower"
+        },
+        {
+            "name": "steerC_battPower",
+            "path": "System/CANBusDrive/cSteerC/BattPower"
+        },
+        {
+            "name": "steerD_battPower",
+            "path": "System/CANBusDrive/cSteerD/BattPower"
+        },
+        {
+            "name": "tMS_reqState",
+            "path": "System/TMS/ReqState"
+        },
+        {
+            "name": "tMS_currState",
+            "path": "System/TMS/CurrState"
+        },
+        {
+            "name": "tMS_clntChilling",
+            "path": "System/TMS/ClntChilling"
+        },
+        {
+            "name": "tMS_clntHeating",
+            "path": "System/TMS/ClntHeating"
+        },
+        {
+            "name": "tMS_pump",
+            "path": "System/TMS/Pump"
+        },
+        {
+            "name": "transA_enable",
+            "path": "System/CANBusDrive/cTransA/EnableMotor"
+        },
+        {
+            "name": "transB_enable",
+            "path": "System/CANBusDrive/cTransB/EnableMotor"
+        },
+        {
+            "name": "transC_enable",
+            "path": "System/CANBusDrive/cTransC/EnableMotor"
+        },
+        {
+            "name": "transD_enable",
+            "path": "System/CANBusDrive/cTransD/EnableMotor"
+        },
+        {
+            "name": "transA_forward",
+            "path": "System/CANBusDrive/cTransA/Forward"
+        },
+        {
+            "name": "transA_reverse",
+            "path": "System/CANBusDrive/cTransA/Reverse"
+        },
+        {
+            "name": "transA_targetSpeed",
+            "path": "System/CANBusDrive/cTransA/TargetSpeed"
         }
     ]
 }

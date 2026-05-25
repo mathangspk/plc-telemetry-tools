@@ -1,6 +1,7 @@
 # Project Handoff
 
 ## Summary of Changes (Current Iteration)
+- **Append Trace Signals**: Processed all 29 signal configuration files in `exports/trace-config/traces/` and appended 211 unique signals (excluding pre-existing duplicates and ignoring trace metrics) into the master `active_signals.json` pool.
 - **Append Values-Only Signals**: Appended the 76 filtered values-only signals from the `exports/confirmed/use/` directory (`bms_values.json`, `charger_canbus_values.json`, `secondary_canbus_values.json`, `tms_values.json`) into the master `active_signals.json` pool, preserving the root `metrics` configuration.
 - **Filter Values-Only Signals**: Created `exports/confirmed/bms_values.json`, `charger_canbus_values.json`, `secondary_canbus_values.json`, and `tms_values.json` by filtering out state/alarm signals from their respective JSON configurations. The new files strictly isolate the signals that actively emit data payloads (`value`), discarding purely state-based signals.
 - **Add Metrics to Active Signals**: Fixed the missing `metrics` configuration array inside `active_signals.json` (used by `config_generator.py`) by adding all the valid metrics (Metric0ms to Metric1d) at the root level of the JSON payload.

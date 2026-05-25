@@ -1,0 +1,318 @@
+{
+    "metrics": [
+        "Metric0ms",
+        "Metric250ms",
+        "Metric500ms",
+        "Metric1s",
+        "Metric5s",
+        "Metric1m",
+        "Metric1h",
+        "Metric1d"
+    ],
+    "signals": [
+        {
+            "name": "bMSAB_availFactor",
+            "path": "System/BMSAB/AvailFactor"
+        },
+        {
+            "name": "bMSAB_availability",
+            "path": "System/BMSAB/Availability"
+        },
+        {
+            "name": "bMSAB_current",
+            "path": "System/BMSAB/Current"
+        },
+        {
+            "name": "bMSAB_currentMismatch",
+            "path": "System/BMSAB/CurrentMismatch"
+        },
+        {
+            "name": "bMSAB_cycleOutput",
+            "path": "System/BMSAB/CycleOutput"
+        },
+        {
+            "name": "bMSAB_dsblConnect",
+            "path": "System/BMSAB/DsblConnect"
+        },
+        {
+            "name": "bMSAB_dsblVoltMisMgmt",
+            "path": "System/BMSAB/DsblVoltMisMgmt"
+        },
+        {
+            "name": "bMSAB_enblBMS",
+            "path": "System/BMSAB/EnblBMS"
+        },
+        {
+            "name": "bMSAB_enblRestart",
+            "path": "System/BMSAB/EnblRestart"
+        },
+        {
+            "name": "bMSAB_enblSOCRecovery",
+            "path": "System/BMSAB/EnblSOCRecovery"
+        },
+        {
+            "name": "bMSAB_output",
+            "path": "System/BMSAB/Output"
+        },
+        {
+            "name": "bMSAB_restartCount",
+            "path": "System/BMSAB/RestartCount"
+        },
+        {
+            "name": "bMSAB_sOC",
+            "path": "System/BMSAB/SOC"
+        },
+        {
+            "name": "bMSAB_sOCMismatch",
+            "path": "System/BMSAB/SOCMismatch"
+        },
+        {
+            "name": "bMSAB_sOCRecCurrMin",
+            "path": "System/BMSAB/SOCRecCurrMin"
+        },
+        {
+            "name": "bMSAB_sOCRecTimRst",
+            "path": "System/BMSAB/SOCRecTimRst"
+        },
+        {
+            "name": "bMSAB_voltage",
+            "path": "System/BMSAB/Voltage"
+        },
+        {
+            "name": "bMSAB_voltageMismatch",
+            "path": "System/BMSAB/VoltageMismatch"
+        },
+        {
+            "name": "bmsa_current",
+            "path": "System/CANBusSystem/cBMSA/Current"
+        },
+        {
+            "name": "bmsa_soc",
+            "path": "System/CANBusSystem/cBMSA/SOC"
+        },
+        {
+            "name": "bmsa_voltage",
+            "path": "System/CANBusSystem/cBMSA/Voltage"
+        },
+        {
+            "name": "bmsb_current",
+            "path": "System/CANBusSystem/cBMSB/Current"
+        },
+        {
+            "name": "bmsb_soc",
+            "path": "System/CANBusSystem/cBMSB/SOC"
+        },
+        {
+            "name": "bmsb_soh",
+            "path": "System/CANBusSystem/cBMSB/SOH"
+        },
+        {
+            "name": "bmsb_temp_max",
+            "path": "System/CANBusSystem/cBMSB/MaxTemp"
+        },
+        {
+            "name": "bmsb_voltage",
+            "path": "System/CANBusSystem/cBMSB/Voltage"
+        },
+        {
+            "name": "bat_energy_discharged_kwh",
+            "path": "System/CANBusSystem/cBMSA/TtlDschrgEnergy"
+        },
+        {
+            "name": "bat_energy_regen_kwh",
+            "path": "System/CANBusSystem/cBMSA/TtlChrgEnergy"
+        },
+        {
+            "name": "bat_fault_code",
+            "path": "System/CANBusSystem/cBMSA/FaultCode"
+        },
+        {
+            "name": "bat_soh_pct",
+            "path": "System/CANBusSystem/cBMSA/SOH"
+        },
+        {
+            "name": "bat_temp_max",
+            "path": "System/CANBusSystem/cBMSA/MaxTemp"
+        },
+        {
+            "name": "bat_temp_min",
+            "path": "System/CANBusSystem/cBMSA/MinTemp"
+        },
+        {
+            "name": "chargerA_TargVoltage",
+            "path": "System/CANBusSystem/cChargerA/TargVoltage"
+        },
+        {
+            "name": "chargerA_TargCurrent",
+            "path": "System/CANBusSystem/cChargerA/TargCurrent"
+        },
+        {
+            "name": "chargerA_Voltage",
+            "path": "System/CANBusSystem/cChargerA/Voltage"
+        },
+        {
+            "name": "chargerA_Current",
+            "path": "System/CANBusSystem/cChargerA/Current"
+        },
+        {
+            "name": "chargerA_Power",
+            "path": "System/CANBusSystem/cChargerA/Power"
+        },
+        {
+            "name": "chargerA_Diagnostic",
+            "path": "System/CANBusSystem/cChargerA/Diagnostic"
+        },
+        {
+            "name": "chargerA_CC",
+            "path": "System/CANBusSystem/cChargerA/CC"
+        },
+        {
+            "name": "chargerA_CP",
+            "path": "System/CANBusSystem/cChargerA/CP"
+        },
+        {
+            "name": "chargerB_TargVoltage",
+            "path": "System/CANBusSystem/cChargerB/TargVoltage"
+        },
+        {
+            "name": "chargerB_TargCurrent",
+            "path": "System/CANBusSystem/cChargerB/TargCurrent"
+        },
+        {
+            "name": "chargerB_Voltage",
+            "path": "System/CANBusSystem/cChargerB/Voltage"
+        },
+        {
+            "name": "chargerB_Current",
+            "path": "System/CANBusSystem/cChargerB/Current"
+        },
+        {
+            "name": "chargerB_Power",
+            "path": "System/CANBusSystem/cChargerB/Power"
+        },
+        {
+            "name": "chargerB_Diagnostic",
+            "path": "System/CANBusSystem/cChargerB/Diagnostic"
+        },
+        {
+            "name": "chargerB_CC",
+            "path": "System/CANBusSystem/cChargerB/CC"
+        },
+        {
+            "name": "chargerB_CP",
+            "path": "System/CANBusSystem/cChargerB/CP"
+        },
+        {
+            "name": "chargerC_TargVoltage",
+            "path": "System/CANBusSystem/cChargerC/TargVoltage"
+        },
+        {
+            "name": "chargerC_TargCurrent",
+            "path": "System/CANBusSystem/cChargerC/TargCurrent"
+        },
+        {
+            "name": "chargerC_Voltage",
+            "path": "System/CANBusSystem/cChargerC/Voltage"
+        },
+        {
+            "name": "chargerC_Current",
+            "path": "System/CANBusSystem/cChargerC/Current"
+        },
+        {
+            "name": "chargerC_Power",
+            "path": "System/CANBusSystem/cChargerC/Power"
+        },
+        {
+            "name": "chargerC_Diagnostic",
+            "path": "System/CANBusSystem/cChargerC/Diagnostic"
+        },
+        {
+            "name": "chargerC_CC",
+            "path": "System/CANBusSystem/cChargerC/CC"
+        },
+        {
+            "name": "chargerC_CP",
+            "path": "System/CANBusSystem/cChargerC/CP"
+        },
+        {
+            "name": "secondary_secPwrNotRun",
+            "path": "System/Secondary/SecPwrNotRun"
+        },
+        {
+            "name": "secondary_secPwrWait",
+            "path": "System/Secondary/SecPwrWait"
+        },
+        {
+            "name": "secondary_secPwrMismatch",
+            "path": "System/Secondary/SecPwrMismatch"
+        },
+        {
+            "name": "secondaryA_SecPwrTemp",
+            "path": "System/CANBusSystem/cSecondaryA/SecPwrTemp"
+        },
+        {
+            "name": "secondaryA_VoltageReq",
+            "path": "System/CANBusSystem/cSecondaryA/VoltageReq"
+        },
+        {
+            "name": "secondaryA_VoltageCurr",
+            "path": "System/CANBusSystem/cSecondaryA/VoltageCurr"
+        },
+        {
+            "name": "secondaryA_CurrentCurr",
+            "path": "System/CANBusSystem/cSecondaryA/CurrentCurr"
+        },
+        {
+            "name": "secondaryA_Temp",
+            "path": "System/CANBusSystem/cSecondaryA/Temp"
+        },
+        {
+            "name": "secondaryA_Diagnostic",
+            "path": "System/CANBusSystem/cSecondaryA/Diagnostic"
+        },
+        {
+            "name": "secondaryB_SecPwrTemp",
+            "path": "System/CANBusSystem/cSecondaryB/SecPwrTemp"
+        },
+        {
+            "name": "secondaryB_VoltageReq",
+            "path": "System/CANBusSystem/cSecondaryB/VoltageReq"
+        },
+        {
+            "name": "secondaryB_VoltageCurr",
+            "path": "System/CANBusSystem/cSecondaryB/VoltageCurr"
+        },
+        {
+            "name": "secondaryB_CurrentCurr",
+            "path": "System/CANBusSystem/cSecondaryB/CurrentCurr"
+        },
+        {
+            "name": "secondaryB_Temp",
+            "path": "System/CANBusSystem/cSecondaryB/Temp"
+        },
+        {
+            "name": "secondaryB_Diagnostic",
+            "path": "System/CANBusSystem/cSecondaryB/Diagnostic"
+        },
+        {
+            "name": "tMS_clntReserv",
+            "path": "System/TMS/ClntReserv"
+        },
+        {
+            "name": "tMS_clntTempHot",
+            "path": "System/TMS/ClntTempHot"
+        },
+        {
+            "name": "tMS_clntTempCold",
+            "path": "System/TMS/ClntTempCold"
+        },
+        {
+            "name": "tMS_clntReservoir",
+            "path": "System/TMS/ClntReservoir"
+        },
+        {
+            "name": "tMS_clntTemp",
+            "path": "System/TMS/ClntTemp"
+        }
+    ]
+}
