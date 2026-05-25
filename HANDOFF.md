@@ -11,6 +11,7 @@ This handoff documents the achievements of the current iteration, system state, 
 - **Created Verified BMSAB Configuration**: Exported all 31 live-confirmed BMSAB telemetry signals to `exports/confirmed/bms.json`, correcting previous naming/translation discrepancies for mismatch alarms and control switches.
 - **Executed Live BMSAB Validation Sweep**: Successfully ran the automated validation sweep against the live PLC for the 31 BMSAB signals in `bms.json`, achieving **100% active success (PASS_ACTIVE)**.
 - **Created Verified TMS Configuration**: Exported all 22 live-confirmed TMS telemetry signals to `exports/confirmed/tms.json`, correcting previous naming omissions and expanding coolant alarm and pump diagnostics telemetry capabilities.
+- **Captured Live Telemetry Values**: Ran a live diagnostic sweep to query and extract the exact runtime `"value"` fields from the 53 newly verified BMSAB and TMS signals, generating a real-time data report.
 
 ---
 
@@ -20,7 +21,8 @@ This handoff documents the achievements of the current iteration, system state, 
 - **Pool Signals Clean & Audited**: Overwrote `active_signals.json` to contain exclusively the 179 validated active signals, optimizing scanning performance and removing all dead telemetry variables.
 - **BMSAB Configuration Ready & Validated**: Created a dedicated `bms.json` with 31 live-confirmed paths under the `System/BMSAB` node, correcting previous syntax/name remapping issues. Fully verified on the hardware with 100% PASS_ACTIVE.
 - **TMS Configuration Ready**: Created a dedicated `tms.json` with 22 live-confirmed paths under the `System/TMS` node, unlocking coolant alarm, pump diagnostics, and cooling/heating control telemetry.
-- **Detailed Test Results**: All test reports (including the new `pool_signals_focused_report.md` and `bms_focused_report.md`) are successfully saved in `report/trace/test_results/`.
+- **Live Values Audited**: Real-time values captured for all 53 signals, successfully confirming primitive metrics (e.g. coolant temperature at `60.53°C`, reservoir phao at `1`, SOC mismatch at `0.05`) and highlighting complex alarm structures (returning `N/A` as they only emit structured events when active).
+- **Detailed Test Results**: All test reports (including the new `pool_signals_focused_report.md`, `bms_focused_report.md`, and `live_telemetry_values.md`) are successfully saved in `report/trace/test_results/`.
 
 ---
 
@@ -31,7 +33,8 @@ This handoff documents the achievements of the current iteration, system state, 
 - Probed and confirmed 31 valid children live on the PLC under `System/BMSAB/`.
 - Executed the sequential validation workflow for `bms.json`, verifying that **all 31 BMSAB signals** are fully active and emitting data (**100% PASS_ACTIVE**).
 - Probed and confirmed 22 valid children live on the PLC under `System/TMS/`.
-- Detailed test outputs are stored at `report/trace/test_results/<trace>_focused_report.md`, `report/trace/test_results/pool_signals_focused_report.md`, and `report/trace/test_results/bms_focused_report.md`.
+- Live-polled values for all 53 signals from RO port 49870.
+- Detailed test outputs are stored at `report/trace/test_results/<trace>_focused_report.md`, `report/trace/test_results/pool_signals_focused_report.md`, `report/trace/test_results/bms_focused_report.md`, and `report/trace/test_results/live_telemetry_values.md`.
 
 ---
 
