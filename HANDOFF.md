@@ -1,6 +1,7 @@
 # Project Handoff
 
 ## Summary of Changes (Current Iteration)
+- **Merge Active Signals**: Successfully synthesized and aggregated all confirmed signal files (`bms.json`, `charger_canbus.json`, `secondary_canbus.json`, `tms.json`) from `exports/confirmed/` into a single, unified `active_signals.json` master file in the `exports/pool_signals/` directory.
 - **Fix JSON Syntax**: Resolved a missing comma on line 23 of `exports/confirmed/secondary_canbus.json` that was causing parsing errors.
 - **Built Desktop App for Telemetry Collection**: Developed `trace_desktop_app.py` in `scripts/trace_desktop_app/` utilizing `tkinter`. The app automates triggering the PLC start/stop scripts, managing the Edge Device recording via REST endpoints, and securely transferring the final `.jsonl` trace payload over `scp`.
 - **Refactored Edge Device Architecture**: Identified that `otel-collector` (with a dead `fluent-bit` dependency) failed to actively pull PLC telemetry from TCP port `49890`. Disabled `otel-collector` entirely.
