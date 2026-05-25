@@ -12,6 +12,7 @@ This handoff documents the achievements of the current iteration, system state, 
 - **Executed Live BMSAB Validation Sweep**: Successfully ran the automated validation sweep against the live PLC for the 31 BMSAB signals in `bms.json`, achieving **100% active success (PASS_ACTIVE)**.
 - **Created Verified TMS Configuration**: Exported all 22 live-confirmed TMS telemetry signals to `exports/confirmed/tms.json`, correcting previous naming omissions and expanding coolant alarm and pump diagnostics telemetry capabilities.
 - **Captured Live Telemetry Values**: Ran a live diagnostic sweep to query and extract the exact runtime `"value"` fields from the 53 newly verified BMSAB and TMS signals, generating a real-time data report.
+- **Captured Individual BMS Pack Values**: Queried and confirmed individual BMS-A and BMS-B SOC (84.8% and 84.4%) and Current (0.0A) values directly from the hardware.
 
 ---
 
@@ -21,7 +22,8 @@ This handoff documents the achievements of the current iteration, system state, 
 - **Pool Signals Clean & Audited**: Overwrote `active_signals.json` to contain exclusively the 179 validated active signals, optimizing scanning performance and removing all dead telemetry variables.
 - **BMSAB Configuration Ready & Validated**: Created a dedicated `bms.json` with 31 live-confirmed paths under the `System/BMSAB` node, correcting previous syntax/name remapping issues. Fully verified on the hardware with 100% PASS_ACTIVE.
 - **TMS Configuration Ready**: Created a dedicated `tms.json` with 22 live-confirmed paths under the `System/TMS` node, unlocking coolant alarm, pump diagnostics, and cooling/heating control telemetry.
-- **Live Values Audited**: Real-time values captured for all 53 signals, successfully confirming primitive metrics (e.g. coolant temperature at `60.53°C`, reservoir phao at `1`, SOC mismatch at `0.05`) and highlighting complex alarm structures (returning `N/A` as they only emit structured events when active).
+- **Live Values Audited**: Real-time values captured for all 53 signals, successfully confirming primitive metrics (e.g. coolant temperature at `60.53°C`, reservoir phao at `1`, SOC mismatch at `0.05`) and highlighting complex alarm structures.
+- **Individual BMS Status**: BMS-A SOC is verified at `84.8%` and BMS-B SOC at `84.4%` (matching the `0.05` mismatch factor), with both currents resting at `0.0A`.
 - **Detailed Test Results**: All test reports (including the new `pool_signals_focused_report.md`, `bms_focused_report.md`, and `live_telemetry_values.md`) are successfully saved in `report/trace/test_results/`.
 
 ---
@@ -34,6 +36,7 @@ This handoff documents the achievements of the current iteration, system state, 
 - Executed the sequential validation workflow for `bms.json`, verifying that **all 31 BMSAB signals** are fully active and emitting data (**100% PASS_ACTIVE**).
 - Probed and confirmed 22 valid children live on the PLC under `System/TMS/`.
 - Live-polled values for all 53 signals from RO port 49870.
+- Polled and confirmed individual pack telemetry for BMS-A and BMS-B SOC/Current.
 - Detailed test outputs are stored at `report/trace/test_results/<trace>_focused_report.md`, `report/trace/test_results/pool_signals_focused_report.md`, `report/trace/test_results/bms_focused_report.md`, and `report/trace/test_results/live_telemetry_values.md`.
 
 ---
