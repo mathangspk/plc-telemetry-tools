@@ -20,6 +20,10 @@ class ConfigApp(QMainWindow):
         
         # Header layout
         self.header_layout = QHBoxLayout()
+        
+        self.browse_btn = QPushButton("Browse Pool Signal...")
+        self.browse_btn.clicked.connect(self.browse_file)
+        
         self.trace_label = QLabel("Trace Name:")
         self.trace_input = QLineEdit()
         self.trace_input.setPlaceholderText("e.g. TraceLiftDrive")
@@ -30,11 +34,15 @@ class ConfigApp(QMainWindow):
         self.export_btn = QPushButton("Export Config")
         self.export_btn.clicked.connect(self.export_data)
         
+        self.header_layout.addWidget(self.browse_btn)
         self.header_layout.addWidget(self.trace_label)
         self.header_layout.addWidget(self.trace_input)
         self.header_layout.addWidget(self.add_group_btn)
         self.header_layout.addWidget(self.export_btn)
         self.layout.addLayout(self.header_layout)
+        
+        self.file_label = QLabel(f"Current Pool File: {self.data_loader.file_path}")
+        self.layout.addWidget(self.file_label)
         
         # Tree Widget
         self.tree = QTreeWidget()
@@ -42,6 +50,18 @@ class ConfigApp(QMainWindow):
         self.tree.setColumnWidth(0, 150)
         self.tree.setColumnWidth(1, 350)
         self.layout.addWidget(self.tree)
+        
+    def browse_file(self):
+        file_path, _ = QFileDialog.getOpenFileName(self, "Select Pool Signal JSON", "", "JSON Files (*.json)")
+        if file_path:
+            reply = QMessageBox.question(self, 'Confirm Reload', 
+                                        "Changing the pool signal file will clear the current tree. Do you want to continue?",
+                                        QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
+                                        QMessageBox.StandardButton.No)
+            if reply == QMessageBox.StandardButton.Yes:
+                self.data_loader = DataLoader(file_path)
+                self.file_label.setText(f"Current Pool File: {file_path}")
+                self.tree.clear()
         
     def add_group(self):
         group_name, ok = QInputDialog.getText(self, "Add Group", "Group Name (e.g. transA):")

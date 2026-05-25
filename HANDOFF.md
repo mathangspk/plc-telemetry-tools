@@ -32,3 +32,6 @@
 ## Next Steps
 - Begin active test driving with the Desktop App while the laptop disconnects from WiFi, validating the container's resilience and file appending over extended durations.
 - Post-process the newly acquired raw JSON traces for visualization.
+
+### Phase 17 — Config Generator UI Enhancements (2026-05-25)
+125. ? **Dynamic Pool File Selection**: Added a 'Browse Pool Signal...' button to the PyQt6 Desktop application (config_app.py). This allows users to dynamically select any .json signal pool file at runtime instead of relying on a hardcoded path. The UI and data loader automatically refresh the available signals based on the selected file.
