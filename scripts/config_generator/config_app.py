@@ -7,12 +7,35 @@ from PyQt6.QtCore import Qt
 from data_loader import DataLoader
 from exporter import export_config
 
+class SignalComboBox(QComboBox):
+    def __init__(self, group_name, app_ref, parent=None):
+        super().__init__(parent)
+        self.group_name = group_name
+        self.app_ref = app_ref
+
+    def showPopup(self):
+        current_data = self.currentData()
+        self.blockSignals(True)
+        self.clear()
+        
+        available = self.app_ref.get_available_signals(self.group_name, self)
+        if not available:
+            self.addItem("No available signals")
+        else:
+            for sig in available:
+                self.addItem(sig["name"], userData=sig)
+                if current_data and sig["name"] == current_data["name"]:
+                    self.setCurrentIndex(self.count() - 1)
+                    
+        self.blockSignals(False)
+        super().showPopup()
+
 class ConfigApp(QMainWindow):
     def __init__(self, data_loader):
         super().__init__()
         self.data_loader = data_loader
         self.setWindowTitle("Telemetry Config Generator")
-        self.resize(800, 600)
+        self.resize(900, 600)
         
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
@@ -71,33 +94,61 @@ class ConfigApp(QMainWindow):
             group_item.setText(0, "Group")
             group_item.setText(1, group_name)
             
-            # Action to add signal to this group
             add_signal_btn = QPushButton("Add Signal Row")
             add_signal_btn.clicked.connect(lambda: self.add_signal_row(group_item, group_name))
             
             self.tree.setItemWidget(group_item, 2, add_signal_btn)
             group_item.setExpanded(True)
 
+    def get_selected_signals(self, ignore_combo=None):
+        selected = set()
+        for i in range(self.tree.topLevelItemCount()):
+            group_item = self.tree.topLevelItem(i)
+            for j in range(group_item.childCount()):
+                signal_item = group_item.child(j)
+                combo = self.tree.itemWidget(signal_item, 1)
+                if isinstance(combo, SignalComboBox) and combo != ignore_combo:
+                    data = combo.currentData()
+                    if data:
+                        selected.add(data["name"])
+        return selected
+
+    def get_available_signals(self, group_name, combo=None):
+        filtered = self.data_loader.get_signals_by_group(group_name)
+        selected = self.get_selected_signals(ignore_combo=combo)
+        return [s for s in filtered if s["name"] not in selected]
+
     def add_signal_row(self, group_item, group_name):
         signal_item = QTreeWidgetItem(group_item)
         signal_item.setText(0, "Signal")
         
-        # Signal Combobox
-        signal_combo = QComboBox()
-        filtered_signals = self.data_loader.get_signals_by_group(group_name)
+        signal_combo = SignalComboBox(group_name, self)
         
-        if not filtered_signals:
-            signal_combo.addItem("No signals found for this group")
+        # Initial population
+        available = self.get_available_signals(group_name)
+        if not available:
+            signal_combo.addItem("No available signals")
         else:
-            for sig in filtered_signals:
-                signal_combo.addItem(sig["name"], userData=sig) # Store whole dict
-                
+            # Add the first available signal as default
+            signal_combo.addItem(available[0]["name"], userData=available[0])
+            
         self.tree.setItemWidget(signal_item, 1, signal_combo)
         
-        # Metric Combobox
+        # Actions Layout for column 2 (Metric + Remove button)
+        actions_widget = QWidget()
+        actions_layout = QHBoxLayout(actions_widget)
+        actions_layout.setContentsMargins(0, 0, 0, 0)
+        
         metric_combo = QComboBox()
         metric_combo.addItems(self.data_loader.get_metrics())
-        self.tree.setItemWidget(signal_item, 2, metric_combo)
+        
+        remove_btn = QPushButton("Remove")
+        remove_btn.clicked.connect(lambda: group_item.removeChild(signal_item))
+        
+        actions_layout.addWidget(metric_combo)
+        actions_layout.addWidget(remove_btn)
+        
+        self.tree.setItemWidget(signal_item, 2, actions_widget)
 
     def export_data(self):
         trace_name = self.trace_input.text().strip()
@@ -112,16 +163,22 @@ class ConfigApp(QMainWindow):
                 signal_item = group_item.child(j)
                 
                 signal_combo = self.tree.itemWidget(signal_item, 1)
-                metric_combo = self.tree.itemWidget(signal_item, 2)
+                actions_widget = self.tree.itemWidget(signal_item, 2)
                 
-                sig_data = signal_combo.currentData()
-                if sig_data: # If it's a valid selection
-                    metric = metric_combo.currentText()
-                    signals_data.append({
-                        "name": sig_data["name"],
-                        "path": sig_data["path"],
-                        "metric": metric
-                    })
+                # Retrieve metric_combo from the layout
+                metric_combo = None
+                if actions_widget and actions_widget.layout():
+                    metric_combo = actions_widget.layout().itemAt(0).widget()
+                
+                if isinstance(signal_combo, SignalComboBox) and metric_combo:
+                    sig_data = signal_combo.currentData()
+                    if sig_data: 
+                        metric = metric_combo.currentText()
+                        signals_data.append({
+                            "name": sig_data["name"],
+                            "path": sig_data["path"],
+                            "metric": metric
+                        })
                     
         if not signals_data:
             QMessageBox.warning(self, "Warning", "No valid signals added to export.")
@@ -135,7 +192,6 @@ class ConfigApp(QMainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     
-    # Load data from the exported active_signals.json
     data_file = r"C:\local\opencode\codesys\exports\pool_signals\active_signals.json"
     if not os.path.exists(data_file):
         data_file = "mock_pool_signals.json"
