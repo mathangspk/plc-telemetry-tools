@@ -1,0 +1,421 @@
+{
+    "identity": "PrimaryPLC.System",
+    "type": "System",
+    "subsystem": "Machine",
+    "nop-ch                                                                                                                                                             ildren": [
+        {
+            "identity": "PrimaryPLC.System/ClearFailSafe",
+            "type": "ValRefBool",
+            "s                                                                                                                                                             ubsystem": "Machine"
+        }
+    ],
+    "op-children": [
+        {
+            "identity": "PrimaryPLC.System/Local",
+            "t                                                                                                                                                             ype": "Local",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System/Reporting",
+            "type": "Reporting",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System/LED",
+            "type": "LED",
+            "subsystem": "owerpack"
+        },
+        {
+            "identity": "PrimaryPLC.System/Executor                                                                                                                                                             ",
+            "type": "Executor",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Cyc                                                                                                                                                             le",
+            "type": "Cycle",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.PLC",
+            "type": "PLC",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.SystemSta                                                                                                                                                             te",
+            "type": "SystemState",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.Syste                                                                                                                                                             m.ParserRW",
+            "type": "ParseTCPServer",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "Prima                                                                                                                                                             ryPLC.System.ParserRO",
+            "type": "ParseTCPServer",
+            "subsystem": "Machine"
+        },
+        {
+            "ident                                                                                                                                                             ity": "PrimaryPLC.System.ParserEdge",
+            "type": "ParseTCPServer",
+            "subsystem": "Machi                                                                                                                                                             ne"
+        },
+        {
+            "identity": "PrimaryPLC.System.Metric0ms",
+            "type": "ParticleRepEvent",
+            "sub                                                                                                                                                             system": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Metric250ms",
+            "type": "Particl                                                                                                                                                             eRepEvent",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Metric500ms",
+            "type": "ParticleRepEvent",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.Syst                                                                                                                                                             em.Metric1s",
+            "type": "ParticleRepEvent",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "Pr                                                                                                                                                             imaryPLC.System.Metric5s",
+            "type": "ParticleRepEvent",
+            "subsystem": "Machine"
+        },
+        {
+            "                                                                                                                                                             identity": "PrimaryPLC.System.Metric1m",
+            "type": "ParticleRepEvent",
+            "subsystem": "                                                                                                                                                             Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Metric1h",
+            "type": "ParticleRepEvent",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Metric1d",
+            "type": "Partic                                                                                                                                                             leRepEvent",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusSystem                                                                                                                                                             ",
+            "type": "CANMaster",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.CA                                                                                                                                                             NBusDrive",
+            "type": "CANMaster",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.                                                                                                                                                             System.Cabin",
+            "type": "UICabin",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC                                                                                                                                                             .System.CabinSecPwr",
+            "type": "oSysStateAuto",
+            "subsystem": "Machine"
+        },
+        {
+            "identity                                                                                                                                                             ": "PrimaryPLC.System.BMSAB",
+            "type": "BMSAB",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.ChargerABC",
+            "type": "ChargerABC",
+            "subsystem": "Machine"
+        },
+        {
+            "                                                                                                                                                             identity": "PrimaryPLC.System.FuncModeCntrl",
+            "type": "FuncModeCntrl",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.UIEvent",
+            "type": "UIEvent",
+            "subsyst                                                                                                                                                             em": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.ProgMovCntrl",
+            "type": "mProgCntrl                                                                                                                                                             ",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Travel",
+            "type": "mTrav                                                                                                                                                             elQuad",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Lift",
+            "type": "m                                                                                                                                                             LiftQuad",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.iLiftAPos",
+            "t                                                                                                                                                             ype": "iwScaled",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.iLiftBPos                                                                                                                                                             ",
+            "type": "iwScaled",
+            "subsystem": "WinchB"
+        },
+        {
+            "identity": "PrimaryPLC.System.iLif                                                                                                                                                             tCPos",
+            "type": "iwScaled",
+            "subsystem": "WinchC"
+        },
+        {
+            "identity": "PrimaryPLC.System                                                                                                                                                             .iLiftDPos",
+            "type": "iwScaled",
+            "subsystem": "WinchD"
+        },
+        {
+            "identity": "PrimaryPLC.S                                                                                                                                                             ystem.iLiftABSync",
+            "type": "iSynch",
+            "subsystem": "Lift"
+        },
+        {
+            "identity": "PrimaryPL                                                                                                                                                             C.System.iLiftCDSync",
+            "type": "iSynch",
+            "subsystem": "Lift"
+        },
+        {
+            "identity": "Primar                                                                                                                                                             yPLC.System.iLiftSync",
+            "type": "iSynch",
+            "subsystem": "Lift"
+        },
+        {
+            "identity": "Prima                                                                                                                                                             ryPLC.System.Spreader",
+            "type": "Spreader",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "                                                                                                                                                             PrimaryPLC.System.iTwistALowered",
+            "type": "iwPosOnly",
+            "subsystem": "TwistlockA"
+        },
+        {
+            "identity": "PrimaryPLC.System.iTwistBLowered",
+            "type": "iwPosOnly",
+            "subsystem                                                                                                                                                             ": "TwistlockB"
+        },
+        {
+            "identity": "PrimaryPLC.System.iTwistCLowered",
+            "type": "iwPosOn                                                                                                                                                             ly",
+            "subsystem": "TwistlockC"
+        },
+        {
+            "identity": "PrimaryPLC.System.iTwistDLowered",
+            "type": "iwPosOnly",
+            "subsystem": "TwistlockD"
+        },
+        {
+            "identity": "PrimaryPLC.System.iw                                                                                                                                                             TwistRdy",
+            "type": "iwTwistRdy",
+            "subsystem": "Spreader"
+        },
+        {
+            "identity": "PrimaryPLC                                                                                                                                                             .System.iTwistLowerTrav",
+            "type": "iwLockout",
+            "subsystem": "Spreader"
+        },
+        {
+            "identit                                                                                                                                                             y": "PrimaryPLC.System.OperatingMode",
+            "type": "OperatingMode",
+            "subsystem": "Machi                                                                                                                                                             ne"
+        },
+        {
+            "identity": "PrimaryPLC.System.Active",
+            "type": "ActiveSystem",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.UMFS",
+            "type": "UMFS",
+            "subsystem": "M                                                                                                                                                             achine"
+        },
+        {
+            "identity": "PrimaryPLC.System.EstopLoad",
+            "type": "oSysStateAuto",
+            "su                                                                                                                                                             bsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.TMS",
+            "type": "TMS",
+            "subsyst                                                                                                                                                             em": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Secondary",
+            "type": "Secondary",
+            "                                                                                                                                                             subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Alarm",
+            "type": "oSystemSta                                                                                                                                                             te",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Beacons",
+            "type": "oS                                                                                                                                                             ystemState",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Horn",
+            "type                                                                                                                                                             ": "oSystemState",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.Lights",
+            "type": "oSystemState",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "PrimaryPLC.System.                                                                                                                                                             SensorSupply",
+            "type": "oSysStateAuto",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "Prim                                                                                                                                                             aryPLC.System.Steer",
+            "type": "mSteerElec",
+            "subsystem": "Machine"
+        },
+        {
+            "identity": "                                                                                                                                                             PrimaryPLC.System.iSteerAPos",
+            "type": "iwScaled",
+            "subsystem": "SteerA"
+        },
+        {
+            "ident                                                                                                                                                             ity": "PrimaryPLC.System.iSteerBPos",
+            "type": "iwScaled",
+            "subsystem": "SteerB"
+        },
+        {
+            "identity": "PrimaryPLC.System.iSteerCPos",
+            "type": "iwScaled",
+            "subsystem": "Steer                                                                                                                                                             C"
+        },
+        {
+            "identity": "PrimaryPLC.System.iSteerDPos",
+            "type": "iwScaled",
+            "subsystem": "SteerD"
+        }
+    ],
+PrimaryPLC.System.Secondary describe -children
+{
+        "identity": "PrimaryPLC.System.Secondary",
+        "type": "Secondary",
+        "subsystem": "Machine",
+        "nop-children": [
+            {
+                "identity": "PrimaryPLC.System.Secondary/SecPwrNotRun",
+                "type": "EscAlarm",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.Secondary/SecPwrNotRunMod",
+                "type": "SgnMod",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.Secondary/SecPwrWait",
+                "type": "AlarmAllowUp",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.Secondary/SecPwrMismatch",
+                "type": "EscAlarm",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.Secondary/CntxtSgnMod",
+                "type": "CntxtSgnMod",
+                "subsystem": "Machine"
+            }
+        ]
+    }
+                                                                                                                                   $>PrimaryPLC.System.CANBusSystem describe -children
+{
+        "identity": "PrimaryPLC.System.CANBusSystem",
+        "type": "CANMaster",
+        "subsystem": "Machine",
+        "nop-children": [
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/MasterNotGood",
+                "type": "AlarmAllowUp",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/MasterOpFail",
+                "type": "SysCntrl",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/MasterNotOp",
+                "type": "EscAlarm",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/MasterOverflow",
+                "type": "EscAlarm",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/MasterSlaveFail",
+                "type": "EscAlarm",
+                "subsystem": "Machine"
+            }
+        ],
+        "op-children": [
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cDisplay",
+                "type": "cDisplay",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cBMSA",
+                "type": "cBMS",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cBMSB",
+                "type": "cBMS",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cChargerA",
+                "type": "cCharger",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cChargerB",
+                "type": "cCharger",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cChargerC",
+                "type": "cCharger",
+                "subsystem": "Machine"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cSecondaryA",
+                "type": "MimicCANSlave",
+                "subsystem": "Secondary"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/cSecondaryB",
+                "type": "MimicCANSlave",
+                "subsystem": "Secondary"
+            },
+            {
+                "identity": "PrimaryPLC.System.CANBusSystem/BusPower",
+                "type": "oSysStateAuto",
+                "subsystem": "Machine"
+            }
+        ]
+    }

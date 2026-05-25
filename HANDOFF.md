@@ -7,8 +7,9 @@
 - Following the patch, successfully verified the remaining subsystems:
   - **Secondary**: Validated 5 active signals (100% PASS_ACTIVE).
   - **ChargerABC**: Validated 7 active signals (100% PASS_ACTIVE).
-- Captured live telemetry values for all verified signals and generated final `sec_chg_focused_report.md`.
-- Consolidated all active JSON trace configurations (bms, tms, secondary, charger) strictly using verified paths.
+- **Secondary CANBus Expansion**: Added deep real-time telemetry probing for CANBus hardware instances `cSecondaryA` and `cSecondaryB`. Successfully validated 38 new active telemetry signals (19 per unit), including precise current, voltage, and temperature references.
+- Captured live telemetry values for all verified signals and generated final `sec_chg_focused_report.md` and `secondary_canbus_focused_report.md`.
+- Consolidated all active JSON trace configurations (bms, tms, secondary, charger, secondary_canbus) strictly using verified paths.
 
 ## Current System State
 - The telemetry automated verification toolchain is highly robust and fully capable of handling poorly formatted PLC responses.
@@ -17,6 +18,7 @@
 
 ## Verification & Testing
 - Background task verification successfully completed for both `secondary` and `charger` using `verify_with_clean_workflow.py`.
+- Validation sweep on `secondary_canbus` (38 signals) returned 100% active state across the TCP stream.
 - Results show 0 failed/silent signals.
 - Live values accurately probed over TCP RO Emit and Describe ports.
 

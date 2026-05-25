@@ -1,0 +1,157 @@
+{
+  "name": "Secondary_CANBus",
+  "signals": [
+    {
+      "name": "secondaryA_SecPwrTemp",
+      "path": "System/CANBusSystem/cSecondaryA/SecPwrTemp"
+    },
+    {
+      "name": "secondaryA_CurrRunStt",
+      "path": "System/CANBusSystem/cSecondaryA/CurrRunStt"
+    },
+    {
+      "name": "secondaryA_SlaveNotOp",
+      "path": "System/CANBusSystem/cSecondaryA/SlaveNotOp"
+    },
+    {
+      "name": "secondaryA_SlaveMod",
+      "path": "System/CANBusSystem/cSecondaryA/SlaveMod"
+    },
+    {
+      "name": "secondaryA_SlaveAllowUp",
+      "path": "System/CANBusSystem/cSecondaryA/SlaveAllowUp"
+    },
+    {
+      "name": "secondaryA_Enabled",
+      "path": "System/CANBusSystem/cSecondaryA/Enabled"
+    },
+    {
+      "name": "secondaryA_TriggerStart",
+      "path": "System/CANBusSystem/cSecondaryA/TriggerStart"
+    },
+    {
+      "name": "secondaryA_OvrdConnected",
+      "path": "System/CANBusSystem/cSecondaryA/OvrdConnected"
+    },
+    {
+      "name": "secondaryA_SlaveNotify",
+      "path": "System/CANBusSystem/cSecondaryA/SlaveNotify"
+    },
+    {
+      "name": "secondaryA_SlaveBlock",
+      "path": "System/CANBusSystem/cSecondaryA/SlaveBlock"
+    },
+    {
+      "name": "secondaryA_SlaveStop",
+      "path": "System/CANBusSystem/cSecondaryA/SlaveStop"
+    },
+    {
+      "name": "secondaryA_ReqRunStt",
+      "path": "System/CANBusSystem/cSecondaryA/ReqRunStt"
+    },
+    {
+      "name": "secondaryA_VoltageReq",
+      "path": "System/CANBusSystem/cSecondaryA/VoltageReq"
+    },
+    {
+      "name": "secondaryA_VoltageCurr",
+      "path": "System/CANBusSystem/cSecondaryA/VoltageCurr"
+    },
+    {
+      "name": "secondaryA_CurrentCurr",
+      "path": "System/CANBusSystem/cSecondaryA/CurrentCurr"
+    },
+    {
+      "name": "secondaryA_Temp",
+      "path": "System/CANBusSystem/cSecondaryA/Temp"
+    },
+    {
+      "name": "secondaryA_Diagnostic",
+      "path": "System/CANBusSystem/cSecondaryA/Diagnostic"
+    },
+    {
+      "name": "secondaryA_Status",
+      "path": "System/CANBusSystem/cSecondaryA/Status"
+    },
+    {
+      "name": "secondaryA_Working",
+      "path": "System/CANBusSystem/cSecondaryA/Working"
+    },
+    {
+      "name": "secondaryB_SecPwrTemp",
+      "path": "System/CANBusSystem/cSecondaryB/SecPwrTemp"
+    },
+    {
+      "name": "secondaryB_CurrRunStt",
+      "path": "System/CANBusSystem/cSecondaryB/CurrRunStt"
+    },
+    {
+      "name": "secondaryB_SlaveNotOp",
+      "path": "System/CANBusSystem/cSecondaryB/SlaveNotOp"
+    },
+    {
+      "name": "secondaryB_SlaveMod",
+      "path": "System/CANBusSystem/cSecondaryB/SlaveMod"
+    },
+    {
+      "name": "secondaryB_SlaveAllowUp",
+      "path": "System/CANBusSystem/cSecondaryB/SlaveAllowUp"
+    },
+    {
+      "name": "secondaryB_Enabled",
+      "path": "System/CANBusSystem/cSecondaryB/Enabled"
+    },
+    {
+      "name": "secondaryB_TriggerStart",
+      "path": "System/CANBusSystem/cSecondaryB/TriggerStart"
+    },
+    {
+      "name": "secondaryB_OvrdConnected",
+      "path": "System/CANBusSystem/cSecondaryB/OvrdConnected"
+    },
+    {
+      "name": "secondaryB_SlaveNotify",
+      "path": "System/CANBusSystem/cSecondaryB/SlaveNotify"
+    },
+    {
+      "name": "secondaryB_SlaveBlock",
+      "path": "System/CANBusSystem/cSecondaryB/SlaveBlock"
+    },
+    {
+      "name": "secondaryB_SlaveStop",
+      "path": "System/CANBusSystem/cSecondaryB/SlaveStop"
+    },
+    {
+      "name": "secondaryB_ReqRunStt",
+      "path": "System/CANBusSystem/cSecondaryB/ReqRunStt"
+    },
+    {
+      "name": "secondaryB_VoltageReq",
+      "path": "System/CANBusSystem/cSecondaryB/VoltageReq"
+    },
+    {
+      "name": "secondaryB_VoltageCurr",
+      "path": "System/CANBusSystem/cSecondaryB/VoltageCurr"
+    },
+    {
+      "name": "secondaryB_CurrentCurr",
+      "path": "System/CANBusSystem/cSecondaryB/CurrentCurr"
+    },
+    {
+      "name": "secondaryB_Temp",
+      "path": "System/CANBusSystem/cSecondaryB/Temp"
+    },
+    {
+      "name": "secondaryB_Diagnostic",
+      "path": "System/CANBusSystem/cSecondaryB/Diagnostic"
+    },
+    {
+      "name": "secondaryB_Status",
+      "path": "System/CANBusSystem/cSecondaryB/Status"
+    },
+    {
+      "name": "secondaryB_Working",
+      "path": "System/CANBusSystem/cSecondaryB/Working"
+    }
+  ]
+}
