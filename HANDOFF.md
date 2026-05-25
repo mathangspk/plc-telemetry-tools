@@ -1,6 +1,7 @@
 # Project Handoff
 
 ## Summary of Changes (Current Iteration)
+- **Fix JSON Syntax**: Resolved a missing comma on line 23 of `exports/confirmed/secondary_canbus.json` that was causing parsing errors.
 - **Built Desktop App for Telemetry Collection**: Developed `trace_desktop_app.py` in `scripts/trace_desktop_app/` utilizing `tkinter`. The app automates triggering the PLC start/stop scripts, managing the Edge Device recording via REST endpoints, and securely transferring the final `.jsonl` trace payload over `scp`.
 - **Refactored Edge Device Architecture**: Identified that `otel-collector` (with a dead `fluent-bit` dependency) failed to actively pull PLC telemetry from TCP port `49890`. Disabled `otel-collector` entirely.
 - **Rewrote Edge Device Script**: Repurposed `test_script.py` (deployed to the Edge Device at `10.2.4.10`) from a passive HTTP sink into an active asynchronous TCP Socket Client. When triggered by `/start`, it now dynamically connects straight into the PLC's `49890` RO_EMIT port, accurately capturing the raw JSON stream at 100% fidelity.
