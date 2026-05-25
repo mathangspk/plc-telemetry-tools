@@ -37,3 +37,5 @@
 125. ? **Dynamic Pool File Selection**: Added a 'Browse Pool Signal...' button to the PyQt6 Desktop application (config_app.py). This allows users to dynamically select any .json signal pool file at runtime instead of relying on a hardcoded path. The UI and data loader automatically refresh the available signals based on the selected file.
 
 126. ? **Global Signal Exclusion logic**: Overridden QComboBox into SignalComboBox that intercepts the showPopup event. When a user opens the dropdown, the list is dynamically rebuilt, excluding any signal that is currently selected in any other active row across the entire UI. This ensures no duplicate signals can be selected. Remove Row button was added to release signals back to the pool.
+
+127. ? **Code Refactoring**: Refactored the entire Config Generator codebase (data_loader.py, exporter.py, config_app.py) according to Python Agent coding standards. Applied comprehensive type hinting, modular class structures, dataclasses, standardized logging, pathlib for path manipulations, and detailed Google-style docstrings.

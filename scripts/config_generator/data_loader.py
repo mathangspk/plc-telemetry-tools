@@ -1,30 +1,61 @@
 import json
+import logging
+from typing import List, Dict, Any
+from dataclasses import dataclass
+from pathlib import Path
+
+logger = logging.getLogger(__name__)
+
+@dataclass
+class Signal:
+    """Represents a single telemetry signal configuration."""
+    name: str
+    path: str
 
 class DataLoader:
-    def __init__(self, file_path):
-        self.file_path = file_path
-        self.metrics = []
-        self.signals = []
+    """Loads and manages telemetry pool signals and metrics from a JSON file."""
+    
+    def __init__(self, file_path: str) -> None:
+        """
+        Initializes the DataLoader and loads data from the given file path.
+        
+        Args:
+            file_path: The absolute or relative path to the JSON pool file.
+        """
+        self.file_path: Path = Path(file_path)
+        self.metrics: List[str] = []
+        self.signals: List[Dict[str, str]] = []
         self.load_data()
 
-    def load_data(self):
+    def load_data(self) -> None:
+        """Reads the JSON file and extracts metrics and signals."""
+        if not self.file_path.exists():
+            logger.warning(f"File {self.file_path} not found. Starting with empty data.")
+            return
+
         try:
             with open(self.file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.metrics = data.get("metrics", [])
                 self.signals = data.get("signals", [])
-        except FileNotFoundError:
-            print(f"Warning: File {self.file_path} not found. Starting with empty data.")
-        except json.JSONDecodeError:
-            print(f"Error: File {self.file_path} is not valid JSON.")
+        except json.JSONDecodeError as e:
+            logger.error(f"Error parsing JSON from {self.file_path}: {e}")
+        except Exception as e:
+            logger.error(f"Unexpected error loading data from {self.file_path}: {e}")
 
-    def get_metrics(self):
+    def get_metrics(self) -> List[str]:
+        """Returns the list of available metrics."""
         return self.metrics
 
-    def get_signals_by_group(self, group_name):
+    def get_signals_by_group(self, group_name: str) -> List[Dict[str, str]]:
         """
-        Returns a list of signal dictionaries where the signal name contains the group_name.
-        Case insensitive.
+        Filters and returns signals matching the given group name (case-insensitive).
+        
+        Args:
+            group_name: The group string to filter signals by.
+            
+        Returns:
+            A list of signal dictionaries that contain the group_name in their name.
         """
         group_name_lower = group_name.lower()
         return [s for s in self.signals if group_name_lower in s.get("name", "").lower()]

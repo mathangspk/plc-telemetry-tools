@@ -1,39 +1,60 @@
 import sys
-import os
+import logging
+from pathlib import Path
+from typing import Set, List, Dict, Optional, Any
+
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, 
                              QWidget, QTreeWidget, QTreeWidgetItem, QPushButton, 
                              QLineEdit, QLabel, QComboBox, QMessageBox, QFileDialog, QInputDialog)
 from PyQt6.QtCore import Qt
+
 from data_loader import DataLoader
 from exporter import export_config
 
-class SignalComboBox(QComboBox):
-    def __init__(self, group_name, app_ref, parent=None):
-        super().__init__(parent)
-        self.group_name = group_name
-        self.app_ref = app_ref
+# Configure application logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger(__name__)
 
-    def showPopup(self):
-        current_data = self.currentData()
+class SignalComboBox(QComboBox):
+    """
+    Custom QComboBox for signals that dynamically recalculates its items when clicked
+    to exclude signals that are already selected in other rows.
+    """
+    def __init__(self, group_name: str, app_ref: 'ConfigApp', parent: Optional[QWidget] = None) -> None:
+        super().__init__(parent)
+        self.group_name: str = group_name
+        self.app_ref: 'ConfigApp' = app_ref
+
+    def showPopup(self) -> None:
+        """Overrides showPopup to dynamically repopulate options based on global exclusions."""
+        current_data: Optional[Dict[str, str]] = self.currentData()
         self.blockSignals(True)
         self.clear()
         
-        available = self.app_ref.get_available_signals(self.group_name, self)
+        available: List[Dict[str, str]] = self.app_ref.get_available_signals(self.group_name, self)
+        
         if not available:
             self.addItem("No available signals")
         else:
             for sig in available:
                 self.addItem(sig["name"], userData=sig)
-                if current_data and sig["name"] == current_data["name"]:
+                if current_data and sig["name"] == current_data.get("name"):
                     self.setCurrentIndex(self.count() - 1)
                     
         self.blockSignals(False)
         super().showPopup()
 
+
 class ConfigApp(QMainWindow):
-    def __init__(self, data_loader):
+    """Main Application Window for Telemetry Config Generator."""
+    
+    def __init__(self, data_loader: DataLoader) -> None:
         super().__init__()
-        self.data_loader = data_loader
+        self.data_loader: DataLoader = data_loader
+        self.init_ui()
+
+    def init_ui(self) -> None:
+        """Initializes the UI layout and components."""
         self.setWindowTitle("Telemetry Config Generator")
         self.resize(900, 600)
         
@@ -41,7 +62,7 @@ class ConfigApp(QMainWindow):
         self.setCentralWidget(self.central_widget)
         self.layout = QVBoxLayout(self.central_widget)
         
-        # Header layout
+        # Header layout setup
         self.header_layout = QHBoxLayout()
         
         self.browse_btn = QPushButton("Browse Pool Signal...")
@@ -67,29 +88,35 @@ class ConfigApp(QMainWindow):
         self.file_label = QLabel(f"Current Pool File: {self.data_loader.file_path}")
         self.layout.addWidget(self.file_label)
         
-        # Tree Widget
+        # Tree Widget setup
         self.tree = QTreeWidget()
         self.tree.setHeaderLabels(["Item", "Signal / Group Name", "Metric / Actions"])
         self.tree.setColumnWidth(0, 150)
         self.tree.setColumnWidth(1, 350)
         self.layout.addWidget(self.tree)
         
-    def browse_file(self):
+    def browse_file(self) -> None:
+        """Opens a file dialog to select a new JSON pool signal file."""
         file_path, _ = QFileDialog.getOpenFileName(self, "Select Pool Signal JSON", "", "JSON Files (*.json)")
         if file_path:
-            reply = QMessageBox.question(self, 'Confirm Reload', 
-                                        "Changing the pool signal file will clear the current tree. Do you want to continue?",
-                                        QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
-                                        QMessageBox.StandardButton.No)
+            reply = QMessageBox.question(
+                self, 'Confirm Reload', 
+                "Changing the pool signal file will clear the current tree. Do you want to continue?",
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No, 
+                QMessageBox.StandardButton.No
+            )
             if reply == QMessageBox.StandardButton.Yes:
+                logger.info(f"Reloading pool signal file from {file_path}")
                 self.data_loader = DataLoader(file_path)
                 self.file_label.setText(f"Current Pool File: {file_path}")
                 self.tree.clear()
         
-    def add_group(self):
+    def add_group(self) -> None:
+        """Prompts the user for a group name and adds it to the tree."""
         group_name, ok = QInputDialog.getText(self, "Add Group", "Group Name (e.g. transA):")
         if ok and group_name.strip():
             group_name = group_name.strip()
+            
             group_item = QTreeWidgetItem(self.tree)
             group_item.setText(0, "Group")
             group_item.setText(1, group_name)
@@ -99,42 +126,69 @@ class ConfigApp(QMainWindow):
             
             self.tree.setItemWidget(group_item, 2, add_signal_btn)
             group_item.setExpanded(True)
+            logger.info(f"Added new group: {group_name}")
 
-    def get_selected_signals(self, ignore_combo=None):
-        selected = set()
+    def get_selected_signals(self, ignore_combo: Optional[SignalComboBox] = None) -> Set[str]:
+        """
+        Gathers all currently selected signal names across the entire tree UI.
+        
+        Args:
+            ignore_combo: A combobox to exclude from the gathering (usually the one being updated).
+            
+        Returns:
+            A set of selected signal names.
+        """
+        selected: Set[str] = set()
         for i in range(self.tree.topLevelItemCount()):
             group_item = self.tree.topLevelItem(i)
             for j in range(group_item.childCount()):
                 signal_item = group_item.child(j)
                 combo = self.tree.itemWidget(signal_item, 1)
+                
                 if isinstance(combo, SignalComboBox) and combo != ignore_combo:
-                    data = combo.currentData()
-                    if data:
+                    data: Optional[Dict[str, str]] = combo.currentData()
+                    if data and "name" in data:
                         selected.add(data["name"])
         return selected
 
-    def get_available_signals(self, group_name, combo=None):
+    def get_available_signals(self, group_name: str, combo: Optional[SignalComboBox] = None) -> List[Dict[str, str]]:
+        """
+        Filters signals by group name and excludes globally selected signals.
+        
+        Args:
+            group_name: The group name to filter signals by.
+            combo: The combobox requesting the signals (to ignore its own selection).
+            
+        Returns:
+            A list of available signal dictionaries.
+        """
         filtered = self.data_loader.get_signals_by_group(group_name)
         selected = self.get_selected_signals(ignore_combo=combo)
         return [s for s in filtered if s["name"] not in selected]
 
-    def add_signal_row(self, group_item, group_name):
+    def add_signal_row(self, group_item: QTreeWidgetItem, group_name: str) -> None:
+        """
+        Adds a new signal row under the specified group item.
+        
+        Args:
+            group_item: The parent QTreeWidgetItem representing the group.
+            group_name: The string name of the group for signal filtering.
+        """
         signal_item = QTreeWidgetItem(group_item)
         signal_item.setText(0, "Signal")
         
         signal_combo = SignalComboBox(group_name, self)
         
-        # Initial population
+        # Initial population of the combobox
         available = self.get_available_signals(group_name)
         if not available:
             signal_combo.addItem("No available signals")
         else:
-            # Add the first available signal as default
             signal_combo.addItem(available[0]["name"], userData=available[0])
             
         self.tree.setItemWidget(signal_item, 1, signal_combo)
         
-        # Actions Layout for column 2 (Metric + Remove button)
+        # Actions layout for the Metric combobox and Remove button
         actions_widget = QWidget()
         actions_layout = QHBoxLayout(actions_widget)
         actions_layout.setContentsMargins(0, 0, 0, 0)
@@ -150,13 +204,14 @@ class ConfigApp(QMainWindow):
         
         self.tree.setItemWidget(signal_item, 2, actions_widget)
 
-    def export_data(self):
+    def export_data(self) -> None:
+        """Gathers configuration data from the UI and triggers the export."""
         trace_name = self.trace_input.text().strip()
         if not trace_name:
             QMessageBox.warning(self, "Error", "Please enter a Trace Name.")
             return
             
-        signals_data = []
+        signals_data: List[Dict[str, str]] = []
         for i in range(self.tree.topLevelItemCount()):
             group_item = self.tree.topLevelItem(i)
             for j in range(group_item.childCount()):
@@ -165,12 +220,11 @@ class ConfigApp(QMainWindow):
                 signal_combo = self.tree.itemWidget(signal_item, 1)
                 actions_widget = self.tree.itemWidget(signal_item, 2)
                 
-                # Retrieve metric_combo from the layout
                 metric_combo = None
                 if actions_widget and actions_widget.layout():
                     metric_combo = actions_widget.layout().itemAt(0).widget()
                 
-                if isinstance(signal_combo, SignalComboBox) and metric_combo:
+                if isinstance(signal_combo, SignalComboBox) and isinstance(metric_combo, QComboBox):
                     sig_data = signal_combo.currentData()
                     if sig_data: 
                         metric = metric_combo.currentText()
@@ -187,16 +241,25 @@ class ConfigApp(QMainWindow):
         export_dir = QFileDialog.getExistingDirectory(self, "Select Export Directory")
         if export_dir:
             file_path = export_config(trace_name, signals_data, export_dir)
-            QMessageBox.information(self, "Success", f"Exported to:\n{file_path}")
+            if file_path:
+                QMessageBox.information(self, "Success", f"Exported to:\n{file_path}")
+            else:
+                QMessageBox.critical(self, "Error", "Failed to export configuration. Check logs.")
 
-if __name__ == "__main__":
+def main() -> None:
+    """Entry point for the application."""
     app = QApplication(sys.argv)
     
-    data_file = r"C:\local\opencode\codesys\exports\pool_signals\active_signals.json"
-    if not os.path.exists(data_file):
-        data_file = "mock_pool_signals.json"
+    # Load default data from active_signals.json, fallback to mock if unavailable
+    data_file_path = Path(r"C:\local\opencode\codesys\exports\pool_signals\active_signals.json")
+    if not data_file_path.exists():
+        data_file_path = Path("mock_pool_signals.json")
+        logger.info(f"Default signal file not found, falling back to {data_file_path}")
         
-    loader = DataLoader(data_file)
+    loader = DataLoader(str(data_file_path))
     window = ConfigApp(loader)
     window.show()
     sys.exit(app.exec())
+
+if __name__ == "__main__":
+    main()
