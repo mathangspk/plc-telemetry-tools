@@ -1,17 +1,18 @@
 # Handoff Document
 
 ## Summary of Changes
-- Ran `verify_with_clean_workflow.py` script to test telemetry signals from `exports/pool_signals/active_signals.json`.
+- Reran `verify_with_clean_workflow.py` script to test telemetry signals from `exports/pool_signals/active_signals.json` after the network connection to PLC was fixed.
 
 ## Current System State
 - The trace test attempted to verify 556 signals.
-- The connection to the PLC (`10.2.3.4`) on ports 49870 (RW/Describe) and 49890 (Emit) failed with timeouts and connection resets (`WinError 10054`).
-- All 556 signals are marked as "Failed" because the script could not communicate with the PLC.
+- The connection to the PLC (`10.2.3.4`) was successful this time (no timeouts or connection resets during registration).
+- However, all 556 signals are still marked as "Failed". The script reported `Confirmed 0 active signals` during the "Describe" phase and `Captured 0 unique active emission paths` during the "Emit" phase.
+- This suggests that while the connection is fine, the signals might not exist on the PLC, or the paths/configurations for the signals in `active_signals.json` do not match what is currently loaded on the PLC.
 - The detailed test report has been generated at `report/trace/test_results/active_signals_focused_report.md`.
 
 ## Verification & Testing
-- Script execution was successful, but the underlying system (PLC at 10.2.3.4) was either unreachable or actively refused connections.
+- Script execution was successful, connection to PLC on ports 49870 and 49890 worked properly, but no signal data was returned.
 
 ## Next Steps
-- Verify the connection to the PLC at IP `10.2.3.4`. Ensure that it is powered on, accessible over the network, and that the server components for RW (49870) and Emit (49890) are running and open.
-- Run the test script again once the PLC connection issues are resolved.
+- Verify that the telemetry paths configured in `active_signals.json` are correct and actually exist on the target PLC.
+- Investigate why the PLC is accepting registration but returning 0 active members on describe for these signals.
