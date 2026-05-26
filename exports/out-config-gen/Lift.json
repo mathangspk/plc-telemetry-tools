@@ -7,68 +7,18 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "winchAngleA_nodeState",
-      "path": "System/CANBusDrive/cWinchAngleA/SlaveMod",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "winchAngleB_nodeState",
-      "path": "System/CANBusDrive/cWinchAngleB/SlaveMod",
-      "metric": "Metric5s"
-    },
-    {
-      "name": "winchAngleC_nodeState",
-      "path": "System/CANBusDrive/cWinchAngleC/SlaveMod",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleD_nodeState",
-      "path": "System/CANBusDrive/cWinchAngleD/SlaveMod",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "winchA_motorTemp",
       "path": "System/CANBusDrive/cWinchA/MotorTemp",
-      "metric": "Metric250ms"
+      "metric": "Metric5s"
     },
     {
       "name": "winchA_cntrlTemp",
       "path": "System/CANBusDrive/cWinchA/CntrlTemp",
-      "metric": "Metric250ms"
+      "metric": "Metric5s"
     },
     {
-      "name": "winchAngleB_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleB/SlaveNotify",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleC_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleC/SlaveNotify",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleD_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchAngleD/SlaveNotify",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchA_heartbeatCounter_",
-      "path": "System/CANBusDrive/cWinchA/SlaveNotify",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleB_position",
-      "path": "System/CANBusDrive/cWinchAngleB/Position",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleC_position",
-      "path": "System/CANBusDrive/cWinchAngleC/Position",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleD_position",
-      "path": "System/CANBusDrive/cWinchAngleD/Position",
+      "name": "winchA_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchA/TargetSpeed",
       "metric": "Metric250ms"
     },
     {
@@ -79,6 +29,11 @@
     {
       "name": "winchA_velocity",
       "path": "System/CANBusDrive/cWinchA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleA_nodeState",
+      "path": "System/CANBusDrive/cWinchAngleA/SlaveMod",
       "metric": "Metric250ms"
     },
     {
@@ -107,13 +62,13 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "bmsa_voltage",
-      "path": "System/CANBusSystem/cBMSA/Voltage",
+      "name": "bmsa_soc",
+      "path": "System/CANBusSystem/cBMSA/SOC",
       "metric": "Metric250ms"
     },
     {
-      "name": "bmsa_soc",
-      "path": "System/CANBusSystem/cBMSA/SOC",
+      "name": "bmsa_voltage",
+      "path": "System/CANBusSystem/cBMSA/Voltage",
       "metric": "Metric250ms"
     },
     {
@@ -127,8 +82,8 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "bmsb_voltage",
-      "path": "System/CANBusSystem/cBMSB/Voltage",
+      "name": "bmsb_soh",
+      "path": "System/CANBusSystem/cBMSB/SOH",
       "metric": "Metric250ms"
     }
   ]

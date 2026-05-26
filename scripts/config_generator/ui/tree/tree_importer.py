@@ -41,9 +41,17 @@ def reconstruct_tree_from_config(
         sig_node = group_node.child(group_node.childCount() - 1)
         combo = manager.tree.itemWidget(sig_node, 1)
         if isinstance(combo, SignalComboBox):
-            idx = combo.findText(sig_name)
-            if idx >= 0:
-                combo.setCurrentIndex(idx)
+            combo.clear()
+            full_sig = next(
+                (s for s in manager.data_loader.signals if s.get("name") == sig_name),
+                None,
+            )
+            if full_sig:
+                combo.addItem(sig_name, userData=full_sig)
+            else:
+                combo.addItem(
+                    sig_name, userData={"name": sig_name, "path": sig.get("path", "")}
+                )
 
         metric_widget = manager.tree.itemWidget(sig_node, 2)
         if metric_widget and metric_widget.layout():
