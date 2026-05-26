@@ -19,8 +19,7 @@ logger = logging.getLogger(__name__)
 def create_group_node(manager: ConfigTreeManager, group_name: str) -> None:
     """Creates the UI row for a new group."""
     group_node = QTreeWidgetItem(manager.tree)
-    group_node.setText(0, "Group")
-    group_node.setText(1, group_name)
+    group_node.setText(0, group_name)
 
     actions_container = QWidget()
     layout = QHBoxLayout(actions_container)
@@ -36,7 +35,7 @@ def create_group_node(manager: ConfigTreeManager, group_name: str) -> None:
 
     layout.addWidget(btn_add_signal)
     layout.addWidget(btn_remove_group)
-    manager.tree.setItemWidget(group_node, 2, actions_container)
+    manager.tree.setItemWidget(group_node, 1, actions_container)
     group_node.setExpanded(True)
 
 
@@ -62,7 +61,6 @@ def create_signal_node(
 ) -> None:
     """Creates the UI row for a signal under a specific group."""
     signal_node = QTreeWidgetItem(parent_group)
-    signal_node.setText(0, "Signal")
 
     signal_combo = SignalComboBox(group_name, tree_manager=manager)
     avails = extractor.get_available_signals(manager, group_name)
@@ -71,14 +69,16 @@ def create_signal_node(
     else:
         signal_combo.addItem(avails[0]["name"], userData=avails[0])
 
-    manager.tree.setItemWidget(signal_node, 1, signal_combo)
+    manager.tree.setItemWidget(signal_node, 0, signal_combo)
+
     actions = QWidget()
     layout = QHBoxLayout(actions)
     layout.setContentsMargins(0, 0, 0, 0)
-    metric_combo = QComboBox()
-    metric_combo.addItems(manager.data_loader.get_metrics())
     btn_rm = QPushButton("Remove")
     btn_rm.clicked.connect(lambda: parent_group.removeChild(signal_node))
-    layout.addWidget(metric_combo)
     layout.addWidget(btn_rm)
-    manager.tree.setItemWidget(signal_node, 2, actions)
+    manager.tree.setItemWidget(signal_node, 1, actions)
+
+    metric_combo = QComboBox()
+    metric_combo.addItems(manager.data_loader.get_metrics())
+    manager.tree.setItemWidget(signal_node, 2, metric_combo)

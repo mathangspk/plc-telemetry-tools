@@ -13,9 +13,9 @@ class ConfigTreeManager:
         self.parent_widget: QWidget = parent_widget
         self.data_loader: DataLoader = data_loader
         self.tree: QTreeWidget = QTreeWidget()
-        self.tree.setHeaderLabels(["Item Type", "Name / Signal", "Metric / Action"])
-        self.tree.setColumnWidth(0, 150)
-        self.tree.setColumnWidth(1, 350)
+        self.tree.setHeaderLabels(["Name / Signal", "Actions", "Metric"])
+        self.tree.setColumnWidth(0, 350)
+        self.tree.setColumnWidth(1, 200)
 
     def get_widget(self) -> QTreeWidget:
         return self.tree

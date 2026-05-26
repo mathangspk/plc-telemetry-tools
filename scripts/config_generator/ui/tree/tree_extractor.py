@@ -25,7 +25,7 @@ def get_all_selected_signal_names(
         group_node = manager.tree.topLevelItem(i)
         for j in range(group_node.childCount()):
             signal_node = group_node.child(j)
-            combo_widget = manager.tree.itemWidget(signal_node, 1)
+            combo_widget = manager.tree.itemWidget(signal_node, 0)
             if (
                 isinstance(combo_widget, SignalComboBox)
                 and combo_widget != ignore_combo
@@ -43,13 +43,8 @@ def extract_configuration_data(manager: ConfigTreeManager) -> List[Dict[str, str
         group_node = manager.tree.topLevelItem(i)
         for j in range(group_node.childCount()):
             signal_node = group_node.child(j)
-            signal_combo = manager.tree.itemWidget(signal_node, 1)
-            actions = manager.tree.itemWidget(signal_node, 2)
-            metric_combo = (
-                actions.layout().itemAt(0).widget()
-                if actions and actions.layout()
-                else None
-            )
+            signal_combo = manager.tree.itemWidget(signal_node, 0)
+            metric_combo = manager.tree.itemWidget(signal_node, 2)
 
             if isinstance(signal_combo, SignalComboBox) and isinstance(
                 metric_combo, QComboBox

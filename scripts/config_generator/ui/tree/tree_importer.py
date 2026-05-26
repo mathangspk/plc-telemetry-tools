@@ -39,7 +39,7 @@ def reconstruct_tree_from_config(
         create_signal_node(manager, group_node, group_name)
 
         sig_node = group_node.child(group_node.childCount() - 1)
-        combo = manager.tree.itemWidget(sig_node, 1)
+        combo = manager.tree.itemWidget(sig_node, 0)
         if isinstance(combo, SignalComboBox):
             combo.clear()
             full_sig = next(

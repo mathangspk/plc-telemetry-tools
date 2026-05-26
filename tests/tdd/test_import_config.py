@@ -68,16 +68,16 @@ def test_reconstruct_tree_success(app, mock_pool_file, exported_config_file):
 
     # Kiểm tra Group 1 (transA)
     group1 = manager.tree.topLevelItem(0)
-    assert group1.text(1) == "transA"
+    assert group1.text(0) == "transA"
     assert group1.childCount() == 1
 
     sig1 = group1.child(0)
-    combo1 = manager.tree.itemWidget(sig1, 1)
-    metric_combo1 = manager.tree.itemWidget(sig1, 2).layout().itemAt(0).widget()
+    combo1 = manager.tree.itemWidget(sig1, 0)
+    metric_combo1 = manager.tree.itemWidget(sig1, 2)
     assert combo1.currentText() == "transA_voltage"
     assert metric_combo1.currentText() == "M1"
 
     # Kiểm tra Group 2 (Motor)
     group2 = manager.tree.topLevelItem(1)
-    assert group2.text(1) == "Motor"
+    assert group2.text(0) == "Motor"
     assert group2.childCount() == 1
