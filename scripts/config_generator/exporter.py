@@ -1,11 +1,11 @@
 import json
 import logging
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Union
 from pathlib import Path
 
 logger = logging.getLogger(__name__)
 
-def export_config(trace_name: str, signals_data: List[Dict[str, str]], export_dir: str = ".") -> Optional[str]:
+def export_config(trace_name: str, signals_data: List[Dict[str, str]], export_dir: Union[str, Path] = ".") -> Optional[str]:
     """
     Exports the generated trace configuration to a JSON file.
     
@@ -17,6 +17,10 @@ def export_config(trace_name: str, signals_data: List[Dict[str, str]], export_di
     Returns:
         The absolute path to the exported JSON file, or None if an error occurred.
     """
+    if not trace_name or not signals_data:
+        logger.warning("Trace name and signals data are required for export.")
+        return None
+
     config: Dict[str, Any] = {
         "name": trace_name,
         "signals": signals_data
@@ -34,6 +38,9 @@ def export_config(trace_name: str, signals_data: List[Dict[str, str]], export_di
         logger.info(f"Successfully exported configuration to {file_path}")
         return str(file_path.absolute())
         
+    except OSError as e:
+        logger.error(f"OS error occurred while exporting configuration to {export_dir}: {e}")
+        return None
     except Exception as e:
-        logger.error(f"Failed to export configuration to {export_dir}: {e}")
+        logger.error(f"Unexpected error exporting configuration to {export_dir}: {e}")
         return None

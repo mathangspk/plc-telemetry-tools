@@ -1,6 +1,6 @@
 import json
 import logging
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional, Union
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -15,7 +15,7 @@ class Signal:
 class DataLoader:
     """Loads and manages telemetry pool signals and metrics from a JSON file."""
     
-    def __init__(self, file_path: str) -> None:
+    def __init__(self, file_path: Union[str, Path]) -> None:
         """
         Initializes the DataLoader and loads data from the given file path.
         
@@ -29,17 +29,21 @@ class DataLoader:
 
     def load_data(self) -> None:
         """Reads the JSON file and extracts metrics and signals."""
-        if not self.file_path.exists():
-            logger.warning(f"File {self.file_path} not found. Starting with empty data.")
+        if not self.file_path.exists() or not self.file_path.is_file():
+            logger.warning(f"File {self.file_path} not found or is not a file. Starting with empty data.")
             return
 
         try:
             with open(self.file_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
+                if not isinstance(data, dict):
+                    raise ValueError("JSON root must be a dictionary")
                 self.metrics = data.get("metrics", [])
                 self.signals = data.get("signals", [])
         except json.JSONDecodeError as e:
             logger.error(f"Error parsing JSON from {self.file_path}: {e}")
+        except ValueError as e:
+            logger.error(f"Invalid data format in {self.file_path}: {e}")
         except Exception as e:
             logger.error(f"Unexpected error loading data from {self.file_path}: {e}")
 
@@ -57,5 +61,7 @@ class DataLoader:
         Returns:
             A list of signal dictionaries that contain the group_name in their name.
         """
+        if not group_name:
+            return []
         group_name_lower = group_name.lower()
         return [s for s in self.signals if group_name_lower in s.get("name", "").lower()]
