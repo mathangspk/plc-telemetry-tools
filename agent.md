@@ -42,3 +42,18 @@ All Python code written or refactored for this project MUST strictly adhere to t
 ### 4. Tooling (Auto-Formatting)
 - Code must be formatted using **Black** (for line lengths, quotes, spacing).
 - Imports must be sorted using **isort** (Standard library -> Third Party -> Local/First Party).
+
+### 5. File Size Constraints
+- **Tuyệt đối không có file Python nào dài quá 50 dòng code.**
+- Nếu một file chuẩn bị vượt quá 50 dòng, phải ngay lập tức chia tách (refactor) logic ra thành các class, hàm, hoặc module con khác nhau. Việc giữ kích thước file nhỏ giúp tăng khả năng đọc hiểu và tái sử dụng code.
+
+## Test-Driven Development (TDD Workflow)
+- **Nguyên tắc cốt lõi**: AI tuyệt đối không được viết mã nguồn tính năng mới nếu chưa viết Unit Test và được người dùng duyệt qua bài Test đó.
+- **Testing Framework**: Sử dụng `pytest` làm công cụ kiểm thử tiêu chuẩn.
+- **Thư mục lưu trữ**: Tất cả các bài TDD test phải được đặt trong thư mục `tests/tdd/`.
+- **Workflow khi thêm bài kiểm thử / tính năng mới**:
+  1. Người dùng yêu cầu tính năng mới.
+  2. AI nghiên cứu hệ thống và viết bài test (Test Drive) vào thư mục `tests/tdd/`.
+  3. AI trình bày bài test cho người dùng để duyệt logic và các edge-cases.
+  4. Sau khi người dùng xác nhận (Approve), AI mới bắt đầu viết mã nguồn thực tế (Implementation).
+  5. AI chạy `pytest` để chứng minh mã nguồn mới đã thỏa mãn bài Test Drive.
