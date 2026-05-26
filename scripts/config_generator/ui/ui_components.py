@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Dict, List, Optional
 from PyQt6.QtWidgets import QComboBox, QWidget
 
 if TYPE_CHECKING:
-    from tree_manager import ConfigTreeManager
+    from ui.tree_manager import ConfigTreeManager
 
 logger = logging.getLogger(__name__)
 

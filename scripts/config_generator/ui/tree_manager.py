@@ -12,8 +12,8 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-from data_loader import DataLoader
-from ui_components import SignalComboBox
+from core.data_loader import DataLoader
+from ui.ui_components import SignalComboBox
 
 logger = logging.getLogger(__name__)
 

@@ -16,9 +16,9 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-import exporter
-from data_loader import DataLoader
-from tree_manager import ConfigTreeManager
+from core import exporter
+from core.data_loader import DataLoader
+from ui.tree_manager import ConfigTreeManager
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -142,27 +142,3 @@ class ConfigApp(QMainWindow):
             QMessageBox.critical(
                 self, "Error", "Failed to export configuration. Check logs."
             )
-
-
-def main() -> None:
-    """Entry point for the application."""
-    app: QApplication = QApplication(sys.argv)
-
-    default_path: Path = Path(
-        r"C:\local\opencode\codesys\exports\pool_signals\active_signals.json"
-    )
-    fallback_path: Path = Path("mock_pool_signals.json")
-
-    active_path: Path = default_path if default_path.exists() else fallback_path
-    if not default_path.exists():
-        logger.info(f"Default signal file not found, falling back to {fallback_path}")
-
-    loader: DataLoader = DataLoader(str(active_path))
-
-    window: ConfigApp = ConfigApp(loader)
-    window.show()
-    sys.exit(app.exec())
-
-
-if __name__ == "__main__":
-    main()
