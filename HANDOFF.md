@@ -1,19 +1,19 @@
 # Project Handoff
 
 ## Summary of Changes
-- Restructured `config_generator` into a professional Python package layout.
-- Separated files into `core/` (data logic) and `ui/` (presentation logic).
-- Created a top-level `main.py` entry point.
-- Updated all local module imports and re-ran `black` and `isort`.
+- Implemented file auto-suffixing and overwrite warning logic following strict Test-Driven Development (TDD).
+- Refactored `config_app.py` and `tree_manager.py` into multiple smaller modules (`main_window.py`, `event_handlers.py`, `tree_base.py`, `tree_nodes.py`, `tree_dialogs.py`, `tree_extractor.py`) to strictly adhere to the <50 line per file constraint.
+- Added `test_exporter_suffix.py` to `tests/tdd/` to prove compliance with the requested file saving logic.
 
 ## Current System State
-- The application now has a definitive entry point (`scripts/config_generator/main.py`).
-- The directory tree perfectly matches Clean Code and standard Python src-layout principles.
-- Code syntax is fully validated.
+- The `config_generator` correctly prompts users when exporting to an existing file, allowing them to overwrite or create a new file with a sequential `_xx` suffix.
+- ALL Python files in the repository are strictly under 50 lines of code.
+- 100% test pass rate for the new functionality.
+- Fully auto-formatted and synced with remote.
 
 ## Verification & Testing
-- Validated via `python -m py_compile main.py core/* ui/*`.
-- Tested the internal import paths for consistency.
+- `pytest tests/tdd/test_exporter_suffix.py` passed (4/4 cases).
+- Checked file sizes and confirmed maximum lines per file is 48 lines (`tree_extractor.py`).
 
 ## Next Steps
-- Verify the GUI boots correctly via `python main.py` and run a full configuration export flow.
+- Lập trình viên có thể tiếp tục phát triển các tính năng khác với quy trình TDD và ràng buộc kích thước file tương tự.

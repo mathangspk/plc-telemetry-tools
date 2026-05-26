@@ -1,0 +1,181 @@
+$>PrimaryPLC.System.CANBusDrive/cWinchA describe -children
+{
+    "identity": "PrimaryPLC.System.CANBusDrive/cWinchA",
+    "type": "cMotor",
+    "subsystem": "WinchA",
+    "nop-children": [
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnblStallClr",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnbleStallResp",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnbleHoldStat",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnbleStallDet",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnblThrttArb",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnbleNMTDet",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnblInitHold",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/CntTempCutb",
+            "type": "ChargeMod",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/MotTempCutb",
+            "type": "ChargeMod",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/MotTempSensor",
+            "type": "Alarm",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/TargetSpeed",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/EnableMotor",
+            "type": "ValObjBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Forward",
+            "type": "ValObjBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Reverse",
+            "type": "ValObjBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/ClearAlarm",
+            "type": "ValObjBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Torque",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/SlaveNotOp",
+            "type": "EscAlarm",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/SlaveMod",
+            "type": "SgnMod",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/SlaveAllowUp",
+            "type": "AlarmAllowUp",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Enabled",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/TriggerStart",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/OvrdConnected",
+            "type": "ValRefBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/SlaveNotify",
+            "type": "Alarm",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/SlaveBlock",
+            "type": "SgnMod",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/SlaveStop",
+            "type": "SysCntrl",
+            "subsystem": "WinchA"
+        }
+    ],
+    "op-children": [
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Velocity",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/TPO1Stuffing",
+            "type": "ValObjBool",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Current",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/Alarm",
+            "type": "ValObjUINT",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/MotorTemp",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/CntrlTemp",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/BattCurrent",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/BattVoltage",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        },
+        {
+            "identity": "PrimaryPLC.System.CANBusDrive/cWinchA/BattPower",
+            "type": "ValObjReal",
+            "subsystem": "WinchA"
+        }
+    ],
+    "node": 74
+}

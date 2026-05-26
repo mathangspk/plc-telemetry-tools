@@ -4,19 +4,13 @@ from typing import TYPE_CHECKING, Dict, List, Optional
 from PyQt6.QtWidgets import QComboBox, QWidget
 
 if TYPE_CHECKING:
-    from ui.tree_manager import ConfigTreeManager
+    from ui.tree.tree_base import ConfigTreeManager
 
 logger = logging.getLogger(__name__)
 
 
 class SignalComboBox(QComboBox):
-    """A dropdown menu for selecting telemetry signals dynamically.
-
-    Args:
-        group_name (str): The name of the group this combobox belongs to.
-        tree_manager (ConfigTreeManager): The tree manager instance to query available signals.
-        parent (Optional[QWidget], optional): The parent widget. Defaults to None.
-    """
+    """A dropdown menu for selecting telemetry signals dynamically."""
 
     def __init__(
         self,
@@ -25,32 +19,27 @@ class SignalComboBox(QComboBox):
         parent: Optional[QWidget] = None,
     ) -> None:
         super().__init__(parent)
-        self.group_name: str = group_name
-        self.tree_manager: "ConfigTreeManager" = tree_manager
+        self.group_name = group_name
+        self.tree_manager = tree_manager
 
     def showPopup(self) -> None:
-        """Triggered when the user clicks the dropdown.
+        """Triggered when the user clicks the dropdown. Repopulates to exclude duplicates."""
+        from ui.tree.tree_extractor import get_available_signals
 
-        Repopulates the list of signals to exclude those already selected elsewhere in the tree.
-        """
-        current_selection: Optional[Dict[str, str]] = self.currentData()
+        current_selection = self.currentData()
 
         self.blockSignals(True)
         self.clear()
 
-        available_signals: List[Dict[str, str]] = (
-            self.tree_manager.get_available_signals(self.group_name, ignore_combo=self)
+        avails = get_available_signals(
+            self.tree_manager, self.group_name, ignore_combo=self
         )
-
-        if not available_signals:
+        if not avails:
             self.addItem("No available signals")
         else:
-            for signal_data in available_signals:
-                self.addItem(signal_data["name"], userData=signal_data)
-
-                if current_selection and signal_data["name"] == current_selection.get(
-                    "name"
-                ):
+            for sig in avails:
+                self.addItem(sig["name"], userData=sig)
+                if current_selection and sig["name"] == current_selection.get("name"):
                     self.setCurrentIndex(self.count() - 1)
 
         self.blockSignals(False)

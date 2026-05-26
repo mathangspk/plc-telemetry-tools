@@ -6,44 +6,42 @@ from typing import Any, Dict, List, Optional, Union
 logger = logging.getLogger(__name__)
 
 
+def _get_unique_path(base_path: Path, name: str) -> Path:
+    """Finds lowest unused suffix if file exists."""
+    if not (base_path / f"{name}.json").exists():
+        return base_path / f"{name}.json"
+    idx = 1
+    while (base_path / f"{name}_{idx:02d}.json").exists():
+        idx += 1
+    return base_path / f"{name}_{idx:02d}.json"
+
+
 def export_config(
     trace_name: str,
     signals_data: List[Dict[str, str]],
     export_dir: Union[str, Path] = ".",
+    overwrite: bool = False,
 ) -> Optional[str]:
-    """Exports the generated trace configuration to a JSON file.
-
-    Args:
-        trace_name (str): The name of the trace (used as the file name and internal config name).
-        signals_data (List[Dict[str, str]]): The list of configured signal dictionaries (name, path, metric).
-        export_dir (Union[str, Path], optional): The directory path where the JSON file will be saved. Defaults to ".".
-
-    Returns:
-        Optional[str]: The absolute path to the exported JSON file, or None if an error occurred.
-    """
+    """Exports trace configuration to JSON file."""
     if not trace_name or not signals_data:
-        logger.warning("Trace name and signals data are required for export.")
         return None
+    export_path = Path(export_dir)
+    export_path.mkdir(parents=True, exist_ok=True)
 
-    config: Dict[str, Any] = {"name": trace_name, "signals": signals_data}
-
-    export_path: Path = Path(export_dir)
+    file_path = export_path / f"{trace_name}.json"
+    if not overwrite:
+        file_path = _get_unique_path(export_path, trace_name)
 
     try:
-        export_path.mkdir(parents=True, exist_ok=True)
-        file_path: Path = export_path / f"{trace_name}.json"
-
         with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(config, f, indent=2, ensure_ascii=False)
-
-        logger.info(f"Successfully exported configuration to {file_path}")
+            json.dump(
+                {"name": trace_name, "signals": signals_data},
+                f,
+                indent=2,
+                ensure_ascii=False,
+            )
+        logger.info(f"Exported to {file_path}")
         return str(file_path.absolute())
-
-    except OSError as e:
-        logger.error(
-            f"OS error occurred while exporting configuration to {export_dir}: {e}"
-        )
-        return None
     except Exception as e:
-        logger.error(f"Unexpected error exporting configuration to {export_dir}: {e}")
+        logger.error(f"Error exporting config: {e}")
         return None

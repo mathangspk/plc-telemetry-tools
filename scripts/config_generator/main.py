@@ -5,7 +5,7 @@ from pathlib import Path
 from PyQt6.QtWidgets import QApplication
 
 from core.data_loader import DataLoader
-from ui.config_app import ConfigApp
+from ui.main_window import ConfigApp
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,135 @@
+{
+  "name": "Lift",
+  "signals": [
+    {
+      "name": "winchA_nodeState",
+      "path": "System/CANBusDrive/cWinchA/SlaveMod",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_motorTemp",
+      "path": "System/CANBusDrive/cWinchA/MotorTemp",
+      "metric": "Metric5s"
+    },
+    {
+      "name": "winchA_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchA/CntrlTemp",
+      "metric": "Metric5s"
+    },
+    {
+      "name": "winchAngleA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchAngleA/SlaveNotify",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_heartbeatCounter_",
+      "path": "System/CANBusDrive/cWinchA/SlaveNotify",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_current",
+      "path": "System/CANBusDrive/cWinchA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchAngleA_position",
+      "path": "System/CANBusDrive/cWinchAngleA/Position",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_velocity",
+      "path": "System/CANBusDrive/cWinchA/Velocity",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_torque",
+      "path": "System/CANBusDrive/cWinchA/Torque",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_battCurrent",
+      "path": "System/CANBusDrive/cWinchA/BattCurrent",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_battVoltage",
+      "path": "System/CANBusDrive/cWinchA/BattVoltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_battPower",
+      "path": "System/CANBusDrive/cWinchA/BattPower",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/MotTempCutb/Life",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmControllerTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/CntTempCutb/Life",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmControllerTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/CntTempCutb/Override",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdCharge",
+      "path": "System/CANBusDrive/cWinchA/MotTempCutb/Life",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_alarmMotorTemperatureCutback_thresholdDischarge",
+      "path": "System/CANBusDrive/cWinchA/MotTempCutb/Override",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchA/TargetSpeed",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_voltage",
+      "path": "System/BMSAB/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsa_current",
+      "path": "System/CANBusSystem/cBMSA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsa_voltage",
+      "path": "System/CANBusSystem/cBMSA/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsa_soc",
+      "path": "System/CANBusSystem/cBMSA/SOC",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsb_current",
+      "path": "System/CANBusSystem/cBMSB/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsb_voltage",
+      "path": "System/CANBusSystem/cBMSB/Voltage",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bmsb_soc",
+      "path": "System/CANBusSystem/cBMSB/SOC",
+      "metric": "Metric250ms"
+    }
+  ]
+}
