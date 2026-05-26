@@ -11,8 +11,10 @@ from PyQt6.QtWidgets import (
 )
 
 from core.data_loader import DataLoader
-from ui.event_handlers import on_add_group_clicked, on_browse_clicked, on_export_clicked
+from ui.events_export import on_export_clicked
+from ui.events_import import on_browse_clicked, on_open_config_clicked
 from ui.tree.tree_base import ConfigTreeManager
+from ui.tree.tree_dialogs import prompt_add_group
 
 logger = logging.getLogger(__name__)
 
@@ -35,14 +37,19 @@ class ConfigApp(QMainWindow):
         main_layout = QVBoxLayout(central)
         header_layout = QHBoxLayout()
 
-        btn_browse = QPushButton("Browse Pool Signal...")
+        btn_browse = QPushButton("Browse Pool...")
         btn_browse.clicked.connect(lambda: on_browse_clicked(self))
+
+        btn_open = QPushButton("Open Config...")
+        btn_open.clicked.connect(
+            lambda: on_open_config_clicked(self, self.txt_trace_name, self.tree_manager)
+        )
 
         self.txt_trace_name = QLineEdit()
         self.txt_trace_name.setPlaceholderText("e.g. TraceLiftDrive")
 
         btn_add_group = QPushButton("Add Group")
-        btn_add_group.clicked.connect(lambda: on_add_group_clicked(self.tree_manager))
+        btn_add_group.clicked.connect(lambda: prompt_add_group(self.tree_manager))
 
         btn_export = QPushButton("Export Config")
         btn_export.clicked.connect(
@@ -50,6 +57,7 @@ class ConfigApp(QMainWindow):
         )
 
         header_layout.addWidget(btn_browse)
+        header_layout.addWidget(btn_open)
         header_layout.addWidget(QLabel("Trace Name:"))
         header_layout.addWidget(self.txt_trace_name)
         header_layout.addWidget(btn_add_group)
