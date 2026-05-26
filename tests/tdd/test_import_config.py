@@ -45,7 +45,7 @@ def exported_config_file(tmp_path):
     config_data = {
         "name": "TestTrace",
         "signals": [
-            {"name": "transA_voltage", "path": "p2", "metric": "M1"},
+            {"name": "transA_voltage", "path": "p2", "metric": "M2"},
             {"name": "Motor_temp", "path": "p3", "metric": "M2"},
         ],
     }
@@ -75,7 +75,7 @@ def test_reconstruct_tree_success(app, mock_pool_file, exported_config_file):
     combo1 = manager.tree.itemWidget(sig1, 0)
     metric_combo1 = manager.tree.itemWidget(sig1, 2)
     assert combo1.currentText() == "transA_voltage"
-    assert metric_combo1.currentText() == "M1"
+    assert metric_combo1.currentText() == "M2"
 
     # Kiểm tra Group 2 (Motor)
     group2 = manager.tree.topLevelItem(1)

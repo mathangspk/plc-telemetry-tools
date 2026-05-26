@@ -54,11 +54,9 @@ def reconstruct_tree_from_config(
                 )
 
         metric_widget = manager.tree.itemWidget(sig_node, 2)
-        if metric_widget and metric_widget.layout():
-            m_combo = metric_widget.layout().itemAt(0).widget()
-            if isinstance(m_combo, QComboBox):
-                m_idx = m_combo.findText(sig.get("metric", ""))
-                if m_idx >= 0:
-                    m_combo.setCurrentIndex(m_idx)
+        if isinstance(metric_widget, QComboBox):
+            m_idx = metric_widget.findText(sig.get("metric", ""))
+            if m_idx >= 0:
+                metric_widget.setCurrentIndex(m_idx)
 
     return trace_name

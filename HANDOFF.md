@@ -1,15 +1,16 @@
 # Project Handoff
 
 ## Summary of Changes
-- Fixed a UI bug in `tree_importer.py` where opening a config file would fail to display the correct signal in the dropdown if it wasn't the first alphabetically available signal.
-- The `SignalComboBox` dynamic population mechanism caused it to be empty during import. It is now correctly initialized with the targeted signal's data.
-- Updated `test_import_config.py` to cover this edge case.
+- Fixed a bug where importing a config file failed to restore the `Metric` selection, leaving all dropdowns at their default (`Metric0ms`).
+- The bug was a side-effect of the previous UI layout refactoring where the Metric widget was detached from its layout container.
+- Updated `test_import_config.py` to use a non-primary metric (`M2`) to strictly enforce that the test catches this specific bug in the future.
 
 ## Current System State
-- The `Open Config` button accurately rebuilds the `QTreeWidget` UI to perfectly match the JSON state, correctly selecting the exact signals saved previously.
+- The UI perfectly restores both Signals and Metrics when opening a JSON config file, matching the original state exactly.
 
 ## Verification & Testing
-- Validated via `pytest tests/tdd/test_import_config.py` (simulating importing a non-primary signal) -> Passed.
+- Validated via `pytest tests/tdd/test_import_config.py` -> Passed.
+- `tree_importer.py` directly targets the `QComboBox` instead of `layout().itemAt(0)`.
 
 ## Next Steps
-- Lập trình viên tải lại file config và kiểm tra trực quan trên màn hình UI.
+- Lập trình viên load lại giao diện và mở file config một lần nữa.
