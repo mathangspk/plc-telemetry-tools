@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Generate per-file trace config signal mapping outputs with Phase 5 corrections."""
 
-import json
-import os
 import csv
 import io
+import json
+import os
 
 BASE = r"C:\local\opencode\codesys"
 JSON_PATH = os.path.join(BASE, "exports", "trace-config", "RUNTIME_REMAP_PHASE4.json")
@@ -88,14 +88,23 @@ phase5_nonexistent = set()
 
 # Lift deep: ScalingA-D, MovementA-D, ChargeInterlock/*, Interlock/*
 lift_deep_nonexistent = [
-    "gSystem.lLift.lScalingA", "gSystem.lLift.lScalingB", "gSystem.lLift.lScalingC", "gSystem.lLift.lScalingD",
-    "gSystem.lLift.lMovementA.lDiagnostic", "gSystem.lLift.lMovementB.lDiagnostic",
-    "gSystem.lLift.lMovementC.lDiagnostic", "gSystem.lLift.lMovementD.lDiagnostic",
-    "gSystem.lLift.lChargeInterlock.lQualifier.lValue", "gSystem.lLift.lChargeInterlock.lScalingCharge.lValue",
-    "gSystem.lLift.lChargeInterlock.lScalingDischarge.lValue", "gSystem.lLift.lChargeInterlock.lThresholdCharge.lValue",
+    "gSystem.lLift.lScalingA",
+    "gSystem.lLift.lScalingB",
+    "gSystem.lLift.lScalingC",
+    "gSystem.lLift.lScalingD",
+    "gSystem.lLift.lMovementA.lDiagnostic",
+    "gSystem.lLift.lMovementB.lDiagnostic",
+    "gSystem.lLift.lMovementC.lDiagnostic",
+    "gSystem.lLift.lMovementD.lDiagnostic",
+    "gSystem.lLift.lChargeInterlock.lQualifier.lValue",
+    "gSystem.lLift.lChargeInterlock.lScalingCharge.lValue",
+    "gSystem.lLift.lChargeInterlock.lScalingDischarge.lValue",
+    "gSystem.lLift.lChargeInterlock.lThresholdCharge.lValue",
     "gSystem.lLift.lChargeInterlock.lThresholdDischarge.lValue",
-    "gSystem.lLift.lInterlock.lInterlockState.lValue", "gSystem.lLift.lInterlock.lScalingNegative.lValue",
-    "gSystem.lLift.lInterlock.lScalingPositive.lValue", "gSystem.lLift.lInterlock.lThresholdNegative.lValue",
+    "gSystem.lLift.lInterlock.lInterlockState.lValue",
+    "gSystem.lLift.lInterlock.lScalingNegative.lValue",
+    "gSystem.lLift.lInterlock.lScalingPositive.lValue",
+    "gSystem.lLift.lInterlock.lThresholdNegative.lValue",
     "gSystem.lLift.lInterlock.lThresholdPositive.lValue",
     "gSystem.lLift.lInputProcessed",
 ]
@@ -147,13 +156,19 @@ travel_deep_nonexistent = [
     "gSystem.lTravel.lCurrentFunctionSlowFactor",
     "gSystem.lTravel.lCurrentOperatingModeSlowFactor",
     "gSystem.lTravel.lCurrentUInterfaceSlowFactor",
-    "gSystem.lTravel.lScalingA", "gSystem.lTravel.lScalingB", "gSystem.lTravel.lScalingC", "gSystem.lTravel.lScalingD",
-    "gSystem.lTravel.lMovementA.lDiagnostic", "gSystem.lTravel.lMovementB.lDiagnostic",
+    "gSystem.lTravel.lScalingA",
+    "gSystem.lTravel.lScalingB",
+    "gSystem.lTravel.lScalingC",
+    "gSystem.lTravel.lScalingD",
+    "gSystem.lTravel.lMovementA.lDiagnostic",
+    "gSystem.lTravel.lMovementB.lDiagnostic",
     "gSystem.lTravel.lMovementC.lDiagnostic",
     "gSystem.lTravel.lSteerAdjustTimer.lExpired",
     # Movement InputDeadBand signals (nonexistent)
-    "gSystem.lTravel.lMovementA.lInputDeadBand", "gSystem.lTravel.lMovementB.lInputDeadBand",
-    "gSystem.lTravel.lMovementC.lInputDeadBand", "gSystem.lTravel.lMovementD.lInputDeadBand",
+    "gSystem.lTravel.lMovementA.lInputDeadBand",
+    "gSystem.lTravel.lMovementB.lInputDeadBand",
+    "gSystem.lTravel.lMovementC.lInputDeadBand",
+    "gSystem.lTravel.lMovementD.lInputDeadBand",
 ]
 phase5_nonexistent.update(travel_deep_nonexistent)
 
@@ -278,6 +293,7 @@ canbus_nonexistent = [
 # Lookup function
 # ============================================================
 
+
 def lookup_signal(raw_path):
     """Look up a raw IEC path and return (runtime_name, status)."""
     # 1. Check exact_matches
@@ -332,9 +348,7 @@ def lookup_signal(raw_path):
 # Process each trace config file
 # ============================================================
 
-trace_files = sorted([
-    f for f in os.listdir(TRACE_DIR) if f.endswith(".txt")
-])
+trace_files = sorted([f for f in os.listdir(TRACE_DIR) if f.endswith(".txt")])
 
 stats = {
     "exact_match": 0,
@@ -390,6 +404,8 @@ if stats.get("no_match", 0) > 0 or stats.get("unknown", 0) > 0:
                 raw_path = row[0].strip()
                 runtime_name, status = lookup_signal(raw_path)
                 if status in ("no_match", "unknown"):
-                    print(f"  UNRESOLVED: {raw_path} in {trace_file} -> status={status}")
+                    print(
+                        f"  UNRESOLVED: {raw_path} in {trace_file} -> status={status}"
+                    )
 else:
     print("\nAll signals resolved successfully!")

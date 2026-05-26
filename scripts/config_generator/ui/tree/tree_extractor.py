@@ -1,7 +1,6 @@
 from typing import Dict, List, Optional, Set
 
 from PyQt6.QtWidgets import QComboBox
-
 from ui.tree.tree_base import ConfigTreeManager
 from ui.ui_components import SignalComboBox
 

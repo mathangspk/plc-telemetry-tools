@@ -1,6 +1,7 @@
 import logging
 from typing import Dict, List
 
+import ui.tree.tree_extractor as extractor
 from PyQt6.QtWidgets import (
     QComboBox,
     QHBoxLayout,
@@ -9,8 +10,6 @@ from PyQt6.QtWidgets import (
     QTreeWidgetItem,
     QWidget,
 )
-
-import ui.tree.tree_extractor as extractor
 from ui.tree.tree_base import ConfigTreeManager
 from ui.ui_components import SignalComboBox
 

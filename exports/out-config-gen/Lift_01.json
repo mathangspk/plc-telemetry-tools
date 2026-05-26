@@ -92,28 +92,28 @@
       "metric": "Metric250ms"
     },
     {
+      "name": "bMSAB_availFactor",
+      "path": "System/BMSAB/AvailFactor",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_availability",
+      "path": "System/BMSAB/Availability",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "bMSAB_current",
+      "path": "System/BMSAB/Current",
+      "metric": "Metric250ms"
+    },
+    {
       "name": "bMSAB_currentMismatch",
       "path": "System/BMSAB/CurrentMismatch",
       "metric": "Metric250ms"
     },
     {
-      "name": "bMSAB_voltageMismatch",
-      "path": "System/BMSAB/VoltageMismatch",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "bmsa_current",
-      "path": "System/CANBusSystem/cBMSA/Current",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "bmsa_voltage",
-      "path": "System/CANBusSystem/cBMSA/Voltage",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "bmsa_soc",
-      "path": "System/CANBusSystem/cBMSA/SOC",
+      "name": "bMSAB_cycleOutput",
+      "path": "System/BMSAB/CycleOutput",
       "metric": "Metric250ms"
     },
     {
@@ -127,8 +127,8 @@
       "metric": "Metric250ms"
     },
     {
-      "name": "bmsb_voltage",
-      "path": "System/CANBusSystem/cBMSB/Voltage",
+      "name": "bmsb_soh",
+      "path": "System/CANBusSystem/cBMSB/SOH",
       "metric": "Metric250ms"
     }
   ]

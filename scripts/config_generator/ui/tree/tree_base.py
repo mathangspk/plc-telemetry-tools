@@ -1,8 +1,7 @@
 import logging
 
-from PyQt6.QtWidgets import QTreeWidget, QWidget
-
 from core.data_loader import DataLoader
+from PyQt6.QtWidgets import QTreeWidget, QWidget
 
 logger = logging.getLogger(__name__)
 

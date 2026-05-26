@@ -1,17 +1,21 @@
 import json
 import os
-import pytest
-from PyQt6.QtWidgets import QApplication, QWidget
+import sys
 from pathlib import Path
 
-import sys
-sys.path.append(str(Path(__file__).parent.parent.parent / "scripts" / "config_generator"))
+import pytest
+from PyQt6.QtWidgets import QApplication, QWidget
 
-from ui.tree.tree_base import ConfigTreeManager
+sys.path.append(
+    str(Path(__file__).parent.parent.parent / "scripts" / "config_generator")
+)
+
 from core.data_loader import DataLoader
+from ui.tree.tree_base import ConfigTreeManager
 
 # Giả định hàm tính năng mới sẽ được triển khai ở đây
 from ui.tree.tree_importer import reconstruct_tree_from_config
+
 
 @pytest.fixture
 def app():
@@ -20,6 +24,7 @@ def app():
         app = QApplication(sys.argv)
     return app
 
+
 @pytest.fixture
 def mock_pool_file(tmp_path):
     pool_data = {
@@ -27,12 +32,13 @@ def mock_pool_file(tmp_path):
         "signals": [
             {"name": "transA_current", "path": "p1"},
             {"name": "transA_voltage", "path": "p2"},
-            {"name": "Motor_temp", "path": "p3"}
-        ]
+            {"name": "Motor_temp", "path": "p3"},
+        ],
     }
     file_path = tmp_path / "pool.json"
     file_path.write_text(json.dumps(pool_data))
     return file_path
+
 
 @pytest.fixture
 def exported_config_file(tmp_path):
@@ -40,30 +46,31 @@ def exported_config_file(tmp_path):
         "name": "TestTrace",
         "signals": [
             {"name": "transA_current", "path": "p1", "metric": "M1"},
-            {"name": "Motor_temp", "path": "p3", "metric": "M2"}
-        ]
+            {"name": "Motor_temp", "path": "p3", "metric": "M2"},
+        ],
     }
     file_path = tmp_path / "config.json"
     file_path.write_text(json.dumps(config_data))
     return file_path
+
 
 def test_reconstruct_tree_success(app, mock_pool_file, exported_config_file):
     """Kiểm tra xem hệ thống có tự động nhóm (group) lại các tín hiệu đã export hay không."""
     loader = DataLoader(mock_pool_file)
     parent = QWidget()
     manager = ConfigTreeManager(parent, loader)
-    
+
     # Thực thi hàm import (Feature mới)
     trace_name = reconstruct_tree_from_config(manager, exported_config_file)
-    
+
     assert trace_name == "TestTrace"
-    assert manager.tree.topLevelItemCount() == 2 # 2 groups: transA, Motor
-    
+    assert manager.tree.topLevelItemCount() == 2  # 2 groups: transA, Motor
+
     # Kiểm tra Group 1 (transA)
     group1 = manager.tree.topLevelItem(0)
     assert group1.text(1) == "transA"
     assert group1.childCount() == 1
-    
+
     sig1 = group1.child(0)
     combo1 = manager.tree.itemWidget(sig1, 1)
     metric_combo1 = manager.tree.itemWidget(sig1, 2).layout().itemAt(0).widget()

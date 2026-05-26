@@ -68,17 +68,12 @@ class DataLoader:
         return self.metrics
 
     def get_signals_by_group(self, group_name: str) -> List[Dict[str, str]]:
-        """Filters and returns signals matching the given group name (case-insensitive).
-
-        Args:
-            group_name (str): The group string to filter signals by.
-
-        Returns:
-            List[Dict[str, str]]: A list of signal dictionaries matching the group name.
-        """
+        """Filters and returns signals matching the given group name (exact match on prefix before underscore)."""
         if not group_name:
             return []
         group_name_lower: str = group_name.lower()
         return [
-            s for s in self.signals if group_name_lower in s.get("name", "").lower()
+            s
+            for s in self.signals
+            if s.get("name", "").lower().split("_")[0] == group_name_lower
         ]

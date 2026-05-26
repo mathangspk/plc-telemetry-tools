@@ -25,28 +25,60 @@ import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 
-
 # IEC 61131-3 primitive / built-in types that should never be resolved
 # against project-defined POUs or DUTs.
-PRIMITIVE_TYPES = frozenset([
-    # Boolean
-    "BOOL",
-    # Integer
-    "SINT", "USINT", "INT", "UINT", "DINT", "UDINT", "LINT", "ULINT",
-    # Floating point
-    "REAL", "LREAL",
-    # Time
-    "TIME", "LTIME", "DATE", "LDATE", "TIME_OF_DAY", "TOD", "LTOD",
-    "DATE_AND_TIME", "DT", "LDATE_AND_TIME", "LDT",
-    # String
-    "STRING", "WSTRING", "CHAR", "WCHAR",
-    # Byte
-    "BYTE", "WORD", "DWORD", "LWORD",
-    # Special
-    "ANY", "ANY_DERIVED", "ANY_ELEMENTARY", "ANY_MAGNITUDE",
-    "ANY_NUM", "ANY_REAL", "ANY_INT", "ANY_BIT", "ANY_STRING",
-    "ANY_DATE", "VOID",
-])
+PRIMITIVE_TYPES = frozenset(
+    [
+        # Boolean
+        "BOOL",
+        # Integer
+        "SINT",
+        "USINT",
+        "INT",
+        "UINT",
+        "DINT",
+        "UDINT",
+        "LINT",
+        "ULINT",
+        # Floating point
+        "REAL",
+        "LREAL",
+        # Time
+        "TIME",
+        "LTIME",
+        "DATE",
+        "LDATE",
+        "TIME_OF_DAY",
+        "TOD",
+        "LTOD",
+        "DATE_AND_TIME",
+        "DT",
+        "LDATE_AND_TIME",
+        "LDT",
+        # String
+        "STRING",
+        "WSTRING",
+        "CHAR",
+        "WCHAR",
+        # Byte
+        "BYTE",
+        "WORD",
+        "DWORD",
+        "LWORD",
+        # Special
+        "ANY",
+        "ANY_DERIVED",
+        "ANY_ELEMENTARY",
+        "ANY_MAGNITUDE",
+        "ANY_NUM",
+        "ANY_REAL",
+        "ANY_INT",
+        "ANY_BIT",
+        "ANY_STRING",
+        "ANY_DATE",
+        "VOID",
+    ]
+)
 
 
 def is_primitive(type_name):
@@ -78,21 +110,21 @@ def extract_base_type_name(type_string):
         return None
 
     # STRING(n) / WSTRING(n)
-    if re.match(r'^(STRING|WSTRING)(\(\d+\))?$', t, re.IGNORECASE):
+    if re.match(r"^(STRING|WSTRING)(\(\d+\))?$", t, re.IGNORECASE):
         return None
 
     # POINTER TO <type>
-    m = re.match(r'^POINTER\s+TO\s+(.+)$', t, re.IGNORECASE)
+    m = re.match(r"^POINTER\s+TO\s+(.+)$", t, re.IGNORECASE)
     if m:
         return extract_base_type_name(m.group(1).strip())
 
     # REFERENCE TO <type>
-    m = re.match(r'^REFERENCE\s+TO\s+(.+)$', t, re.IGNORECASE)
+    m = re.match(r"^REFERENCE\s+TO\s+(.+)$", t, re.IGNORECASE)
     if m:
         return extract_base_type_name(m.group(1).strip())
 
     # ARRAY [...] OF <type>
-    m = re.match(r'^ARRAY\s+\[.+\]\s+OF\s+(.+)$', t, re.IGNORECASE)
+    m = re.match(r"^ARRAY\s+\[.+\]\s+OF\s+(.+)$", t, re.IGNORECASE)
     if m:
         return extract_base_type_name(m.group(1).strip())
 
@@ -222,8 +254,9 @@ def build_xref(pou_index):
       - type_resolution: table of all referenced types with resolution status
       - unresolved: list of type names that could not be resolved
     """
-    known_types, type_to_file, type_to_kind, type_to_pou_type, type_to_dut_base = \
+    known_types, type_to_file, type_to_kind, type_to_pou_type, type_to_dut_base = (
         build_type_registry(pou_index)
+    )
 
     # Forward map: object -> types it uses
     uses_map = {}  # key: "POU:Name" or "DUT:Name"
@@ -244,15 +277,13 @@ def build_xref(pou_index):
                     "file": filename,
                     "kind": "POU",
                     "pou_type": pou.get("pou_type", "unknown"),
-                    "types": {}
+                    "types": {},
                 }
                 for type_name, refs in pou_uses.items():
                     uses_map[key]["types"][type_name] = refs
-                    used_by_map[type_name].append({
-                        "object": key,
-                        "file": filename,
-                        "refs": refs
-                    })
+                    used_by_map[type_name].append(
+                        {"object": key, "file": filename, "refs": refs}
+                    )
                     all_referenced.add(type_name)
 
         for dut in file_entry.get("duts", []):
@@ -263,15 +294,13 @@ def build_xref(pou_index):
                     "file": filename,
                     "kind": "DUT",
                     "base_type": dut.get("base_type", "unknown"),
-                    "types": {}
+                    "types": {},
                 }
                 for type_name, refs in dut_uses.items():
                     uses_map[key]["types"][type_name] = refs
-                    used_by_map[type_name].append({
-                        "object": key,
-                        "file": filename,
-                        "refs": refs
-                    })
+                    used_by_map[type_name].append(
+                        {"object": key, "file": filename, "refs": refs}
+                    )
                     all_referenced.add(type_name)
 
     # Build type resolution table
@@ -308,9 +337,7 @@ def build_xref(pou_index):
         used_by_output[type_name] = unique_users
 
     # Summary
-    total_uses_edges = sum(
-        len(entry["types"]) for entry in uses_map.values()
-    )
+    total_uses_edges = sum(len(entry["types"]) for entry in uses_map.values())
 
     xref = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -358,7 +385,9 @@ def build_dependency_map(xref, pou_index):
     lines.append("| Total POUs | %d |" % s["total_pous"])
     lines.append("| Total DUTs | %d |" % s["total_duts"])
     lines.append("| Resolved type references | %d |" % s["total_resolved_references"])
-    lines.append("| Unresolved type references | %d |" % s["total_unresolved_references"])
+    lines.append(
+        "| Unresolved type references | %d |" % s["total_unresolved_references"]
+    )
     lines.append("| Total dependency edges | %d |" % s["total_dependency_edges"])
     lines.append("| Objects with dependencies | %d |" % s["objects_with_dependencies"])
     lines.append("")
@@ -374,8 +403,7 @@ def build_dependency_map(xref, pou_index):
 
     # Sort by used_by count descending
     sorted_types = sorted(
-        xref["type_resolution"],
-        key=lambda t: (-t["used_by_count"], t["type"])
+        xref["type_resolution"], key=lambda t: (-t["used_by_count"], t["type"])
     )
     for entry in sorted_types:
         if entry["used_by_count"] == 0:
@@ -398,18 +426,14 @@ def build_dependency_map(xref, pou_index):
     lines.append("|---|---|---|---|")
 
     sorted_objects = sorted(
-        xref["uses"].items(),
-        key=lambda kv: (-len(kv[1]["types"]), kv[0])
+        xref["uses"].items(), key=lambda kv: (-len(kv[1]["types"]), kv[0])
     )
     for key, entry in sorted_objects:
         name = key.split(":", 1)[1]
         kind = entry["kind"]
         filename = entry["file"]
         dep_count = len(entry["types"])
-        lines.append(
-            "| `%s` | %s | %s | %d |"
-            % (name, kind, filename, dep_count)
-        )
+        lines.append("| `%s` | %s | %s | %d |" % (name, kind, filename, dep_count))
     lines.append("")
 
     # Unresolved references
@@ -436,10 +460,7 @@ def build_dependency_map(xref, pou_index):
     files = pou_index["files"]
     for file_entry in files:
         filename = file_entry["filename"]
-        file_objects = {
-            k: v for k, v in xref["uses"].items()
-            if v["file"] == filename
-        }
+        file_objects = {k: v for k, v in xref["uses"].items() if v["file"] == filename}
         if not file_objects:
             continue
 
@@ -482,22 +503,22 @@ def build_dependency_map(xref, pou_index):
     # Impact analysis section
     lines.append("## Impact Analysis")
     lines.append("")
-    lines.append("Use this section to answer: *\"If I change X, what else is affected?\"*")
+    lines.append(
+        'Use this section to answer: *"If I change X, what else is affected?"*'
+    )
     lines.append("")
     lines.append("### High-Impact Types (used by 5+ objects)")
     lines.append("")
 
-    high_impact = [
-        e for e in sorted_types
-        if e["used_by_count"] >= 5
-    ]
+    high_impact = [e for e in sorted_types if e["used_by_count"] >= 5]
     if high_impact:
         for entry in high_impact:
             type_name = entry["type"]
             users = xref["used_by"].get(type_name, [])
-            lines.append("#### `%s` (%s, used by %d objects)" % (
-                type_name, entry.get("kind", "external"), entry["used_by_count"]
-            ))
+            lines.append(
+                "#### `%s` (%s, used by %d objects)"
+                % (type_name, entry.get("kind", "external"), entry["used_by_count"])
+            )
             lines.append("")
             lines.append("Defined in: `%s`" % entry.get("defined_in", "(external)"))
             lines.append("")
@@ -505,9 +526,7 @@ def build_dependency_map(xref, pou_index):
             lines.append("")
             for u in sorted(users, key=lambda x: x["object"]):
                 obj_name = u["object"].split(":", 1)[1]
-                ref_details = ", ".join(
-                    "%s.%s" % (cat, var) for cat, var in u["refs"]
-                )
+                ref_details = ", ".join("%s.%s" % (cat, var) for cat, var in u["refs"])
                 lines.append("- `%s` (via %s)" % (obj_name, ref_details))
             lines.append("")
     else:
@@ -521,8 +540,19 @@ def build_dependency_map(xref, pou_index):
     lines.append("core system roles (parser, server, system, etc.).")
     lines.append("")
 
-    key_patterns = ["system", "parser", "server", "master", "manager", "handler",
-                    "connection", "channel", "reportable", "particle", "executor"]
+    key_patterns = [
+        "system",
+        "parser",
+        "server",
+        "master",
+        "manager",
+        "handler",
+        "connection",
+        "channel",
+        "reportable",
+        "particle",
+        "executor",
+    ]
     key_objects = []
     for key in sorted(xref["uses"].keys()):
         name_lower = key.split(":", 1)[1].lower()
@@ -544,7 +574,8 @@ def build_dependency_map(xref, pou_index):
                     for tr in xref["type_resolution"]:
                         if tr["type"] == dep:
                             dep_info = " (%s in %s)" % (
-                                tr.get("kind", "?"), tr.get("defined_in", "?")
+                                tr.get("kind", "?"),
+                                tr.get("defined_in", "?"),
                             )
                             break
                     lines.append("- `%s`%s" % (dep, dep_info))
@@ -600,7 +631,10 @@ def main():
     pou_index_path = os.path.join(export_dir, "POU_INDEX.json")
     if not os.path.isfile(pou_index_path):
         print("ERROR: POU_INDEX.json not found in %s" % export_dir, file=sys.stderr)
-        print("Run scripts/index_xml.py first to generate POU_INDEX.json.", file=sys.stderr)
+        print(
+            "Run scripts/index_xml.py first to generate POU_INDEX.json.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     print("Loading POU_INDEX.json from %s ..." % pou_index_path)
@@ -642,8 +676,7 @@ def main():
     if xref["unresolved"]:
         print("\n  Top unresolved types (by reference count):")
         unresolved_with_counts = [
-            (t, len(xref["used_by"].get(t, [])))
-            for t in xref["unresolved"]
+            (t, len(xref["used_by"].get(t, []))) for t in xref["unresolved"]
         ]
         unresolved_with_counts.sort(key=lambda x: -x[1])
         for t, count in unresolved_with_counts[:10]:

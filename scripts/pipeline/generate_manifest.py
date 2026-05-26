@@ -27,10 +27,12 @@ def scan_xml_files(xml_dir):
         if fname.lower().endswith(".xml"):
             fpath = os.path.join(xml_dir, fname)
             size_kb = round(os.path.getsize(fpath) / 1024.0, 1)
-            files.append({
-                "filename": fname,
-                "size_kb": size_kb,
-            })
+            files.append(
+                {
+                    "filename": fname,
+                    "size_kb": size_kb,
+                }
+            )
     return files
 
 

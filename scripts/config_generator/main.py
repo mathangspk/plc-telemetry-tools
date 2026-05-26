@@ -2,9 +2,8 @@ import logging
 import sys
 from pathlib import Path
 
-from PyQt6.QtWidgets import QApplication
-
 from core.data_loader import DataLoader
+from PyQt6.QtWidgets import QApplication
 from ui.main_window import ConfigApp
 
 logging.basicConfig(

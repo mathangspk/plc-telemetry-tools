@@ -35,45 +35,133 @@ from datetime import datetime, timezone
 NS = {"plc": "http://www.plcopen.org/xml/tc6_0200"}
 
 # IEC 61131-3 primitive / built-in types — never treated as project dependencies.
-PRIMITIVE_TYPES = frozenset([
-    "BOOL", "SINT", "USINT", "INT", "UINT", "DINT", "UDINT", "LINT", "ULINT",
-    "REAL", "LREAL",
-    "TIME", "LTIME", "DATE", "LDATE", "TIME_OF_DAY", "TOD", "LTOD",
-    "DATE_AND_TIME", "DT", "LDATE_AND_TIME", "LDT",
-    "STRING", "WSTRING", "CHAR", "WCHAR",
-    "BYTE", "WORD", "DWORD", "LWORD",
-    "ANY", "ANY_DERIVED", "ANY_ELEMENTARY", "ANY_MAGNITUDE",
-    "ANY_NUM", "ANY_REAL", "ANY_INT", "ANY_BIT", "ANY_STRING",
-    "ANY_DATE", "VOID",
-])
+PRIMITIVE_TYPES = frozenset(
+    [
+        "BOOL",
+        "SINT",
+        "USINT",
+        "INT",
+        "UINT",
+        "DINT",
+        "UDINT",
+        "LINT",
+        "ULINT",
+        "REAL",
+        "LREAL",
+        "TIME",
+        "LTIME",
+        "DATE",
+        "LDATE",
+        "TIME_OF_DAY",
+        "TOD",
+        "LTOD",
+        "DATE_AND_TIME",
+        "DT",
+        "LDATE_AND_TIME",
+        "LDT",
+        "STRING",
+        "WSTRING",
+        "CHAR",
+        "WCHAR",
+        "BYTE",
+        "WORD",
+        "DWORD",
+        "LWORD",
+        "ANY",
+        "ANY_DERIVED",
+        "ANY_ELEMENTARY",
+        "ANY_MAGNITUDE",
+        "ANY_NUM",
+        "ANY_REAL",
+        "ANY_INT",
+        "ANY_BIT",
+        "ANY_STRING",
+        "ANY_DATE",
+        "VOID",
+    ]
+)
 
 # IEC 61131-3 standard library FBs/functions that are NOT project-defined.
 # These are excluded from project dependency graphs but tracked separately.
-STANDARD_LIBRARY_NAMES = frozenset([
-    # Timers
-    "TON", "TOF", "TP", "TONR",
-    # Counters
-    "CTU", "CTD", "CTUD",
-    # Triggers / edge detection
-    "R_TRIG", "F_TRIG", "RF_TRIG", "RS", "SR",
-    # Selectors / mux
-    "SEL", "MAX", "MIN", "LIMIT", "MUX",
-    # Comparators
-    "GT", "GE", "EQ", "LE", "LT", "NE",
-    # Math
-    "ABS", "SQRT", "LN", "LOG", "EXP", "SIN", "COS", "TAN", "ASIN", "ACOS", "ATAN",
-    # Conversions (common ones)
-    "INT_TO_REAL", "REAL_TO_INT", "DWORD_TO_STRING", "STRING_TO_DWORD",
-    "INT_TO_STRING", "STRING_TO_INT", "BOOL_TO_STRING",
-    # String operations
-    "LEN", "LEFT", "RIGHT", "MID", "CONCAT", "INSERT", "DELETE", "REPLACE",
-    "FIND",
-    # Bit operations
-    "SHL", "SHR", "ROL", "ROR", "AND", "OR", "XOR", "NOT",
-    # SysLib / 3S specific (common)
-    "SysSockCreate", "SysSockBind", "SysSockListen", "SysSockAccept",
-    "SysSockClose", "SysSockSend", "SysSockRecv",
-])
+STANDARD_LIBRARY_NAMES = frozenset(
+    [
+        # Timers
+        "TON",
+        "TOF",
+        "TP",
+        "TONR",
+        # Counters
+        "CTU",
+        "CTD",
+        "CTUD",
+        # Triggers / edge detection
+        "R_TRIG",
+        "F_TRIG",
+        "RF_TRIG",
+        "RS",
+        "SR",
+        # Selectors / mux
+        "SEL",
+        "MAX",
+        "MIN",
+        "LIMIT",
+        "MUX",
+        # Comparators
+        "GT",
+        "GE",
+        "EQ",
+        "LE",
+        "LT",
+        "NE",
+        # Math
+        "ABS",
+        "SQRT",
+        "LN",
+        "LOG",
+        "EXP",
+        "SIN",
+        "COS",
+        "TAN",
+        "ASIN",
+        "ACOS",
+        "ATAN",
+        # Conversions (common ones)
+        "INT_TO_REAL",
+        "REAL_TO_INT",
+        "DWORD_TO_STRING",
+        "STRING_TO_DWORD",
+        "INT_TO_STRING",
+        "STRING_TO_INT",
+        "BOOL_TO_STRING",
+        # String operations
+        "LEN",
+        "LEFT",
+        "RIGHT",
+        "MID",
+        "CONCAT",
+        "INSERT",
+        "DELETE",
+        "REPLACE",
+        "FIND",
+        # Bit operations
+        "SHL",
+        "SHR",
+        "ROL",
+        "ROR",
+        "AND",
+        "OR",
+        "XOR",
+        "NOT",
+        # SysLib / 3S specific (common)
+        "SysSockCreate",
+        "SysSockBind",
+        "SysSockListen",
+        "SysSockAccept",
+        "SysSockClose",
+        "SysSockSend",
+        "SysSockRecv",
+    ]
+)
 
 
 def is_primitive(type_name):
@@ -89,6 +177,7 @@ def is_standard_library(name):
 # ---------------------------------------------------------------------------
 # ST code extraction from XML
 # ---------------------------------------------------------------------------
+
 
 def extract_st_from_element(elem):
     """Extract ST code text from a <body><ST><xhtml>...</xhtml></ST></body> subtree.
@@ -157,7 +246,9 @@ def extract_all_st_bodies(pou_elem):
                     method_name = method.get("name", "unknown")
                     code = extract_st_from_element(method)
                     if code:
-                        bodies.append({"context": "Method:%s" % method_name, "code": code})
+                        bodies.append(
+                            {"context": "Method:%s" % method_name, "code": code}
+                        )
 
             # Properties
             elif "property" in data_name.lower():
@@ -168,19 +259,23 @@ def extract_all_st_bodies(pou_elem):
                     if set_acc is not None:
                         code = extract_st_from_element(set_acc)
                         if code:
-                            bodies.append({
-                                "context": "Property:%s:SetAccessor" % prop_name,
-                                "code": code,
-                            })
+                            bodies.append(
+                                {
+                                    "context": "Property:%s:SetAccessor" % prop_name,
+                                    "code": code,
+                                }
+                            )
                     # GetAccessor
                     get_acc = prop.find("plc:GetAccessor", NS)
                     if get_acc is not None:
                         code = extract_st_from_element(get_acc)
                         if code:
-                            bodies.append({
-                                "context": "Property:%s:GetAccessor" % prop_name,
-                                "code": code,
-                            })
+                            bodies.append(
+                                {
+                                    "context": "Property:%s:GetAccessor" % prop_name,
+                                    "code": code,
+                                }
+                            )
 
     return bodies
 
@@ -190,10 +285,11 @@ def extract_all_st_bodies(pou_elem):
 # ---------------------------------------------------------------------------
 
 # IEC identifier: starts with letter or underscore, followed by alphanumerics or underscores.
-IEC_IDENT = r'[A-Za-z_][A-Za-z0-9_]*'
+IEC_IDENT = r"[A-Za-z_][A-Za-z0-9_]*"
 
 # Patterns for extracting references from ST code.
 # Each pattern returns a list of (reference_name, category) tuples.
+
 
 def find_fb_function_calls(st_code):
     """Find FB instantiation calls and function invocations.
@@ -204,25 +300,82 @@ def find_fb_function_calls(st_code):
     calls = []
     # Match identifier followed by ( — but not preceded by . (that's a method call)
     # and not one of the excluded keywords.
-    excluded = frozenset([
-        "IF", "ELSE", "ELSIF", "THEN", "END_IF", "FOR", "TO", "DO", "END_FOR",
-        "WHILE", "END_WHILE", "REPEAT", "UNTIL", "END_REPEAT", "CASE", "OF",
-        "END_CASE", "RETURN", "EXIT", "CONTINUE", "VAR", "END_VAR",
-        "TRUE", "FALSE", "AND", "OR", "NOT", "XOR", "MOD",
-        # Common conversion functions that are built-in
-        "INT_TO_UINT", "UINT_TO_INT", "INT_TO_DINT", "DINT_TO_INT",
-        "INT_TO_REAL", "REAL_TO_INT", "INT_TO_STRING", "STRING_TO_INT",
-        "BOOL_TO_STRING", "DWORD_TO_STRING", "STRING_TO_DWORD",
-        "BYTE_TO_STRING", "WORD_TO_STRING",
-        "LEN", "LEFT", "RIGHT", "MID", "CONCAT", "INSERT", "DELETE", "REPLACE",
-        "FIND", "UPPER", "LOWER", "TRIM",
-        "ABS", "SQRT", "LN", "LOG", "EXP", "SIN", "COS", "TAN",
-        "SHL", "SHR", "ROL", "ROR",
-        "SIZEOF", "ADR",
-    ])
+    excluded = frozenset(
+        [
+            "IF",
+            "ELSE",
+            "ELSIF",
+            "THEN",
+            "END_IF",
+            "FOR",
+            "TO",
+            "DO",
+            "END_FOR",
+            "WHILE",
+            "END_WHILE",
+            "REPEAT",
+            "UNTIL",
+            "END_REPEAT",
+            "CASE",
+            "OF",
+            "END_CASE",
+            "RETURN",
+            "EXIT",
+            "CONTINUE",
+            "VAR",
+            "END_VAR",
+            "TRUE",
+            "FALSE",
+            "AND",
+            "OR",
+            "NOT",
+            "XOR",
+            "MOD",
+            # Common conversion functions that are built-in
+            "INT_TO_UINT",
+            "UINT_TO_INT",
+            "INT_TO_DINT",
+            "DINT_TO_INT",
+            "INT_TO_REAL",
+            "REAL_TO_INT",
+            "INT_TO_STRING",
+            "STRING_TO_INT",
+            "BOOL_TO_STRING",
+            "DWORD_TO_STRING",
+            "STRING_TO_DWORD",
+            "BYTE_TO_STRING",
+            "WORD_TO_STRING",
+            "LEN",
+            "LEFT",
+            "RIGHT",
+            "MID",
+            "CONCAT",
+            "INSERT",
+            "DELETE",
+            "REPLACE",
+            "FIND",
+            "UPPER",
+            "LOWER",
+            "TRIM",
+            "ABS",
+            "SQRT",
+            "LN",
+            "LOG",
+            "EXP",
+            "SIN",
+            "COS",
+            "TAN",
+            "SHL",
+            "SHR",
+            "ROL",
+            "ROR",
+            "SIZEOF",
+            "ADR",
+        ]
+    )
 
     # Pattern: word boundary + identifier + (  but NOT preceded by . or ^
-    pattern = r'(?<![.\^])\b(' + IEC_IDENT + r')\s*\('
+    pattern = r"(?<![.\^])\b(" + IEC_IDENT + r")\s*\("
     for m in re.finditer(pattern, st_code):
         name = m.group(1)
         if name.upper() not in excluded and not is_primitive(name):
@@ -238,7 +391,7 @@ def find_method_calls(st_code):
     """
     calls = []
     # Match: identifier.identifier(
-    pattern = r'\b(' + IEC_IDENT + r')\.(' + IEC_IDENT + r')\s*\('
+    pattern = r"\b(" + IEC_IDENT + r")\.(" + IEC_IDENT + r")\s*\("
     for m in re.finditer(pattern, st_code):
         obj_name = m.group(1)
         method_name = m.group(2)
@@ -257,7 +410,7 @@ def find_property_accesses(st_code):
     accesses = []
     # Match: identifier.identifier NOT followed by (
     # Use negative lookahead for (
-    pattern = r'\b(' + IEC_IDENT + r')\.(' + IEC_IDENT + r')(?!\s*\()'
+    pattern = r"\b(" + IEC_IDENT + r")\.(" + IEC_IDENT + r")(?!\s*\()"
     for m in re.finditer(pattern, st_code):
         obj_name = m.group(1)
         prop_name = m.group(2)
@@ -278,7 +431,7 @@ def find_type_references_in_declarations(st_code):
     refs = []
     # Type conversion / cast: TypeName(expression)
     # This overlaps with FB calls, so we only capture ones that look like conversions
-    cast_pattern = r'\b(' + IEC_IDENT + r')\s*\(\s*(' + IEC_IDENT + r')\s*\)'
+    cast_pattern = r"\b(" + IEC_IDENT + r")\s*\(\s*(" + IEC_IDENT + r")\s*\)"
     for m in re.finditer(cast_pattern, st_code):
         type_name = m.group(1)
         if not is_primitive(type_name) and not is_standard_library(type_name):
@@ -305,7 +458,7 @@ def find_named_references(st_code, known_types):
 
     # Escape special regex chars in type names
     escaped = [re.escape(t) for t in sorted_types]
-    pattern = r'\b(' + '|'.join(escaped) + r')\b'
+    pattern = r"\b(" + "|".join(escaped) + r")\b"
 
     for m in re.finditer(pattern, st_code):
         name = m.group(1)
@@ -366,6 +519,7 @@ def analyze_st_body(st_code, known_types):
 # XML file parsing for implementation bodies
 # ---------------------------------------------------------------------------
 
+
 def parse_xml_for_impl_bodies(filepath):
     """Parse a single XML file and extract all POU implementation bodies.
 
@@ -393,11 +547,13 @@ def parse_xml_for_impl_bodies(filepath):
         pou_type = pou.get("pouType", "")
         bodies = extract_all_st_bodies(pou)
         if bodies:
-            results.append({
-                "pou_name": name,
-                "pou_type": pou_type,
-                "bodies": bodies,
-            })
+            results.append(
+                {
+                    "pou_name": name,
+                    "pou_type": pou_type,
+                    "bodies": bodies,
+                }
+            )
 
     return results
 
@@ -405,6 +561,7 @@ def parse_xml_for_impl_bodies(filepath):
 # ---------------------------------------------------------------------------
 # Build implementation dependency data
 # ---------------------------------------------------------------------------
+
 
 def build_impl_deps(export_dir, pou_index):
     """Build the full implementation-level dependency data structure.
@@ -496,17 +653,25 @@ def build_impl_deps(export_dir, pou_index):
 
                 # Record per-body detail (only if there are references)
                 if fb or mc or pa or tc or ir:
-                    body_details.append({
-                        "context": body["context"],
-                        "fb_calls": sorted(fb),
-                        "method_calls": sorted(mc),
-                        "property_accesses": sorted(pa),
-                        "type_casts": sorted(tc),
-                        "impl_refs": sorted(ir),
-                    })
+                    body_details.append(
+                        {
+                            "context": body["context"],
+                            "fb_calls": sorted(fb),
+                            "method_calls": sorted(mc),
+                            "property_accesses": sorted(pa),
+                            "type_casts": sorted(tc),
+                            "impl_refs": sorted(ir),
+                        }
+                    )
 
             # Only record POUs that have implementation-level references
-            if all_fb_calls or all_method_calls or all_prop_accesses or all_type_casts or all_impl_refs:
+            if (
+                all_fb_calls
+                or all_method_calls
+                or all_prop_accesses
+                or all_type_casts
+                or all_impl_refs
+            ):
                 impl_deps[key] = {
                     "file": fname,
                     "kind": "POU",
@@ -528,13 +693,21 @@ def build_impl_deps(export_dir, pou_index):
                 total_impl_refs_found += len(all_impl_refs)
 
                 # Update reverse map
-                all_refs = all_fb_calls | all_method_calls | all_prop_accesses | all_type_casts | all_impl_refs
+                all_refs = (
+                    all_fb_calls
+                    | all_method_calls
+                    | all_prop_accesses
+                    | all_type_casts
+                    | all_impl_refs
+                )
                 for ref_name in all_refs:
                     if ref_name in known_types:
-                        impl_used_by[ref_name].append({
-                            "object": key,
-                            "file": fname,
-                        })
+                        impl_used_by[ref_name].append(
+                            {
+                                "object": key,
+                                "file": fname,
+                            }
+                        )
 
     # Determine impl-only types (referenced in impl but NOT in interface)
     # We need the interface-derived uses from XREF.json if available
@@ -587,24 +760,28 @@ def build_impl_deps(export_dir, pou_index):
     impl_only_list = []
     for type_name in sorted(impl_only_types):
         users = impl_used_by.get(type_name, [])
-        impl_only_list.append({
-            "type": type_name,
-            "used_by_count": len(users),
-            "defined_in": type_to_file.get(type_name, "unknown"),
-            "kind": type_to_kind.get(type_name, "unknown"),
-        })
+        impl_only_list.append(
+            {
+                "type": type_name,
+                "used_by_count": len(users),
+                "defined_in": type_to_file.get(type_name, "unknown"),
+                "kind": type_to_kind.get(type_name, "unknown"),
+            }
+        )
     impl_only_list.sort(key=lambda x: (-x["used_by_count"], x["type"]))
 
     # Top impl-referenced types (by fan-in)
     top_impl_types = []
     for type_name in sorted(impl_used_by.keys(), key=lambda t: -len(impl_used_by[t])):
         users = impl_used_by[type_name]
-        top_impl_types.append({
-            "type": type_name,
-            "impl_used_by_count": len(users),
-            "defined_in": type_to_file.get(type_name, "unknown"),
-            "kind": type_to_kind.get(type_name, "unknown"),
-        })
+        top_impl_types.append(
+            {
+                "type": type_name,
+                "impl_used_by_count": len(users),
+                "defined_in": type_to_file.get(type_name, "unknown"),
+                "kind": type_to_kind.get(type_name, "unknown"),
+            }
+        )
     top_impl_types = top_impl_types[:50]
 
     return {
@@ -625,17 +802,28 @@ def build_impl_deps(export_dir, pou_index):
 # Human-readable IMPL_DEPENDENCY_MAP.md
 # ---------------------------------------------------------------------------
 
+
 def build_impl_dependency_map(impl_data, pou_index):
     """Generate a human-readable IMPL_DEPENDENCY_MAP.md from implementation dependency data."""
     lines = []
     lines.append("# IMPL_DEPENDENCY_MAP — Implementation-Level Dependency Analysis")
     lines.append("")
-    lines.append("> Auto-generated by `scripts/extract_impl_deps.py`. Do not edit manually.")
+    lines.append(
+        "> Auto-generated by `scripts/extract_impl_deps.py`. Do not edit manually."
+    )
     lines.append("")
-    lines.append("This document captures dependencies discovered by scanning **ST (Structured Text)")
-    lines.append("implementation bodies** — method bodies, property accessors, and POU bodies.")
-    lines.append("These are **behavioral** dependencies (how code actually uses other objects)")
-    lines.append("as opposed to **structural** dependencies from interface declarations")
+    lines.append(
+        "This document captures dependencies discovered by scanning **ST (Structured Text)"
+    )
+    lines.append(
+        "implementation bodies** — method bodies, property accessors, and POU bodies."
+    )
+    lines.append(
+        "These are **behavioral** dependencies (how code actually uses other objects)"
+    )
+    lines.append(
+        "as opposed to **structural** dependencies from interface declarations"
+    )
     lines.append("(VAR_INPUT, VAR_OUTPUT, VAR, etc.) captured in Phase 3.")
     lines.append("")
 
@@ -649,7 +837,9 @@ def build_impl_dependency_map(impl_data, pou_index):
     lines.append("| POUs with impl-level deps | %d |" % s["total_pous_with_impl_deps"])
     lines.append("| FB/function calls found | %d |" % s["total_fb_calls_found"])
     lines.append("| Method calls found | %d |" % s["total_method_calls_found"])
-    lines.append("| Property accesses found | %d |" % s["total_property_accesses_found"])
+    lines.append(
+        "| Property accesses found | %d |" % s["total_property_accesses_found"]
+    )
     lines.append("| Type casts found | %d |" % s["total_type_casts_found"])
     lines.append("| Implementation refs found | %d |" % s["total_impl_refs_found"])
     lines.append("| Types referenced in impl | %d |" % s["total_impl_referenced_types"])
@@ -661,10 +851,18 @@ def build_impl_dependency_map(impl_data, pou_index):
     lines.append("")
     lines.append("| Aspect | Structural (Phase 3) | Behavioral (Phase 4) |")
     lines.append("|---|---|---|")
-    lines.append("| Source | Interface declarations (VAR_*) | ST implementation bodies |")
-    lines.append("| Captures | Declared variable types | FB calls, method calls, property accesses, type casts |")
-    lines.append("| Certainty | Definite (compiler-enforced) | Inferred (regex-based pattern matching) |")
-    lines.append("| Scope | POU/DUT interface only | All code including methods and properties |")
+    lines.append(
+        "| Source | Interface declarations (VAR_*) | ST implementation bodies |"
+    )
+    lines.append(
+        "| Captures | Declared variable types | FB calls, method calls, property accesses, type casts |"
+    )
+    lines.append(
+        "| Certainty | Definite (compiler-enforced) | Inferred (regex-based pattern matching) |"
+    )
+    lines.append(
+        "| Scope | POU/DUT interface only | All code including methods and properties |"
+    )
     lines.append("")
 
     # Top impl-referenced types
@@ -680,7 +878,12 @@ def build_impl_dependency_map(impl_data, pou_index):
     for entry in impl_data["top_impl_referenced_types"][:30]:
         lines.append(
             "| `%s` | %s | %s | %d |"
-            % (entry["type"], entry["kind"], entry["defined_in"], entry["impl_used_by_count"])
+            % (
+                entry["type"],
+                entry["kind"],
+                entry["defined_in"],
+                entry["impl_used_by_count"],
+            )
         )
     lines.append("")
 
@@ -701,7 +904,12 @@ def build_impl_dependency_map(impl_data, pou_index):
         for entry in impl_data["impl_only_types"][:30]:
             lines.append(
                 "| `%s` | %s | %s | %d |"
-                % (entry["type"], entry["kind"], entry["defined_in"], entry["used_by_count"])
+                % (
+                    entry["type"],
+                    entry["kind"],
+                    entry["defined_in"],
+                    entry["used_by_count"],
+                )
             )
         lines.append("")
 
@@ -729,37 +937,44 @@ def build_impl_dependency_map(impl_data, pou_index):
             lines.append("- **ST bodies analyzed:** %d" % entry["total_bodies"])
 
             if entry["fb_calls"]:
-                lines.append("- **FB/function calls:** %s" % ", ".join(
-                    "`%s`" % t for t in entry["fb_calls"][:20]
-                ))
+                lines.append(
+                    "- **FB/function calls:** %s"
+                    % ", ".join("`%s`" % t for t in entry["fb_calls"][:20])
+                )
                 if len(entry["fb_calls"]) > 20:
                     lines.append("  *(+%d more)*" % (len(entry["fb_calls"]) - 20))
 
             if entry["method_calls"]:
-                lines.append("- **Method call targets:** %s" % ", ".join(
-                    "`%s`" % t for t in entry["method_calls"][:20]
-                ))
+                lines.append(
+                    "- **Method call targets:** %s"
+                    % ", ".join("`%s`" % t for t in entry["method_calls"][:20])
+                )
                 if len(entry["method_calls"]) > 20:
                     lines.append("  *(+%d more)*" % (len(entry["method_calls"]) - 20))
 
             if entry["property_accesses"]:
-                lines.append("- **Property access targets:** %s" % ", ".join(
-                    "`%s`" % t for t in entry["property_accesses"][:20]
-                ))
+                lines.append(
+                    "- **Property access targets:** %s"
+                    % ", ".join("`%s`" % t for t in entry["property_accesses"][:20])
+                )
                 if len(entry["property_accesses"]) > 20:
-                    lines.append("  *(+%d more)*" % (len(entry["property_accesses"]) - 20))
+                    lines.append(
+                        "  *(+%d more)*" % (len(entry["property_accesses"]) - 20)
+                    )
 
             if entry["type_casts"]:
-                lines.append("- **Type casts:** %s" % ", ".join(
-                    "`%s`" % t for t in entry["type_casts"][:20]
-                ))
+                lines.append(
+                    "- **Type casts:** %s"
+                    % ", ".join("`%s`" % t for t in entry["type_casts"][:20])
+                )
                 if len(entry["type_casts"]) > 20:
                     lines.append("  *(+%d more)*" % (len(entry["type_casts"]) - 20))
 
             if entry["impl_refs"]:
-                lines.append("- **Implementation refs:** %s" % ", ".join(
-                    "`%s`" % t for t in entry["impl_refs"][:30]
-                ))
+                lines.append(
+                    "- **Implementation refs:** %s"
+                    % ", ".join("`%s`" % t for t in entry["impl_refs"][:30])
+                )
                 if len(entry["impl_refs"]) > 30:
                     lines.append("  *(+%d more)*" % (len(entry["impl_refs"]) - 30))
 
@@ -768,23 +983,43 @@ def build_impl_dependency_map(impl_data, pou_index):
             # Show body-level detail for the first few bodies with references
             if entry.get("body_details"):
                 lines.append("<details>")
-                lines.append("<summary>Body-level detail (%d bodies with refs)</summary>" % len(entry["body_details"]))
+                lines.append(
+                    "<summary>Body-level detail (%d bodies with refs)</summary>"
+                    % len(entry["body_details"])
+                )
                 lines.append("")
                 for bd in entry["body_details"][:10]:
                     lines.append("**%s:**" % bd["context"])
                     if bd["fb_calls"]:
-                        lines.append("- FB calls: %s" % ", ".join("`%s`" % t for t in bd["fb_calls"]))
+                        lines.append(
+                            "- FB calls: %s"
+                            % ", ".join("`%s`" % t for t in bd["fb_calls"])
+                        )
                     if bd["method_calls"]:
-                        lines.append("- Method calls: %s" % ", ".join("`%s`" % t for t in bd["method_calls"]))
+                        lines.append(
+                            "- Method calls: %s"
+                            % ", ".join("`%s`" % t for t in bd["method_calls"])
+                        )
                     if bd["property_accesses"]:
-                        lines.append("- Property accesses: %s" % ", ".join("`%s`" % t for t in bd["property_accesses"]))
+                        lines.append(
+                            "- Property accesses: %s"
+                            % ", ".join("`%s`" % t for t in bd["property_accesses"])
+                        )
                     if bd["type_casts"]:
-                        lines.append("- Type casts: %s" % ", ".join("`%s`" % t for t in bd["type_casts"]))
+                        lines.append(
+                            "- Type casts: %s"
+                            % ", ".join("`%s`" % t for t in bd["type_casts"])
+                        )
                     if bd["impl_refs"]:
-                        lines.append("- Impl refs: %s" % ", ".join("`%s`" % t for t in bd["impl_refs"][:15]))
+                        lines.append(
+                            "- Impl refs: %s"
+                            % ", ".join("`%s`" % t for t in bd["impl_refs"][:15])
+                        )
                     lines.append("")
                 if len(entry["body_details"]) > 10:
-                    lines.append("*(+%d more bodies)*" % (len(entry["body_details"]) - 10))
+                    lines.append(
+                        "*(+%d more bodies)*" % (len(entry["body_details"]) - 10)
+                    )
                     lines.append("")
                 lines.append("</details>")
                 lines.append("")
@@ -796,21 +1031,29 @@ def build_impl_dependency_map(impl_data, pou_index):
     lines.append("## Implementation Impact Analysis")
     lines.append("")
     lines.append("If you change a type that is referenced in implementation code,")
-    lines.append("the following POUs may be affected (beyond their interface dependencies).")
+    lines.append(
+        "the following POUs may be affected (beyond their interface dependencies)."
+    )
     lines.append("")
 
     # Show types with high impl fan-in
     high_impl_impact = [
-        e for e in impl_data["top_impl_referenced_types"]
+        e
+        for e in impl_data["top_impl_referenced_types"]
         if e["impl_used_by_count"] >= 5
     ]
     if high_impl_impact:
         for entry in high_impl_impact[:15]:
             type_name = entry["type"]
             users = impl_data["impl_used_by"].get(type_name, [])
-            lines.append("### `%s` (referenced in impl by %d POUs)" % (type_name, entry["impl_used_by_count"]))
+            lines.append(
+                "### `%s` (referenced in impl by %d POUs)"
+                % (type_name, entry["impl_used_by_count"])
+            )
             lines.append("")
-            lines.append("Kind: %s | Defined in: `%s`" % (entry["kind"], entry["defined_in"]))
+            lines.append(
+                "Kind: %s | Defined in: `%s`" % (entry["kind"], entry["defined_in"])
+            )
             lines.append("")
             lines.append("POUs that reference this type in implementation:")
             lines.append("")
@@ -828,6 +1071,7 @@ def build_impl_dependency_map(impl_data, pou_index):
 # ---------------------------------------------------------------------------
 # Update INDEX.json
 # ---------------------------------------------------------------------------
+
 
 def update_index_with_phase4(index_path):
     """Update INDEX.json to reference Phase 4 artifacts."""
@@ -864,6 +1108,7 @@ def update_index_with_phase4(index_path):
 # Main
 # ---------------------------------------------------------------------------
 
+
 def main():
     parser = argparse.ArgumentParser(
         description=(
@@ -891,7 +1136,10 @@ def main():
     pou_index_path = os.path.join(export_dir, "POU_INDEX.json")
     if not os.path.isfile(pou_index_path):
         print("ERROR: POU_INDEX.json not found in %s" % export_dir, file=sys.stderr)
-        print("Run scripts/index_xml.py first to generate POU_INDEX.json.", file=sys.stderr)
+        print(
+            "Run scripts/index_xml.py first to generate POU_INDEX.json.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
     print("Loading POU_INDEX.json from %s ..." % pou_index_path)
@@ -939,16 +1187,23 @@ def main():
     if impl_data["top_impl_referenced_types"]:
         print("\n  Top 10 most-referenced types in implementation:")
         for entry in impl_data["top_impl_referenced_types"][:10]:
-            print("    %-45s  %d POUs  (%s)" % (
-                entry["type"], entry["impl_used_by_count"], entry["kind"]
-            ))
+            print(
+                "    %-45s  %d POUs  (%s)"
+                % (entry["type"], entry["impl_used_by_count"], entry["kind"])
+            )
 
     if impl_data["impl_only_types"]:
         print("\n  Top 10 types referenced ONLY in implementation (not in interface):")
         for entry in impl_data["impl_only_types"][:10]:
-            print("    %-45s  %d POUs  (%s in %s)" % (
-                entry["type"], entry["used_by_count"], entry["kind"], entry["defined_in"]
-            ))
+            print(
+                "    %-45s  %d POUs  (%s in %s)"
+                % (
+                    entry["type"],
+                    entry["used_by_count"],
+                    entry["kind"],
+                    entry["defined_in"],
+                )
+            )
 
 
 if __name__ == "__main__":

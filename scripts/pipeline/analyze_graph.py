@@ -27,10 +27,10 @@ import sys
 from collections import defaultdict, deque
 from datetime import datetime, timezone
 
-
 # ---------------------------------------------------------------------------
 # Graph construction from XREF.json
 # ---------------------------------------------------------------------------
+
 
 def build_adjacency_lists(xref):
     """Build forward and reverse adjacency lists from XREF.json.
@@ -45,8 +45,8 @@ def build_adjacency_lists(xref):
 
     Returns (forward, reverse, all_nodes).
     """
-    forward = defaultdict(set)   # A -> {B, C} means A uses B and C
-    reverse = defaultdict(set)   # B -> {A} means A uses B (B is used by A)
+    forward = defaultdict(set)  # A -> {B, C} means A uses B and C
+    reverse = defaultdict(set)  # B -> {A} means A uses B (B is used by A)
     all_nodes = set()
 
     uses = xref.get("uses", {})
@@ -67,6 +67,7 @@ def build_adjacency_lists(xref):
 # ---------------------------------------------------------------------------
 # Transitive closure (forward) — BFS from each node
 # ---------------------------------------------------------------------------
+
 
 def compute_transitive_closure(forward, all_nodes):
     """Compute the transitive closure of the forward (uses) graph.
@@ -96,6 +97,7 @@ def compute_transitive_closure(forward, all_nodes):
 # Impact cascade (reverse transitive closure) — BFS from each node
 # ---------------------------------------------------------------------------
 
+
 def compute_impact_cascade(reverse, all_nodes):
     """Compute the reverse transitive closure (impact cascade).
 
@@ -124,6 +126,7 @@ def compute_impact_cascade(reverse, all_nodes):
 # Shortest path (BFS) between two nodes
 # ---------------------------------------------------------------------------
 
+
 def shortest_path(forward, source, target):
     """Find the shortest dependency path from source to target using BFS.
 
@@ -151,6 +154,7 @@ def shortest_path(forward, source, target):
 # Centrality metrics
 # ---------------------------------------------------------------------------
 
+
 def compute_centrality(forward, reverse, all_nodes):
     """Compute basic centrality metrics for each node.
 
@@ -166,12 +170,14 @@ def compute_centrality(forward, reverse, all_nodes):
     for node in all_nodes:
         in_deg = len(reverse.get(node, set()))
         out_deg = len(forward.get(node, set()))
-        metrics.append({
-            "node": node,
-            "in_degree": in_deg,
-            "out_degree": out_deg,
-            "total_degree": in_deg + out_deg,
-        })
+        metrics.append(
+            {
+                "node": node,
+                "in_degree": in_deg,
+                "out_degree": out_deg,
+                "total_degree": in_deg + out_deg,
+            }
+        )
 
     metrics.sort(key=lambda m: (-m["total_degree"], m["node"]))
     return metrics
@@ -189,6 +195,7 @@ def enrich_centrality_with_transitive(metrics, closure, cascade):
 # ---------------------------------------------------------------------------
 # Notable dependency chains
 # ---------------------------------------------------------------------------
+
 
 def find_notable_chains(forward, reverse, all_nodes, top_n=20):
     """Identify notable dependency chains in the graph.
@@ -212,21 +219,27 @@ def find_notable_chains(forward, reverse, all_nodes, top_n=20):
         out_deg = len(forward.get(node, set()))
 
         if in_deg >= 2 and out_deg >= 2:
-            bridges.append({
-                "node": node,
-                "in_degree": in_deg,
-                "out_degree": out_deg,
-            })
+            bridges.append(
+                {
+                    "node": node,
+                    "in_degree": in_deg,
+                    "out_degree": out_deg,
+                }
+            )
         elif in_deg > 0 and out_deg == 0:
-            leaves.append({
-                "node": node,
-                "in_degree": in_deg,
-            })
+            leaves.append(
+                {
+                    "node": node,
+                    "in_degree": in_deg,
+                }
+            )
         elif out_deg > 0 and in_deg == 0:
-            roots.append({
-                "node": node,
-                "out_degree": out_deg,
-            })
+            roots.append(
+                {
+                    "node": node,
+                    "out_degree": out_deg,
+                }
+            )
 
     bridges.sort(key=lambda b: (-(b["in_degree"] * b["out_degree"]), b["node"]))
     leaves.sort(key=lambda l: (-l["in_degree"], l["node"]))
@@ -242,6 +255,7 @@ def find_notable_chains(forward, reverse, all_nodes, top_n=20):
 # ---------------------------------------------------------------------------
 # Path queries for notable object pairs
 # ---------------------------------------------------------------------------
+
 
 def compute_notable_paths(forward, all_nodes, xref):
     """Compute shortest paths between notable object pairs.
@@ -282,12 +296,14 @@ def compute_notable_paths(forward, all_nodes, xref):
 
             path = shortest_path(forward, build_obj, dep)
             if path:
-                paths.append({
-                    "source": build_obj,
-                    "target": dep,
-                    "hops": len(path) - 1,
-                    "path": path,
-                })
+                paths.append(
+                    {
+                        "source": build_obj,
+                        "target": dep,
+                        "hops": len(path) - 1,
+                        "path": path,
+                    }
+                )
 
     # Sort by hops descending (longer paths first)
     paths.sort(key=lambda p: (-p["hops"], p["source"], p["target"]))
@@ -298,8 +314,10 @@ def compute_notable_paths(forward, all_nodes, xref):
 # Build the full transitive closure output
 # ---------------------------------------------------------------------------
 
-def build_transitive_output(xref, forward, reverse, all_nodes,
-                            closure, cascade, centrality, notable, paths):
+
+def build_transitive_output(
+    xref, forward, reverse, all_nodes, closure, cascade, centrality, notable, paths
+):
     """Assemble the full TRANSITIVE_CLOSURE.json structure."""
     # Convert sets to sorted lists for JSON serialization
     closure_output = {}
@@ -316,16 +334,22 @@ def build_transitive_output(xref, forward, reverse, all_nodes,
 
     # Top impact types (highest transitive impact)
     top_impact = sorted(
-        [{"node": n, "impact_count": len(cascade[n])}
-         for n in all_nodes if cascade.get(n)],
-        key=lambda x: (-x["impact_count"], x["node"])
+        [
+            {"node": n, "impact_count": len(cascade[n])}
+            for n in all_nodes
+            if cascade.get(n)
+        ],
+        key=lambda x: (-x["impact_count"], x["node"]),
     )[:30]
 
     # Top dependency depth (highest transitive deps)
     top_deps = sorted(
-        [{"node": n, "dep_count": len(closure[n])}
-         for n in all_nodes if closure.get(n)],
-        key=lambda x: (-x["dep_count"], x["node"])
+        [
+            {"node": n, "dep_count": len(closure[n])}
+            for n in all_nodes
+            if closure.get(n)
+        ],
+        key=lambda x: (-x["dep_count"], x["node"]),
     )[:30]
 
     return {
@@ -337,12 +361,10 @@ def build_transitive_output(xref, forward, reverse, all_nodes,
         "summary": {
             "total_nodes": len(all_nodes),
             "total_direct_edges": sum(len(v) for v in forward.values()),
-            "nodes_with_transitive_deps": len([
-                n for n in all_nodes if closure.get(n)
-            ]),
-            "nodes_with_transitive_impact": len([
-                n for n in all_nodes if cascade.get(n)
-            ]),
+            "nodes_with_transitive_deps": len([n for n in all_nodes if closure.get(n)]),
+            "nodes_with_transitive_impact": len(
+                [n for n in all_nodes if cascade.get(n)]
+            ),
             "max_transitive_dep_depth": max(
                 (len(closure[n]) for n in all_nodes), default=0
             ),
@@ -364,13 +386,17 @@ def build_transitive_output(xref, forward, reverse, all_nodes,
 # Human-readable CASCADE_ANALYSIS.md
 # ---------------------------------------------------------------------------
 
-def build_cascade_analysis_md(output, xref, forward, reverse, all_nodes,
-                              closure, cascade):
+
+def build_cascade_analysis_md(
+    output, xref, forward, reverse, all_nodes, closure, cascade
+):
     """Generate a human-readable CASCADE_ANALYSIS.md from transitive data."""
     lines = []
     lines.append("# CASCADE_ANALYSIS — Transitive Dependency & Impact Analysis")
     lines.append("")
-    lines.append("> Auto-generated by `scripts/analyze_graph.py`. Do not edit manually.")
+    lines.append(
+        "> Auto-generated by `scripts/analyze_graph.py`. Do not edit manually."
+    )
     lines.append("")
     lines.append("## Summary")
     lines.append("")
@@ -379,10 +405,18 @@ def build_cascade_analysis_md(output, xref, forward, reverse, all_nodes,
     lines.append("|---|---|")
     lines.append("| Total graph nodes | %d |" % s["total_nodes"])
     lines.append("| Total direct dependency edges | %d |" % s["total_direct_edges"])
-    lines.append("| Nodes with transitive dependencies | %d |" % s["nodes_with_transitive_deps"])
-    lines.append("| Nodes with transitive impact | %d |" % s["nodes_with_transitive_impact"])
-    lines.append("| Max transitive dependency count | %d |" % s["max_transitive_dep_depth"])
-    lines.append("| Max transitive impact count | %d |" % s["max_transitive_impact_count"])
+    lines.append(
+        "| Nodes with transitive dependencies | %d |" % s["nodes_with_transitive_deps"]
+    )
+    lines.append(
+        "| Nodes with transitive impact | %d |" % s["nodes_with_transitive_impact"]
+    )
+    lines.append(
+        "| Max transitive dependency count | %d |" % s["max_transitive_dep_depth"]
+    )
+    lines.append(
+        "| Max transitive impact count | %d |" % s["max_transitive_impact_count"]
+    )
     lines.append("")
 
     # Top impact types
@@ -429,9 +463,10 @@ def build_cascade_analysis_md(output, xref, forward, reverse, all_nodes,
 
     for b in output["notable_nodes"]["bridges"][:20]:
         product = b["in_degree"] * b["out_degree"]
-        lines.append("| `%s` | %d | %d | %d |" % (
-            b["node"], b["in_degree"], b["out_degree"], product
-        ))
+        lines.append(
+            "| `%s` | %d | %d | %d |"
+            % (b["node"], b["in_degree"], b["out_degree"], product)
+        )
     lines.append("")
 
     # Leaf nodes (terminal types)
@@ -472,9 +507,9 @@ def build_cascade_analysis_md(output, xref, forward, reverse, all_nodes,
     if output["notable_paths"]:
         for p in output["notable_paths"][:30]:
             path_str = " -> ".join("`%s`" % n for n in p["path"])
-            lines.append("### `%s` -> `%s` (%d hops)" % (
-                p["source"], p["target"], p["hops"]
-            ))
+            lines.append(
+                "### `%s` -> `%s` (%d hops)" % (p["source"], p["target"], p["hops"])
+            )
             lines.append("")
             lines.append("Path: %s" % path_str)
             lines.append("")
@@ -529,14 +564,24 @@ def build_cascade_analysis_md(output, xref, forward, reverse, all_nodes,
     lines.append("")
     lines.append("Objects ranked by total degree (fan-in + fan-out).")
     lines.append("")
-    lines.append("| Rank | Node | Fan-In | Fan-Out | Total | Trans. Impact | Trans. Deps |")
+    lines.append(
+        "| Rank | Node | Fan-In | Fan-Out | Total | Trans. Impact | Trans. Deps |"
+    )
     lines.append("|---|---|---|---|---|---|---|")
 
     for i, m in enumerate(output["centrality"][:30], 1):
-        lines.append("| %d | `%s` | %d | %d | %d | %d | %d |" % (
-            i, m["node"], m["in_degree"], m["out_degree"],
-            m["total_degree"], m["transitive_impact"], m["transitive_deps"]
-        ))
+        lines.append(
+            "| %d | `%s` | %d | %d | %d | %d | %d |"
+            % (
+                i,
+                m["node"],
+                m["in_degree"],
+                m["out_degree"],
+                m["total_degree"],
+                m["transitive_impact"],
+                m["transitive_deps"],
+            )
+        )
     lines.append("")
 
     return "\n".join(lines)
@@ -545,6 +590,7 @@ def build_cascade_analysis_md(output, xref, forward, reverse, all_nodes,
 # ---------------------------------------------------------------------------
 # Update INDEX.json
 # ---------------------------------------------------------------------------
+
 
 def update_index_with_phase35(index_path):
     """Update INDEX.json to reference Phase 3.5 artifacts."""
@@ -578,6 +624,7 @@ def update_index_with_phase35(index_path):
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -635,8 +682,7 @@ def main():
     # Build output
     print("Assembling TRANSITIVE_CLOSURE.json ...")
     output = build_transitive_output(
-        xref, forward, reverse, all_nodes,
-        closure, cascade, centrality, notable, paths
+        xref, forward, reverse, all_nodes, closure, cascade, centrality, notable, paths
     )
 
     # Write TRANSITIVE_CLOSURE.json
@@ -675,14 +721,19 @@ def main():
     if output["top_impact_types"]:
         print("\n  Top 5 highest-impact types:")
         for entry in output["top_impact_types"][:5]:
-            print("    %-45s  affects %d objects" % (entry["node"], entry["impact_count"]))
+            print(
+                "    %-45s  affects %d objects" % (entry["node"], entry["impact_count"])
+            )
 
     if output["notable_paths"]:
-        print("\n  Longest notable path: %d hops (%s -> %s)" % (
-            output["notable_paths"][0]["hops"],
-            output["notable_paths"][0]["source"],
-            output["notable_paths"][0]["target"],
-        ))
+        print(
+            "\n  Longest notable path: %d hops (%s -> %s)"
+            % (
+                output["notable_paths"][0]["hops"],
+                output["notable_paths"][0]["source"],
+                output["notable_paths"][0]["target"],
+            )
+        )
 
 
 if __name__ == "__main__":

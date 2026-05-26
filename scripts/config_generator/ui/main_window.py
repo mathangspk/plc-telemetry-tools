@@ -1,5 +1,6 @@
 import logging
 
+from core.data_loader import DataLoader
 from PyQt6.QtWidgets import (
     QHBoxLayout,
     QLabel,
@@ -9,8 +10,6 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-
-from core.data_loader import DataLoader
 from ui.events_export import on_export_clicked
 from ui.events_import import on_browse_clicked, on_open_config_clicked
 from ui.tree.tree_base import ConfigTreeManager

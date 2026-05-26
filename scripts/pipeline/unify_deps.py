@@ -42,10 +42,10 @@ import sys
 from collections import defaultdict
 from datetime import datetime, timezone
 
-
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
+
 
 def load_json(path):
     """Load a JSON file, returning None if not found."""
@@ -58,6 +58,7 @@ def load_json(path):
 # ---------------------------------------------------------------------------
 # Edge extraction from Phase 3 (interface-derived)
 # ---------------------------------------------------------------------------
+
 
 def extract_interface_edges(xref):
     """Extract interface-derived edges from XREF.json.
@@ -81,14 +82,16 @@ def extract_interface_edges(xref):
         source_file = obj_data.get("file", "unknown")
 
         for type_name, refs in obj_data.get("types", {}).items():
-            edges.append({
-                "source": source_name,
-                "target": type_name,
-                "provenance": "interface",
-                "source_kind": source_kind,
-                "source_file": source_file,
-                "categories": refs,  # e.g. [["VAR", "lBMSA"], ...]
-            })
+            edges.append(
+                {
+                    "source": source_name,
+                    "target": type_name,
+                    "provenance": "interface",
+                    "source_kind": source_kind,
+                    "source_file": source_file,
+                    "categories": refs,  # e.g. [["VAR", "lBMSA"], ...]
+                }
+            )
 
     return edges
 
@@ -96,6 +99,7 @@ def extract_interface_edges(xref):
 # ---------------------------------------------------------------------------
 # Edge extraction from Phase 4 (implementation-derived)
 # ---------------------------------------------------------------------------
+
 
 def extract_implementation_edges(impl_data):
     """Extract implementation-derived edges from IMPL_DEPS.json.
@@ -132,14 +136,16 @@ def extract_implementation_edges(impl_data):
             target_categories[ref].append("impl_ref")
 
         for target, cats in target_categories.items():
-            edges.append({
-                "source": source_name,
-                "target": target,
-                "provenance": "implementation",
-                "source_kind": "POU",
-                "source_file": source_file,
-                "categories": sorted(set(cats)),
-            })
+            edges.append(
+                {
+                    "source": source_name,
+                    "target": target,
+                    "provenance": "implementation",
+                    "source_kind": "POU",
+                    "source_file": source_file,
+                    "categories": sorted(set(cats)),
+                }
+            )
 
     return edges
 
@@ -147,6 +153,7 @@ def extract_implementation_edges(impl_data):
 # ---------------------------------------------------------------------------
 # Edge unification
 # ---------------------------------------------------------------------------
+
 
 def unify_edges(interface_edges, implementation_edges):
     """Merge interface and implementation edges into a unified graph.
@@ -196,13 +203,16 @@ def unify_edges(interface_edges, implementation_edges):
                 "implementation_categories": edge["categories"],
             }
 
-    unified_edges = sorted(edge_index.values(), key=lambda e: (e["source"], e["target"]))
+    unified_edges = sorted(
+        edge_index.values(), key=lambda e: (e["source"], e["target"])
+    )
     return unified_edges, edge_index
 
 
 # ---------------------------------------------------------------------------
 # Node registry and classification
 # ---------------------------------------------------------------------------
+
 
 def build_node_registry(xref, impl_data, pou_index):
     """Build a registry of all nodes with their metadata.
@@ -296,6 +306,7 @@ def build_node_registry(xref, impl_data, pou_index):
 # Adjacency lists for graph traversal
 # ---------------------------------------------------------------------------
 
+
 def build_adjacency_lists(unified_edges):
     """Build forward and reverse adjacency lists from unified edges.
 
@@ -366,6 +377,7 @@ def compute_impact_cascade(reverse, all_nodes):
 # Edge provenance queries
 # ---------------------------------------------------------------------------
 
+
 def classify_edges_by_provenance(unified_edges):
     """Classify edges into provenance buckets.
 
@@ -435,6 +447,7 @@ def find_interface_only_targets(unified_edges, impl_data):
 # Per-object unified dependency view
 # ---------------------------------------------------------------------------
 
+
 def get_object_dependencies(obj_name, edge_index, forward, closure, cascade):
     """Get a complete dependency view for a single object.
 
@@ -450,12 +463,14 @@ def get_object_dependencies(obj_name, edge_index, forward, closure, cascade):
         key = (obj_name, tgt)
         if key in edge_index:
             edge = edge_index[key]
-            direct_deps.append({
-                "target": tgt,
-                "provenance": edge["provenance"],
-                "interface_categories": edge["interface_categories"],
-                "implementation_categories": edge["implementation_categories"],
-            })
+            direct_deps.append(
+                {
+                    "target": tgt,
+                    "provenance": edge["provenance"],
+                    "interface_categories": edge["interface_categories"],
+                    "implementation_categories": edge["implementation_categories"],
+                }
+            )
 
     # Reverse edges (who uses this object)
     used_by = []
@@ -464,10 +479,12 @@ def get_object_dependencies(obj_name, edge_index, forward, closure, cascade):
         key = (src, obj_name)
         if key in edge_index:
             edge = edge_index[key]
-            used_by.append({
-                "source": src,
-                "provenance": edge["provenance"],
-            })
+            used_by.append(
+                {
+                    "source": src,
+                    "provenance": edge["provenance"],
+                }
+            )
 
     return {
         "direct_deps": direct_deps,
@@ -481,15 +498,29 @@ def get_object_dependencies(obj_name, edge_index, forward, closure, cascade):
 # Key object analysis
 # ---------------------------------------------------------------------------
 
+
 def analyze_key_objects(edge_index, forward, reverse, closure, cascade, registry):
     """Analyze key objects (parser, server, system, etc.) in the unified graph.
 
     Returns a dict of key object analyses.
     """
     key_patterns = [
-        "system", "parser", "server", "master", "manager", "handler",
-        "connection", "channel", "reportable", "particle", "executor",
-        "build", "cycle", "plc", "state", "mode",
+        "system",
+        "parser",
+        "server",
+        "master",
+        "manager",
+        "handler",
+        "connection",
+        "channel",
+        "reportable",
+        "particle",
+        "executor",
+        "build",
+        "cycle",
+        "plc",
+        "state",
+        "mode",
     ]
 
     results = {}
@@ -505,7 +536,9 @@ def analyze_key_objects(edge_index, forward, reverse, closure, cascade, registry
                     "defined_in": registry[name]["defined_in"],
                     "interface_dep_count": registry[name]["interface_dep_count"],
                     "impl_dep_count": registry[name]["impl_dep_count"],
-                    "interface_used_by_count": registry[name]["interface_used_by_count"],
+                    "interface_used_by_count": registry[name][
+                        "interface_used_by_count"
+                    ],
                     "impl_used_by_count": registry[name]["impl_used_by_count"],
                     "direct_deps": obj_view["direct_deps"],
                     "transitive_dep_count": len(obj_view["transitive_deps"]),
@@ -520,9 +553,20 @@ def analyze_key_objects(edge_index, forward, reverse, closure, cascade, registry
 # Build the unified output
 # ---------------------------------------------------------------------------
 
-def build_unified_output(xref, impl_data, pou_index, unified_edges, edge_index,
-                         forward, reverse, all_nodes, closure, cascade,
-                         node_registry):
+
+def build_unified_output(
+    xref,
+    impl_data,
+    pou_index,
+    unified_edges,
+    edge_index,
+    forward,
+    reverse,
+    all_nodes,
+    closure,
+    cascade,
+    node_registry,
+):
     """Assemble the full UNIFIED_DEPS.json structure."""
 
     interface_only, impl_only, both_edges = classify_edges_by_provenance(unified_edges)
@@ -540,19 +584,21 @@ def build_unified_output(xref, impl_data, pou_index, unified_edges, edge_index,
         in_deg = len(reverse.get(node, set()))
         out_deg = len(forward.get(node, set()))
         reg = node_registry.get(node, {})
-        combined_degree.append({
-            "node": node,
-            "kind": reg.get("kind", "unknown"),
-            "interface_fan_in": reg.get("interface_used_by_count", 0),
-            "impl_fan_in": reg.get("impl_used_by_count", 0),
-            "interface_fan_out": reg.get("interface_dep_count", 0),
-            "impl_fan_out": reg.get("impl_dep_count", 0),
-            "total_fan_in": in_deg,
-            "total_fan_out": out_deg,
-            "total_degree": in_deg + out_deg,
-            "transitive_impact": len(cascade.get(node, set())),
-            "transitive_deps": len(closure.get(node, set())),
-        })
+        combined_degree.append(
+            {
+                "node": node,
+                "kind": reg.get("kind", "unknown"),
+                "interface_fan_in": reg.get("interface_used_by_count", 0),
+                "impl_fan_in": reg.get("impl_used_by_count", 0),
+                "interface_fan_out": reg.get("interface_dep_count", 0),
+                "impl_fan_out": reg.get("impl_dep_count", 0),
+                "total_fan_in": in_deg,
+                "total_fan_out": out_deg,
+                "total_degree": in_deg + out_deg,
+                "transitive_impact": len(cascade.get(node, set())),
+                "transitive_deps": len(closure.get(node, set())),
+            }
+        )
     combined_degree.sort(key=lambda x: (-x["total_degree"], x["node"]))
 
     # Summary
@@ -566,12 +612,8 @@ def build_unified_output(xref, impl_data, pou_index, unified_edges, edge_index,
         "total_implementation_edges": len(impl_only) + len(both_edges),
         "impl_only_type_count": len(impl_only_targets),
         "interface_only_type_count": len(interface_only_targets),
-        "nodes_with_transitive_deps": len([
-            n for n in all_nodes if closure.get(n)
-        ]),
-        "nodes_with_transitive_impact": len([
-            n for n in all_nodes if cascade.get(n)
-        ]),
+        "nodes_with_transitive_deps": len([n for n in all_nodes if closure.get(n)]),
+        "nodes_with_transitive_impact": len([n for n in all_nodes if cascade.get(n)]),
         "max_transitive_dep_count": max(
             (len(closure[n]) for n in all_nodes), default=0
         ),
@@ -611,16 +653,13 @@ def build_unified_output(xref, impl_data, pou_index, unified_edges, edge_index,
         ],
         "provenance_summary": {
             "interface_only": [
-                {"source": e["source"], "target": e["target"]}
-                for e in interface_only
+                {"source": e["source"], "target": e["target"]} for e in interface_only
             ],
             "implementation_only": [
-                {"source": e["source"], "target": e["target"]}
-                for e in impl_only
+                {"source": e["source"], "target": e["target"]} for e in impl_only
             ],
             "both": [
-                {"source": e["source"], "target": e["target"]}
-                for e in both_edges
+                {"source": e["source"], "target": e["target"]} for e in both_edges
             ],
         },
         "impl_only_types": impl_only_targets,
@@ -643,10 +682,13 @@ def build_unified_output(xref, impl_data, pou_index, unified_edges, edge_index,
 # Human-readable UNIFIED_DEPENDENCY_MAP.md
 # ---------------------------------------------------------------------------
 
+
 def build_unified_dependency_map(output, node_registry):
     """Generate a human-readable UNIFIED_DEPENDENCY_MAP.md."""
     lines = []
-    lines.append("# UNIFIED_DEPENDENCY_MAP — Combined Interface + Implementation Dependencies")
+    lines.append(
+        "# UNIFIED_DEPENDENCY_MAP — Combined Interface + Implementation Dependencies"
+    )
     lines.append("")
     lines.append("> Auto-generated by `scripts/unify_deps.py`. Do not edit manually.")
     lines.append("")
@@ -656,7 +698,9 @@ def build_unified_dependency_map(output, node_registry):
     lines.append("")
     lines.append("Every edge carries **provenance** information:")
     lines.append("- **interface** — Declared in VAR_INPUT, VAR_OUTPUT, VAR, etc.")
-    lines.append("- **implementation** — Found in ST code (FB calls, method calls, etc.)")
+    lines.append(
+        "- **implementation** — Found in ST code (FB calls, method calls, etc.)"
+    )
     lines.append("- **both** — Present in both sources")
     lines.append("")
 
@@ -671,13 +715,23 @@ def build_unified_dependency_map(output, node_registry):
     lines.append("| Implementation-only edges | %d |" % s["implementation_only_edges"])
     lines.append("| Edges in both sources | %d |" % s["edges_in_both"])
     lines.append("| Total interface edges | %d |" % s["total_interface_edges"])
-    lines.append("| Total implementation edges | %d |" % s["total_implementation_edges"])
+    lines.append(
+        "| Total implementation edges | %d |" % s["total_implementation_edges"]
+    )
     lines.append("| Types referenced ONLY in impl | %d |" % s["impl_only_type_count"])
-    lines.append("| Types referenced ONLY in interface | %d |" % s["interface_only_type_count"])
-    lines.append("| Nodes with transitive deps | %d |" % s["nodes_with_transitive_deps"])
-    lines.append("| Nodes with transitive impact | %d |" % s["nodes_with_transitive_impact"])
+    lines.append(
+        "| Types referenced ONLY in interface | %d |" % s["interface_only_type_count"]
+    )
+    lines.append(
+        "| Nodes with transitive deps | %d |" % s["nodes_with_transitive_deps"]
+    )
+    lines.append(
+        "| Nodes with transitive impact | %d |" % s["nodes_with_transitive_impact"]
+    )
     lines.append("| Max transitive dep count | %d |" % s["max_transitive_dep_count"])
-    lines.append("| Max transitive impact count | %d |" % s["max_transitive_impact_count"])
+    lines.append(
+        "| Max transitive impact count | %d |" % s["max_transitive_impact_count"]
+    )
     lines.append("")
 
     # Provenance breakdown
@@ -687,9 +741,18 @@ def build_unified_dependency_map(output, node_registry):
     lines.append("")
     lines.append("| Provenance | Count | Description |")
     lines.append("|---|---|---|")
-    lines.append("| interface | %d | Declared in POU/DUT interface variables |" % s["interface_only_edges"])
-    lines.append("| implementation | %d | Found in ST implementation bodies only |" % s["implementation_only_edges"])
-    lines.append("| both | %d | Present in both interface and implementation |" % s["edges_in_both"])
+    lines.append(
+        "| interface | %d | Declared in POU/DUT interface variables |"
+        % s["interface_only_edges"]
+    )
+    lines.append(
+        "| implementation | %d | Found in ST implementation bodies only |"
+        % s["implementation_only_edges"]
+    )
+    lines.append(
+        "| both | %d | Present in both interface and implementation |"
+        % s["edges_in_both"]
+    )
     lines.append("")
 
     # Structural vs Behavioral comparison
@@ -697,10 +760,17 @@ def build_unified_dependency_map(output, node_registry):
     lines.append("")
     lines.append("| Aspect | Structural (Interface) | Behavioral (Implementation) |")
     lines.append("|---|---|---|")
-    lines.append("| Source | VAR_INPUT, VAR_OUTPUT, VAR, VAR_GLOBAL | ST code bodies (methods, properties, POU body) |")
-    lines.append("| Certainty | Compiler-enforced (definite) | Regex-inferred (probabilistic) |")
+    lines.append(
+        "| Source | VAR_INPUT, VAR_OUTPUT, VAR, VAR_GLOBAL | ST code bodies (methods, properties, POU body) |"
+    )
+    lines.append(
+        "| Certainty | Compiler-enforced (definite) | Regex-inferred (probabilistic) |"
+    )
     lines.append("| Captures | Declared type relationships | Runtime usage patterns |")
-    lines.append("| Edge count | %d | %d |" % (s["total_interface_edges"], s["total_implementation_edges"]))
+    lines.append(
+        "| Edge count | %d | %d |"
+        % (s["total_interface_edges"], s["total_implementation_edges"])
+    )
     lines.append("")
 
     # Impl-only types
@@ -708,7 +778,9 @@ def build_unified_dependency_map(output, node_registry):
         lines.append("## Types Referenced ONLY in Implementation")
         lines.append("")
         lines.append("These types appear in ST code but are NOT declared as variable")
-        lines.append("types in any POU interface. They represent behavioral dependencies")
+        lines.append(
+            "types in any POU interface. They represent behavioral dependencies"
+        )
         lines.append("that would be invisible to interface-only analysis.")
         lines.append("")
         lines.append("| Type | Kind | Defined In |")
@@ -720,7 +792,9 @@ def build_unified_dependency_map(output, node_registry):
             defined_in = reg.get("defined_in", "unknown")
             lines.append("| `%s` | %s | %s |" % (type_name, kind, defined_in))
         if len(output["impl_only_types"]) > 40:
-            lines.append("| ... | | *(+%d more)* |" % (len(output["impl_only_types"]) - 40))
+            lines.append(
+                "| ... | | *(+%d more)* |" % (len(output["impl_only_types"]) - 40)
+            )
         lines.append("")
 
     # Interface-only types
@@ -742,7 +816,9 @@ def build_unified_dependency_map(output, node_registry):
             defined_in = reg.get("defined_in", "unknown")
             lines.append("| `%s` | %s | %s |" % (type_name, kind, defined_in))
         if len(output["interface_only_types"]) > 40:
-            lines.append("| ... | | *(+%d more)* |" % (len(output["interface_only_types"]) - 40))
+            lines.append(
+                "| ... | | *(+%d more)* |" % (len(output["interface_only_types"]) - 40)
+            )
         lines.append("")
 
     # Combined centrality
@@ -751,18 +827,25 @@ def build_unified_dependency_map(output, node_registry):
     lines.append("Nodes ranked by total degree in the unified graph, with separate")
     lines.append("fan-in/fan-out counts for interface and implementation sources.")
     lines.append("")
-    lines.append("| Rank | Node | Kind | IF Fan-In | IF Fan-Out | Impl Fan-In | Impl Fan-Out | Total Degree | Trans. Impact | Trans. Deps |")
+    lines.append(
+        "| Rank | Node | Kind | IF Fan-In | IF Fan-Out | Impl Fan-In | Impl Fan-Out | Total Degree | Trans. Impact | Trans. Deps |"
+    )
     lines.append("|---|---|---|---|---|---|---|---|---|---|")
 
     for i, entry in enumerate(output["combined_centrality"][:30], 1):
         lines.append(
             "| %d | `%s` | %s | %d | %d | %d | %d | %d | %d | %d |"
             % (
-                i, entry["node"], entry["kind"],
-                entry["interface_fan_in"], entry["interface_fan_out"],
-                entry["impl_fan_in"], entry["impl_fan_out"],
+                i,
+                entry["node"],
+                entry["kind"],
+                entry["interface_fan_in"],
+                entry["interface_fan_out"],
+                entry["impl_fan_in"],
+                entry["impl_fan_out"],
                 entry["total_degree"],
-                entry["transitive_impact"], entry["transitive_deps"],
+                entry["transitive_impact"],
+                entry["transitive_deps"],
             )
         )
     lines.append("")
@@ -783,23 +866,41 @@ def build_unified_dependency_map(output, node_registry):
             lines.append("")
             lines.append("| Metric | Interface | Implementation |")
             lines.append("|---|---|---|")
-            lines.append("| Direct deps (fan-out) | %d | %d |" % (obj["interface_dep_count"], obj["impl_dep_count"]))
-            lines.append("| Used by (fan-in) | %d | %d |" % (obj["interface_used_by_count"], obj["impl_used_by_count"]))
+            lines.append(
+                "| Direct deps (fan-out) | %d | %d |"
+                % (obj["interface_dep_count"], obj["impl_dep_count"])
+            )
+            lines.append(
+                "| Used by (fan-in) | %d | %d |"
+                % (obj["interface_used_by_count"], obj["impl_used_by_count"])
+            )
             lines.append("| Transitive deps | %d | — |" % obj["transitive_dep_count"])
-            lines.append("| Transitive impact | %d | — |" % obj["transitive_impact_count"])
+            lines.append(
+                "| Transitive impact | %d | — |" % obj["transitive_impact_count"]
+            )
             lines.append("")
 
             if obj["direct_deps"]:
                 lines.append("**Direct dependencies:**")
                 lines.append("")
-                lines.append("| Target | Provenance | Interface Context | Implementation Context |")
+                lines.append(
+                    "| Target | Provenance | Interface Context | Implementation Context |"
+                )
                 lines.append("|---|---|---|---|")
                 for dep in obj["direct_deps"]:
                     prov = dep["provenance"]
-                    iface_ctx = ", ".join(
-                        "%s.%s" % (c[0], c[1]) for c in dep["interface_categories"]
-                    ) if dep["interface_categories"] else "—"
-                    impl_ctx = ", ".join(dep["implementation_categories"]) if dep["implementation_categories"] else "—"
+                    iface_ctx = (
+                        ", ".join(
+                            "%s.%s" % (c[0], c[1]) for c in dep["interface_categories"]
+                        )
+                        if dep["interface_categories"]
+                        else "—"
+                    )
+                    impl_ctx = (
+                        ", ".join(dep["implementation_categories"])
+                        if dep["implementation_categories"]
+                        else "—"
+                    )
                     lines.append(
                         "| `%s` | %s | %s | %s |"
                         % (dep["target"], prov, iface_ctx, impl_ctx)
@@ -825,19 +926,23 @@ def build_unified_dependency_map(output, node_registry):
     lines.append("A change to any of these types affects the listed number of")
     lines.append("objects through combined interface + implementation paths.")
     lines.append("")
-    lines.append("| Rank | Type | Kind | Transitive Impact | Interface Fan-In | Impl Fan-In |")
+    lines.append(
+        "| Rank | Type | Kind | Transitive Impact | Interface Fan-In | Impl Fan-In |"
+    )
     lines.append("|---|---|---|---|---|---|")
 
     impact_sorted = sorted(
         output["combined_centrality"],
-        key=lambda x: (-x["transitive_impact"], x["node"])
+        key=lambda x: (-x["transitive_impact"], x["node"]),
     )
     for i, entry in enumerate(impact_sorted[:30], 1):
         if entry["transitive_impact"] > 0:
             lines.append(
                 "| %d | `%s` | %s | %d | %d | %d |"
                 % (
-                    i, entry["node"], entry["kind"],
+                    i,
+                    entry["node"],
+                    entry["kind"],
                     entry["transitive_impact"],
                     entry["interface_fan_in"],
                     entry["impl_fan_in"],
@@ -848,13 +953,18 @@ def build_unified_dependency_map(output, node_registry):
     # Implementation-only impact
     lines.append("## Implementation-Only Impact (Not in Interface)")
     lines.append("")
-    lines.append("These types have impact that comes **exclusively** from implementation")
+    lines.append(
+        "These types have impact that comes **exclusively** from implementation"
+    )
     lines.append("references — they would be invisible to interface-only analysis.")
     lines.append("")
 
     impl_only_impact = [
-        e for e in impact_sorted
-        if e["impl_fan_in"] > 0 and e["interface_fan_in"] == 0 and e["transitive_impact"] > 0
+        e
+        for e in impact_sorted
+        if e["impl_fan_in"] > 0
+        and e["interface_fan_in"] == 0
+        and e["transitive_impact"] > 0
     ]
     if impl_only_impact:
         lines.append("| Rank | Type | Kind | Impl Fan-In | Transitive Impact |")
@@ -862,7 +972,13 @@ def build_unified_dependency_map(output, node_registry):
         for i, entry in enumerate(impl_only_impact[:20], 1):
             lines.append(
                 "| %d | `%s` | %s | %d | %d |"
-                % (i, entry["node"], entry["kind"], entry["impl_fan_in"], entry["transitive_impact"])
+                % (
+                    i,
+                    entry["node"],
+                    entry["kind"],
+                    entry["impl_fan_in"],
+                    entry["transitive_impact"],
+                )
             )
         lines.append("")
     else:
@@ -875,6 +991,7 @@ def build_unified_dependency_map(output, node_registry):
 # ---------------------------------------------------------------------------
 # Update INDEX.json
 # ---------------------------------------------------------------------------
+
 
 def update_index_with_phase45(index_path):
     """Update INDEX.json to reference Phase 4.5 artifacts."""
@@ -912,6 +1029,7 @@ def update_index_with_phase45(index_path):
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -1003,8 +1121,17 @@ def main():
     # Build output
     print("Assembling UNIFIED_DEPS.json ...")
     output = build_unified_output(
-        xref, impl_data, pou_index, unified_edges, edge_index,
-        forward, reverse, all_nodes, closure, cascade, node_registry
+        xref,
+        impl_data,
+        pou_index,
+        unified_edges,
+        edge_index,
+        forward,
+        reverse,
+        all_nodes,
+        closure,
+        cascade,
+        node_registry,
     )
 
     # Write UNIFIED_DEPS.json
@@ -1045,7 +1172,10 @@ def main():
         print("\n  Top 10 impl-only types (by name):")
         for t in output["impl_only_types"][:10]:
             reg = node_registry.get(t, {})
-            print("    %-45s  (%s in %s)" % (t, reg.get("kind", "?"), reg.get("defined_in", "?")))
+            print(
+                "    %-45s  (%s in %s)"
+                % (t, reg.get("kind", "?"), reg.get("defined_in", "?"))
+            )
 
 
 if __name__ == "__main__":

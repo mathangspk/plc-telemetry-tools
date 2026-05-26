@@ -17,6 +17,7 @@ Prerequisites:
   - For --package: the MP-NN.xlsx and MP-NN-verified-signals.json must exist
     in templates/ or the current directory.
 """
+
 import argparse
 import json
 import os
@@ -29,8 +30,8 @@ import time
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
-TEMPLATES_DIR = os.path.join(PROJECT_ROOT, 'templates')
-EXPORT_DIR = os.path.join(PROJECT_ROOT, 'export-src', 'measuring-profiles')
+TEMPLATES_DIR = os.path.join(PROJECT_ROOT, "templates")
+EXPORT_DIR = os.path.join(PROJECT_ROOT, "export-src", "measuring-profiles")
 
 # ---------------------------------------------------------------------------
 # Checklist
@@ -98,6 +99,7 @@ Key Reminders:
   - When in doubt, mark "not validated" rather than guessing
 """
 
+
 # ---------------------------------------------------------------------------
 # Skeleton generator
 # ---------------------------------------------------------------------------
@@ -105,15 +107,14 @@ def generate_skeleton(profile):
     """Generate a skeleton verified-signals JSON file."""
     skeleton = {
         "_note": "This file is the reusable baseline for {} live-verified signals. "
-                 "Signals listed here do not need re-verification unless the PLC project "
-                 "or export changes. Any signal NOT in this file was either not present, "
-                 "had wrong semantics, was speculative, or was only statically inferred.".format(profile),
+        "Signals listed here do not need re-verification unless the PLC project "
+        "or export changes. Any signal NOT in this file was either not present, "
+        "had wrong semantics, was speculative, or was only statically inferred.".format(
+            profile
+        ),
         "profile": profile,
-        "verified_at": time.strftime('%Y-%m-%d'),
-        "source_endpoint": {
-            "rw": "10.2.3.4:49870",
-            "ro": "10.2.3.4:49880"
-        },
+        "verified_at": time.strftime("%Y-%m-%d"),
+        "source_endpoint": {"rw": "10.2.3.4:49870", "ro": "10.2.3.4:49880"},
         "verification_policy": "live-confirmed only",
         "signals": [
             {
@@ -123,18 +124,18 @@ def generate_skeleton(profile):
                 "identity": "<exact_identity_from_describe>",
                 "sample_value": None,
                 "status": "present",
-                "evidence": "Live-read confirmed; identity resolved to <identity>"
+                "evidence": "Live-read confirmed; identity resolved to <identity>",
             }
-        ]
+        ],
     }
 
-    out_path = os.path.join(TEMPLATES_DIR, '{}-verified-signals.json'.format(profile))
-    with open(out_path, 'w', encoding='utf-8') as f:
+    out_path = os.path.join(TEMPLATES_DIR, "{}-verified-signals.json".format(profile))
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(skeleton, f, indent=2, ensure_ascii=False)
 
-    print('[+] Skeleton written to: {}'.format(out_path))
+    print("[+] Skeleton written to: {}".format(out_path))
     print('    Edit the "signals" array with live-validated data.')
-    print('    Remove the example entry and add one entry per confirmed signal.')
+    print("    Remove the example entry and add one entry per confirmed signal.")
     return out_path
 
 
@@ -143,8 +144,8 @@ def generate_skeleton(profile):
 # ---------------------------------------------------------------------------
 def package_artifacts(profile):
     """Copy MP artifacts into export-src/measuring-profiles/."""
-    xlsx_name = '{}.xlsx'.format(profile)
-    json_name = '{}-verified-signals.json'.format(profile)
+    xlsx_name = "{}.xlsx".format(profile)
+    json_name = "{}-verified-signals.json".format(profile)
 
     if not os.path.isdir(EXPORT_DIR):
         os.makedirs(EXPORT_DIR)
@@ -160,20 +161,28 @@ def package_artifacts(profile):
             dst = os.path.join(EXPORT_DIR, xlsx_name)
             shutil.copy2(xlsx_src, dst)
             copied.append(xlsx_name)
-            print('[+] Copied {} -> {}'.format(xlsx_src, dst))
+            print("[+] Copied {} -> {}".format(xlsx_src, dst))
 
         if os.path.isfile(json_src):
             dst = os.path.join(EXPORT_DIR, json_name)
             shutil.copy2(json_src, dst)
             copied.append(json_name)
-            print('[+] Copied {} -> {}'.format(json_src, dst))
+            print("[+] Copied {} -> {}".format(json_src, dst))
 
     if not copied:
-        print('[!] No artifacts found for {} in templates/ or current directory.'.format(profile))
-        print('    Expected: {}.xlsx and/or {}-verified-signals.json'.format(profile, profile))
+        print(
+            "[!] No artifacts found for {} in templates/ or current directory.".format(
+                profile
+            )
+        )
+        print(
+            "    Expected: {}.xlsx and/or {}-verified-signals.json".format(
+                profile, profile
+            )
+        )
         return False
 
-    print('[+] Packaged {} artifact(s) into {}'.format(len(copied), EXPORT_DIR))
+    print("[+] Packaged {} artifact(s) into {}".format(len(copied), EXPORT_DIR))
     return True
 
 
@@ -182,21 +191,28 @@ def package_artifacts(profile):
 # ---------------------------------------------------------------------------
 def main():
     parser = argparse.ArgumentParser(
-        description='Orchestration stub for processing a new measuring-profile template.')
-    parser.add_argument('profile', help='Profile identifier (e.g., MP-07)')
-    parser.add_argument('--skeleton', action='store_true',
-                        help='Generate a skeleton verified-signals JSON file')
-    parser.add_argument('--package', action='store_true',
-                        help='Copy artifacts into export-src/measuring-profiles/')
-    parser.add_argument('--all', action='store_true',
-                        help='Run skeleton + package')
-    parser.add_argument('--checklist', action='store_true',
-                        help='Print the processing checklist')
+        description="Orchestration stub for processing a new measuring-profile template."
+    )
+    parser.add_argument("profile", help="Profile identifier (e.g., MP-07)")
+    parser.add_argument(
+        "--skeleton",
+        action="store_true",
+        help="Generate a skeleton verified-signals JSON file",
+    )
+    parser.add_argument(
+        "--package",
+        action="store_true",
+        help="Copy artifacts into export-src/measuring-profiles/",
+    )
+    parser.add_argument("--all", action="store_true", help="Run skeleton + package")
+    parser.add_argument(
+        "--checklist", action="store_true", help="Print the processing checklist"
+    )
 
     args = parser.parse_args()
 
     profile = args.profile
-    profile_lower = profile.lower().replace('-', '_')
+    profile_lower = profile.lower().replace("-", "_")
 
     # Default: show checklist if no action specified
     if not any([args.skeleton, args.package, args.all, args.checklist]):
@@ -212,5 +228,5 @@ def main():
         package_artifacts(profile)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

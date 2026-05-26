@@ -1,5 +1,4 @@
 from PyQt6.QtWidgets import QInputDialog
-
 from ui.tree.tree_base import ConfigTreeManager
 from ui.tree.tree_nodes import create_group_node
 

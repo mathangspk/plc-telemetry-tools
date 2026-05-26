@@ -77,10 +77,12 @@ def parse_xml_file(filepath):
             for dt in dtypes.findall("plc:dataType", NS):
                 name = dt.get("name", "")
                 base_type = _extract_base_type(dt)
-                result["duts"].append({
-                    "name": name,
-                    "base_type": base_type,
-                })
+                result["duts"].append(
+                    {
+                        "name": name,
+                        "base_type": base_type,
+                    }
+                )
 
     # POUs
     if types_elem is not None:
@@ -146,7 +148,9 @@ def parse_xml_file(filepath):
                 resource = config.find("plc:resource", NS)
                 if resource is not None:
                     res_add_data = resource.find("plc:addData", NS)
-                    result["libraries"].extend(_extract_libs_from_add_data(res_add_data))
+                    result["libraries"].extend(
+                        _extract_libs_from_add_data(res_add_data)
+                    )
 
     return result
 
@@ -383,7 +387,9 @@ def build_pou_index(file_results):
         # Count POU types
         for pou in fr["pous"]:
             pt = pou["pou_type"]
-            index["summary"]["pou_types"][pt] = index["summary"]["pou_types"].get(pt, 0) + 1
+            index["summary"]["pou_types"][pt] = (
+                index["summary"]["pou_types"].get(pt, 0) + 1
+            )
 
             # Phase 2.5: Count interface variables
             iface = pou.get("interface")
@@ -395,7 +401,8 @@ def build_pou_index(file_results):
                     count = len(vars_list)
                     index["summary"]["total_interface_variables"] += count
                     index["summary"]["interface_variable_categories"][cat] = (
-                        index["summary"]["interface_variable_categories"].get(cat, 0) + count
+                        index["summary"]["interface_variable_categories"].get(cat, 0)
+                        + count
                     )
 
         # Count DUT base types
@@ -435,7 +442,9 @@ def build_project_map(index):
     lines.append("| Unique library references | %d |" % s["total_libraries"])
     if s.get("pous_with_interface"):
         lines.append("| POUs with interface info | %d |" % s["pous_with_interface"])
-        lines.append("| Total interface variables | %d |" % s["total_interface_variables"])
+        lines.append(
+            "| Total interface variables | %d |" % s["total_interface_variables"]
+        )
     lines.append("")
 
     # POU type breakdown
@@ -462,7 +471,9 @@ def build_project_map(index):
         lines.append("")
         lines.append("| Category | Variables |")
         lines.append("|---|---|")
-        for cat, count in sorted(s["interface_variable_categories"].items(), key=lambda x: -x[1]):
+        for cat, count in sorted(
+            s["interface_variable_categories"].items(), key=lambda x: -x[1]
+        ):
             lines.append("| %s | %d |" % (cat, count))
         lines.append("")
 
@@ -506,7 +517,13 @@ def build_project_map(index):
                 iface_display = "—"
                 if iface is not None:
                     parts = []
-                    for cat in ["VAR_INPUT", "VAR_OUTPUT", "VAR_IN_OUT", "VAR", "VAR_GLOBAL"]:
+                    for cat in [
+                        "VAR_INPUT",
+                        "VAR_OUTPUT",
+                        "VAR_IN_OUT",
+                        "VAR",
+                        "VAR_GLOBAL",
+                    ]:
                         if cat in iface:
                             parts.append("%s=%d" % (cat, len(iface[cat])))
                     if "returnType" in iface:
@@ -515,7 +532,13 @@ def build_project_map(index):
 
                 lines.append(
                     "| `%s` | %s | %s | %s | %s |"
-                    % (pou["name"], pou["pou_type"], iface_display, methods_display, properties_display)
+                    % (
+                        pou["name"],
+                        pou["pou_type"],
+                        iface_display,
+                        methods_display,
+                        properties_display,
+                    )
                 )
             lines.append("")
 
@@ -624,9 +647,7 @@ def main():
         sys.exit(1)
 
     # Find and parse all XML files
-    xml_files = sorted(
-        f for f in os.listdir(xml_dir) if f.lower().endswith(".xml")
-    )
+    xml_files = sorted(f for f in os.listdir(xml_dir) if f.lower().endswith(".xml"))
 
     if not xml_files:
         print("WARNING: No .xml files found in %s" % xml_dir, file=sys.stderr)
@@ -642,7 +663,12 @@ def main():
             file_results.append(result)
             print(
                 "  %-50s  %3d POUs  %3d DUTs  %2d libs"
-                % (fname, len(result["pous"]), len(result["duts"]), len(result["libraries"]))
+                % (
+                    fname,
+                    len(result["pous"]),
+                    len(result["duts"]),
+                    len(result["libraries"]),
+                )
             )
         except Exception as e:
             print("  ERROR parsing %s: %s" % (fname, e), file=sys.stderr)
@@ -686,12 +712,17 @@ def main():
     print("  Total POUs: %d" % s["total_pous"])
     print("  Total DUTs: %d" % s["total_duts"])
     print("  Unique libraries: %d" % s["total_libraries"])
-    print("  POU types: %s" % ", ".join("%s=%d" % (k, v) for k, v in sorted(s["pou_types"].items())))
+    print(
+        "  POU types: %s"
+        % ", ".join("%s=%d" % (k, v) for k, v in sorted(s["pou_types"].items()))
+    )
     if s.get("pous_with_interface"):
         print("\nPhase 2.5 — Interface Variables:")
         print("  POUs with interface info: %d" % s["pous_with_interface"])
         print("  Total interface variables: %d" % s["total_interface_variables"])
-        for cat, count in sorted(s["interface_variable_categories"].items(), key=lambda x: -x[1]):
+        for cat, count in sorted(
+            s["interface_variable_categories"].items(), key=lambda x: -x[1]
+        ):
             print("  %s: %d" % (cat, count))
 
 

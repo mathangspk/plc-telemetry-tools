@@ -18,7 +18,6 @@ import socket
 import sys
 import time
 
-
 # Global flag for graceful interrupt handling
 _interrupted = False
 
@@ -26,9 +25,11 @@ _interrupted = False
 def _signal_handler(signum, frame):
     global _interrupted
     _interrupted = True
-    print("\n[{}] received — stopping after current command.".format(
-        "SIGINT" if signum == signal.SIGINT else "SIGTERM"
-    ))
+    print(
+        "\n[{}] received — stopping after current command.".format(
+            "SIGINT" if signum == signal.SIGINT else "SIGTERM"
+        )
+    )
 
 
 def graceful_close(sock):
@@ -69,11 +70,11 @@ def wait_for_prompt(sock, timeout=5):
 def normalize_path(path):
     """Normalize any PLC path to a standard format (e.g. CANBusDrive/cTransA/Velocity)."""
     if path.startswith("PrimaryPLC."):
-        path = path[len("PrimaryPLC."):]
+        path = path[len("PrimaryPLC.") :]
     if path.startswith("System."):
-        path = path[len("System."):]
+        path = path[len("System.") :]
     if path.startswith("System/"):
-        path = path[len("System/"):]
+        path = path[len("System/") :]
     # Replace dots with slashes to ensure consistent formatting
     path = path.replace(".", "/")
     if path.startswith("system/") or path.startswith("System/"):
@@ -84,7 +85,7 @@ def normalize_path(path):
 def _extract_json_objects(text):
     """Extract JSON objects from a text string using brace matching."""
     objects = []
-    text = text.replace('\x00', '').strip()
+    text = text.replace("\x00", "").strip()
     if not text:
         return objects
 
@@ -98,14 +99,14 @@ def _extract_json_objects(text):
     depth = 0
     start = None
     for i, ch in enumerate(text):
-        if ch == '{':
+        if ch == "{":
             if depth == 0:
                 start = i
             depth += 1
-        elif ch == '}':
+        elif ch == "}":
             depth -= 1
             if depth == 0 and start is not None:
-                candidate = text[start:i + 1]
+                candidate = text[start : i + 1]
                 try:
                     parsed = json.loads(candidate)
                     objects.append(parsed)
@@ -118,17 +119,17 @@ def _extract_json_objects(text):
 
 def verify_silence(host, expected_signals, listen_duration=3.0):
     """Checks if any expected signals are still actively emitting data on port 49890.
-    
+
     Returns a list of expected signals that are still actively emitting.
     """
     print(">>> [VERIFY SILENCE] Verifying telemetry silence on Emit port 49890...")
     emitted_paths = set()
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.settimeout(2.0)
-    
+
     # Store expected paths for easy lookup
     expected_normalized = {normalize_path(sig["path"]): sig for sig in expected_signals}
-    
+
     try:
         sock.connect((host, 49890))
         # Consume greeting socket immediately
@@ -136,7 +137,7 @@ def verify_silence(host, expected_signals, listen_duration=3.0):
             sock.recv(1024)
         except socket.timeout:
             pass
-        
+
         all_data = bytearray()
         start_time = time.time()
         sock.settimeout(1.0)
@@ -152,7 +153,7 @@ def verify_silence(host, expected_signals, listen_duration=3.0):
                 print("  [ERROR] Recv error during silence check: {}".format(e))
                 break
         sock.close()
-        
+
         # Parse identities
         all_text = all_data.decode("utf-8", errors="replace")
         json_objects = _extract_json_objects(all_text)
@@ -166,14 +167,14 @@ def verify_silence(host, expected_signals, listen_duration=3.0):
                             emitted_paths.add(normalize_path(identity))
     except Exception as e:
         print("  [ERROR] Connection to Emit port failed: {}".format(e))
-        return list(expected_signals) # Treat all as still active if we can't connect
+        return list(expected_signals)  # Treat all as still active if we can't connect
 
     # Check which expected signals are still emitting
     active_signals = []
     for path, sig in expected_normalized.items():
         if path in emitted_paths:
             active_signals.append(sig)
-            
+
     return active_signals
 
 
@@ -214,12 +215,14 @@ def main():
         help="Directory containing trace JSON files",
     )
     parser.add_argument(
-        "-H", "--host",
+        "-H",
+        "--host",
         default="10.2.3.4",
         help="PLC IP address (default: 10.2.3.4)",
     )
     parser.add_argument(
-        "-P", "--port",
+        "-P",
+        "--port",
         type=int,
         default=49870,
         help="PLC RW port (default: 49870)",
@@ -241,33 +244,45 @@ def main():
     # Load trace config
     trace_dir = args.trace_dir
     trace_file = os.path.join(trace_dir, "{}.json".format(args.name))
-    
+
     # Smart fallback resolution
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(os.path.dirname(script_dir))
-    
+
     if not os.path.isfile(trace_file):
         # Fallback 1: Try relative to script's directory
         trace_file = os.path.join(script_dir, trace_dir, "{}.json".format(args.name))
-        
+
     if not os.path.isfile(trace_file):
         # Fallback 2: If user passed report/trace/pass_active but is already inside report/trace
-        normalized_dir = trace_dir.replace("report/trace/", "").replace("report\\trace\\", "")
-        trace_file = os.path.join(script_dir, normalized_dir, "{}.json".format(args.name))
-        
+        normalized_dir = trace_dir.replace("report/trace/", "").replace(
+            "report\\trace\\", ""
+        )
+        trace_file = os.path.join(
+            script_dir, normalized_dir, "{}.json".format(args.name)
+        )
+
     if not os.path.isfile(trace_file):
         # Fallback 3: Just check if the last directory name exists inside the script folder
         basename_dir = os.path.basename(trace_dir.rstrip("/\\"))
         trace_file = os.path.join(script_dir, basename_dir, "{}.json".format(args.name))
-        
+
     if not os.path.isfile(trace_file):
         # Fallback 4: Try relative to project root
         trace_file = os.path.join(project_root, trace_dir, "{}.json".format(args.name))
 
     if not os.path.isfile(trace_file):
         print("[ERROR] Trace config not found. Tried resolving paths: ")
-        print("  - {}".format(os.path.join(os.getcwd(), trace_dir, "{}.json".format(args.name))))
-        print("  - {}".format(os.path.join(script_dir, trace_dir, "{}.json".format(args.name))))
+        print(
+            "  - {}".format(
+                os.path.join(os.getcwd(), trace_dir, "{}.json".format(args.name))
+            )
+        )
+        print(
+            "  - {}".format(
+                os.path.join(script_dir, trace_dir, "{}.json".format(args.name))
+            )
+        )
         sys.exit(1)
 
     with open(trace_file, "r") as f:
@@ -276,14 +291,14 @@ def main():
     trace_name = config.get("name", args.name)
     default_metric = "Metric250ms"
     signals = config.get("signals", [])
- 
+
     # Print summary
     print("=" * 60)
     print("Trace: {}".format(trace_name))
     print("Signals: {}".format(len(signals)))
     print("=" * 60)
     print()
- 
+
     if args.dry_run:
         print("[DRY RUN] Would unregister the following signals:")
         for i, sig in enumerate(signals, 1):
@@ -344,10 +359,16 @@ def main():
                 print("  [{:>3}/{}] [OK]   {}".format(i, len(signals), sig["name"]))
                 unregistered += 1
             else:
-                print("  [{:>3}/{}] [FAIL] {} (timeout)".format(i, len(signals), sig["name"]))
+                print(
+                    "  [{:>3}/{}] [FAIL] {} (timeout)".format(
+                        i, len(signals), sig["name"]
+                    )
+                )
                 failed += 1
         except socket.timeout:
-            print("  [{:>3}/{}] [FAIL] {} (timeout)".format(i, len(signals), sig["name"]))
+            print(
+                "  [{:>3}/{}] [FAIL] {} (timeout)".format(i, len(signals), sig["name"])
+            )
             failed += 1
         except socket.error as e:
             print("  [{:>3}/{}] [FAIL] {} ({})".format(i, len(signals), sig["name"], e))
@@ -357,9 +378,11 @@ def main():
     # Summary
     print()
     print("=" * 60)
-    print("Summary: {} unregistered, {} failed, {} total".format(
-        unregistered, failed, len(signals)
-    ))
+    print(
+        "Summary: {} unregistered, {} failed, {} total".format(
+            unregistered, failed, len(signals)
+        )
+    )
     print("=" * 60)
 
     # Graceful cleanup
@@ -371,26 +394,36 @@ def main():
     print()
     still_active_signals = verify_silence(args.host, signals)
     if still_active_signals:
-        print(">>> [WARN] Telemetry stream is not silent! Remaining active: {}".format(len(still_active_signals)))
+        print(
+            ">>> [WARN] Telemetry stream is not silent! Remaining active: {}".format(
+                len(still_active_signals)
+            )
+        )
         print(">>> [RECOVERY] Issuing metric clear commands for target metrics...")
-        
+
         # Connect to RW port to clear target metrics
         default_metric = "Metric250ms"
-        metrics_to_clear = sorted(list(set(sig.get("metric", default_metric) for sig in signals)))
-        
+        metrics_to_clear = sorted(
+            list(set(sig.get("metric", default_metric) for sig in signals))
+        )
+
         for m in metrics_to_clear:
             execute_metric_clear(args.host, m, port=args.port)
-            
+
         print("\nRe-verifying silence post-clear...")
         still_active_signals_final = verify_silence(args.host, signals)
         if still_active_signals_final:
-            print(">>> [ERROR] Telemetry remains active after clear command! Signals still emitting: {}".format(
-                [sig["name"] for sig in still_active_signals_final]
-            ))
+            print(
+                ">>> [ERROR] Telemetry remains active after clear command! Signals still emitting: {}".format(
+                    [sig["name"] for sig in still_active_signals_final]
+                )
+            )
         else:
             print(">>> [SUCCESS] Telemetry successfully reset to silent state.")
     else:
-        print(">>> [SUCCESS] Telemetry successfully stopped. All target signals are silent.")
+        print(
+            ">>> [SUCCESS] Telemetry successfully stopped. All target signals are silent."
+        )
 
 
 if __name__ == "__main__":

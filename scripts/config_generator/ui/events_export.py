@@ -1,9 +1,8 @@
 import logging
 from pathlib import Path
 
-from PyQt6.QtWidgets import QFileDialog, QLineEdit, QMessageBox
-
 from core import exporter
+from PyQt6.QtWidgets import QFileDialog, QLineEdit, QMessageBox
 from ui.tree.tree_base import ConfigTreeManager
 from ui.tree.tree_extractor import extract_configuration_data
 

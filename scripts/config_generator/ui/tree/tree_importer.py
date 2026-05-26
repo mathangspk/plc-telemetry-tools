@@ -3,7 +3,6 @@ import logging
 from pathlib import Path
 
 from PyQt6.QtWidgets import QComboBox
-
 from ui.tree.tree_base import ConfigTreeManager
 from ui.tree.tree_nodes import create_group_node, create_signal_node
 from ui.ui_components import SignalComboBox
