@@ -1,16 +1,16 @@
 # Project Handoff
 
 ## Summary of Changes
-- Fixed a bug where importing a config file failed to restore the `Metric` selection, leaving all dropdowns at their default (`Metric0ms`).
-- The bug was a side-effect of the previous UI layout refactoring where the Metric widget was detached from its layout container.
-- Updated `test_import_config.py` to use a non-primary metric (`M2`) to strictly enforce that the test catches this specific bug in the future.
+- **Nghiên cứu & Chẩn đoán Spike CycleTime 3 phút:** Đã phát hiện chính xác nguyên nhân chu kỳ 3 phút tăng cycleTime vọt lên ~55ms trong trạng thái `charging`. Vấn đề nằm ở POU `ReportableChannelClientTCP` với timer chu kỳ `cCyclePeriod := TIME#3m0s0ms` thực hiện Full State Dump qua TCP socket.
+- **Tài liệu hóa hệ thống:** Tạo tệp tài liệu bộ nhớ dự án toàn diện tại [cycle_time_spike_analysis.md](file:///c:/local/opencode/codesys/docs/cycle_time_spike_analysis.md) tổng hợp toàn bộ các phát hiện về mạng CAN, nhiễu vật lý, lỗi quá tải CPU dẫn đến sập Heartbeat ảo (ZAPI "NO CAN MESS 80") và spike TCP Client.
 
 ## Current System State
-- The UI perfectly restores both Signals and Metrics when opening a JSON config file, matching the original state exactly.
+- **Telemetry & Diagnostics:** Toàn bộ thông tin phân tích và các khuyến nghị tối ưu cấu hình (Rate Limiting 50-100ms trên Edge Device, điện trở đầu cuối CAN 60 Ohm, bọc chống nhiễu cáp nguồn) được lưu trữ đầy đủ trong thư mục `docs/`.
+- **Hệ thống điều khiển:** Đang hoạt động bình thường theo logic hiện tại.
 
 ## Verification & Testing
-- Validated via `pytest tests/tdd/test_import_config.py` -> Passed.
-- `tree_importer.py` directly targets the `QComboBox` instead of `layout().itemAt(0)`.
+- Đã xác thực tĩnh và phân tích logic luồng chạy của POU `ReportableChannelClientTCP` và POU `BMSAB` từ codebase XML (`services-eolus-heap-v8db.xml` và `primary - eolus - v2d.xml`).
 
 ## Next Steps
-- Lập trình viên load lại giao diện và mở file config một lần nữa.
+- Lập trình viên xem xét cấu hình lại độ ưu tiên Task Telemetry/Network thấp hơn Task điều khiển chính trong CODESYS để tránh spike CycleTime ảnh hưởng tới các chu kỳ điều khiển thời gian thực.
+- Rà soát kiểm tra điện trở đầu cuối CAN bus (đạt 60 Ohm) và bọc chống nhiễu cáp nguồn motor để triệt tiêu lỗi `ErrorFrame` chập chờn.

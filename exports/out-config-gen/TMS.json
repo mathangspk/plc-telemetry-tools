@@ -1,0 +1,30 @@
+{
+  "name": "TMS",
+  "signals": [
+    {
+      "name": "tMS_clntReserv",
+      "path": "System/TMS/ClntReserv",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntTempHot",
+      "path": "System/TMS/ClntTempHot",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntTempCold",
+      "path": "System/TMS/ClntTempCold",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntReservoir",
+      "path": "System/TMS/ClntReservoir",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "tMS_clntTemp",
+      "path": "System/TMS/ClntTemp",
+      "metric": "Metric5s"
+    }
+  ]
+}

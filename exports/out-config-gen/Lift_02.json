@@ -1,0 +1,30 @@
+{
+  "name": "Lift",
+  "signals": [
+    {
+      "name": "winchA_motorTemp",
+      "path": "System/CANBusDrive/cWinchA/MotorTemp",
+      "metric": "Metric5s"
+    },
+    {
+      "name": "winchA_cntrlTemp",
+      "path": "System/CANBusDrive/cWinchA/CntrlTemp",
+      "metric": "Metric5s"
+    },
+    {
+      "name": "winchA_targetSpeed_output",
+      "path": "System/CANBusDrive/cWinchA/TargetSpeed",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_current",
+      "path": "System/CANBusDrive/cWinchA/Current",
+      "metric": "Metric250ms"
+    },
+    {
+      "name": "winchA_velocity",
+      "path": "System/CANBusDrive/cWinchA/Velocity",
+      "metric": "Metric250ms"
+    }
+  ]
+}

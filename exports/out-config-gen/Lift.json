@@ -2,11 +2,6 @@
   "name": "Lift",
   "signals": [
     {
-      "name": "winchA_nodeState",
-      "path": "System/CANBusDrive/cWinchA/SlaveMod",
-      "metric": "Metric250ms"
-    },
-    {
       "name": "winchA_motorTemp",
       "path": "System/CANBusDrive/cWinchA/MotorTemp",
       "metric": "Metric5s"
@@ -29,11 +24,6 @@
     {
       "name": "winchA_velocity",
       "path": "System/CANBusDrive/cWinchA/Velocity",
-      "metric": "Metric250ms"
-    },
-    {
-      "name": "winchAngleA_nodeState",
-      "path": "System/CANBusDrive/cWinchAngleA/SlaveMod",
       "metric": "Metric250ms"
     },
     {
