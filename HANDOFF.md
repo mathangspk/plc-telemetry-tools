@@ -16,3 +16,4 @@
 ## Next Steps
 - Lập trình viên xem xét cấu hình lại độ ưu tiên Task Telemetry/Network thấp hơn Task điều khiển chính trong CODESYS để tránh spike CycleTime ảnh hưởng tới các chu kỳ điều khiển thời gian thực.
 - Rà soát kiểm tra điện trở đầu cuối CAN bus (đạt 60 Ohm) và bọc chống nhiễu cáp nguồn motor để triệt tiêu lỗi `ErrorFrame` chập chờn.
+- Cập nhật logic khởi tạo cho các encoder (winchAngle và steerAngle) trong `CANOpenMasterDriveApollo` và `CANOpenMasterDriveBuild`: Gán `lStartSystemStateScope := cSystemStatePreparing;` để các encoder này được đưa lên trạng thái OPERATIONAL sớm từ bước Preparing mà không ảnh hưởng đến các thành phần CANOpen khác.
