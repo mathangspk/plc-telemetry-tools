@@ -1,0 +1,47 @@
+Metric250ms register object=System/CANBusDrive/cWinchAngleA/Position;
+Metric250ms register object=System/CANBusDrive/cWinchAngleB/Position;
+Metric250ms register object=System/CANBusDrive/cWinchAngleC/Position;
+Metric250ms register object=System/CANBusDrive/cWinchAngleD/Position;
+Metric250ms register object=System/CANBusDrive/cWinchA/Current;
+Metric250ms register object=System/CANBusDrive/cWinchB/Current;
+Metric250ms register object=System/CANBusDrive/cWinchC/Current;
+Metric250ms register object=System/CANBusDrive/cWinchD/Current;
+Metric250ms register object=System/CANBusDrive/cWinchA/BattCurrent;
+Metric250ms register object=System/CANBusDrive/cWinchB/BattCurrent;
+Metric250ms register object=System/CANBusDrive/cWinchC/BattCurrent;
+Metric250ms register object=System/CANBusDrive/cWinchD/BattCurrent;
+Metric250ms register object=System/CANBusDrive/cWinchA/BattVoltage;
+Metric250ms register object=System/CANBusDrive/cWinchB/BattVoltage;
+Metric250ms register object=System/CANBusDrive/cWinchC/BattVoltage;
+Metric250ms register object=System/CANBusDrive/cWinchD/BattVoltage;
+Metric250ms register object=System/BMSAB/Current;
+Metric250ms register object=System/BMSAB/Voltage;
+Metric5s register object=System/BMSAB/SOC;
+Metric5s register object=System/CANBusDrive/cWinchA/MotorTemp;
+Metric5s register object=System/CANBusDrive/cWinchB/MotorTemp;
+Metric5s register object=System/CANBusDrive/cWinchC/MotorTemp;
+Metric5s register object=System/CANBusDrive/cWinchD/MotorTemp;
+Metric5s register object=System/CANBusDrive/cWinchA/CntrlTemp;
+Metric5s register object=System/CANBusDrive/cWinchB/CntrlTemp;
+Metric5s register object=System/CANBusDrive/cWinchC/CntrlTemp;
+Metric5s register object=System/CANBusDrive/cWinchD/CntrlTemp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
