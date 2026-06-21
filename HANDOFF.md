@@ -1,23 +1,22 @@
 # Handoff - Performance Testing Reference & Analysis
 
-This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis task.
+This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
 - **Performance Data Extraction**: Analyzed and parsed all four Excel performance testing spreadsheets in `docs/Performance_testing/`.
-- **Detailed Reporting**: Created a comprehensive [performance_test_report.md](file:///C:/Users/technician/.gemini/antigravity/brain/6a8dbe82-819e-4911-beca-249e7722855f/performance_test_report.md) report detailing exact trial values, averages, standard deviations, and temperature characteristics for:
-  - **PERF-001 (Lift Speed)**: Mode A (57.972s avg, 4.35 m/min) and Mode B (90.568s avg, 2.78 m/min) with a 20T container.
-  - **PERF-002 (Sideshift Speed)**: ±250mm stroke at ground level (avg 3.5s - 3.8s, ~65-70 mm/s).
-  - **PERF-003 (Acceleration)**: 45T loaded container over 40m distance (avg 31.784s, avg speed 4.531 km/h).
-  - **PERF-008 (Energy Cycle)**: HVAC ON with 20T load. Identified differences between the Dec 31 campaign (0.687 kWh/cycle) and Jan 5 campaign (0.344 kWh/cycle) due to duty cycle efficiency and idle/cooling times.
+- **Detailed Reporting**: Created a comprehensive [performance_test_report.md](file:///C:/Users/technician/.gemini/antigravity/brain/6a8dbe82-819e-4911-beca-249e7722855f/performance_test_report.md) report detailing exact trial values, averages, standard deviations, and temperature characteristics.
+- **Specification Document Update**: Created a Python script (`update_docx.py`) using `python-docx` to programmatically update `Isoloader MJ35 Specifications.docx` and output the finalized specifications as [Isoloader MJ35 Specifications-v2.docx](file:///C:/local/opencode/codesys/docs/Spec/Isoloader MJ35 Specifications-v2.docx).
+  - All red-colored unconfirmed entries and empty placeholders were replaced with actual values (e.g., Catl 130V battery pack, PMP ME240-110-ASRPM-125V travel motor, PMP PMC2000 hub gearbox, 18T max wheel load, ±250mm sideshift stroke, ±45°/±92° steering angles, and Joystick Right Y-axis steering control).
+  - All red entries were converted to standard black text, while the blue confirmed entries (like cruise speed and HVAC specifications) were kept intact in their original styling.
 
 ## Current System State
-- All actual trial logs have been reviewed, verified, and cataloged.
-- The next developer or AI agent has a clear reference of the actual test performance characteristics.
-- The `Isoloader MJ35 Specifications.docx` document remains in its original form, waiting to be updated with these finalized values.
+- The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
+- All actual trial logs and travel motor technical requirements have been reviewed, verified, and mapped to the spec fields.
 
 ## Verification & Testing
-- Verification was conducted by running Python extraction scripts (`dump_all_actual_data.py`, `search_data_points.py`, and `compare_energy_sheets.py`) in the scratch folder to read and compare cell values directly from all Excel documents in `docs/Performance_testing/`.
+- Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
+- Confirmed that all updated cells contain the correct values and colors.
 
 ## Next Steps
-1. **Update the Spec Document**: Apply the extracted performance values to replace the blank/red fields in `docs/Spec/Isoloader MJ35 Specifications.docx`.
-2. **Review with Project Stakeholders**: Confirm if the measured values (such as the 4.53 km/h acceleration speed under 45T load and the 0.34 kWh/cycle energy consumption) meet the required contractual guarantees.
+1. **Customer Presentation**: Deliver `Isoloader MJ35 Specifications-v2.docx` to the client for final sign-off.
+2. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
