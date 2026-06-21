@@ -8,6 +8,10 @@ This document summarizes the changes, current state, verification, and next step
 - **Specification Document Update**: Created and executed `update_docx.py` to programmatically update `Isoloader MJ35 Specifications.docx` and output the finalized specifications as [Isoloader MJ35 Specifications-v2.docx](file:///C:/local/opencode/codesys/docs/Spec/Isoloader MJ35 Specifications-v2.docx).
   - All red-colored unconfirmed entries and empty placeholders were replaced with actual values.
   - All red entries were converted to standard black text, while the blue confirmed entries (like cruise speed and HVAC specifications) were kept intact in their original styling.
+  - **Drive & Hoist Simplification**:
+    - Generalized the Drive description to: `AC Electric Motors coupled to Planetary Gear Hubs - 4 Wheel Drive` (removed specific manufacturer model code PMP ME240-110-ASRPM-125V).
+    - Updated Lifting/Hoist System to: `4x Electric Motors with integrated electric brakes`.
+    - Updated Steer Wheels system to: `4 Wheel steer driven by 4 electric motors, ±45° (up to ±92° in lateral mode)`.
   - **Joystick & HMI Corrections**:
     - Removed motor & controller temperatures from the touchscreen HMI indicators list, noting they are not currently displayed on the HMI.
     - Updated Steering control to `Joystick Right (Y-axis)`.
