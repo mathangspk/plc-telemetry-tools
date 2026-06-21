@@ -13,6 +13,8 @@ This document summarizes the changes, current state, verification, and next step
     - Updated Steering control to `Joystick Right (Y-axis)`.
     - Updated Hoist control to `Scroll button on Joystick Right`.
     - Inserted a new **Travel control** row in the Cab Specifications table, specified as `Joystick Left (Y-axis): Push forward to travel Forward, pull backward to travel Reverse`.
+  - **Parking Brake Specification**:
+    - Clarified that the parking and emergency brake is electro-hydraulically released, requiring **25–30 bar** of hydraulic pressure to release, and automatically applies (fail-safe spring-applied) upon loss of pressure.
 
 ## Current System State
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
