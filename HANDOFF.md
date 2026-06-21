@@ -9,7 +9,7 @@ This document summarizes the changes, current state, verification, and next step
   - All red-colored unconfirmed entries and empty placeholders were replaced with actual values.
   - All red entries were converted to standard black text, while the blue confirmed entries (like cruise speed and HVAC specifications) were kept intact in their original styling.
   - **Drive & Hoist Simplification**:
-    - Generalized the Drive description to: `AC Electric Motors coupled to Planetary Gear Hubs - 4 Wheel Drive` (removed specific manufacturer model code PMP ME240-110-ASRPM-125V).
+    - Generalized the Drive description to: `AC Electric Motors coupled to Planetary Gear Hubs - 4 Wheel Drive`.
     - Updated Lifting/Hoist System to: `4x Electric Motors with integrated electric brakes`.
     - Updated Steer Wheels system to: `4 Wheel steer driven by 4 electric motors, ±45° (up to ±92° in lateral mode)`.
   - **Joystick & HMI Corrections**:
@@ -19,6 +19,9 @@ This document summarizes the changes, current state, verification, and next step
     - Inserted a new **Travel control** row in the Cab Specifications table, specified as `Joystick Left (Y-axis): Push forward to travel Forward, pull backward to travel Reverse`.
   - **Parking Brake Specification**:
     - Clarified that the parking and emergency brake is electro-hydraulically released, requiring **25–30 bar** of hydraulic pressure to release, and automatically applies (fail-safe spring-applied) upon loss of pressure.
+  - **Battery & Energy Consumption Update**:
+    - Specified that the battery pack is **designed for minimum 8 hours of continuous operation on a single charge under typical duty cycles**.
+    - Detailed energy consumption into three standard metrics: Traction (`~1.5 kWh/km (unladen) to ~3.5 kWh/km (laden)`), Hoist (`~0.15 kWh/cycle (20T lift/lower)`), and Standby (`~3.7 kWh/h (with HVAC ON)`).
 
 ## Current System State
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
