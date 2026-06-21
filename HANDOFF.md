@@ -22,6 +22,8 @@ This document summarizes the changes, current state, verification, and next step
   - **Battery & Energy Consumption Update**:
     - Specified that the battery pack is **designed for minimum 8 hours of continuous operation on a single charge under typical duty cycles**.
     - Detailed energy consumption into three standard metrics: Traction (`~1.5 kWh/km (unladen) to ~3.5 kWh/km (laden)`), Hoist (`~0.15 kWh/cycle (20T lift/lower)`), and Standby (`~3.7 kWh/h (with HVAC ON)`).
+  - **Charging Time Row**:
+    - Inserted a new **Charging Time (to 80% SOC)** row in the Machine Specifications table: `Approx. 4.5 to 6 hours with a 15–20 kW charger (from 10% SOC to 80% SOC)`.
 
 ## Current System State
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
