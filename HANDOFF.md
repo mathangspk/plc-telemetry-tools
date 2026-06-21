@@ -24,15 +24,19 @@ This document summarizes the changes, current state, verification, and next step
     - Detailed energy consumption into three standard metrics: Traction (`~1.5 kWh/km (unladen) to ~3.5 kWh/km (laden)`), Hoist (`~0.15 kWh/cycle (20T lift/lower)`), and Standby (`~3.7 kWh/h (with HVAC ON)`).
   - **Charging Time Row**:
     - Inserted a new **Charging Time (to 80% SOC)** row in the Machine Specifications table: `Approx. 4.5 to 6 hours with a 15–20 kW charger (from 10% SOC to 80% SOC)`.
+- **Battery Calculation Report**:
+  - Programmatically generated a detailed English Word report [Battery_Consumption_Calculation_Report.docx](file:///C:/local/opencode/codesys/docs/Spec/Battery_Consumption_Calculation_Report.docx) outlining page-by-page mathematical modeling, formulas, experimental data from the bãi thử trials, and runtime projections (light/medium/heavy duty cycles) to support the finalized spec parameters.
 
 ## Current System State
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
+- The supporting calculation report `Battery_Consumption_Calculation_Report.docx` is saved under `docs/Spec/`.
 - All actual trial logs and travel motor technical requirements have been reviewed, verified, and mapped to the spec fields.
 
 ## Verification & Testing
 - Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
 - Confirmed that all updated cells contain the correct values, colors, and the new travel control row.
+- Verified that `Battery_Consumption_Calculation_Report.docx` compiles successfully with no formatting errors.
 
 ## Next Steps
-1. **Customer Presentation**: Deliver `Isoloader MJ35 Specifications-v2.docx` to the client for final sign-off.
+1. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Battery_Consumption_Calculation_Report.docx`) to the client for final sign-off.
 2. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
