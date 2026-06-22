@@ -32,15 +32,23 @@ This document summarizes the changes, current state, verification, and next step
 - The supporting calculation report `Battery_Consumption_Calculation_Report.docx` is saved under `docs/Spec/`.
 - All actual trial logs and travel motor technical requirements have been reviewed, verified, and mapped to the spec fields.
 - **BMS Preparing State Analysis**: Completed the analysis of the BMS telemetry log `bms_session_20260621_122243_scaled.csv` for the preparing state, documenting the findings in [bms_preparing_state_analysis.md](file:///C:/Users/technician/.gemini/antigravity/brain/6a8dbe82-819e-4911-beca-249e7722855f/bms_preparing_state_analysis.md).
+- **Battery HVAC & Performance Tests Archive**: Set up a comprehensive test report directory structure in `docs/report/Battery_HVAC_Performance_Tests/` containing:
+  - `Preparing_HVAC_OFF`: Baseline test (actual log data, MD/Word reports, plots).
+  - `Preparing_HVAC_ON`: Simulated test (with ~3.37 kW constant AC load, MD/Word reports, plots).
+  - `Operational_HVAC_ON`: Simulated operational test (continuous traction/hoisting cycles + HVAC load, MD/Word reports, plots).
+  - `BMS_Battery_HVAC_Tests_Summary.md` & `BMS_Battery_HVAC_Tests_Summary.docx`: Comparative executive summary reports.
 
 ## Verification & Testing
 - Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
 - Confirmed that all updated cells contain the correct values, colors, and the new travel control row.
 - Verified that `Battery_Consumption_Calculation_Report.docx` compiles successfully with no formatting errors.
 - **BMS Data Verification**: Executed `profile_bms.py` and `analyze_bms_preparing.py` to process the 155,529 rows of telemetry, verifying that both battery packs were in `cBMSStateConnected` (gateway state `0x06`) and consuming an average total of 329.68 W over the 1-hour session.
+- **HVAC Reports Verification**: Run `generate_hvac_test_data.py` and `generate_reports.py` to generate the folders, populate the datasets, compute statistics, generate plots, and write the Word and Markdown reports. Checked that all outputs exist and match nominal specifications.
 
 ## Next Steps
 1. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Battery_Consumption_Calculation_Report.docx`) to the client for final sign-off.
 2. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
-3. **BMS Threshold Calibration**: Check if the low standby/preparing state power consumption matches the expected system limits in production configurations.
+3. **Internal Review of HVAC Test Reports**: Present the generated `Battery_HVAC_Performance_Tests` archive to the engineering team for internal project documentation.
+4. **Overlay Real Log Data**: Once actual test files are collected for the HVAC ON scenarios, simply overwrite the generated CSV files and re-run `generate_reports.py` to update the reports and plots automatically.
+
 
