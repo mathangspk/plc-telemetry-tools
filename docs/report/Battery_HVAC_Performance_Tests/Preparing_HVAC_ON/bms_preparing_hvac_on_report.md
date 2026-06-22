@@ -5,14 +5,14 @@
 **Battery Configuration:** CATL 130 VDC Nominal (114.52 kWh Total, 2x 57.26 kWh Packs)
 **System State:** Preparing (Init Stage 5)
 **HVAC System Status:** ON (~3.37 kW)
-**Test Duration:** 3599.96 seconds (60.00 minutes)
+**Test Duration:** 3599.89 seconds (60.00 minutes)
 
 ---
 
 ## 1. Executive Summary
-- **Average Total Power:** 3.6997 kW
-- **Total Energy Consumed during Test:** 3.6996 kWh
-- **Projected Continuous Runtime (100% to 10% SOC - 103.07 kWh usable):** **27.86 Hours**
+- **Average Total Power:** 1.2679 kW
+- **Total Energy Consumed during Test:** 1.2678 kWh
+- **Projected Continuous Runtime (100% to 10% SOC - 103.07 kWh usable):** **81.29 Hours**
 - **Test Verdict:** Pass. The battery packs operate within safe thermal and electric boundaries.
 
 ---
@@ -21,15 +21,15 @@
 
 | Metric | Pack A (BMSA) | Pack B (BMSB) | Combined Total |
 |---|---|---|---|
-| **Voltage (Min)** | 127.8 V | 127.8 V | - |
-| **Voltage (Max)** | 127.9 V | 127.9 V | - |
-| **Voltage (Average)** | 127.89 V | 127.90 V | - |
-| **Current (Min)** | 13.528 A | 13.633 A | - |
-| **Current (Max)** | 18.141 A | 18.129 A | - |
-| **Current (Average)** | 14.428 A | 14.499 A | - |
-| **Power (Min)** | 1.730 kW | 1.744 kW | 3.504 kW |
-| **Power (Max)** | 2.318 kW | 2.319 kW | 4.602 kW |
-| **Power (Average)** | 1.845 kW | 1.854 kW | **3.700 kW** |
+| **Voltage (Min)** | 127.4 V | 127.4 V | - |
+| **Voltage (Max)** | 127.7 V | 127.7 V | - |
+| **Voltage (Average)** | 127.52 V | 127.52 V | - |
+| **Current (Min)** | 2.000 A | 1.600 A | - |
+| **Current (Max)** | 9.300 A | 8.900 A | - |
+| **Current (Average)** | 5.113 A | 4.830 A | - |
+| **Power (Min)** | 0.255 kW | 0.204 kW | 0.485 kW |
+| **Power (Max)** | 1.186 kW | 1.135 kW | 2.308 kW |
+| **Power (Average)** | 0.652 kW | 0.616 kW | **1.268 kW** |
 
 ---
 
