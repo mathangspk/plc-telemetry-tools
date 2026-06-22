@@ -38,6 +38,7 @@ This document summarizes the changes, current state, verification, and next step
   - `Operational_HVAC_ON`: Simulated operational test (continuous traction/hoisting cycles + HVAC load, MD/Word reports, plots).
   - `BMS_Battery_HVAC_Tests_Summary.md` & `BMS_Battery_HVAC_Tests_Summary.docx`: Comparative executive summary reports.
 - **BMS Travel Test Validation**: Completed validation of unladen travel with HVAC ON in `docs/report/travel_bms/` using `bms_session_20260622_090215_scaled.csv` and `trans_session_20260622_090226_scaled.csv`, proving a net traction energy rate of **1.295 kWh/km** (within -13.6% of the ~1.5 kWh/km specification).
+- **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max).
 
 ## Verification & Testing
 - Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
@@ -46,11 +47,14 @@ This document summarizes the changes, current state, verification, and next step
 - **BMS Data Verification**: Executed `profile_bms.py` and `analyze_bms_preparing.py` to process the 155,529 rows of telemetry, verifying that both battery packs were in `cBMSStateConnected` (gateway state `0x06`) and consuming an average total of 329.68 W over the 1-hour session.
 - **HVAC Reports Verification**: Run `generate_hvac_test_data.py` and `generate_reports.py` to generate the folders, populate the datasets, compute statistics, generate plots, and write the Word and Markdown reports. Checked that all outputs exist and match nominal specifications.
 - **Travel Validation Verification**: Executed `generate_travel_report.py` to integrate travel speed, calculate actual travel distance (356.07 m captured in BMS log, 1142.39 m total run), compute energy rates, and output Word/Markdown reports in `docs/report/travel_bms/`.
+- **Motor Anomaly Verification**: Run `analyze_trans_anomalies.py` and `calculate_abs_torque.py` to confirm that `transC` draws an average of **45.60 A** and outputs **17.28 Nm** absolute torque when moving, compared to **23.65 A** / **7.93 Nm** for `transA`.
 
 ## Next Steps
 1. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Battery_Consumption_Calculation_Report.docx`) to the client for final sign-off.
 2. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
 3. **Internal Review of HVAC & Travel Reports**: Present the generated reports under `docs/report/` to the engineering team.
+4. **Mechanical Brake Inspection for Wheel C**: Recommend a physical inspection of the hydraulic brake caliper on wheel C to check for mechanical brake drag or piston binding.
+
 
 
 
