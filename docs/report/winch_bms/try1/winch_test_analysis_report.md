@@ -9,7 +9,7 @@
 
 ---
 
-## 1. Executive Energy Summary
+## 1. Executive Energy & Speed Summary
 - **Total Energy Discharged (Gross Consumption):** **1.6332 kWh**
 - **Total Energy Regenerated (Regenerative Braking):** **0.7787 kWh**
 - **Net Energy Consumed:** **0.8545 kWh**
@@ -22,6 +22,14 @@
 - **Projected Operating Cycles on 80% Battery Capacity (91.62 kWh):**
   - **Without regeneration benefit (Gross limit):** **280.5 Cycles** (lượt lên xuống)
   - **With regeneration benefit (Net limit):** **536.1 Cycles** (lượt lên xuống)
+    *(Số chu kỳ thực tế sẽ dao động từ 280 đến 536 lượt tùy thuộc vào hiệu suất nạp/xả của pin và mức độ hao phí nhiệt lượng).*
+
+- **Hoisting Speeds (Tốc độ tời nâng hạ, tải 20T):**
+  - **Maximum Raise Speed:** **7.13 m/min** (Average Max: 7.07 m/min)
+  - **Maximum Lower Speed:** **6.43 m/min** (Average Max: 5.72 m/min)
+  - **Average Raise Speed (over entire stroke):** **5.77 m/min**
+  - **Average Lower Speed (over entire stroke):** **4.16 m/min**
+  - *Note:* The speed slows down as the hoist approaches the upper and lower limits due to limit deceleration algorithms, which is why the average speed over the entire stroke is lower than the peak maximum speed.
 
 ---
 
