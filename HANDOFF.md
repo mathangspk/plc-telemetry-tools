@@ -12,6 +12,7 @@ This document summarizes the changes, current state, verification, and next step
 - **Specification Document Update**: Created and executed `update_docx.py` to programmatically update `Isoloader MJ35 Specifications.docx` and output the finalized specifications as [Isoloader MJ35 Specifications-v2.docx](file:///C:/local/opencode\codesys\docs\Spec\Isoloader MJ35 Specifications-v2.docx).
   - All red-colored unconfirmed entries and empty placeholders were replaced with actual values.
   - All red entries were converted to standard black text, while the blue confirmed entries (like cruise speed and HVAC specifications) were kept intact in their original styling.
+  - **Winch Performance Spec Integration**: Added the experimental 20T laden hoisting speed (5.64 m/min raise / 4.59 m/min lower), updated regenerative recovery to include winch-specific data, and inserted a new `Projected Winch Cycles (80% SOC)` row with detailed cycle predictions (280 cycles gross, 536 cycles net).
   - **Drive & Hoist Simplification**:
     - Generalized the Drive description to: `AC Electric Motors coupled to Planetary Gear Hubs - 4 Wheel Drive`.
     - Updated Lifting/Hoist System to: `4x Electric Motors with integrated electric brakes`.
