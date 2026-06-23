@@ -2,6 +2,8 @@
 
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
+## Summary of Changes
+- **Winch Performance Test Report (20T Load)**: Added reports (Markdown and Word) and plots for the 20T laden winch test under `docs/report/winch_bms/try1/`.
 - **Travel Reports Try 2 (km/h, mph, and 80% SOC runtime)**: Added reports and plots for the second trial (Try 2) travel tests (both unladen and laden), including maximum speed conversions and 80% SOC runtime calculations.
 - **Travel Reports Enhancements (km/h, mph, and 80% SOC runtime)**: Added maximum speed conversions (km/h and mph) and projected continuous runtimes for 80% battery capacity (91.62 kWh usable) to both unladen and laden reports.
 - **Folder Restructuring**: Relocated travel test report folders from `Unload/` and `load/` to `unladen/try1/` and `laden/try1/` to match the user's structure.
@@ -15,7 +17,7 @@ This document summarizes the changes, current state, verification, and next step
     - Updated Lifting/Hoist System to: `4x Electric Motors with integrated electric brakes`.
     - Updated Steer Wheels system to: `4 Wheel steer driven by 4 electric motors, ±45° (up to ±92° in lateral mode)`.
   - **Joystick & HMI Corrections**:
-    - Removed motor & controller temperatures from the touchscreen HMI indicators list, noting they are not currently displayed on the HMI.
+    - Removed motor & controller temperatures from the touchscreen HMI indicators list, noting they are not currently displayed on HMI.
     - Updated Steering control to `Joystick Right (Y-axis)`.
     - Updated Hoist control to `Scroll button on Joystick Right`.
     - Inserted a new **Travel control** row in the Cab Specifications table, specified as `Joystick Left (Y-axis): Push forward to travel Forward, pull backward to travel Reverse`.
@@ -46,6 +48,8 @@ This document summarizes the changes, current state, verification, and next step
   - **Try 1** (`laden/try1/`): Net traction rate **2.324 kWh/km**, max speed **4.90 km/h** (**3.04 mph**), 80% SOC runtime **10.75 Hours**.
   - **Try 2** (`laden/try2/`): Net traction rate **2.342 kWh/km**, max speed **4.94 km/h** (**3.07 mph**), 80% SOC runtime **11.63 Hours**.
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max in Try 1 and **64.0°C** max in Try 2).
+- **BMS Winch Test Validation (20T Laden)**: Completed validation of winch lifting under 20T load (5 cycles, 4200mm height) in `docs/report/winch_bms/try1/`. Total gross energy discharged was **1.6332 kWh** (0.3266 kWh/cycle), regenerated energy was **0.7787 kWh** (0.1557 kWh/cycle), and net energy consumed was **0.8545 kWh** (0.1709 kWh/cycle), resulting in a regeneration percentage of **47.68%**. 80% SOC cycle capacity is **280.5 cycles** (gross) or **536.1 cycles** (net). Detected a temperature sensor fault on Winch B (reads 0.0°C constantly) and slightly lower load sharing on Winch B compared to Winch A/C/D. Winch A/C/D reached max temperatures of **67.0°C**, **67.0°C**, and **57.0°C** respectively.
+
 
 ## Verification & Testing
 - Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
