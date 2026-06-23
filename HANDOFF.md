@@ -3,9 +3,11 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
+- **Travel Reports Enhancements (km/h, mph, and 80% SOC runtime)**: Added maximum speed conversions (km/h and mph) and projected continuous runtimes for 80% battery capacity (91.62 kWh usable) to both unladen and laden reports.
+- **Folder Restructuring**: Relocated travel test report folders from `Unload/` and `load/` to `unladen/try1/` and `laden/try1/` to match the user's structure.
 - **Performance Data Extraction**: Analyzed and parsed all four Excel performance testing spreadsheets in `docs/Performance_testing/`.
 - **Detailed Reporting**: Created a comprehensive [performance_test_report.md](file:///C:/Users/technician/.gemini/antigravity/brain/6a8dbe82-819e-4911-beca-249e7722855f/performance_test_report.md) report detailing exact trial values, averages, standard deviations, and temperature characteristics.
-- **Specification Document Update**: Created and executed `update_docx.py` to programmatically update `Isoloader MJ35 Specifications.docx` and output the finalized specifications as [Isoloader MJ35 Specifications-v2.docx](file:///C:/local/opencode/codesys/docs/Spec/Isoloader MJ35 Specifications-v2.docx).
+- **Specification Document Update**: Created and executed `update_docx.py` to programmatically update `Isoloader MJ35 Specifications.docx` and output the finalized specifications as [Isoloader MJ35 Specifications-v2.docx](file:///C:/local/opencode\codesys\docs\Spec\Isoloader MJ35 Specifications-v2.docx).
   - All red-colored unconfirmed entries and empty placeholders were replaced with actual values.
   - All red entries were converted to standard black text, while the blue confirmed entries (like cruise speed and HVAC specifications) were kept intact in their original styling.
   - **Drive & Hoist Simplification**:
@@ -37,8 +39,8 @@ This document summarizes the changes, current state, verification, and next step
   - `Preparing_HVAC_ON`: Simulated test (with ~3.37 kW constant AC load, MD/Word reports, plots).
   - `Operational_HVAC_ON`: Simulated operational test (continuous traction/hoisting cycles + HVAC load, MD/Word reports, plots).
   - `BMS_Battery_HVAC_Tests_Summary.md` & `BMS_Battery_HVAC_Tests_Summary.docx`: Comparative executive summary reports.
-- **BMS Travel Test Validation (Unladen)**: Completed validation of unladen travel with HVAC ON in `docs/report/travel_bms/Unload/` using `bms_session_20260622_090215_scaled.csv` and `trans_session_20260622_090226_scaled.csv`, proving a net traction energy rate of **1.295 kWh/km** (within -13.6% of the ~1.5 kWh/km specification).
-- **BMS Travel Test Validation (20T Laden)**: Completed validation of 20T laden travel with HVAC ON in `docs/report/travel_bms/load/` using `bms_session_20260623_013005_scaled_load_HVAC_ON.csv` and `trans_session_20260623_012950_scaled_load_HVAC_ON.csv`, proving a net traction energy rate of **2.324 kWh/km** (perfectly consistent between the unladen spec ~1.5 kWh/km and the 35T laden spec ~3.5 kWh/km).
+- **BMS Travel Test Validation (Unladen)**: Completed validation of unladen travel with HVAC ON in `docs/report/travel_bms/unladen/try1/` using `bms_session_20260622_090215_scaled.csv` and `trans_session_20260622_090226_scaled.csv`, proving a net traction energy rate of **1.295 kWh/km**, a maximum speed of **7.73 km/h** (**4.80 mph**), and an 80% SOC runtime of **13.08 Hours**.
+- **BMS Travel Test Validation (20T Laden)**: Completed validation of 20T laden travel with HVAC ON in `docs/report/travel_bms/laden/try1/` using `bms_session_20260623_013005_scaled_load_HVAC_ON.csv` and `trans_session_20260623_012950_scaled_load_HVAC_ON.csv`, proving a net traction energy rate of **2.324 kWh/km**, a maximum speed of **4.90 km/h** (**3.04 mph**), and an 80% SOC runtime of **10.75 Hours**.
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max).
 
 ## Verification & Testing
