@@ -5,7 +5,8 @@ This document summarizes the changes, current state, verification, and next step
 ## Summary of Changes
 - **Document Reorganization**: Restructured all telemetry reports and plots under `docs/report/` into a numbered, scientific folder system (`01_Battery_HVAC_Tests`, `02_Travel_Performance_Tests`, `03_Winch_Performance_Tests`, `04_Motor_Thermal_Tests`) to clean up the workspace and make verification evidence easily searchable.
 - **Specification Validation & Evidence Report**: Created a master English validation document `Isoloader_MJ35_Performance_Validation_Evidence` (both Markdown and Word) under `docs/Spec/` to serve as a standalone proof of all technical specification fields based on real-world telemetry logs.
-- **Winch Performance Spec Integration**: Added the experimental 20T laden hoisting speed (Max: 7.14 m/min raise / 6.38 m/min lower; Avg: 5.64 m/min raise / 4.59 m/min lower), updated regenerative recovery to include winch-specific data, and inserted a new `Projected Winch Cycles (80% SOC)` row with detailed cycle predictions (280 cycles gross, 536 cycles net).
+- **Winch Performance Spec Integration**: Added the experimental 20T laden hoisting speed (Max: 7.14 m/min raise / 6.38 m/min lower; Avg: 5.64 m/min raise / 4.59 m/min lower), updated regenerative recovery to include winch-specific data, and inserted a new `Projected Winch Cycles (80% SOC)` row with detailed cycle predictions (280 cycles gross, 536 cycles net). Subsequently updated the cell from Vietnamese to English translation.
+- **Specification Document Translation**: Translated the "Projected Winch Cycles (80% SOC)" detail in the specifications document table to English.
 - **Combined Thermal & Cooling Report**: Added a comprehensive report (Markdown and Word) and five plots analyzing convective natural cooling rates and active loaded heating rates for both travel and winch motors under `docs/report/04_Motor_Thermal_Tests/`.
 - **Winch Performance Test Report (20T Load)**: Added reports (Markdown and Word) and plots for the 20T laden winch test under `docs/report/03_Winch_Performance_Tests/try1/`.
 - **Travel Reports Try 2 (km/h, mph, and 80% SOC runtime)**: Added reports and plots for the second trial (Try 2) travel tests (both unladen and laden), including maximum speed conversions and 80% SOC runtime calculations.
@@ -49,6 +50,7 @@ This document summarizes the changes, current state, verification, and next step
 
 ## Verification & Testing
 - Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
+- Further verified the English translation of the winch cycles cell via `verify_spec_winch.py` to confirm the text is correctly written in Calibri font with no encoding issues.
 - Confirmed that all updated cells contain the correct values, colors, and the new travel control row.
 - Verified that `Battery_Consumption_Calculation_Report.docx` and the new evidence document compile successfully with no formatting errors.
 
