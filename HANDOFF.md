@@ -3,6 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
+- **Combined Thermal & Cooling Report**: Added a comprehensive report (Markdown and Word) and five plots analyzing convective natural cooling rates and active loaded heating rates for both travel and winch motors under `docs/report/cooling_trans_motor/`.
 - **Winch Performance Test Report (20T Load)**: Added reports (Markdown and Word) and plots for the 20T laden winch test under `docs/report/winch_bms/try1/`.
 - **Travel Reports Try 2 (km/h, mph, and 80% SOC runtime)**: Added reports and plots for the second trial (Try 2) travel tests (both unladen and laden), including maximum speed conversions and 80% SOC runtime calculations.
 - **Travel Reports Enhancements (km/h, mph, and 80% SOC runtime)**: Added maximum speed conversions (km/h and mph) and projected continuous runtimes for 80% battery capacity (91.62 kWh usable) to both unladen and laden reports.
@@ -50,6 +51,7 @@ This document summarizes the changes, current state, verification, and next step
   - **Try 2** (`laden/try2/`): Net traction rate **2.342 kWh/km**, max speed **4.94 km/h** (**3.07 mph**), 80% SOC runtime **11.63 Hours**.
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max in Try 1 and **64.0°C** max in Try 2).
 - **BMS Winch Test Validation (20T Laden)**: Completed validation of winch lifting under 20T load (5 cycles, 4200mm height) in `docs/report/winch_bms/try1/`. Total gross energy discharged was **1.6332 kWh** (0.3266 kWh/cycle), regenerated energy was **0.7787 kWh** (0.1557 kWh/cycle), and net energy consumed was **0.8545 kWh** (0.1709 kWh/cycle), resulting in a regeneration percentage of **47.68%**. 80% SOC cycle capacity is **280.5 cycles** (gross) or **536.1 cycles** (net). Experimental hoisting speeds reached a peak max of **7.14 m/min** raising and **6.38 m/min** lowering (averaging 5.64 m/min and 4.59 m/min over the full stroke). Detected a temperature sensor fault on Winch B (reads 0.0°C constantly) and slightly lower load sharing on Winch B compared to Winch A/C/D. Winch A/C/D reached max temperatures of **67.0°C**, **67.0°C**, and **57.0°C** respectively.
+- **BMS Motor Thermal Performance & Cooling Report**: Completed a combined analysis of travel and winch motor temperatures during active operation (heating) and parked periods (natural cooling) under `docs/report/cooling_trans_motor/`. Convective cooling rates range from **0.03°C/min** to **0.15°C/min** depending on the initial thermal gradient. Active winch motor heating rates reach **~1.9°C/min** (peak **70.0°C**), while the travel motor Drive C heats up at **0.63°C/min** (peak **64.0°C**) due to the brake drag anomaly.
 
 
 ## Verification & Testing
