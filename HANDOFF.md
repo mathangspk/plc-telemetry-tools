@@ -33,7 +33,7 @@ This document summarizes the changes, current state, verification, and next step
   - **Charging Time Row**:
     - Inserted a new **Charging Time (to 80% SOC)** row in the Machine Specifications table: `Approx. 4.5 to 6 hours with a 15–20 kW charger (from 10% SOC to 80% SOC)`.
 - **Battery Calculation Report**:
-  - Programmatically generated a detailed English Word report [Battery_Consumption_Calculation_Report.docx](file:///C:/local/opencode/codesys/docs/Spec/Battery_Consumption_Calculation_Report.docx) outlining page-by-page mathematical modeling, formulas, experimental data from the bãi thử trials, and runtime projections (light/medium/heavy duty cycles) to support the finalized spec parameters.
+  - Programmatically updated [Battery_Consumption_Calculation_Report.docx](file:///C:/local/opencode/codesys/docs/Spec/Battery_Consumption_Calculation_Report.docx) to version 2.0 with the latest empirical telemetry data. The document now outlines page-by-page mathematical modeling, exact current/voltage logs for travel and winch modes, regenerative energy recovery efficiency (47.68%), standby times (HVAC ON/OFF), and duty cycle projections to support the spec parameters.
 
 ## Current System State
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
