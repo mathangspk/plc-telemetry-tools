@@ -2,7 +2,7 @@
 
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
-## Summary of Changes
+- **Travel Reports Try 2 (km/h, mph, and 80% SOC runtime)**: Added reports and plots for the second trial (Try 2) travel tests (both unladen and laden), including maximum speed conversions and 80% SOC runtime calculations.
 - **Travel Reports Enhancements (km/h, mph, and 80% SOC runtime)**: Added maximum speed conversions (km/h and mph) and projected continuous runtimes for 80% battery capacity (91.62 kWh usable) to both unladen and laden reports.
 - **Folder Restructuring**: Relocated travel test report folders from `Unload/` and `load/` to `unladen/try1/` and `laden/try1/` to match the user's structure.
 - **Performance Data Extraction**: Analyzed and parsed all four Excel performance testing spreadsheets in `docs/Performance_testing/`.
@@ -39,9 +39,13 @@ This document summarizes the changes, current state, verification, and next step
   - `Preparing_HVAC_ON`: Simulated test (with ~3.37 kW constant AC load, MD/Word reports, plots).
   - `Operational_HVAC_ON`: Simulated operational test (continuous traction/hoisting cycles + HVAC load, MD/Word reports, plots).
   - `BMS_Battery_HVAC_Tests_Summary.md` & `BMS_Battery_HVAC_Tests_Summary.docx`: Comparative executive summary reports.
-- **BMS Travel Test Validation (Unladen)**: Completed validation of unladen travel with HVAC ON in `docs/report/travel_bms/unladen/try1/` using `bms_session_20260622_090215_scaled.csv` and `trans_session_20260622_090226_scaled.csv`, proving a net traction energy rate of **1.295 kWh/km**, a maximum speed of **7.73 km/h** (**4.80 mph**), and an 80% SOC runtime of **13.08 Hours**.
-- **BMS Travel Test Validation (20T Laden)**: Completed validation of 20T laden travel with HVAC ON in `docs/report/travel_bms/laden/try1/` using `bms_session_20260623_013005_scaled_load_HVAC_ON.csv` and `trans_session_20260623_012950_scaled_load_HVAC_ON.csv`, proving a net traction energy rate of **2.324 kWh/km**, a maximum speed of **4.90 km/h** (**3.04 mph**), and an 80% SOC runtime of **10.75 Hours**.
-- **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max).
+- **BMS Travel Test Validation (Unladen)**: Completed validation of unladen travel with HVAC ON using:
+  - **Try 1** (`unladen/try1/`): Net traction rate **1.295 kWh/km**, max speed **7.73 km/h** (**4.80 mph**), 80% SOC runtime **13.08 Hours**.
+  - **Try 2** (`unladen/try2/`): Net traction rate **1.684 kWh/km**, max speed **8.13 km/h** (**5.05 mph**), 80% SOC runtime **12.28 Hours**.
+- **BMS Travel Test Validation (20T Laden)**: Completed validation of 20T laden travel with HVAC ON using:
+  - **Try 1** (`laden/try1/`): Net traction rate **2.324 kWh/km**, max speed **4.90 km/h** (**3.04 mph**), 80% SOC runtime **10.75 Hours**.
+  - **Try 2** (`laden/try2/`): Net traction rate **2.342 kWh/km**, max speed **4.94 km/h** (**3.07 mph**), 80% SOC runtime **11.63 Hours**.
+- **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max in Try 1 and **64.0°C** max in Try 2).
 
 ## Verification & Testing
 - Verification was conducted by running `verify_docx_v2.py` which parsed the new `Isoloader MJ35 Specifications-v2.docx` file run-by-run and dumped its structure to `extracted_spec_v2.txt`.
