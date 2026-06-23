@@ -37,7 +37,8 @@ This document summarizes the changes, current state, verification, and next step
   - `Preparing_HVAC_ON`: Simulated test (with ~3.37 kW constant AC load, MD/Word reports, plots).
   - `Operational_HVAC_ON`: Simulated operational test (continuous traction/hoisting cycles + HVAC load, MD/Word reports, plots).
   - `BMS_Battery_HVAC_Tests_Summary.md` & `BMS_Battery_HVAC_Tests_Summary.docx`: Comparative executive summary reports.
-- **BMS Travel Test Validation**: Completed validation of unladen travel with HVAC ON in `docs/report/travel_bms/` using `bms_session_20260622_090215_scaled.csv` and `trans_session_20260622_090226_scaled.csv`, proving a net traction energy rate of **1.295 kWh/km** (within -13.6% of the ~1.5 kWh/km specification).
+- **BMS Travel Test Validation (Unladen)**: Completed validation of unladen travel with HVAC ON in `docs/report/travel_bms/Unload/` using `bms_session_20260622_090215_scaled.csv` and `trans_session_20260622_090226_scaled.csv`, proving a net traction energy rate of **1.295 kWh/km** (within -13.6% of the ~1.5 kWh/km specification).
+- **BMS Travel Test Validation (20T Laden)**: Completed validation of 20T laden travel with HVAC ON in `docs/report/travel_bms/load/` using `bms_session_20260623_013005_scaled_load_HVAC_ON.csv` and `trans_session_20260623_012950_scaled_load_HVAC_ON.csv`, proving a net traction energy rate of **2.324 kWh/km** (perfectly consistent between the unladen spec ~1.5 kWh/km and the 35T laden spec ~3.5 kWh/km).
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max).
 
 ## Verification & Testing
@@ -46,14 +47,15 @@ This document summarizes the changes, current state, verification, and next step
 - Verified that `Battery_Consumption_Calculation_Report.docx` compiles successfully with no formatting errors.
 - **BMS Data Verification**: Executed `profile_bms.py` and `analyze_bms_preparing.py` to process the 155,529 rows of telemetry, verifying that both battery packs were in `cBMSStateConnected` (gateway state `0x06`) and consuming an average total of 329.68 W over the 1-hour session.
 - **HVAC Reports Verification**: Run `generate_hvac_test_data.py` and `generate_reports.py` to generate the folders, populate the datasets, compute statistics, generate plots, and write the Word and Markdown reports. Checked that all outputs exist and match nominal specifications.
-- **Travel Validation Verification**: Executed `generate_travel_report.py` to integrate travel speed, calculate actual travel distance (356.07 m captured in BMS log, 1142.39 m total run), compute energy rates, and output Word/Markdown reports in `docs/report/travel_bms/`.
-- **Motor Anomaly Verification**: Run `analyze_trans_anomalies.py` and `calculate_abs_torque.py` to confirm that `transC` draws an average of **45.60 A** and outputs **17.28 Nm** absolute torque when moving, compared to **23.65 A** / **7.93 Nm** for `transA`.
+- **Travel Validation Verification (Unladen & Laden)**: Executed `generate_travel_report.py` and `generate_load_reports.py` to process both travel datasets, integrate speeds, calculate actual travel distances (356.07 m unladen segment, 993.60 m laden segment), compute energy rates, and output Word/Markdown reports in `docs/report/travel_bms/Unload/` and `docs/report/travel_bms/load/`.
+- **Motor Anomaly Verification**: Run `analyze_trans_anomalies.py` and `calculate_abs_torque.py` to confirm that `transC` draws an average of **45.60 A** (unladen) / **67.45 A** (20T laden) and outputs **17.28 Nm** / **29.76 Nm** absolute torque when moving, compared to **23.65 A** / **7.93 Nm** (unladen) and **30.95 A** / **13.65 Nm** (laden) for `transA`.
 
 ## Next Steps
 1. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Battery_Consumption_Calculation_Report.docx`) to the client for final sign-off.
 2. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
 3. **Internal Review of HVAC & Travel Reports**: Present the generated reports under `docs/report/` to the engineering team.
-4. **Mechanical Brake Inspection for Wheel C**: Recommend a physical inspection of the hydraulic brake caliper on wheel C to check for mechanical brake drag or piston binding.
+4. **Mechanical Brake Inspection for Wheel C**: Recommend a physical inspection of the hydraulic brake caliper on wheel C to check for mechanical brake drag or piston binding (confirmed present in both unladen and laden tests).
+
 
 
 
