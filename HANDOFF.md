@@ -3,7 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
-- **Travel Drive C Motor Replacement Procedure**: Created a detailed, step-by-step bilingual (English & Vietnamese) maintenance procedure for replacing the Travel Drive C Motor (`transC`) on the Isoloader MJ35 Gantry Crane.
+- **Travel Drive C Motor Replacement Procedure**: Created a detailed, step-by-step 100% English maintenance procedure (both Markdown and Word DOCX) for replacing the Travel Drive C Motor (`transC`) on the Isoloader MJ35 Gantry Crane.
 - **Jacking Point Illustration**: Generated and embedded a professional technical schematic (`gantry_crane_jacking_point.png`) showing the correct wheel jacking setup, safety wheel-chocking, and support block placement.
 - **Document Reorganization**: Restructured all telemetry reports and plots under `docs/report/` into a numbered, scientific folder system (`01_Battery_HVAC_Tests`, `02_Travel_Performance_Tests`, `03_Winch_Performance_Tests`, `04_Motor_Thermal_Tests`) to clean up the workspace and make verification evidence easily searchable.
 - **Specification Validation & Evidence Report**: Created a master English validation document `Isoloader_MJ35_Performance_Validation_Evidence` (both Markdown and Word) under `docs/Spec/` to serve as a standalone proof of all technical specification fields based on real-world telemetry logs.
@@ -38,7 +38,7 @@ This document summarizes the changes, current state, verification, and next step
   - Programmatically updated [Battery_Consumption_Calculation_Report.docx](file:///C:/local/opencode/codesys/docs/Spec/Battery_Consumption_Calculation_Report.docx) to version 2.0 with the latest empirical telemetry data. The document now outlines page-by-page mathematical modeling, exact current/voltage logs for travel and winch modes, regenerative energy recovery efficiency (47.68%), standby times (HVAC ON/OFF), and duty cycle projections to support the spec parameters.
 
 ## Current System State
-- **Travel Drive C Replacement Guide**: The detailed, bilingual replacement and calibration procedure document has been saved to [Travel_Drive_C_Motor_Replacement_Procedure.md](file:///C:/local/opencode/codesys/docs/motor/113227%20-%20null%20-%20Travel%20drive%20-%20EL/Rev0/Guides/Travel_Drive_C_Motor_Replacement_Procedure.md) along with the jacking point illustration in the same folder.
+- **Travel Drive C Replacement Guide**: The detailed, 100% English replacement and calibration procedure document has been saved to [Travel_Drive_C_Motor_Replacement_Procedure.md](file:///C:/local/opencode/codesys/docs/motor/113227%20-%20null%20-%20Travel%20drive%20-%20EL/Rev0/Guides/Travel_Drive_C_Motor_Replacement_Procedure.md) and [Travel_Drive_C_Motor_Replacement_Procedure.docx](file:///C:/local/opencode/codesys/docs/motor/113227%20-%20null%20-%20Travel%20drive%20-%20EL/Rev0/Guides/Travel_Drive_C_Motor_Replacement_Procedure.docx) along with the jacking point illustration in the same folder.
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
 - The supporting calculation report `Battery_Consumption_Calculation_Report.docx` is saved under `docs/Spec/`.
 - The master verification and evidence report `Isoloader_MJ35_Performance_Validation_Evidence.docx` / `.md` is saved under `docs/Spec/`.
