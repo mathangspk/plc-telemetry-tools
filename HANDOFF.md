@@ -3,6 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
+- **Winch Performance Thermal Validation (Try 2)**: Added an evaluation report (both Markdown and Word) and a high-resolution temperature trend plot for the 15-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try2/`. Evaluated active heating rates, the 15-minute rest period (cooling rate of 1.00°C/min), and validated the thermal behavior against the 80°C target limit.
 - **Image Editing / Floor Cleanup**: Cleaned up the photo of the gantry crane wheel jacking setup by removing unnecessary objects on the floor (including a wrench, a black rag, metal pipes, and loose wooden planks) to make the image cleaner and more professional.
 - **Travel Drive C Motor Replacement Procedure**: Created a detailed, step-by-step 100% English maintenance procedure (both Markdown and Word DOCX) for replacing the Travel Drive C Motor (`transC`) on the Isoloader MJ35 Gantry Crane.
 - **Jacking Point Illustration**: Generated and embedded a professional technical schematic (`gantry_crane_jacking_point.png`) showing the correct wheel jacking setup, safety wheel-chocking, and support block placement.
@@ -52,6 +53,7 @@ This document summarizes the changes, current state, verification, and next step
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **70-90% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**59.0°C** max in Try 1 and **64.0°C** max in Try 2).
 - **BMS Winch Test Validation (20T Laden)**: Completed validation of winch lifting under 20T load (5 cycles, 4200mm height) in `docs/report/03_Winch_Performance_Tests/try1/`. Total gross energy discharged was **1.6332 kWh** (0.3266 kWh/cycle), regenerated energy was **0.7787 kWh** (0.1557 kWh/cycle), and net energy consumed was **0.8545 kWh** (0.1709 kWh/cycle), resulting in a regeneration percentage of **47.68%**. 80% SOC cycle capacity is **280.5 cycles** (gross) or **536.1 cycles** (net). Experimental hoisting speeds reached a peak max of **7.14 m/min** raising and **6.38 m/min** lowering (averaging 5.64 m/min and 4.59 m/min over the full stroke). Detected a temperature sensor fault on Winch B (reads 0.0°C constantly) and slightly lower load sharing on Winch B compared to Winch A/C/D. Winch A/C/D reached max temperatures of **67.0°C**, **67.0°C**, and **57.0°C** respectively.
 - **BMS Motor Thermal Performance & Cooling Report**: Completed a combined analysis of travel and winch motor temperatures during active operation (heating) and parked periods (natural cooling) under `docs/report/04_Motor_Thermal_Tests/`. Convective cooling rates range from **0.03°C/min** to **0.15°C/min** depending on the initial thermal gradient. Active winch motor heating rates reach **~1.9°C/min** (peak **70.0°C**), while the travel motor Drive C heats up at **0.63°C/min** (peak **64.0°C**) due to the brake drag anomaly.
+- **Winch Try 2 Thermal Validation**: Evaluated 15 cycles (20T load). Winch C reached the target 80.0°C limit at Cycle 13 and cooled by 15.0°C during the 15-minute rest period. Completed analysis and saved reports under `docs/report/03_Winch_Performance_Tests/try2/`.
 
 ## Verification & Testing
 - **Image Cleanup Verification**: Inspected the output image `clean_floor_image_1782266695185.png` to confirm the selected items were successfully removed and replaced with asphalt background texture.
@@ -61,6 +63,7 @@ This document summarizes the changes, current state, verification, and next step
 - Further verified the English translation of the winch cycles cell, the new Steering Modes row, and the updated Energy Consumption hourly equivalents via `verify_spec_winch.py` and `read_docx_spec.py` to confirm everything is correctly formatted in Calibri font without errors.
 - Confirmed that all updated cells contain the correct values, colors, and the new travel control row.
 - Verified that `Battery_Consumption_Calculation_Report.docx` and the new evidence document compile successfully with no formatting errors.
+- Verified Winch Try 2 thermal report compilation and matching telemetry plot in `docs/report/03_Winch_Performance_Tests/try2/`.
 
 ## Next Steps
 1. **Deliver Cleaned Image**: Provide the cleaned image to the user for use in documents.
@@ -71,3 +74,4 @@ This document summarizes the changes, current state, verification, and next step
 6. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) to the client for final sign-off.
 7. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
 8. **Mechanical Brake Inspection for Wheel C**: Recommend a physical inspection of the hydraulic brake caliper on wheel C to check for mechanical brake drag or piston binding (confirmed present in both unladen and laden tests).
+9. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
