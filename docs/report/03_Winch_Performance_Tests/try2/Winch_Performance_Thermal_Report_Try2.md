@@ -46,7 +46,20 @@ The 15-minute rest period began at **11:41:27.647** (immediately following the c
 
 ---
 
-## 5. Telemetry Trend Plot
+## 5. Comparison with Trial 1 (First 5 Cycles)
+A comparison of the first 5 cycles between Trial 1 (where the test stopped after 5 cycles) and Trial 2 (continuous run) reveals key insights into the system's thermal consistency:
+* **Cycle Operational Density (Pace):** In Trial 2, the first 5 cycles were completed in **10.7 minutes** (average 2.15 min/cycle), whereas in Trial 1 they took **12.5 minutes** (average 2.49 min/cycle). The faster cycle rate in Trial 2 represents a more intense, continuous operational profile with less inter-cycle cooling time.
+* **Initial Temperature baseline:** Trial 2 started slightly cooler (initial temperatures of **47°C - 48°C** compared to **48°C - 50°C** in Trial 1).
+* **Heating Rate Consistency:** The temperature rise (Delta T) over the first 5 cycles is highly consistent:
+  * **Winch A:** +20°C in Try 1 vs. +18°C in Try 2.
+  * **Winch C:** +18°C in Try 1 vs. +20°C in Try 2.
+  * **Winch D:** +11°C in Try 1 vs. +12°C in Try 2.
+  This confirms that motor heat generation is highly stable and repeatable at approximately **3.5°C to 4.0°C per cycle** for Winch A/C, and **~2.2°C per cycle** for Winch D under a 20T load.
+* **Absolute Peaks:** Due to the higher starting baseline in Trial 1, absolute temperatures after 5 cycles were slightly higher (Winch A hit **70°C** in Try 1 vs. **65°C** in Try 2).
+
+---
+
+## 6. Telemetry Trend Plot
 Below is the recorded motor temperature telemetry showing the heating profiles, the 15-minute rest period (gray shaded area), and the 80.0°C limit threshold.
 
 ![Winch Motor Temperature Telemetry](winch_thermal_try2.png)

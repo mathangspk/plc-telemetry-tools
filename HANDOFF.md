@@ -3,7 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
-- **Winch Performance Thermal Validation (Try 2)**: Added an evaluation report (both Markdown and Word) and a high-resolution temperature trend plot for the 15-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try2/`. Evaluated active heating rates, the 15-minute rest period (cooling rate of 1.00°C/min), and validated the thermal behavior against the 80°C target limit.
+- **Winch Performance Thermal Validation (Try 2)**: Added an evaluation report (both Markdown and Word) and a high-resolution temperature trend plot for the 15-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try2/`. Evaluated active heating rates, the 15-minute rest period (cooling rate of 1.00°C/min), validated the thermal behavior against the 80°C target limit, and added a comparative analysis of the first 5 cycles against Trial 1 data.
 - **Image Editing / Floor Cleanup**: Cleaned up the photo of the gantry crane wheel jacking setup by removing unnecessary objects on the floor (including a wrench, a black rag, metal pipes, and loose wooden planks) to make the image cleaner and more professional.
 - **Travel Drive C Motor Replacement Procedure**: Created a detailed, step-by-step 100% English maintenance procedure (both Markdown and Word DOCX) for replacing the Travel Drive C Motor (`transC`) on the Isoloader MJ35 Gantry Crane.
 - **Jacking Point Illustration**: Generated and embedded a professional technical schematic (`gantry_crane_jacking_point.png`) showing the correct wheel jacking setup, safety wheel-chocking, and support block placement.
