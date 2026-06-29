@@ -3,7 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
-- **Travel System Multi-Trial Thermal & Cooling Report**: Generated a beautifully styled Word report `Travel_Motor_Multi_Trial_Thermal_Report.docx` under `docs/report/` compiling telemetry data from Try 1 to Try 5 for both active loaded travel and natural cooling. Analyzed average currents, heating rates, and peak temperatures, confirming the stuck brake caliper anomaly on Wheel C (`transC`).
+- **Travel System Multi-Trial Thermal & Cooling Report**: Generated a 100% English Word report `Travel_Motor_Multi_Trial_Thermal_Report.docx` under `docs/report/` compiling telemetry data from Try 1 to Try 5. Analyzed average currents, heating rates, and peak temperatures, documenting the abnormal signature on Travel Drive C (`transC`) requiring replacement to isolate vehicle architecture effects.
 - **Winch Performance Thermal Validation (Try 2)**: Added an evaluation report (both Markdown and Word) and a high-resolution temperature trend plot for the 15-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try2/`. Evaluated active heating rates, the 15-minute rest period (cooling rate of 1.00°C/min), validated the thermal behavior against the 80°C target limit, and added a comparative analysis of the first 5 cycles against Trial 1 data.
 - **Image Editing / Floor Cleanup**: Cleaned up the photo of the gantry crane wheel jacking setup by removing unnecessary objects on the floor (including a wrench, a black rag, metal pipes, and wooden planks) to make the image cleaner and more professional.
 - **Travel Drive C Motor Replacement Procedure**: Created a detailed, step-by-step 100% English maintenance procedure (both Markdown and Word DOCX) for replacing the Travel Drive C Motor (`transC`) on the Isoloader MJ35 Gantry Crane.
@@ -69,13 +69,12 @@ This document summarizes the changes, current state, verification, and next step
 - Verified compilation of `Travel_Motor_Multi_Trial_Thermal_Report.docx` using `generate_word_report.py`.
 
 ## Next Steps
-1. **Physical Brake Overhaul on Wheel C**: Perform a complete mechanical and hydraulic overhaul on Wheel C's brake caliper to eliminate the brake drag causing the average current overload (45.7A vs. ~29.4A) and high heating rates across all 5 trials.
+1. **Travel Drive C Motor Replacement**: Replace the Travel Drive C Motor assembly (`transC`) as outlined in the procedure document to isolate the root cause of the current draw discrepancy (45.7A vs. ~29.4A) and rule out any structural or vehicle architecture influence.
 2. **Deliver Cleaned Image**: Provide the cleaned image to the user for use in documents.
-3. **Travel Drive C Motor Replacement**: Execute the physical replacement of the Travel Drive C Motor (`transC`) as outlined in the procedure document.
-4. **Motor Controller Calibration (Thang Ma)**: Connect the Zapi handheld console or calibration utility to perform the motor characterization/calibration sequence for the newly installed motor.
-5. **Brake Bleeding & Safety Check**: Perform the manual brake release bleeding procedure under the specified safety checks (ensure wheels are blocked with wooden chocks).
-6. **Post-Replacement Telemetry Validation**: Conduct a trial run and review real-time telemetry data for `transC` (specifically motor current, speed, and temperature) to verify that the load imbalance and high heating rate issues are resolved.
-7. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) to the client for final sign-off.
-8. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
-9. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
+3. **Motor Controller Calibration (Thang Ma)**: Connect the Zapi handheld console or calibration utility to perform the motor characterization/calibration sequence for the newly installed motor.
+4. **Brake Bleeding & Safety Check**: Perform the manual brake release bleeding procedure under the specified safety checks (ensure wheels are blocked with wooden chocks).
+5. **Post-Replacement Telemetry Validation**: Conduct a trial run and review real-time telemetry data for `transC` (specifically motor current, speed, and temperature) to verify that the load imbalance and high heating rate issues are resolved.
+6. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) to the client for final sign-off.
+7. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
+8. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
 
