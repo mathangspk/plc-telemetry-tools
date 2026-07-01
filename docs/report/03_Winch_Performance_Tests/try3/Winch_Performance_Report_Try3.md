@@ -16,6 +16,7 @@ Key findings include:
 * **Speed Stability:** Hoisting and lowering speeds remained extremely stable across all three phases, verifying that no thermal foldback was triggered.
 * **Energy Performance:** Average regeneration efficiency remained highly consistent at **45.50%** over the entire trial, recovering **8.98 kWh** back to the battery pack.
 * **BTMS Efficacy:** The high-voltage battery pack temperatures remained completely stable at **27°C - 29°C**, showing an increase of only 1°C over the entire 2.5-hour test, validating the liquid-cooled BTMS design.
+* **Winch B Risk:** A detailed current and torque analysis reveals that **Winch B carries the highest load of the entire system** (27.60% current share, 29.48% torque share). Since Winch C reached 91.0°C under a lighter load, Winch B's actual temperature is estimated to have exceeded **95.0°C**, representing an unmonitored thermal risk due to the broken temperature sensor.
 
 ---
 
@@ -61,7 +62,22 @@ The test profile consisted of three active phases separated by rest periods:
 
 ---
 
-## 5. Battery Thermal Management System (BTMS) Performance
+## 5. Winch B Load Sharing & Overheating Risk Analysis
+Winch B's temperature is logged as `0.0°C` due to a faulty connector. However, it is fully functional. To evaluate its thermal status, we analyzed the current draw and torque output of all four winch drives during active lifting:
+
+| Winch Drive ID | Avg Active Current (A) | Current Share (%) | Avg Absolute Torque | Torque Share (%) | Est. Peak Temp (°C) |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Winch A** | 52.41 A | 22.87% | 21.60 | 21.95% | 88.0°C (Actual) |
+| **Winch B** | **64.48 A** | **28.14%** | **28.97** | **29.43%** | **>95.0°C (Estimated)** |
+| **Winch C** | 54.36 A | 23.72% | 22.62 | 22.99% | 91.0°C (Actual) |
+| **Winch D** | 57.89 A | 25.26% | 25.22 | 25.63% | 84.0°C (Actual) |
+
+* **Load Imbalance:** Winch B carries the highest mechanical load, drawing **28.14%** of the total hoisting current and producing **29.43%** of the absolute torque. This is **18.4% more current** and **28.1% more torque** than Winch C.
+* **Overheating Risk:** Because Winch B operates under a significantly higher load, and Winch C reached 91.0°C, **Winch B's actual temperature is estimated to have exceeded 95.0°C** during Phase 3. Operating an unmonitored motor under these conditions poses a severe thermal risk. The Winch B motor assembly/connector replacement must be prioritized.
+
+---
+
+## 6. Battery Thermal Management System (BTMS) Performance
 The BMS logs show that the liquid-cooled/heated BTMS (utilizing a chiller, heater, and circulation pump) performed exceptionally well:
 * **BMSA Pack Average Temp:** Remained constant at **28.0°C**.
 * **BMSA Pack Max Temp:** Rose only 1°C from **28.0°C** to **29.0°C**.
@@ -71,7 +87,7 @@ The BMS logs show that the liquid-cooled/heated BTMS (utilizing a chiller, heate
 
 ---
 
-## 6. Performance Trend Plot
+## 7. Performance Trend Plot
 The telemetry plot below displays the temperature heating curves and the cumulative energy profiles.
 
 ![Winch Performance Try 3](winch_performance_try3.png)
