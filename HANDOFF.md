@@ -81,3 +81,25 @@ This document summarizes the changes, current state, verification, and next step
 7. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
 8. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
 
+
+---
+
+# Spreader PLC I/O Swap and Customization
+
+## Summary of Changes (Spreader PLC)
+- **Physical Output 02 Renamed**: Renamed physical output `_gOutputTelescopingExtend` to `_gOutputBrake` in PLC Configuration.
+- **Brake Logic Physical Mapping**: Bypassed the `odEnableBrakeValve2A` switch in `BrakeAutomatic` and mapped it directly to physical output `gOutputBrake` (which is assigned to physical output `_gOutputBrake`).
+- **Telescopic Extend CANopen Mapping**: Upgraded `lExtendControl` type from `GVOutputBool` to `GVOutputCheckBool` to support feedback checking. Mapped it to CANopen `gPumpPrimaryControl` (Bit 2) and feedback checking to `gPumpStatus` (Bit 1).
+- **Added Extend Control Timeout**: Added `cExtendControlTimeout: t_ms_time := T#500ms;` under `Global_Variables_Spreader` GVL.
+- **Cleaned Up Test Flags**: Restored camera logic in `IOConfigSpreader` and removed all hardcoded `gSimulate := TRUE;` assignments from execution code.
+
+## Current System State (Spreader PLC)
+- The revised file [SPREADER_V3.EXP](file:///C:/local/opencode/codesys/exported-src/spreader/SPREADER_V3.EXP) is complete and verified.
+
+## Verification & Testing (Spreader PLC)
+- Performed file comparison between `SPREADER_V2.EXP` and `SPREADER_V3.EXP`, confirming that the hardcoded simulation flags were removed and camera logics were restored correctly.
+
+## Next Steps (Spreader PLC)
+1. **Import EXP File**: Import `SPREADER_V3.EXP` into CODESYS 2.3.
+2. **Compile Project**: Rebuild all in CODESYS 2.3 and ensure there are no compilation errors.
+3. **Dry-run Test**: Perform simulation or dry-run testing on the machine to verify output 02 (Brake Valve) and PDO Bit 2 (Extend command over CAN) toggle correctly.
