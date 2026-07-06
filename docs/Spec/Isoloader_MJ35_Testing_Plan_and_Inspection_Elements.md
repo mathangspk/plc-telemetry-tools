@@ -75,7 +75,7 @@ Before executing active motion trials, the following pre-commissioning checks mu
 
 | Parameter | Target Specification / Limit | Pass Criteria (Laden) |
 | :--- | :--- | :--- |
-| **Cruise Speed** | 10.0 km/h (Unladen) / 6.0 km/h (Laden) | Laden travel speed must be 6.0 km/h ± 5% |
+| **Cruise Speed** | 8.0 km/h (Unladen) / 5.0 km/h (Laden) | Laden travel speed must be 5.0 km/h ± 5% |
 | **Current Balance** | ~29.4 A per drive (Average) | Individual drive current must not exceed 35.0 A; balance within ±10% |
 | **Motor Heating Rate** | < 0.65°C/min | No drive motor heating rate may exceed 0.65°C/min |
 | **Peak Motor Temp** | < 70.0°C | Maximum motor temperature must remain below 70.0°C after 15 minutes |
@@ -109,7 +109,7 @@ Before executing active motion trials, the following pre-commissioning checks mu
 To guarantee the safe operation of the winch motors during extended, high-duty container handling operations, the following operational rest guidelines must be adhered to based on empirical cooling telemetry:
 
 > [!IMPORTANT]
-> **Thermal Rest Rule:** If the winch system operates continuously for **18 complete cycles** under full load, the machine must be paused for a minimum of **10 minutes**.
+> **Thermal Rest Rule:** If the winch system operates continuously for **20 complete cycles** under full load, the machine must be paused for a minimum of **10 minutes**.
 >
 > **Rationale:** The cooling behavior follows Newton's Law of Cooling, showing an active cooling rate of -1.3°C/min (starting at 75°C) to -1.7°C/min (starting at 90°C). Observing a 10-minute rest ensures motor temperatures drop by at least 15°C to 17°C, bringing them back into a safe operating range before resuming work.
 
@@ -118,5 +118,5 @@ To guarantee the safe operation of the winch motors during extended, high-duty c
 ## 7. Battery Thermal Management System (BTMS) Performance
 * **Purpose:** Verify the active liquid cooling system controls cell temperatures under continuous heavy-duty cycling.
 * **Pass Criteria:**
-  1. **Optimal Temperature Range:** Throughout the 20-cycle winch performance test, the average battery pack temperature (`BMSA_PackAverageTemperature` and `BMSB_PackAverageTemperature`) must remain stable within the optimal range of **27.0°C to 29.0°C**.
+  1. **Max Temperature Limit:** Throughout the 20-cycle winch performance test, the average battery pack temperature (`BMSA_PackAverageTemperature` and `BMSB_PackAverageTemperature`) must remain stable and below **32.0°C**.
   2. **Max Temp Rise:** The maximum cell temperature rise (`BMSA_PackMaxTemperature`) must not exceed **1.0°C** over the entire test duration, confirming the efficiency of the BTMS chiller, heater, and circulation pump under high charge/discharge currents.

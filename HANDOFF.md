@@ -72,7 +72,7 @@ This document summarizes the changes, current state, verification, and next step
 - Verified Winch Try 2 thermal report compilation and matching telemetry plot.
 - Verified compilation of `Travel_Motor_Multi_Trial_Thermal_Report.docx` using `generate_word_report.py`.
 - Verified Winch Try 3 performance and energy report compilation and matching double-panel telemetry plot in `docs/report/03_Winch_Performance_Tests/try3/`.
-- Verified the Testing Plan documents (`.docx` and `.md`) by checking that the key metrics (like the ±1.5°C sensor limit, 29.4A travel current, 6.7/6.0 m/min winch speeds, and 10-minute rest rule) are present in the files.
+- Verified the Testing Plan documents (`.docx` and `.md`) by checking that the key metrics (like the ±1.5°C sensor limit, 29.4A travel current, 6.7/6.0 m/min winch speeds, 8.0/5.0 km/h travel speeds, 20-cycle rest rule, and 32.0°C battery temperature limit) are present in the files.
 
 ## Next Steps
 1. **Travel Drive C Motor Replacement**: Replace the Travel Drive C Motor assembly (`transC`) as outlined in the procedure document to isolate the root cause of the current draw discrepancy (45.7A vs. ~29.4A) and rule out any structural or vehicle architecture influence.
