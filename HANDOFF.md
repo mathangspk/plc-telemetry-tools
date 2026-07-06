@@ -3,6 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
+- **Commissioning & Performance Testing Plan**: Developed a comprehensive testing plan and inspection elements document (`Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.md` and `Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.docx`) under `docs/Spec/` to structure performance testing on a new crane unit. It includes pre-commissioning checks (ambient-equilibrium temperature sensor offset validation, travel brake release pressure, wire rope tension), standby consumption tests, travel drive load-sharing tests, winch duty-cycle validation (20-cycle test with 15s pauses), and battery cooling (BTMS) performance validation.
 - **Travel System Multi-Trial Thermal & Cooling Report**: Generated a 100% English Word report `Travel_Motor_Multi_Trial_Thermal_Report.docx` under `docs/report/` compiling telemetry data from Try 1 to Try 5. Analyzed average currents, heating rates, and peak temperatures, documenting the abnormal signature on Travel Drive C (`transC`) requiring replacement to isolate vehicle architecture effects.
 - **Winch Performance Thermal Validation (Try 2)**: Added an evaluation report (both Markdown and Word) and a high-resolution temperature trend plot for the 15-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try2/`. Evaluated active heating rates, the 15-minute rest period (cooling rate of 1.00°C/min), validated the thermal behavior against the 80°C target limit, and added a comparative analysis of the first 5 cycles against Trial 1 data.
 - **Winch Performance Validation (Try 3)**: Added a detailed performance and thermal report (both Markdown and Word) and a double-panel telemetry plot for the extended 58-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try3/`. Analyzed the 45.50% regenerative energy recovery, physical hoisting speeds (6.71 m/min raise / 6.14 m/min lower), motor heating curves peaking at 91.0°C, and performed a load-sharing analysis showing Winch B carries the highest load (27.60% current, 29.48% torque) introducing an unmonitored thermal risk.
@@ -48,6 +49,7 @@ This document summarizes the changes, current state, verification, and next step
 - The finalized specification document `Isoloader MJ35 Specifications-v2.docx` is saved under `docs/Spec/`.
 - The supporting calculation report `Battery_Consumption_Calculation_Report.docx` is saved under `docs/Spec/`.
 - The master verification and evidence report `Isoloader_MJ35_Performance_Validation_Evidence.docx` / `.md` is saved under `docs/Spec/`.
+- The commissioning testing plan and inspection elements document (`Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.docx` / `.md`) is saved under `docs/Spec/` to verify new crane units.
 - **docs/report/ Reorganized Structure**:
   - **`01_Battery_HVAC_Tests/`**: Contains simulations and reports for parked HVAC ON/OFF states.
   - **`02_Travel_Performance_Tests/`**: Contains unladen (Try 1/2) and laden (Try 1..5) travel logs, reports, and speed/power plots.
@@ -70,6 +72,7 @@ This document summarizes the changes, current state, verification, and next step
 - Verified Winch Try 2 thermal report compilation and matching telemetry plot.
 - Verified compilation of `Travel_Motor_Multi_Trial_Thermal_Report.docx` using `generate_word_report.py`.
 - Verified Winch Try 3 performance and energy report compilation and matching double-panel telemetry plot in `docs/report/03_Winch_Performance_Tests/try3/`.
+- Verified the Testing Plan documents (`.docx` and `.md`) by checking that the key metrics (like the ±1.5°C sensor limit, 29.4A travel current, 6.7/6.0 m/min winch speeds, and 10-minute rest rule) are present in the files.
 
 ## Next Steps
 1. **Travel Drive C Motor Replacement**: Replace the Travel Drive C Motor assembly (`transC`) as outlined in the procedure document to isolate the root cause of the current draw discrepancy (45.7A vs. ~29.4A) and rule out any structural or vehicle architecture influence.
