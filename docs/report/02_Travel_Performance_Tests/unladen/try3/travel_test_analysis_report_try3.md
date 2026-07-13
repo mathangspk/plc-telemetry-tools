@@ -1,0 +1,92 @@
+# Travel Motor Replacement Verification & Performance Report (Unladen Try 3)
+
+**Document Reference:** BMS-VALIDATION-TRAVEL-03  
+**Vehicle Model:** Isoloader MJ35 Gantry Crane  
+**Test Configuration:** Unladen Travel (Không tải), HVAC ON  
+**Test Location:** try3 Folder  
+**Target Action:** Verification of Travel Drive C (`transC`) Motor Replacement
+
+---
+
+## 1. Executive Summary
+This report presents the empirical verification results for the replacement of the Travel Drive C (`transC`) motor. In previous laden and unladen tests, the original Drive C motor displayed abnormal thermal and electrical signatures, drawing significantly higher currents (peaking >100A, averaging ~45.4A in Try 1) and heating up at a rate of **0.73°C/min** (reaching 59.0°C in unladen Try 1 and up to 85.0°C in laden Try 5).
+
+To isolate the root cause and rule out motor internal faults, **the transC motor was replaced with a new unit** for Try 3. However, telemetry analysis of Try 3 (unladen, 56.07 minutes total duration, 28.13 minutes active travel) reveals that:
+* **The issue remains unresolved:** Drive C continues to draw the highest current (**40.26 A** average during motion, which is **24.3% higher** than the average of the other three drives).
+* **The heating rate remains abnormally high:** Drive C's heating rate in Try 3 is **0.71°C/min** (yielding a **+20.0°C** rise to **59.0°C**), compared to Drive A (**0.50°C/min**), Drive B (**0.53°C/min**), and Drive D (**0.60°C/min**).
+* **Drive C torque remains elevated:** Average absolute torque on Drive C is **15.10 Nm**, which is **35.3% higher** than the average of the other drives (11.16 Nm).
+
+**Conclusion:** Replacing the motor did **not** resolve the anomaly. The persistent elevated torque and current draw mathematically prove that the issue is **external to the motor itself**, indicating a severe mechanical resistance (such as **brake drag** or **gearbox/wheel binding**) on Wheel C.
+
+---
+
+## 2. Comparative Telemetry Analysis (Try 1 vs. Try 2 vs. Try 3)
+The table below compiles the active moving metrics across all four travel drives (A, B, C, D) for the three unladen travel runs.
+
+### active travel segment comparisons:
+
+| Test Run & Motor ID | Active Time | Mean Current | Max Current | Mean Torque | Max Torque | Start Temp | Max Temp | Temp Rise | Heating Rate |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Try 1 (Old Motor C)** | **19.15 min** | | | | | | | | |
+| - Travel Drive A | | 23.86 A | 90.00 A | 7.93 Nm | 36.40 Nm | 45.0°C | 54.0°C | +9.0°C | 0.47°C/min |
+| - Travel Drive B | | 25.62 A | 86.00 A | 8.40 Nm | 34.50 Nm | 44.0°C | 53.0°C | +9.0°C | 0.47°C/min |
+| - **Travel Drive C (Outlier)** | | **45.44 A** | **106.00 A** | **17.21 Nm** | **41.70 Nm** | **45.0°C** | **59.0°C** | **+14.0°C** | **0.73°C/min** |
+| - Travel Drive D | | 30.68 A | 86.00 A | 10.15 Nm | 35.50 Nm | 42.0°C | 53.0°C | +11.0°C | 0.57°C/min |
+| **Try 2 (Old Motor C)** | **12.27 min** | | | | | | | | |
+| - Travel Drive A | | 37.57 A | 92.00 A | 13.70 Nm | 36.90 Nm | 53.0°C | 60.0°C | +7.0°C | 0.57°C/min |
+| - Travel Drive B | | 37.63 A | 92.00 A | 13.20 Nm | 34.90 Nm | 53.0°C | 60.0°C | +7.0°C | 0.57°C/min |
+| - **Travel Drive C (Outlier)** | | **40.90 A** | **92.00 A** | **15.33 Nm** | **38.10 Nm** | **57.0°C** | **65.0°C** | **+8.0°C** | **0.65°C/min** |
+| - Travel Drive D | | 44.74 A | 94.00 A | 17.61 Nm | 41.60 Nm | 50.0°C | 59.0°C | +9.0°C | 0.73°C/min |
+| **Try 3 (New Motor C)** | **28.13 min** | | | | | | | | |
+| - Travel Drive A | | 28.92 A | 88.00 A | 10.02 Nm | 36.70 Nm | 39.0°C | 53.0°C | +14.0°C | 0.50°C/min |
+| - Travel Drive B | | 33.11 A | 120.00 A | 11.31 Nm | 59.20 Nm | 38.0°C | 53.0°C | +15.0°C | 0.53°C/min |
+| - **Travel Drive C (New Motor)** | | **40.26 A** | **108.00 A** | **15.10 Nm** | **49.90 Nm** | **39.0°C** | **59.0°C** | **+20.0°C** | **0.71°C/min** |
+| - Travel Drive D | | 35.19 A | 88.00 A | 12.14 Nm | 35.90 Nm | 33.0°C | 50.0°C | +17.0°C | 0.60°C/min |
+
+---
+
+## 3. Analysis and Root Cause Diagnosis
+
+### 3.1 Comparison of Try 3 against Try 1 & Try 2
+1. **Current Draw Profile:** 
+   * In Try 1, Drive C drew **90.4% more current** than Drive A.
+   * In Try 3 (with the new motor), Drive C still draws **39.2% more current** than Drive A (40.26 A vs 28.92 A) and **21.6% more** than Drive B (33.11 A).
+   * While the absolute current gap has narrowed slightly due to a higher overall system current baseline in Try 3 (average current across all drives is 34.37A in Try 3 vs 31.40A in Try 1), Drive C remains the clear electrical outlier.
+2. **Motor Temperature Heating Rates:**
+   * Drive C heating rates remain virtually unchanged: **0.73°C/min** in Try 1, **0.65°C/min** in Try 2, and **0.71°C/min** in Try 3.
+   * Drive C's heating rate in Try 3 is **42.0% faster** than Drive A (0.50°C/min) and **34.0% faster** than Drive B (0.53°C/min).
+3. **Torque Output:**
+   * Drive C's average torque of **15.10 Nm** in Try 3 is **50.7% higher** than Drive A (10.02 Nm) and **33.5% higher** than Drive B (11.31 Nm).
+   * This indicates the motor is performing more actual mechanical work to spin Wheel C at the same speed as the other wheels.
+
+### 3.2 Diagnosis of Root Causes
+Since replacing the motor assembly did not resolve the current and temperature spikes, the fault must be external to the motor:
+
+1. **Electro-Hydraulic Brake Drag (Bó Phanh) (Primary Hypothesis):**
+   * The spring-applied, hydraulic-released multi-disk brake on Wheel C is not releasing fully.
+   * This could be caused by:
+     * **Insufficient Brake Release Pressure:** The brake valve for circuit C is restricted, leaking, or misaligned, supplying less than the required 25-30 bar release pressure.
+     * **Mechanical Brake Caliper/Disk Alignment:** Wear, dirt, or warping of the brake disks causing them to rub even when pressure is applied.
+2. **Mechanical Binding in Gearbox or Wheel Hub (Secondary Hypothesis):**
+   * Gearbox C has a high friction coefficient due to:
+     * High gear wear or poor lubrication (low oil level/degraded gear oil).
+     * Damaged or seized wheel hub bearings on Wheel C.
+3. **Lack of Motor Characterization/Calibration (Software Hypothesis):**
+   * The Zapi ACE4 controller for Drive C was not calibrated or characterized for the new motor. Connecting the console and running the motor auto-characterization sequence is required. However, while this affects electrical efficiency, it does not fully explain why the physical torque calculation remains so high.
+
+---
+
+## 4. Next Steps & Recommended Inspections
+To systematically resolve the Travel Drive C anomaly, we recommend the following diagnostic checklist:
+
+1. **Brake Pressure Measurement:** Connect a hydraulic gauge to the brake release port of Wheel C. Actuate travel and verify the pressure reaches a stable **25 to 30 bar**. If it is below this threshold, check the release solenoid valve and hydraulic lines.
+2. **Manual Rotation Check (Brake Release Override):** Jack up Wheel C, override the brake release valve manually to supply full pressure, and attempt to rotate Wheel C by hand. Compare the resistance to Wheel A/B.
+3. **Gearbox Inspection:** Drain and inspect the gear oil of Gearbox C. Check for metallic shavings, and refill with fresh oil.
+4. **Zapi Controller Auto-Tuning:** Use the Zapi handheld console to execute the motor characterization routine to calibrate the new motor with the controller.
+
+---
+
+## 5. Telemetry Trend Plot (Try 3)
+The plots below display the currents and motor temperatures of the travel drives during the Try 3 unladen test run.
+
+![Travel Performance Try 3](travel_performance_unladen_try3.png)

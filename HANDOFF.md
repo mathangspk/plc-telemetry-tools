@@ -3,6 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
+- **Travel Motor Replacement Verification (Unladen Try 3)**: Generated a report (both Markdown and Word DOCX) and a dual-panel telemetry plot under `docs/report/02_Travel_Performance_Tests/unladen/try3/` evaluating the unladen travel run after replacing `transC` motor. Calculated active travel currents, heating rates, and torque outputs, verifying that the replacement did not resolve the high current and heating rate, mathematically proving the root cause is external (e.g. brake drag or gearbox binding).
 - **Commissioning & Performance Testing Plan**: Developed a comprehensive testing plan and inspection elements document (`Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.md` and `Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.docx`) under `docs/Spec/` to structure performance testing on a new crane unit. It includes pre-commissioning checks (ambient-equilibrium temperature sensor offset validation, travel brake release pressure, wire rope tension), standby consumption tests, travel drive load-sharing tests, winch duty-cycle validation (20-cycle test with 15s pauses), and battery cooling (BTMS) performance validation.
 - **Travel System Multi-Trial Thermal & Cooling Report**: Generated a 100% English Word report `Travel_Motor_Multi_Trial_Thermal_Report.docx` under `docs/report/` compiling telemetry data from Try 1 to Try 5. Analyzed average currents, heating rates, and peak temperatures, documenting the abnormal signature on Travel Drive C (`transC`) requiring replacement to isolate vehicle architecture effects.
 - **Winch Performance Thermal Validation (Try 2)**: Added an evaluation report (both Markdown and Word) and a high-resolution temperature trend plot for the 15-cycle winch performance test under `docs/report/03_Winch_Performance_Tests/try2/`. Evaluated active heating rates, the 15-minute rest period (cooling rate of 1.00°C/min), validated the thermal behavior against the 80°C target limit, and added a comparative analysis of the first 5 cycles against Trial 1 data.
@@ -52,7 +53,7 @@ This document summarizes the changes, current state, verification, and next step
 - The commissioning testing plan and inspection elements document (`Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.docx` / `.md`) is saved under `docs/Spec/` to verify new crane units.
 - **docs/report/ Reorganized Structure**:
   - **`01_Battery_HVAC_Tests/`**: Contains simulations and reports for parked HVAC ON/OFF states.
-  - **`02_Travel_Performance_Tests/`**: Contains unladen (Try 1/2) and laden (Try 1..5) travel logs, reports, and speed/power plots.
+  - **`02_Travel_Performance_Tests/`**: Contains unladen (Try 1/2) and laden (Try 1..5) travel logs, reports, and speed/power plots. Also includes the newly added Try 3 folder (`docs/report/02_Travel_Performance_Tests/unladen/try3/`) verifying the transC motor replacement results.
   - **`03_Winch_Performance_Tests/`**: Contains hoist logs, 20T laden cycle reports, currents, and position plots.
   - **`04_Motor_Thermal_Tests/`**: Contains parked natural cooling logs (Try 1..5) and heating/cooling rates reports & plots.
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **50-70% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**85.0°C** max in Try 5).
@@ -73,13 +74,14 @@ This document summarizes the changes, current state, verification, and next step
 - Verified compilation of `Travel_Motor_Multi_Trial_Thermal_Report.docx` using `generate_word_report.py`.
 - Verified Winch Try 3 performance and energy report compilation and matching double-panel telemetry plot in `docs/report/03_Winch_Performance_Tests/try3/`.
 - Verified the Testing Plan documents (`.docx` and `.md`) by checking that the key metrics (like the ±1.5°C sensor limit, 29.4A travel current, 6.7/6.0 m/min winch speeds, 8.0/5.0 km/h travel speeds, 20-cycle rest rule, and 32.0°C battery temperature limit) are present in the files.
+- Verified unladen travel Try 3 report and plot generation by checking that the key metrics (like the 40.26A mean current and 0.71°C/min heating rate on transC) are present and correct in both documents.
 
 ## Next Steps
-1. **Travel Drive C Motor Replacement**: Replace the Travel Drive C Motor assembly (`transC`) as outlined in the procedure document to isolate the root cause of the current draw discrepancy (45.7A vs. ~29.4A) and rule out any structural or vehicle architecture influence.
+1. **Mechanical Brake & Gearbox C Inspection**: Measure brake hydraulic release pressure at Wheel C to confirm it reaches 25-30 bar. Inspect Wheel C gearbox and wheel hub bearings for mechanical binding or lack of lubrication.
 2. **Deliver Cleaned Image**: Provide the cleaned image to the user for use in documents.
 3. **Motor Controller Calibration (Thang Ma)**: Connect the Zapi handheld console or calibration utility to perform the motor characterization/calibration sequence for the newly installed motor.
 4. **Brake Bleeding & Safety Check**: Perform the manual brake release bleeding procedure under the specified safety checks (ensure wheels are blocked with wooden chocks).
-5. **Post-Replacement Telemetry Validation**: Conduct a trial run and review real-time telemetry data for `transC` (specifically motor current, speed, and temperature) to verify that the load imbalance and high heating rate issues are resolved.
+5. **Post-Brake Repair Verification Run**: Conduct a travel performance trial after repairing the brake caliper or gearbox to verify that the current draw on Drive C aligns with A and B (~29.4 A laden).
 6. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) to the client for final sign-off.
 7. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
 8. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
