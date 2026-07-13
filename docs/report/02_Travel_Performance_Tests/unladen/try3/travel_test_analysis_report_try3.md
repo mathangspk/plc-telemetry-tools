@@ -16,7 +16,7 @@ To isolate the root cause and rule out motor internal faults, **the transC motor
 * **The heating rate remains abnormally high:** Drive C's heating rate in Try 3 is **0.71°C/min** (yielding a **+20.0°C** rise to **59.0°C**), compared to Drive A (**0.50°C/min**), Drive B (**0.53°C/min**), and Drive D (**0.60°C/min**).
 * **Drive C torque remains elevated:** Average absolute torque on Drive C is **15.10 Nm**, which is **35.3% higher** than the average of the other drives (11.16 Nm).
 
-**Conclusion:** Replacing the motor did **not** resolve the anomaly. The persistent elevated torque and current draw mathematically prove that the issue is **external to the motor itself**, indicating a severe mechanical resistance (such as **brake drag** or **gearbox/wheel binding**) on Wheel C.
+**Conclusion:** Replacing the motor did **not** resolve the anomaly. The persistent elevated torque and current draw mathematically prove that the issue is **external to the motor itself**, indicating a severe mechanical resistance (such as **brake drag**, **gearbox binding**, or **structural misalignment**) on Wheel C.
 
 ---
 
@@ -46,7 +46,6 @@ The table below compiles the active moving metrics across all four travel drives
 ---
 
 ## 3. Detailed Drive C Comparisons (against Drive A, Drive B, and Drive D)
-
 To provide a complete architectural analysis, the electrical, mechanical, and thermal parameters of Drive C are compared directly to all other drives under the Try 3 unladen test run:
 
 ### 3.1 Electrical Current Draw Comparison (Try 3)
@@ -63,23 +62,37 @@ To provide a complete architectural analysis, the electrical, mechanical, and th
 * **Drive C (0.71°C/min) vs. Drive A (0.50°C/min):** Drive C heats up **42.0% faster** than Drive A.
 * **Drive C (0.71°C/min) vs. Drive B (0.53°C/min):** Drive C heats up **34.0% faster** than Drive B.
 * **Drive C (0.71°C/min) vs. Drive D (0.60°C/min):** Drive C heats up **18.3% faster** than Drive D.
-* **Peak Temperature and Rise:** Over the 28.13 minutes active travel, Drive C's temperature rose by **+20.0°C** (to **59.0°C**). This represents the highest thermal rise and highest peak temperature in the entire system (Drives A and B peaked at 53.0°C, and Drive D peaked at 50.0°C).
+* **Thermal Rise:** Over the 28.13 minutes active travel, Drive C's temperature rose by **+20.0°C** (to **59.0°C**), peaking higher than all other drives (Drives A/B peaked at 53.0°C, and Drive D peaked at 50.0°C).
 
 ---
 
 ## 4. Diagnosis and Recommended Next Steps
 Since replacing the motor assembly did not resolve the current and temperature spikes, the fault must be external to the motor:
 
-1. **Electro-Hydraulic Brake Drag (Bó Phanh):**
-   * The spring-applied, hydraulic-released multi-disk brake on Wheel C is not releasing fully.
-   * Check if release hydraulic pressure reaches the target **25 to 30 bar** at Wheel C.
-2. **Mechanical Binding in Gearbox or Wheel Hub:**
-   * High friction in Gearbox C or damaged wheel hub bearings. Inspect gear oil for metal particles.
+### 4.1 Mechanical and Structural Hypotheses
+1. **Electro-Hydraulic Brake Drag (Bó phanh):** The spring-applied, hydraulic-released multi-disk brake on Wheel C is not releasing fully. This explains why the motor is forced to output higher torque and current, and heats up rapidly.
+2. **Wheel Misalignment (Lệch góc chụm bánh xe):** If Wheel C's mounting yoke or steering arm is misaligned, the wheel will scrub sideways against the ground, generating massive continuous dragging resistance.
+3. **Structural Frame Twisting (Vặn xoắn khung gầm):** Twists in the straddle carrier portal legs or sill beams can cause uneven ground pressure distribution or crabbing (dog-tracking), forcing wheel C to fight lateral loading.
+4. **Gearbox or Wheel Hub Binding:** Friction from worn gears, lack of lubrication, or damaged hub bearings in Gearbox C.
+
+### 4.2 Diagnostic Swapping Procedure (Recommended Action Plan)
+To isolate the root cause, we recommend implementing a two-level tráo đổi (swapping) check:
+
+* **Level 1: Swap Tires & Rims between Wheel C and A (Low Complexity)**
+  * **Method:** Swap the physical tires/rims of Corner C and Corner A (keeping drive units intact).
+  * **Result Analysis:**
+    * If the current/torque spike **moves to Drive A**, the cause is a tire rolling radius discrepancy (tire pressure or tread wear differences).
+    * If the spike **remains at Drive C**, the tires are ruled out. Proceed to Level 2.
+* **Level 2: Swap Cụm Truyền Động (Drive Units) between Corner C and A (High Complexity)**
+  * **Method:** Swap the motor, gearbox, and brake assemblies of Wheel C with Wheel A.
+  * **Result Analysis:**
+    * If the anomaly **remains at Location C**, the cause is **structural** (wheel misalignment, frame twisting, or localized brake release hydraulic circuit pressure drop on corner C).
+    * If the anomaly **moves to Location A**, the cause is **component-based** (internal gearbox friction or a dragging brake caliper assembly originally from wheel C).
 
 ---
 
 ## 5. Telemetry Visualizations
-Below are the telemetry trend plots and the side-by-side comparative bar charts across all three trials.
+Below are the telemetry trend plots, the side-by-side comparative bar charts, and the transC heating profile comparisons.
 
 ### 5.1 Try 3 Time-Series Telemetry Plot
 ![Travel Performance Try 3](travel_performance_unladen_try3.png)
@@ -88,6 +101,6 @@ Below are the telemetry trend plots and the side-by-side comparative bar charts 
 ![Multi-Trial Travel Drive Comparison](travel_multi_trial_comparison.png)
 
 ### 5.3 transC Motor Temperature Comparison (Try 1 vs. Try 2 vs. Try 3)
-The overlaid plot below compares the actual temperature and the temperature rise ($\Delta T = T_t - T_0$) of the transC motor across all three trials. This confirms that the heating rate slope is identical, demonstrating that the physical heat load remains unchanged despite any sensor calibration offsets.
+Overlaid plot comparing actual temperature and temperature rise ($\Delta T = T_t - T_0$) of the transC motor across all three trials. This confirms that the heating rate slope is virtually identical, demonstrating that the physical heat load remains unchanged despite any sensor calibration offsets.
 
 ![transC Temperature Comparison](transc_temperature_comparison.png)
