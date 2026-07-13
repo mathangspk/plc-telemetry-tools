@@ -53,13 +53,11 @@ To provide a complete architectural analysis, the electrical, mechanical, and th
 * **Drive C (40.26 A) vs. Drive A (28.92 A):** Drive C draws **39.2% more current** than Drive A.
 * **Drive C (40.26 A) vs. Drive B (33.11 A):** Drive C draws **21.6% more current** than Drive B.
 * **Drive C (40.26 A) vs. Drive D (35.19 A):** Drive C draws **14.4% more current** than Drive D.
-* **Peak Transient Load:** Drive B experienced a peak current transient of **120.0 A**, and Drive C reached **108.0 A**. However, in terms of continuous running load, Drive C remains the clear outlier.
 
 ### 3.2 Mechanical Torque Comparison (Try 3)
 * **Drive C (15.10 Nm) vs. Drive A (10.02 Nm):** Drive C outputs **50.7% more torque** than Drive A.
 * **Drive C (15.10 Nm) vs. Drive B (11.31 Nm):** Drive C outputs **33.5% more torque** than Drive B.
 * **Drive C (15.10 Nm) vs. Drive D (12.14 Nm):** Drive C outputs **24.4% more torque** than Drive D.
-* **Implication:** The fact that Drive C is outputting significantly higher mechanical torque to match the rotational speed of the other wheels confirms that it is continuously fighting a localized mechanical drag.
 
 ### 3.3 Thermal Heating Rate Comparison (Try 3)
 * **Drive C (0.71°C/min) vs. Drive A (0.50°C/min):** Drive C heats up **42.0% faster** than Drive A.
@@ -88,3 +86,8 @@ Below are the telemetry trend plots and the side-by-side comparative bar charts 
 
 ### 5.2 Multi-Trial Comparative Bar Chart (Try 1 vs. Try 2 vs. Try 3)
 ![Multi-Trial Travel Drive Comparison](travel_multi_trial_comparison.png)
+
+### 5.3 transC Motor Temperature Comparison (Try 1 vs. Try 2 vs. Try 3)
+The overlaid plot below compares the actual temperature and the temperature rise ($\Delta T = T_t - T_0$) of the transC motor across all three trials. This confirms that the heating rate slope is identical, demonstrating that the physical heat load remains unchanged despite any sensor calibration offsets.
+
+![transC Temperature Comparison](transc_temperature_comparison.png)
