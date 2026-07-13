@@ -174,11 +174,11 @@ To isolate the root cause, we recommend implementing a two-level tráo đổi (s
   * **Result Analysis:**
     * If the current/torque spike **moves to Drive A**, the cause is a tire rolling radius discrepancy (tire pressure or tread wear differences).
     * If the spike **remains at Drive C**, the tires are ruled out. Proceed to Level 2.
-* **Level 2: Swap Cụm Truyền Động (Drive Units) between Corner C and A (High Complexity)**
-  * **Method:** Swap the motor, gearbox, and brake assemblies of Wheel C with Wheel A.
+* **Level 2: Swap Zapi Controller & Motor between Corner C and A (High Complexity)**
+  * **Method:** Swap both the Zapi controller and the motor assembly of Wheel C with Wheel A.
   * **Result Analysis:**
-    * If the anomaly **remains at Location C**, the cause is **structural** (wheel misalignment, frame twisting, or localized brake release hydraulic circuit pressure drop on corner C).
-    * If the anomaly **moves to Location A**, the cause is **component-based** (internal gearbox friction or a dragging brake caliper assembly originally from wheel C).
+    * If the anomaly **moves to Location A**, the cause is **component-based** (the Zapi controller parameter tuning or internal motor issue originally from Drive C).
+    * If the anomaly **remains at Location C**, the cause is **structural / mechanical brake drag** (such as wheel misalignment, frame twisting, or a mechanical caliper binding at Wheel C—note that the hydraulic brake release pressure has already been verified to be equal across all four corners when the brakes are opened).
 
 ---
 
@@ -333,7 +333,7 @@ doc_add_p(
     "• Wheel Misalignment & Frame Twisting: Inspect alignment of Wheel C's yoke. Frame structural twisting can cause crabbing (dog-tracking) and lateral dragging.\n"
     "• Diagnostic Swapping Plan:\n"
     "  1. Level 1: Swap tires between Wheel C and Wheel A. If the current spike moves, the cause is tire radius/pressure mismatch.\n"
-    "  2. Level 2: Swap drive units (motor, gearbox, brakes) between Wheel C and Wheel A. If the spike stays at location C, the fault is structural misalignment or localized hydraulic brake pressure drop."
+    "  2. Level 2: Swap Zapi controller and motor assembly between Wheel C and Wheel A. If the anomaly moves to location A, the issue is with the controller/motor assembly of C. If the anomaly remains at location C, it is due to a structural frame issue (wheel misalignment) or mechanical brake drag (note: hydraulic release pressure is verified to be equal at all four corners when opened)."
 )
 
 doc_add_h1(doc_en, "5. Telemetry Visualizations")
@@ -449,11 +449,11 @@ Chúng tôi đề xuất quy trình thử nghiệm tráo đổi để khoanh vù
   * **Đánh giá kết quả:**
     * Nếu lỗi dòng cao/nhiệt cao **dịch chuyển sang trục A**: Nguyên nhân do sai lệch bán kính lăn lốp xe C (áp suất lốp non hoặc mòn lốp không đều).
     * Nếu lỗi **vẫn nằm tại vị trí C**: Loại trừ nguyên nhân do lốp. Chuyển sang Cấp độ 2.
-* **Cấp độ 2: Tráo đổi Cụm Truyền động (Động cơ + Hộp số + Phanh) giữa trục C và A (Phức tạp)**
-  * **Cách làm:** Tháo nguyên cụm hộp số, phanh, động cơ của góc C lắp sang góc A.
+* **Cấp độ 2: Tráo đổi Cụm Controller & Motor giữa trục C và A (Phức tạp)**
+  * **Cách làm:** Tháo hoán đổi cả cụm bộ điều khiển (Zapi controller) và động cơ (motor) giữa trục C và trục A.
   * **Đánh giá kết quả:**
-    * Nếu lỗi **vẫn nằm tại vị trí C**: Nguyên nhân thuộc về **kết cấu khung gầm hoặc hệ thủy lực tại góc C** (lệch góc chụm bánh xe C, vặn khung cẩu, hoặc sụt áp đường dầu phanh góc C).
-    * Nếu lỗi **dịch chuyển sang vị trí A**: Nguyên nhân thuộc về **linh kiện cụm truyền động** (kẹt bánh răng hộp số cũ của C, hoặc kẹt piston phanh đĩa cũ của C).
+    * Nếu lỗi **dịch chuyển sang vị trí A**: Nguyên nhân thuộc về **linh kiện điện/động cơ của trục C** (do cấu hình tham số controller sai hoặc lỗi động cơ C mới lắp).
+    * Nếu lỗi **vẫn nằm tại vị trí C**: Nguyên nhân thuộc về **lỗi cơ khí kết cấu khung gầm hoặc phanh đĩa kẹt vật lý tại góc C** (lệch góc chụm bánh xe C, vặn kết cấu khung gá bánh C — lưu ý: áp suất thủy lực mở phanh đã được đo đạc và xác nhận bằng nhau ở cả 4 góc khi mở phanh).
 
 ---
 
@@ -568,7 +568,7 @@ doc_add_p(
     "• Lệch góc chụm bánh xe & Vặn xoắn kết cấu khung: Kiểm tra cơ cấu gá trục bánh C. Sự biến dạng khung kết cấu thép của cẩu có thể phân bổ tải trọng không đều hoặc làm bánh C bị quét lê nghiêng trên mặt đường khi xe chạy thẳng.\n"
     "• Quy trình thử nghiệm tráo đổi (Swap) cô lập lỗi (Đề xuất thực hiện):\n"
     "  1. Cấp độ 1: Tráo đổi hai quả lốp giữa góc C và A. Nếu lỗi dòng cao/nhiệt cao di chuyển sang trục A, lỗi do quả lốp hoặc áp suất hơi lốp. Nếu lỗi vẫn ở vị trí C, tiến hành Cấp độ 2.\n"
-    "  2. Cấp độ 2: Tráo cụm truyền động (motor, hộp số, phanh) góc C sang góc A. Nếu lỗi vẫn ở vị trí C, nguyên nhân thuộc về kết cấu gá bánh xe hoặc đường dầu thủy lực mở phanh góc C. Nếu lỗi dịch sang vị trí A, lỗi nằm ở hộp số kẹt cơ khí hoặc má phanh bó sát của cụm truyền động."
+    "  2. Cấp độ 2: Tráo cụm điều khiển (Zapi controller) và động cơ (motor) giữa trục C và trục A. Nếu lỗi dịch sang vị trí A, lỗi nằm ở cụm controller/motor của C. Nếu lỗi vẫn ở vị trí C, nguyên nhân thuộc về kết cấu gá bánh xe hoặc bó phanh đĩa cơ học tại góc C (lưu ý: áp suất thủy lực nhả phanh được xác nhận bằng nhau ở cả 4 góc khi mở phanh)."
 )
 
 doc_add_h1(doc_vi, "5. Đồ thị Telemetry kiểm chứng")

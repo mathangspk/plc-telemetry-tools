@@ -83,11 +83,11 @@ To isolate the root cause, we recommend implementing a two-level tráo đổi (s
   * **Result Analysis:**
     * If the current/torque spike **moves to Drive A**, the cause is a tire rolling radius discrepancy (tire pressure or tread wear differences).
     * If the spike **remains at Drive C**, the tires are ruled out. Proceed to Level 2.
-* **Level 2: Swap Cụm Truyền Động (Drive Units) between Corner C and A (High Complexity)**
-  * **Method:** Swap the motor, gearbox, and brake assemblies of Wheel C with Wheel A.
+* **Level 2: Swap Zapi Controller & Motor between Corner C and A (High Complexity)**
+  * **Method:** Swap both the Zapi controller and the motor assembly of Wheel C with Wheel A.
   * **Result Analysis:**
-    * If the anomaly **remains at Location C**, the cause is **structural** (wheel misalignment, frame twisting, or localized brake release hydraulic circuit pressure drop on corner C).
-    * If the anomaly **moves to Location A**, the cause is **component-based** (internal gearbox friction or a dragging brake caliper assembly originally from wheel C).
+    * If the anomaly **moves to Location A**, the cause is **component-based** (the Zapi controller parameter tuning or internal motor issue originally from Drive C).
+    * If the anomaly **remains at Location C**, the cause is **structural / mechanical brake drag** (such as wheel misalignment, frame twisting, or a mechanical caliper binding at Wheel C—note that the hydraulic brake release pressure has already been verified to be equal across all four corners when the brakes are opened).
 
 ---
 

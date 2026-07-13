@@ -85,11 +85,11 @@ Chúng tôi đề xuất quy trình thử nghiệm tráo đổi để khoanh vù
   * **Đánh giá kết quả:**
     * Nếu lỗi dòng cao/nhiệt cao **dịch chuyển sang trục A**: Nguyên nhân do sai lệch bán kính lăn lốp xe C (áp suất lốp non hoặc mòn lốp không đều).
     * Nếu lỗi **vẫn nằm tại vị trí C**: Loại trừ nguyên nhân do lốp. Chuyển sang Cấp độ 2.
-* **Cấp độ 2: Tráo đổi Cụm Truyền động (Động cơ + Hộp số + Phanh) giữa trục C và A (Phức tạp)**
-  * **Cách làm:** Tháo nguyên cụm hộp số, phanh, động cơ của góc C lắp sang góc A.
+* **Cấp độ 2: Tráo đổi Cụm Controller & Motor giữa trục C và A (Phức tạp)**
+  * **Cách làm:** Tháo hoán đổi cả cụm bộ điều khiển (Zapi controller) và động cơ (motor) giữa trục C và trục A.
   * **Đánh giá kết quả:**
-    * Nếu lỗi **vẫn nằm tại vị trí C**: Nguyên nhân thuộc về **kết cấu khung gầm hoặc hệ thủy lực tại góc C** (lệch góc chụm bánh xe C, vặn khung cẩu, hoặc sụt áp đường dầu phanh góc C).
-    * Nếu lỗi **dịch chuyển sang vị trí A**: Nguyên nhân thuộc về **linh kiện cụm truyền động** (kẹt bánh răng hộp số cũ của C, hoặc kẹt piston phanh đĩa cũ của C).
+    * Nếu lỗi **dịch chuyển sang vị trí A**: Nguyên nhân thuộc về **linh kiện điện/động cơ của trục C** (do cấu hình tham số controller sai hoặc lỗi động cơ C mới lắp).
+    * Nếu lỗi **vẫn nằm tại vị trí C**: Nguyên nhân thuộc về **lỗi cơ khí kết cấu khung gầm hoặc phanh đĩa kẹt vật lý tại góc C** (lệch góc chụm bánh xe C, vặn kết cấu khung gá bánh C — lưu ý: áp suất thủy lực mở phanh đã được đo đạc và xác nhận bằng nhau ở cả 4 góc khi mở phanh).
 
 ---
 
