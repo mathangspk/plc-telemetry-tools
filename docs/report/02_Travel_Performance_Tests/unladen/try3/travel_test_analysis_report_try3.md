@@ -23,7 +23,7 @@ To isolate the root cause and rule out motor internal faults, **the transC motor
 ## 2. Comparative Telemetry Analysis (Try 1 vs. Try 2 vs. Try 3)
 The table below compiles the active moving metrics across all four travel drives (A, B, C, D) for the three unladen travel runs.
 
-### active travel segment comparisons:
+### Active Travel Segment Comparisons:
 
 | Test Run & Motor ID | Active Time | Mean Current | Max Current | Mean Torque | Max Torque | Start Temp | Max Temp | Temp Rise | Heating Rate |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -45,48 +45,46 @@ The table below compiles the active moving metrics across all four travel drives
 
 ---
 
-## 3. Analysis and Root Cause Diagnosis
+## 3. Detailed Drive C Comparisons (against Drive A, Drive B, and Drive D)
 
-### 3.1 Comparison of Try 3 against Try 1 & Try 2
-1. **Current Draw Profile:** 
-   * In Try 1, Drive C drew **90.4% more current** than Drive A.
-   * In Try 3 (with the new motor), Drive C still draws **39.2% more current** than Drive A (40.26 A vs 28.92 A) and **21.6% more** than Drive B (33.11 A).
-   * While the absolute current gap has narrowed slightly due to a higher overall system current baseline in Try 3 (average current across all drives is 34.37A in Try 3 vs 31.40A in Try 1), Drive C remains the clear electrical outlier.
-2. **Motor Temperature Heating Rates:**
-   * Drive C heating rates remain virtually unchanged: **0.73°C/min** in Try 1, **0.65°C/min** in Try 2, and **0.71°C/min** in Try 3.
-   * Drive C's heating rate in Try 3 is **42.0% faster** than Drive A (0.50°C/min) and **34.0% faster** than Drive B (0.53°C/min).
-3. **Torque Output:**
-   * Drive C's average torque of **15.10 Nm** in Try 3 is **50.7% higher** than Drive A (10.02 Nm) and **33.5% higher** than Drive B (11.31 Nm).
-   * This indicates the motor is performing more actual mechanical work to spin Wheel C at the same speed as the other wheels.
+To provide a complete architectural analysis, the electrical, mechanical, and thermal parameters of Drive C are compared directly to all other drives under the Try 3 unladen test run:
 
-### 3.2 Diagnosis of Root Causes
+### 3.1 Electrical Current Draw Comparison (Try 3)
+* **Drive C (40.26 A) vs. Drive A (28.92 A):** Drive C draws **39.2% more current** than Drive A.
+* **Drive C (40.26 A) vs. Drive B (33.11 A):** Drive C draws **21.6% more current** than Drive B.
+* **Drive C (40.26 A) vs. Drive D (35.19 A):** Drive C draws **14.4% more current** than Drive D.
+* **Peak Transient Load:** Drive B experienced a peak current transient of **120.0 A**, and Drive C reached **108.0 A**. However, in terms of continuous running load, Drive C remains the clear outlier.
+
+### 3.2 Mechanical Torque Comparison (Try 3)
+* **Drive C (15.10 Nm) vs. Drive A (10.02 Nm):** Drive C outputs **50.7% more torque** than Drive A.
+* **Drive C (15.10 Nm) vs. Drive B (11.31 Nm):** Drive C outputs **33.5% more torque** than Drive B.
+* **Drive C (15.10 Nm) vs. Drive D (12.14 Nm):** Drive C outputs **24.4% more torque** than Drive D.
+* **Implication:** The fact that Drive C is outputting significantly higher mechanical torque to match the rotational speed of the other wheels confirms that it is continuously fighting a localized mechanical drag.
+
+### 3.3 Thermal Heating Rate Comparison (Try 3)
+* **Drive C (0.71°C/min) vs. Drive A (0.50°C/min):** Drive C heats up **42.0% faster** than Drive A.
+* **Drive C (0.71°C/min) vs. Drive B (0.53°C/min):** Drive C heats up **34.0% faster** than Drive B.
+* **Drive C (0.71°C/min) vs. Drive D (0.60°C/min):** Drive C heats up **18.3% faster** than Drive D.
+* **Peak Temperature and Rise:** Over the 28.13 minutes active travel, Drive C's temperature rose by **+20.0°C** (to **59.0°C**). This represents the highest thermal rise and highest peak temperature in the entire system (Drives A and B peaked at 53.0°C, and Drive D peaked at 50.0°C).
+
+---
+
+## 4. Diagnosis and Recommended Next Steps
 Since replacing the motor assembly did not resolve the current and temperature spikes, the fault must be external to the motor:
 
-1. **Electro-Hydraulic Brake Drag (Bó Phanh) (Primary Hypothesis):**
+1. **Electro-Hydraulic Brake Drag (Bó Phanh):**
    * The spring-applied, hydraulic-released multi-disk brake on Wheel C is not releasing fully.
-   * This could be caused by:
-     * **Insufficient Brake Release Pressure:** The brake valve for circuit C is restricted, leaking, or misaligned, supplying less than the required 25-30 bar release pressure.
-     * **Mechanical Brake Caliper/Disk Alignment:** Wear, dirt, or warping of the brake disks causing them to rub even when pressure is applied.
-2. **Mechanical Binding in Gearbox or Wheel Hub (Secondary Hypothesis):**
-   * Gearbox C has a high friction coefficient due to:
-     * High gear wear or poor lubrication (low oil level/degraded gear oil).
-     * Damaged or seized wheel hub bearings on Wheel C.
-3. **Lack of Motor Characterization/Calibration (Software Hypothesis):**
-   * The Zapi ACE4 controller for Drive C was not calibrated or characterized for the new motor. Connecting the console and running the motor auto-characterization sequence is required. However, while this affects electrical efficiency, it does not fully explain why the physical torque calculation remains so high.
+   * Check if release hydraulic pressure reaches the target **25 to 30 bar** at Wheel C.
+2. **Mechanical Binding in Gearbox or Wheel Hub:**
+   * High friction in Gearbox C or damaged wheel hub bearings. Inspect gear oil for metal particles.
 
 ---
 
-## 4. Next Steps & Recommended Inspections
-To systematically resolve the Travel Drive C anomaly, we recommend the following diagnostic checklist:
+## 5. Telemetry Visualizations
+Below are the telemetry trend plots and the side-by-side comparative bar charts across all three trials.
 
-1. **Brake Pressure Measurement:** Connect a hydraulic gauge to the brake release port of Wheel C. Actuate travel and verify the pressure reaches a stable **25 to 30 bar**. If it is below this threshold, check the release solenoid valve and hydraulic lines.
-2. **Manual Rotation Check (Brake Release Override):** Jack up Wheel C, override the brake release valve manually to supply full pressure, and attempt to rotate Wheel C by hand. Compare the resistance to Wheel A/B.
-3. **Gearbox Inspection:** Drain and inspect the gear oil of Gearbox C. Check for metallic shavings, and refill with fresh oil.
-4. **Zapi Controller Auto-Tuning:** Use the Zapi handheld console to execute the motor characterization routine to calibrate the new motor with the controller.
-
----
-
-## 5. Telemetry Trend Plot (Try 3)
-The plots below display the currents and motor temperatures of the travel drives during the Try 3 unladen test run.
-
+### 5.1 Try 3 Time-Series Telemetry Plot
 ![Travel Performance Try 3](travel_performance_unladen_try3.png)
+
+### 5.2 Multi-Trial Comparative Bar Chart (Try 1 vs. Try 2 vs. Try 3)
+![Multi-Trial Travel Drive Comparison](travel_multi_trial_comparison.png)
