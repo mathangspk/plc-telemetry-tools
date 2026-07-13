@@ -77,11 +77,11 @@ This document summarizes the changes, current state, verification, and next step
 - Verified unladen travel Try 3 report and plot generation by checking that the key metrics (like the 40.26A mean current and 0.71°C/min heating rate on transC) are present and correct in both documents.
 
 ## Next Steps
-1. **Mechanical Brake & Gearbox C Inspection**: Measure brake hydraulic release pressure at Wheel C to confirm it reaches 25-30 bar. Inspect Wheel C gearbox and wheel hub bearings for mechanical binding or lack of lubrication.
+1. **Swap Zapi Controller & Motor between Drive A and C**: Hoán đổi cả bộ điều khiển (Zapi controller) và động cơ (motor) giữa trục di chuyển A và C để cô lập lỗi cụm linh kiện truyền động (động cơ/bộ điều khiển) với lỗi kết cấu khung gầm cơ khí hoặc phanh cơ kẹt bó vật lý (áp suất dầu nhả phanh thực tế ở 4 góc đã được đo đạc và xác nhận bằng nhau).
 2. **Deliver Cleaned Image**: Provide the cleaned image to the user for use in documents.
 3. **Motor Controller Calibration (Thang Ma)**: Connect the Zapi handheld console or calibration utility to perform the motor characterization/calibration sequence for the newly installed motor.
 4. **Brake Bleeding & Safety Check**: Perform the manual brake release bleeding procedure under the specified safety checks (ensure wheels are blocked with wooden chocks).
-5. **Post-Brake Repair Verification Run**: Conduct a travel performance trial after repairing the brake caliper or gearbox to verify that the current draw on Drive C aligns with A and B (~29.4 A laden).
+5. **Post-Swap Telemetry Verification Run**: Thực hiện chạy không tải thử nghiệm sau khi hoán đổi để đối chiếu dòng điện và độ tăng nhiệt. Nếu lỗi dịch chuyển từ C sang A, lỗi nằm ở bộ động cơ/controller. Nếu lỗi vẫn ở vị trí C, lỗi nằm ở kết cấu cơ khí khung gầm (lệch góc chụm bánh xe C, vẹo khung gá) hoặc kẹt bó đĩa phanh cơ học tại bánh C.
 6. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) to the client for final sign-off.
 7. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
 8. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
