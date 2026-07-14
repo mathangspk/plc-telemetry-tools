@@ -3,6 +3,7 @@
 This document summarizes the changes, current state, verification, and next steps for the Isoloader MJ35 performance analysis and specification update task.
 
 ## Summary of Changes
+- **Travel Laden Performance Verification (Laden Try 6)**: Generated bilingual (English/Vietnamese) reports and two telemetry plots under `docs/report/02_Travel_Performance_Tests/laden/try6/` evaluating the laden travel run after replacing both the `transC` motor and its controller. Calculated active travel currents, heating rates, and torque outputs under load, verifying that the current draw dropped from **59.99 A** (Try 5) to **42.11 A** (Try 6) and torque dropped from **25.19 Nm** to **17.28 Nm**, showing normal load sharing. This conclusively proves the root cause was electrical/control parameter miscalibration in the old controller.
 - **Travel Controller & Motor Replacement Verification (Unladen Try 4)**: Generated bilingual (English/Vietnamese) reports and three telemetry plots under `docs/report/02_Travel_Performance_Tests/unladen/try4/` evaluating the unladen travel run after replacing both the `transC` motor (Try 3) and its controller (Try 4). Verified that the current draw (averaging 38.96 A), torque (14.52 Nm), and heating rate (0.774°C/min) remain abnormally high. This double-replacement sequence mathematically and empirically proves that the issue is external to the electrical drive components, pointing to a mechanical/structural cause.
 - **Travel Motor Replacement Verification (Unladen Try 3)**: Generated a report (both Markdown and Word DOCX) and a dual-panel telemetry plot under `docs/report/02_Travel_Performance_Tests/unladen/try3/` evaluating the unladen travel run after replacing `transC` motor. Calculated active travel currents, heating rates, and torque outputs, verifying that the replacement did not resolve the high current and heating rate, mathematically proving the root cause is external (e.g. brake drag or gearbox binding).
 - **Commissioning & Performance Testing Plan**: Developed a comprehensive testing plan and inspection elements document (`Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.md` and `Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.docx`) under `docs/Spec/` to structure performance testing on a new crane unit. It includes pre-commissioning checks (ambient-equilibrium temperature sensor offset validation, travel brake release pressure, wire rope tension), standby consumption tests, travel drive load-sharing tests, winch duty-cycle validation (20-cycle test with 15s pauses), and battery cooling (BTMS) performance validation.
@@ -54,7 +55,7 @@ This document summarizes the changes, current state, verification, and next step
 - The commissioning testing plan and inspection elements document (`Isoloader_MJ35_Testing_Plan_and_Inspection_Elements.docx` / `.md`) is saved under `docs/Spec/` to verify new crane units.
 - **docs/report/ Reorganized Structure**:
   - **`01_Battery_HVAC_Tests/`**: Contains simulations and reports for parked HVAC ON/OFF states.
-  - **`02_Travel_Performance_Tests/`**: Contains unladen (Try 1..4) and laden (Try 1..5) travel logs, reports, and speed/power plots. Also includes Try 3 (`try3/` motor replaced) and Try 4 (`try4/` controller replaced) reports and plots verifying the travel C drive performance.
+  - **`02_Travel_Performance_Tests/`**: Contains unladen (Try 1..4) and laden (Try 1..6) travel logs, reports, and speed/power plots. Also includes Try 3 (`try3/` unladen motor replaced), Try 4 (`try4/` unladen controller replaced), and Try 6 (`try6/` laden motor/controller verification) reports and plots.
   - **`03_Winch_Performance_Tests/`**: Contains hoist logs, 20T laden cycle reports, currents, and position plots.
   - **`04_Motor_Thermal_Tests/`**: Contains parked natural cooling logs (Try 1..5) and heating/cooling rates reports & plots.
 - **Travel Drive C Anomaly Analysis**: Identified a significant load imbalance on travel drive C (`transC`), which draws **50-70% more current** and outputs **twice the absolute torque** of drives A and B during motion, leading to higher motor temperatures (**85.0°C** max in Try 5).
@@ -77,16 +78,14 @@ This document summarizes the changes, current state, verification, and next step
 - Verified the Testing Plan documents (`.docx` and `.md`) by checking that the key metrics (like the ±1.5°C sensor limit, 29.4A travel current, 6.7/6.0 m/min winch speeds, 8.0/5.0 km/h travel speeds, 20-cycle rest rule, and 32.0°C battery temperature limit) are present in the files.
 - Verified unladen travel Try 3 report and plot generation by checking that the key metrics (like the 40.26A mean current and 0.71°C/min heating rate on transC) are present and correct in both documents.
 - Verified unladen travel Try 4 report and plot generation by running `verify_unladen_try4_reports.py` checking that the key metrics (like the 38.96A mean current, 14.52Nm torque, and 0.774°C/min heating rate on transC) are present and correct in both English and Vietnamese documents.
+- Verified laden travel Try 6 report and plot generation by running `verify_laden_try6_reports.py` checking that the key metrics (like the 42.11A mean current, 17.28Nm torque, and 0.780°C/min heating rate on transC) are present and correct in both English and Vietnamese documents.
 
 ## Next Steps
-1. **Physical Inspection of Brake Caliper C**: Remove the brake caliper covers on Wheel C, override the hydraulic system to open the brake, and physically check if the brake pads retract from the disc. Check slide pins, piston seals, and look for mechanical binding or warped discs.
+1. **Zapi Controller Parameter Backup**: Connect to the Zapi ACE4 controllers and export/backup the calibrated parameters (specifically the auto-tuned stator resistance, magnetizing current, and slip curves) for master records.
 2. **Deliver Cleaned Image**: Provide the cleaned image to the user for use in documents.
-3. **Motor Controller Calibration (Thang Ma)**: Connect the Zapi handheld console or calibration utility to perform the motor characterization/calibration sequence for the newly installed motor.
-4. **Brake Bleeding & Safety Check**: Perform the manual brake release bleeding procedure under the specified safety checks (ensure wheels are blocked with wooden chocks).
-5. **Wheel C Alignment & Tire Swap**: Swap the physical tires/rims between Corner C and Corner A to rule out rolling radius mismatch. Inspect the mechanical alignment (toe-in/toe-out) of Wheel C's yoke and steering linkages to check for dog-tracking or scrubbing.
-6. **Customer Presentation**: Deliver both documents (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) to the client for final sign-off.
-7. **Telemetry Alignment**: Ensure that telemetry logging in the telemetry system maps to these verified PLC variables and parameters.
-8. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
+3. **Motor Controller Calibration Verification**: Verify the motor characterization/calibration parameter backups are completed.
+4. **Final Commissioning Presentation**: Prepare the commissioning slideshow and final reports (`Isoloader MJ35 Specifications-v2.docx` and `Isoloader_MJ35_Performance_Validation_Evidence.docx`) for client delivery and sign-off.
+5. **Winch B Motor Temperature Sensor Replacement**: Plan for the replacement of the Winch B temperature sensor and connector block during the next machine disassembly/lowering maintenance window.
 
 
 ---
