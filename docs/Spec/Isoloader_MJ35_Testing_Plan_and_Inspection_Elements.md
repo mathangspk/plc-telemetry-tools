@@ -120,3 +120,19 @@ To guarantee the safe operation of the winch motors during extended, high-duty c
 * **Pass Criteria:**
   1. **Max Temperature Limit:** Throughout the 20-cycle winch performance test, the average battery pack temperature (`BMSA_PackAverageTemperature` and `BMSB_PackAverageTemperature`) must remain stable and below **32.0°C**.
   2. **Max Temp Rise:** The maximum cell temperature rise (`BMSA_PackMaxTemperature`) must not exceed **1.0°C** over the entire test duration, confirming the efficiency of the BTMS chiller, heater, and circulation pump under high charge/discharge currents.
+
+---
+
+## 8. Master Commissioning Telemetry Baselines
+Based on the successful Try 4 (unladen) and Try 6 (laden) travel trials following the replacement and calibration of both the motor and controller of `transC`, the following telemetry values are established as the official nominal baseline for future MJ35 units to facilitate early diagnostic detection.
+
+### 8.1 Unladen Travel Telemetry Baseline (Reference: Try 4)
+* **Average Current Draw:** 25 A - 38 A per drive (A: 26.59 A, B: 31.98 A, C: 38.96 A, D: 35.44 A)
+* **Average Torque:** 8.5 Nm - 14.5 Nm per drive (A: 8.94 Nm, C: 14.52 Nm)
+* **Motor Heating Rate:** < 0.80°C/min (A: 0.477°C/min, C: 0.774°C/min)
+
+### 8.2 Laden Travel Telemetry Baseline (Reference: Try 6 - 20T Load)
+* **Average Current Draw:** 35 A - 42 A per drive (A: 35.73 A, B: 35.06 A, C: 42.11 A, D: 41.07 A)
+* **Average Torque:** 13.5 Nm - 17.5 Nm per drive (A: 13.80 Nm, B: 13.56 Nm, C: 17.28 Nm, D: 15.81 Nm)
+* **Motor Heating Rate:** < 0.80°C/min (A: 0.693°C/min, B: 0.606°C/min, C: 0.780°C/min, D: 0.780°C/min)
+
