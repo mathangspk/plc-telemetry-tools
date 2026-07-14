@@ -1,0 +1,2 @@
+controller: new
+motor: new
