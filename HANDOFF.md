@@ -7,9 +7,10 @@
   1. **Check Cabin HMI Login & Single Mode** (*Kiểm tra đăng nhập HMI Cabin & Chế độ Single*): Verifies Key-ON Cabin HMI login (`operator` / `123456`) and Single mode behavior for HMI and Radio Remote.
   2. **Check Dual Controller Master/Slave Mode** (*Kiểm tra chế độ Dual Controller Master/Slave*): Verifies Master/Slave assignment when both HMI Display and Radio Remote are powered on.
   3. **Check Master <--> Slave Handoff Mechanism** (*Kiểm tra cơ chế chuyển quyền điều khiển Master <--> Slave*): Tests control rights request and transfer between Master and Slave.
-  4. **Check Pre-operational & Operational State Transition** (*Kiểm tra chuyển trạng thái Pre-operational & Operational*): Refined to distinguish activation method based on Master controller:
-     - **Radio Remote (Master)**: Press & hold physical Start button for 3 seconds.
-     - **Cabin HMI Display (Master)**: After successful `operator` login, press the on-screen `"Power On"` button to transition system to Operational state.
+  4. **Check Pre-operational & Operational State Transition** (*Kiểm tra chuyển trạng thái Pre-operational & Operational*): Distinguishes activation method based on active Master controller (Radio Remote Start button 3s vs Cabin HMI `"Power On"` screen button).
+- **Update 3: Integrated Dual Display SOC Monitoring in Battery Status Section** (Rows 10 to 12 under Check Battery Status Section):
+  - Updated battery status inspection items to allow observing battery state of charge (% SOC, color levels: green, yellow, red) and pre-check status on **either Cabin HMI touchscreen or Radio Remote display**.
+
 - Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
 ## Current System State
