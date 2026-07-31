@@ -12,6 +12,9 @@
   - Updated battery status inspection items to allow observing battery state of charge (% SOC, color levels: green, yellow, red) and pre-check status on **either Cabin HMI touchscreen or Radio Remote display**.
 - **Update 4: Integrated Cabin HMI Display in Charging System Inspection** (Rows 18 & 20 under Check Charging System Section):
   - Updated charging status items so that charging status `"Charging"` and real-time charging parameters are verified on **both Cabin HMI touchscreen and Radio Remote display**, including fault troubleshooting for 0.0A charging current.
+- **Update 5: Integrated Cabin Joystick & HMI Controls in Ancillary Systems Section** (Rows 23 & 24 under Ancillary Systems Section):
+  - Updated **Check Horn** to allow activation via either the **Radio Remote Horn button** or the **dedicated Horn button on the Cabin Joystick**.
+  - Updated **Check Lights** to allow toggling top-beam work lights via either the **Radio Remote LGHT button** or the **Work Light control button on the Cabin HMI touchscreen**.
 
 - Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
