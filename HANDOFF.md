@@ -10,6 +10,8 @@
   4. **Check Pre-operational & Operational State Transition** (*Kiểm tra chuyển trạng thái Pre-operational & Operational*): Distinguishes activation method based on active Master controller (Radio Remote Start button 3s vs Cabin HMI `"Power On"` screen button).
 - **Update 3: Integrated Dual Display SOC Monitoring in Battery Status Section** (Rows 10 to 12 under Check Battery Status Section):
   - Updated battery status inspection items to allow observing battery state of charge (% SOC, color levels: green, yellow, red) and pre-check status on **either Cabin HMI touchscreen or Radio Remote display**.
+- **Update 4: Integrated Cabin HMI Display in Charging System Inspection** (Rows 18 & 20 under Check Charging System Section):
+  - Updated charging status items so that charging status `"Charging"` and real-time charging parameters are verified on **both Cabin HMI touchscreen and Radio Remote display**, including fault troubleshooting for 0.0A charging current.
 
 - Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
