@@ -15,6 +15,8 @@
 - **Update 5: Integrated Cabin Joystick & HMI Controls in Ancillary Systems Section** (Rows 23 & 24 under Ancillary Systems Section):
   - Updated **Check Horn** to allow activation via either the **Radio Remote Horn button** or the **dedicated Horn button on the Cabin Joystick**.
   - Updated **Check Lights** to allow toggling top-beam work lights via either the **Radio Remote LGHT button** or the **Work Light control button on the Cabin HMI touchscreen**.
+- **Update 6: Integrated Cabin HMI Steering Mode Selection in Travel System Section** (Rows 40, 46, 48 under Check Travel System Section):
+  - Updated travel system inspection items to allow selecting all steering modes (**4WS, Lateral, Carousel**) via either the **Radio Remote buttons** or the **Cabin HMI touchscreen**.
 
 - Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
