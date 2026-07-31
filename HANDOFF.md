@@ -2,23 +2,21 @@
 
 ## Summary of Changes
 - Updated QC Function Test Check Sheet file: `C:\local\Apollo4\docs\qc_check_sheet\MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx`.
-- Added a brand new section: **Cabin Control System / Hệ thống điều khiển Cabin** (Row 24 of Table 0).
-- Added 5 standard dual-language (English & Vietnamese) QC inspection items:
-  1. **Check Cabin Touchscreen HMI** / *Kiểm tra màn hình cảm ứng HMI Cabin*
-  2. **Check Cabin Joysticks & Switches** / *Kiểm tra cần Joystick và các công tắc điều khiển Cabin*
-  3. **Check Cabin HVAC System** / *Kiểm tra hệ thống điều hòa & thông gió Cabin*
-  4. **Check Cabin Interior Lighting & Wipers** / *Kiểm tra đèn chiếu sáng trong cabin, gạt mưa & phụ kiện*
-  5. **Check Cabin E-Stop & Safety Interlocks** / *Kiểm tra nút E-Stop cabin & các khóa an toàn Interlock*
-- Preserved 100% of existing document formatting, including table column widths, grid spans, red section headers, blue italicized Vietnamese descriptions, bold titles, Pass/Fail check boxes, and Notes columns.
+- **Update 1: Added Cabin Control System Section** (Row 24 of Table 0). Added 5 standard dual-language QC inspection items covering Touchscreen HMI, Joysticks/Switches, HVAC System, Interior Lighting/Wipers, and E-Stop/Safety Interlocks.
+- **Update 2: Updated CANBUS Master Logic & Multi-Controller Architecture** (Rows 2 to 5 under CANBUS Master Section):
+  1. **Check Cabin HMI Login & Single Mode** (*Kiểm tra đăng nhập HMI Cabin & Chế độ Single*): Verifies Key-ON Cabin HMI login (`operator` / `123456`) and Single mode behavior for HMI and Radio Remote.
+  2. **Check Dual Controller Master/Slave Mode** (*Kiểm tra chế độ Dual Controller Master/Slave*): Verifies Master/Slave assignment when both HMI Display and Radio Remote are powered on.
+  3. **Check Master <--> Slave Handoff Mechanism** (*Kiểm tra cơ chế chuyển quyền điều khiển Master <--> Slave*): Tests control rights request and transfer between Master and Slave.
+  4. **Check Pre-operational & Operational State Transition** (*Kiểm tra chuyển trạng thái Pre-operational & Operational*): Confirms Pre-operational state on active Master controller and 3-second Start button press for Operational state transition.
+- Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
 ## Current System State
-- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` is updated and validated.
-- Python automation script (`build_cabin_control_rows.py`) successfully executed and parsed OpenXML elements without syntax or encoding errors.
+- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` is updated and validated with total row count of 84.
+- Python automation scripts successfully executed.
 
 ## Verification & Testing
-- Inspected docx XML node structure via Python script.
-- Verified total row count increased from 76 to 82 rows.
-- Confirmed row positions, text styles (bold, size 10pt, red header text `#FF0000`, blue italic description `#0000FF`), and cell alignments match existing document standards.
+- Verified docx XML node structure.
+- Confirmed row positions, text styles, and cell formatting match existing document standards.
 
 ## Next Steps
-- Deliver updated docx to QC / Engineering team for machine inspection before customer shipment.
+- Deliver updated check sheet to QC & Commissioning team for pre-shipment testing.
