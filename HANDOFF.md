@@ -21,11 +21,13 @@
   - Updated lift system inspection items to document dual-control methods:
     - **Radio Remote**: Right knob (CW to raise, CCW to lower).
     - **Cabin Right Joystick**: Scroll bar button (Scroll DOWN to raise, Scroll UP to lower).
+- **Update 8: Added Cabin E-Stop Inspection in Emergency Stop Section** (Row 83 under Emergency Stop Section):
+  - Added inspection item for **Cabin E-Stop button** ensuring pressing the cabin E-Stop button immediately halts all machine operations, followed by system reset requirement.
 
 - Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
 ## Current System State
-- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` is updated and validated with total row count of 84.
+- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` is updated and validated with total row count of 85.
 - Python automation scripts successfully executed.
 
 ## Verification & Testing
