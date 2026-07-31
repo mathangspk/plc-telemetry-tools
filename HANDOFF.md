@@ -17,6 +17,10 @@
   - Updated **Check Lights** to allow toggling top-beam work lights via either the **Radio Remote LGHT button** or the **Work Light control button on the Cabin HMI touchscreen**.
 - **Update 6: Integrated Cabin HMI Steering Mode Selection in Travel System Section** (Rows 40, 46, 48 under Check Travel System Section):
   - Updated travel system inspection items to allow selecting all steering modes (**4WS, Lateral, Carousel**) via either the **Radio Remote buttons** or the **Cabin HMI touchscreen**.
+- **Update 7: Integrated Cabin Right Joystick Scroll Bar Control in Lift System Section** (Rows 51, 52, 53 under Lift System Section):
+  - Updated lift system inspection items to document dual-control methods:
+    - **Radio Remote**: Right knob (CW to raise, CCW to lower).
+    - **Cabin Right Joystick**: Scroll bar button (Scroll DOWN to raise, Scroll UP to lower).
 
 - Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
 
