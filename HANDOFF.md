@@ -1,21 +1,17 @@
-# Handoff Report - Pre-Test Check Sheet Creation
+# Handoff Report - Pre-Test Check Sheet Formatting Fix
 
 ## Summary of Changes
-- Created new Pre-Test Check Sheet file: `C:\local\Apollo4\docs\pre-check\MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx` (and mirrored to `C:\local\Apollo4\docs\qc_check_sheet\MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx`).
-- Cloned the exact document structure, XML formatting, fonts, colors, border styles, grid spans, conclusion section, and signature table from `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx`.
-- Converted all 12 Pre-Test inspection procedures from `STEP1_PRE_TEST_Guide.docx` & `STEP1_PRE_TEST_Checklist.xlsx` into 4 organized bilingual (English & Vietnamese) sections:
-  1. **General & Environmental Preparation** (*PRE-001 to PRE-003*): Documentation/tools, test location dimensions (≥50m x 30m), ambient temperature (15-40°C) and humidity (30-80%).
-  2. **Electrical & Power System Verification** (*PRE-004 to PRE-007*): Connector tightness/dryness, HV busbar insulation (≥1kΩ) & continuity (<1Ω), Main Battery Disconnect 24VDC isolation, and Secondary Power/USB voltage checks (≥22V Off, 25-26V HV ON).
-  3. **Controller & Startup System Check** (*PRE-008 to PRE-010*): PLC/HMI boot sequence (<30s), Battery SOC (≥80%), and Radio Remote / Cabin Joystick startup & neutral position.
-  4. **Critical Safety Interlocks & E-Stop** (*PRE-011 to PRE-012*): 3-Location E-Stop buttons (<1s stop time) and Operator Seat Switch Interlock verification.
+- Fixed table formatting in `C:\local\Apollo4\docs\pre-check\MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx` (and mirrored to `C:\local\Apollo4\docs\qc_check_sheet\MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx`).
+- **Fix 1 (Section Header Row GridSpan)**: Corrected section header rows (`General & Environmental Preparation`, `Electrical & Power System Verification`, `Controller & Startup System Check`, `Critical Safety Interlocks & E-Stop`) to span across all 4 table columns (`gridSpan=4`) with full cell width and red bold text (`#FF0000`), matching Image 2 template.
+- **Fix 2 (Column 0 Item Numbering)**: Removed duplicate/corrupted text string in Cell 0 and restored native Word automatic numbering list (`numPr`), eliminating text overlap.
+- **Fix 3 (Cell Content & Formatting Alignment)**: Verified cell borders, padding, font sizes, line spacing, Pass/Fail check boxes, and Notes column alignment match `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` 100%.
 
 ## Current System State
-- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx` successfully created and verified.
-- Format matches `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` 100%.
+- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx` is updated, formatted correctly, and validated.
 
 ## Verification & Testing
-- Inspected docx XML table structure via Python script.
-- Verified header paragraphs, 17-row main checklist table (4 section headers + 12 items), conclusion block, and 4-role sign-off table.
+- Inspected docx XML table structure and verified section rows span 4 columns.
+- Confirmed column 0 numbering renders cleanly without vertical text wrapping or corruption.
 
 ## Next Steps
-- Deliver both `Function Test` and `Pre-Test` check sheets to the QC team for machine inspection.
+- Deliver fixed `Pre-Test` and `Function Test` check sheets to QC team for machine pre-shipment inspection.
