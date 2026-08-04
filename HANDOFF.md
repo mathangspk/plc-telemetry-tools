@@ -1,38 +1,21 @@
-# Handoff Report - Cabin Control QC Checklist Integration
+# Handoff Report - Pre-Test Check Sheet Creation
 
 ## Summary of Changes
-- Updated QC Function Test Check Sheet file: `C:\local\Apollo4\docs\qc_check_sheet\MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx`.
-- **Update 1: Added Cabin Control System Section** (Row 24 of Table 0). Added 5 standard dual-language QC inspection items covering Touchscreen HMI, Joysticks/Switches, HVAC System, Interior Lighting/Wipers, and E-Stop/Safety Interlocks.
-- **Update 2: Updated CANBUS Master Logic & Multi-Controller Architecture** (Rows 2 to 5 under CANBUS Master Section):
-  1. **Check Cabin HMI Login & Single Mode** (*Kiểm tra đăng nhập HMI Cabin & Chế độ Single*): Verifies Key-ON Cabin HMI login (`operator` / `123456`) and Single mode behavior for HMI and Radio Remote.
-  2. **Check Dual Controller Master/Slave Mode** (*Kiểm tra chế độ Dual Controller Master/Slave*): Verifies Master/Slave assignment when both HMI Display and Radio Remote are powered on.
-  3. **Check Master <--> Slave Handoff Mechanism** (*Kiểm tra cơ chế chuyển quyền điều khiển Master <--> Slave*): Tests control rights request and transfer between Master and Slave.
-  4. **Check Pre-operational & Operational State Transition** (*Kiểm tra chuyển trạng thái Pre-operational & Operational*): Distinguishes activation method based on active Master controller (Radio Remote Start button 3s vs Cabin HMI `"Power On"` screen button).
-- **Update 3: Integrated Dual Display SOC Monitoring in Battery Status Section** (Rows 10 to 12 under Check Battery Status Section):
-  - Updated battery status inspection items to allow observing battery state of charge (% SOC, color levels: green, yellow, red) and pre-check status on **either Cabin HMI touchscreen or Radio Remote display**.
-- **Update 4: Integrated Cabin HMI Display in Charging System Inspection** (Rows 18 & 20 under Check Charging System Section):
-  - Updated charging status items so that charging status `"Charging"` and real-time charging parameters are verified on **both Cabin HMI touchscreen and Radio Remote display**, including fault troubleshooting for 0.0A charging current.
-- **Update 5: Integrated Cabin Joystick & HMI Controls in Ancillary Systems Section** (Rows 23 & 24 under Ancillary Systems Section):
-  - Updated **Check Horn** to allow activation via either the **Radio Remote Horn button** or the **dedicated Horn button on the Cabin Joystick**.
-  - Updated **Check Lights** to allow toggling top-beam work lights via either the **Radio Remote LGHT button** or the **Work Light control button on the Cabin HMI touchscreen**.
-- **Update 6: Integrated Cabin HMI Steering Mode Selection in Travel System Section** (Rows 40, 46, 48 under Check Travel System Section):
-  - Updated travel system inspection items to allow selecting all steering modes (**4WS, Lateral, Carousel**) via either the **Radio Remote buttons** or the **Cabin HMI touchscreen**.
-- **Update 7: Integrated Cabin Right Joystick Scroll Bar Control in Lift System Section** (Rows 51, 52, 53 under Lift System Section):
-  - Updated lift system inspection items to document dual-control methods:
-    - **Radio Remote**: Right knob (CW to raise, CCW to lower).
-    - **Cabin Right Joystick**: Scroll bar button (Scroll DOWN to raise, Scroll UP to lower).
-- **Update 8: Added Cabin E-Stop Inspection in Emergency Stop Section** (Row 83 under Emergency Stop Section):
-  - Added inspection item for **Cabin E-Stop button** ensuring pressing the cabin E-Stop button immediately halts all machine operations, followed by system reset requirement.
-
-- Preserved 100% of existing document formatting, font sizes, colors (Red headers `#FF0000`, Blue Italic descriptions `#0000FF`), Pass/Fail check boxes, and Notes columns.
+- Created new Pre-Test Check Sheet file: `C:\local\Apollo4\docs\pre-check\MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx` (and mirrored to `C:\local\Apollo4\docs\qc_check_sheet\MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx`).
+- Cloned the exact document structure, XML formatting, fonts, colors, border styles, grid spans, conclusion section, and signature table from `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx`.
+- Converted all 12 Pre-Test inspection procedures from `STEP1_PRE_TEST_Guide.docx` & `STEP1_PRE_TEST_Checklist.xlsx` into 4 organized bilingual (English & Vietnamese) sections:
+  1. **General & Environmental Preparation** (*PRE-001 to PRE-003*): Documentation/tools, test location dimensions (≥50m x 30m), ambient temperature (15-40°C) and humidity (30-80%).
+  2. **Electrical & Power System Verification** (*PRE-004 to PRE-007*): Connector tightness/dryness, HV busbar insulation (≥1kΩ) & continuity (<1Ω), Main Battery Disconnect 24VDC isolation, and Secondary Power/USB voltage checks (≥22V Off, 25-26V HV ON).
+  3. **Controller & Startup System Check** (*PRE-008 to PRE-010*): PLC/HMI boot sequence (<30s), Battery SOC (≥80%), and Radio Remote / Cabin Joystick startup & neutral position.
+  4. **Critical Safety Interlocks & E-Stop** (*PRE-011 to PRE-012*): 3-Location E-Stop buttons (<1s stop time) and Operator Seat Switch Interlock verification.
 
 ## Current System State
-- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` is updated and validated with total row count of 85.
-- Python automation scripts successfully executed.
+- File `MJG-QM-WI-03-Apollo-F01-Rev.01-Pre test.docx` successfully created and verified.
+- Format matches `MJG-QM-WI-03-Apollo-F01-Rev.01-Function test.docx` 100%.
 
 ## Verification & Testing
-- Verified docx XML node structure.
-- Confirmed row positions, text styles, and cell formatting match existing document standards.
+- Inspected docx XML table structure via Python script.
+- Verified header paragraphs, 17-row main checklist table (4 section headers + 12 items), conclusion block, and 4-role sign-off table.
 
 ## Next Steps
-- Deliver updated check sheet to QC & Commissioning team for pre-shipment testing.
+- Deliver both `Function Test` and `Pre-Test` check sheets to the QC team for machine inspection.
